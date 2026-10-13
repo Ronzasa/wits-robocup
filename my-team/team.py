@@ -21,7 +21,7 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola 2011 FC Barcelona"
-    version = "3.2"
+    version = "3.3-fast-vertical"
     DRIBBLE_SPEED = 8.0
     SHOOT_RANGE = 34.0
     PASSING = True
@@ -59,6 +59,7 @@ class Guardiola2011(TeamController):
         self._log_friction = math.log(self._friction)
         self._impulse = field.kick_impulse
         self._range = field.kick_range
+        self._eta_range = self._range * 0.8
         self._left = field.my_goal[0]
         self._right = field.opponent_goal[0]
         self._half_height = field.height * 0.5
@@ -84,7 +85,11 @@ class Guardiola2011(TeamController):
     def _move(self, p, target, friends=()):
         dx, dy = target[0] - p[1], target[1] - p[2]
         gap = math.hypot(dx, dy)
-        ux, uy = _unit(dx, dy)
+        # Reuse exactly the norm that _unit would calculate again.
+        if gap < 1e-8:
+            ux, uy = 0.0, 0.0
+        else:
+            ux, uy = dx / gap, dy / gap
         for other in friends:
             if other[0] == p[0]:
                 continue
@@ -111,7 +116,7 @@ class Guardiola2011(TeamController):
         speed_towards = (dx * p[3] + dy * p[4]) / d
         sideways = abs(dx * p[4] - dy * p[3]) / d
         startup = max(0.0, 1.0 - speed_towards / self._speed) * 0.30
-        return max(0.0, d - self._range * 0.8) / self._speed + startup + sideways * 0.025
+        return max(0.0, d - self._eta_range) / self._speed + startup + sideways * 0.025
 
     def _crossing_ticks(self, position, velocity, bound):
         if abs(velocity) < 1e-9:
@@ -169,14 +174,45 @@ class Guardiola2011(TeamController):
         return samples
 
     def _intercept(self, p, samples):
-        best = None
+        # Keep the original operation order, but load player data and field
+        # invariants once instead of calling _eta for every forecast sample.
+        _, px, py, pvx, pvy = p
+        speed, kick_range = self._speed, self._eta_range
+        hypot = math.hypot
+        best_cost = None
+        best_x = best_y = 0.0
         for t, x, y in samples:
-            eta = self._eta(p, x, y)
+            dx, dy = x - px, y - py
+            d = hypot(dx, dy)
+            if d < 1e-6:
+                eta = 0.0
+            else:
+                speed_towards = (dx * pvx + dy * pvy) / d
+                sideways = abs(dx * pvy - dy * pvx) / d
+                startup = 1.0 - speed_towards / speed
+                if startup <= 0.0:
+                    startup = 0.0
+                startup *= 0.30
+                distance = d - kick_range
+                if distance <= 0.0:
+                    distance = 0.0
+                eta = distance / speed + startup + sideways * 0.025
             if eta <= t + 0.06:
-                return max(t, eta), (x, y)
+                return (eta if eta > t else t), (x, y)
             cost = eta + t * 0.12
-            if best is None or cost < best[0]:
-                best = (cost, (x, y))
+            if best_cost is None or cost < best_cost:
+                best_cost, best_x, best_y = cost, x, y
+        return None if best_cost is None else (best_cost, (best_x, best_y))
+
+    def _closest_eta(self, players, target):
+        # Strict comparison preserves min's first-player tie breaking.
+        best = None
+        best_eta = None
+        x, y = target
+        for p in players:
+            eta = self._eta(p, x, y)
+            if best is None or eta < best_eta:
+                best, best_eta = p, eta
         return best
 
     def _flight(self, distance, speed):
@@ -215,7 +251,7 @@ class Guardiola2011(TeamController):
         if sideways_sq >= self._impulse * self._impulse:
             return None
         reach = math.sqrt(self._impulse * self._impulse - sideways_sq)
-        speed = _clip(16.0, max(0.0, along - reach), min(self._ball_cap, along + reach))
+        speed = _clip(18.0, max(0.0, along - reach), min(self._ball_cap, along + reach))
         if speed < 9.0:
             return None
         return ux * speed, uy * speed, speed
@@ -260,6 +296,7 @@ class Guardiola2011(TeamController):
 
         pressure = min((math.hypot(o[1] - bx, o[2] - by) for o in opponents), default=100.0)
         best_pass = None
+        best_break = None
         if self.PASSING:
             for receiver in friends:
                 if receiver[0] in (p[0], 0):
@@ -297,11 +334,20 @@ class Guardiola2011(TeamController):
                     # inflate possession or invite danger beside our keeper.
                     if outlet_pressure < max(4.5, pressure + 1.0):
                         continue
+                receiver_space = min((math.hypot(tx - o[1] - o[3] * 0.4,
+                                                  ty - o[2] - o[4] * 0.4)
+                                      for o in opponents), default=100.0)
                 score = (tx - bx) * 0.05 + min(room, 6.0) * 0.16 - gap * 0.02
+                candidate = (score, velocity[0], velocity[1])
                 if best_pass is None or score > best_pass[0]:
-                    best_pass = (score, velocity[0], velocity[1])
-            if best_pass is not None and (pressure < 4.5 or p[0] == 0):
-                return self._kick_to_velocity(vx, vy, best_pass[1], best_pass[2])
+                    best_pass = candidate
+                if (gain >= 8.0 and gap >= 9.0 and room >= 1.75
+                        and receiver_space >= 4.5 and bx < 32.0
+                        and (best_break is None or score > best_break[0])):
+                    best_break = candidate
+            chosen = best_pass if (pressure < 4.5 or p[0] == 0) else best_break
+            if chosen is not None:
+                return self._kick_to_velocity(vx, vy, chosen[1], chosen[2])
 
         if p[0] == 0:
             # Clear laterally out of danger when no safe outlet is available.
@@ -347,13 +393,27 @@ class Guardiola2011(TeamController):
         keeper = friends[0]
         outfield = friends[1:] or friends
         samples = self._trajectory(bx, by, vx, vy)
-        races = {p[0]: self._intercept(p, samples) for p in outfield}
-        chaser = min(outfield, key=lambda p: races[p[0]][0])
-        previous = next((p for p in outfield if p[0] == self._chaser), None)
+        races = {}
+        chaser = None
+        chaser_eta = None
+        previous = None
+        for p in outfield:
+            race = self._intercept(p, samples)
+            races[p[0]] = race
+            if chaser is None or race[0] < chaser_eta:
+                chaser, chaser_eta = p, race[0]
+            if p[0] == self._chaser:
+                previous = p
         if previous is not None and races[previous[0]][0] < races[chaser[0]][0] + 0.12:
             chaser = previous
         self._chaser = chaser[0]
-        enemy_eta = min((self._intercept(o, samples)[0] for o in opponents), default=100.0)
+        enemy_eta = None
+        for o in opponents:
+            eta = self._intercept(o, samples)[0]
+            if enemy_eta is None or eta < enemy_eta:
+                enemy_eta = eta
+        if enemy_eta is None:
+            enemy_eta = 100.0
         attack = races[chaser[0]][0] <= enemy_eta + 0.12
 
         keeper_x = self._left + 2.2
@@ -371,7 +431,7 @@ class Guardiola2011(TeamController):
         if free:
             cover_target = self._target(min(28.0, bx - 2.0),
                                         _clip(by, -self._half_height + 2.0, self._half_height - 2.0))
-            cover = min(free, key=lambda p: self._eta(p, *cover_target))
+            cover = self._closest_eta(free, cover_target)
             targets[cover[0]] = cover_target
             free = [p for p in free if p[0] != cover[0]]
         if attack:
@@ -389,22 +449,28 @@ class Guardiola2011(TeamController):
                     continue
                 ux, uy = _unit(self._left - threat[1], -threat[2])
                 target = self._target(threat[1] + ux * 3.0, threat[2] + uy * 3.0)
-                marker = min(free, key=lambda p: self._eta(p, *target))
+                marker = self._closest_eta(free, target)
                 targets[marker[0]] = target
                 free = [p for p in free if p[0] != marker[0]]
             for p in free:
                 targets[p[0]] = self._target(bx - 9.0, p[2] * 0.5)
 
-        available = [p for p in friends if obs.can_kick(p[0])]
-        carrier = min(available, key=lambda p: math.hypot(p[1] - bx, p[2] - by)) if available else None
+        carrier = None
+        carrier_gap = None
+        for p in friends:
+            if obs.can_kick(p[0]):
+                gap = math.hypot(p[1] - bx, p[2] - by)
+                if carrier is None or gap < carrier_gap:
+                    carrier, carrier_gap = p, gap
         for p in friends:
             target = targets.get(p[0], (p[1], p[2]))
             if protected and math.hypot(p[1], p[2]) < self._circle + 5.0:
                 ux, uy = _unit(p[1], p[2])
                 target = (ux * (self._circle + 3.0), uy * (self._circle + 3.0))
-            movement = self._move(p, target, friends if p[0] != chaser[0] and p[0] != 0 else ())
             kick = None
             if carrier is not None and p[0] == carrier[0] and not protected:
+                # The carrier's original general movement was immediately
+                # replaced; _move is pure, so calculate only the used value.
                 movement = self._move(p, (bx + 0.3, by))
                 nx = p[3] * self._damping + movement[0] * self._acc
                 ny = p[4] * self._damping + movement[1] * self._acc
@@ -417,6 +483,8 @@ class Guardiola2011(TeamController):
                                            p[2] + ny * self._dt - by)
                 if distance_next < self._range - 0.18:
                     kick = self._choose_kick(p, bx, by, vx, vy, friends, opponents)
+            else:
+                movement = self._move(p, target, friends if p[0] != chaser[0] and p[0] != 0 else ())
             if kick is None:
                 actions.set(p[0], PlayerAction(movement=movement))
             else:
