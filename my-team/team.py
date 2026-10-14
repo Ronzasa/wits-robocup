@@ -1,7 +1,8 @@
-"""Pep Guardiola 2011 FC Barcelona: coordinated football legends.
+"""Pep Guardiola 2011 FC Barcelona: pressure-aware progression.
 
 Slots: Oliver Kahn, Franz Beckenbauer, Andres Iniesta, Lionel Messi,
-and Ronaldo Nazario. Roles change decisions, never engine attributes.
+and Ronaldo Nazario. Fast pressure releases and planned ground touches
+improve progression. Roles change decisions, never engine attributes.
 
 All positions are in the SDK's canonical frame. No seed, opponent-name,
 external file, private engine attribute, or service influences decisions.
@@ -24,7 +25,7 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola 2011 FC Barcelona"
-    version = "3.5-legends"
+    version = "3.7-progression"
     PLAYER_ROLES = {
         0: "Oliver Kahn | goalkeeper",
         1: "Beckenbauer | libero",
@@ -292,7 +293,7 @@ class Guardiola2011(TeamController):
         if sideways_sq >= self._impulse * self._impulse:
             return None
         reach = math.sqrt(self._impulse * self._impulse - sideways_sq)
-        speed = _clip(18.0, max(0.0, along - reach), min(self._ball_cap, along + reach))
+        speed = _clip(24.0, max(0.0, along - reach), min(self._ball_cap, along + reach))
         if speed < 9.0:
             return None
         return ux * speed, uy * speed, speed
@@ -318,6 +319,9 @@ class Guardiola2011(TeamController):
         return room
 
     def _original_choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+        release = self._escape_release(p,bx,by,vx,vy,opponents)
+        if release is not None:
+            return release
         goal_distance = math.hypot(self._right - bx, by)
         finisher = p[0] in (3, 4)
         best_shot = None
@@ -496,7 +500,7 @@ class Guardiola2011(TeamController):
                 sy += impulse * ny
         return x, y, sx, sy
 
-    def _choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+    def _legacy_choose_kick(self, p, bx, by, vx, vy, friends, opponents):
         self._touch_movement = None
         kick = self._original_choose_kick(p, bx, by, vx, vy, friends, opponents)
         if (kick is None or bx >= 0.0 or bx <= self._left + 3.0
@@ -537,6 +541,84 @@ class Guardiola2011(TeamController):
             outcome = self._carrier_contact(p, bx, by, ax, ay, movement)
             if ax > 2.0 and outcome is not None and outcome[2] >= -2.0:
                 return alternative
+        return kick
+
+
+    def _escape_release(self, p, bx, by, vx, vy, opponents):
+        if p[0] == 0 or bx > 2.0:
+            return None
+        pressure=min((math.hypot(o[1]-bx,o[2]-by) for o in opponents),default=100.0)
+        if pressure>=4.0:
+            return None
+        best=None
+        for width in (-16.0,-8.0,0.0,8.0,16.0):
+            tx,ty=self._target(bx+28.0,by*0.3+width)
+            ux,uy=_unit(tx-bx,ty-by)
+            along=vx*ux+vy*uy
+            side=max(0.0,vx*vx+vy*vy-along*along)
+            if side>=self._impulse**2:
+                continue
+            speed=min(28.0,along+math.sqrt(self._impulse**2-side))
+            if speed<14.0:
+                continue
+            room=self._lane(bx,by,tx,ty,speed,opponents)
+            score=room-abs(ty)*0.025
+            if best is None or score>best[0]:
+                best=score,self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+        return None if best is None else best[1]
+
+
+    def _controlled_touch(self, p, bx, by, vx, vy, opponents):
+        # Evaluate reachable short touches after our own body contact. The
+        # final point is a collection opportunity, not a possession claim.
+        base_angle = math.atan2(-by, self._right - bx)
+        original_distance = math.hypot(self._right - bx, by)
+        best = None
+        for angle_offset in (0.0, -0.45, 0.45, -0.9, 0.9, -1.35, 1.35):
+            angle = base_angle + angle_offset
+            ux, uy = math.cos(angle), math.sin(angle)
+            for speed in (6.0, 9.0):
+                kick = self._kick_to_velocity(vx, vy, ux*speed, uy*speed)
+                if kick is None:
+                    continue
+                sx, sy = self._requested_velocity(vx, vy, kick)
+                movement = self._move(p, self._target(bx+ux*3.0, by+uy*3.0))
+                contact = self._carrier_contact(p, bx, by, sx, sy, movement)
+                if contact is None:
+                    continue
+                x, y, rx, ry = contact
+                horizon = 0.30
+                drag = self._friction**(horizon*self._hz)
+                scale = self._dt*(1.0-drag)/(1.0-self._friction)
+                tx, ty = x+rx*scale, y+ry*scale
+                if abs(ty) > self._half_height-1.5 or tx < self._left+3.0:
+                    continue
+                own_eta = self._eta(p, tx, ty)
+                enemy_eta = min((self._eta(o, tx, ty) for o in opponents),default=10.0)
+                clearance = min((math.hypot(tx-o[1]-o[3]*0.22,
+                                            ty-o[2]-o[4]*0.22)
+                                 for o in opponents),default=15.0)
+                progress = original_distance-math.hypot(self._right-tx, ty)
+                retain = _clip(enemy_eta-own_eta, -1.0, 1.0)
+                score = (progress*0.85 + min(clearance,8.0)*0.45
+                         + retain*3.5 - max(0.0,own_eta-0.5)*4.0)
+                if rx < -2.0 and bx < 0.0:
+                    score -= 5.0
+                if best is None or score > best[0]:
+                    best = score, kick, movement
+        return best
+
+    def _choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+        kick = self._legacy_choose_kick(p,bx,by,vx,vy,friends,opponents)
+        if p[0] == 0 or kick is None:
+            return kick
+        sx, sy = self._requested_velocity(vx,vy,kick)
+        if math.hypot(sx,sy) > 10.5:
+            return kick
+        planned = self._controlled_touch(p,bx,by,vx,vy,opponents)
+        if planned is not None:
+            self._touch_movement = planned[2]
+            return planned[1]
         return kick
 
     def act(self, obs):
@@ -590,9 +672,12 @@ class Guardiola2011(TeamController):
 
         keeper_x = self._left + 2.2
         keeper_y = by * 2.2 / max(3.0, bx - self._left)
-        if self.PREDICTIVE_KEEPER and vx < -1.0 and bx > keeper_x:
+        # Stay central while a slow approach can still be redirected. Commit
+        # only after a fast, near-term shot reveals its actual goal-line path.
+        if (self.PREDICTIVE_KEEPER and vx < -8.0
+                and math.hypot(vx, vy) >= 12.0 and bx > keeper_x):
             time_to_line = (keeper_x - bx) / vx
-            if 0.0 < time_to_line < 4.0:
+            if 0.0 < time_to_line < 1.25:
                 keeper_y = by + vy * time_to_line
         keeper_target = (keeper_x, _clip(keeper_y, -self._mouth, self._mouth))
         if bx < self._left + 10.0 and self._eta(keeper, bx, by) < races[chaser[0]][0] * 0.85:
