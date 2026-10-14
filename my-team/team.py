@@ -1,4 +1,4 @@
-"""Pep Guardiola 2011 FC Barcelona: close support and purposeful possession.
+"""Pep Guardiola 2011 FC Barcelona: purposeful possession and safer releases.
 
 All positions are in the SDK's canonical frame. No seed, opponent-name,
 external file, private engine attribute, or service influences decisions.
@@ -21,7 +21,7 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola 2011 FC Barcelona"
-    version = "3.3-fast-vertical"
+    version = "3.4"
     DRIBBLE_SPEED = 8.0
     SHOOT_RANGE = 34.0
     PASSING = True
@@ -38,6 +38,7 @@ class Guardiola2011(TeamController):
         self._restart_owner = None
         self._chaser = -1
         self._last_score = None
+        self._touch_movement = None
 
     def initial_formation(self, field):
         w, h = field.width, field.height
@@ -276,7 +277,7 @@ class Guardiola2011(TeamController):
             room = min(room, lateral - needed)
         return room
 
-    def _choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+    def _original_choose_kick(self, p, bx, by, vx, vy, friends, opponents):
         goal_distance = math.hypot(self._right - bx, by)
         best_shot = None
         for fraction in (-1.0, -0.75, -0.5, 0.0, 0.5, 0.75, 1.0):
@@ -366,6 +367,86 @@ class Guardiola2011(TeamController):
                 best = (score, dx, dy)
         return self._kick_to_velocity(vx, vy, best[1] * self.DRIBBLE_SPEED,
                                        best[2] * self.DRIBBLE_SPEED)
+
+    def _requested_velocity(self, vx, vy, kick):
+        direction, power = kick
+        sx = vx + direction[0] * power * self._impulse
+        sy = vy + direction[1] * power * self._impulse
+        speed = math.hypot(sx, sy)
+        if speed > self._ball_cap:
+            sx *= self._ball_cap / speed
+            sy *= self._ball_cap / speed
+        return sx, sy
+
+    def _carrier_contact(self, p, bx, by, sx, sy, movement):
+        # One free movement step, then just the carrier's first ball contact.
+        pvx = p[3] * self._damping + movement[0] * self._acc
+        pvy = p[4] * self._damping + movement[1] * self._acc
+        speed = math.hypot(pvx, pvy)
+        if speed > self._speed:
+            pvx *= self._speed / speed
+            pvy *= self._speed / speed
+        px, py = p[1] + pvx * self._dt, p[2] + pvy * self._dt
+        if math.hypot(px - bx, py - by) >= self._range - 0.18:
+            return None
+        x, y = bx + sx * self._dt, by + sy * self._dt
+        sx *= self._friction
+        sy *= self._friction
+        rx, ry = x - px, y - py
+        gap = math.hypot(rx, ry)
+        if 1e-8 < gap < self._contact:
+            nx, ny = rx / gap, ry / gap
+            x, y = px + nx * self._contact, py + ny * self._contact
+            closing = (sx - pvx) * nx + (sy - pvy) * ny
+            if closing < 0.0:
+                # Documented ground player/ball restitution is 0.25.
+                impulse = -1.25 * closing
+                sx += impulse * nx
+                sy += impulse * ny
+        return x, y, sx, sy
+
+    def _choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+        self._touch_movement = None
+        kick = self._original_choose_kick(p, bx, by, vx, vy, friends, opponents)
+        if (kick is None or bx >= 0.0 or bx <= self._left + 3.0
+                or abs(by) >= self._half_height - 3.0):
+            return kick
+        sx, sy = self._requested_velocity(vx, vy, kick)
+        if sx <= 2.0:
+            return kick
+        movement = self._move(p, (bx + 0.3, by))
+        original = self._carrier_contact(p, bx, by, sx, sy, movement)
+        if original is None or original[2] >= -2.0:
+            return kick
+
+        # Retain the exact kick if braking or moving away prevents its return.
+        brake_x = -p[3] * self._damping / self._acc
+        brake_y = -p[4] * self._damping / self._acc
+        brake_length = math.hypot(brake_x, brake_y)
+        if brake_length > 1.0:
+            brake_x /= brake_length
+            brake_y /= brake_length
+        away = _unit(p[1] - bx, p[2] - by)
+        for alternative in ((brake_x, brake_y), away):
+            outcome = self._carrier_contact(p, bx, by, sx, sy, alternative)
+            if outcome is not None and outcome[2] >= -2.0:
+                self._touch_movement = alternative
+                return kick
+
+        # Try the smallest requested rotation first. Re-evaluate the capped
+        # actual impulse instead of assuming the rotated velocity is feasible.
+        for degrees in (30.0, -30.0, 60.0, -60.0):
+            angle = math.radians(degrees)
+            cosine, sine = math.cos(angle), math.sin(angle)
+            tx, ty = sx * cosine - sy * sine, sx * sine + sy * cosine
+            alternative = self._kick_to_velocity(vx, vy, tx, ty)
+            if alternative is None:
+                continue
+            ax, ay = self._requested_velocity(vx, vy, alternative)
+            outcome = self._carrier_contact(p, bx, by, ax, ay, movement)
+            if ax > 2.0 and outcome is not None and outcome[2] >= -2.0:
+                return alternative
+        return kick
 
     def act(self, obs):
         if not self._ready:
@@ -483,6 +564,8 @@ class Guardiola2011(TeamController):
                                            p[2] + ny * self._dt - by)
                 if distance_next < self._range - 0.18:
                     kick = self._choose_kick(p, bx, by, vx, vy, friends, opponents)
+                    if self._touch_movement is not None:
+                        movement = self._touch_movement
             else:
                 movement = self._move(p, target, friends if p[0] != chaser[0] and p[0] != 0 else ())
             if kick is None:
