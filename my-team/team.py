@@ -1,4 +1,7 @@
-"""Pep Guardiola 2011 FC Barcelona: purposeful possession and safer releases.
+"""Pep Guardiola 2011 FC Barcelona: coordinated football legends.
+
+Slots: Oliver Kahn, Franz Beckenbauer, Andres Iniesta, Lionel Messi,
+and Ronaldo Nazario. Roles change decisions, never engine attributes.
 
 All positions are in the SDK's canonical frame. No seed, opponent-name,
 external file, private engine attribute, or service influences decisions.
@@ -21,7 +24,14 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola 2011 FC Barcelona"
-    version = "3.4"
+    version = "3.5-legends"
+    PLAYER_ROLES = {
+        0: "Oliver Kahn | goalkeeper",
+        1: "Beckenbauer | libero",
+        2: "Iniesta | pivot",
+        3: "Messi | creator",
+        4: "Ronaldo Nazario | striker",
+    }
     DRIBBLE_SPEED = 8.0
     SHOOT_RANGE = 34.0
     PASSING = True
@@ -46,9 +56,9 @@ class Guardiola2011(TeamController):
         return [
             (field.my_goal[0] + 3.0, 0.0),
             (-0.26 * w, 0.0),
-            (-0.15 * w, -0.26 * h),
+            (-0.15 * w, -0.13 * h),
+            (-0.15 * w, 0.20 * h),
             (-circle - 1.8, 0.0),
-            (-0.15 * w, 0.26 * h),
         ]
 
     def _setup(self, field):
@@ -216,6 +226,36 @@ class Guardiola2011(TeamController):
                 best, best_eta = p, eta
         return best
 
+    def _role_closest_eta(self, players, target, cover=False):
+        # Roles settle close races; distance still controls assignments.
+        # The largest preference is only 0.09 seconds, so the libero can
+        # step out while another nearby player provides defensive cover.
+        best = None
+        best_eta = None
+        x, y = target
+        for p in players:
+            eta = self._eta(p, x, y)
+            if p[0] == 1:  # Beckenbauer: cover or goal-side marking.
+                eta -= 0.09 if cover else 0.045
+            elif p[0] == 2:  # Iniesta: retain the next defensive option.
+                eta -= 0.045 if cover else 0.025
+            if best is None or eta < best_eta:
+                best, best_eta = p, eta
+        return best
+
+    def _role_support(self, p, bx, by, lane):
+        # Start with the existing forward support shape, then adjust a few
+        # units for each role. Neither defender is anchored far from play.
+        if p[0] == 1:
+            return self._target(bx + 6.0, by * 0.2 + lane * 0.5)
+        if p[0] == 2:
+            return self._target(bx + 7.0, by * 0.2 + lane * 0.7)
+        if p[0] == 3:
+            return self._target(bx + 10.0, by * 0.2 + lane * 0.8)
+        if p[0] == 4:
+            return self._target(bx + 15.0, by * 0.2 + lane * 0.3)
+        return self._target(bx + 12.0, by * 0.2 + lane)
+
     def _flight(self, distance, speed):
         if speed <= 0.01:
             return 20.0
@@ -279,6 +319,7 @@ class Guardiola2011(TeamController):
 
     def _original_choose_kick(self, p, bx, by, vx, vy, friends, opponents):
         goal_distance = math.hypot(self._right - bx, by)
+        finisher = p[0] in (3, 4)
         best_shot = None
         for fraction in (-1.0, -0.75, -0.5, 0.0, 0.5, 0.75, 1.0):
             y = self._mouth * fraction
@@ -287,12 +328,29 @@ class Guardiola2011(TeamController):
                 continue
             sx, sy, speed = velocity
             room = self._lane(bx, by, self._right, y, speed, opponents)
+            if finisher:
+                # Rank only eligible Messi/Ronaldo aims. A blocked near aim
+                # must not hide a clear far aim, and drag must allow the ball
+                # to reach this actual point on the goal line.
+                distance = math.hypot(self._right - bx, y - by)
+                flight = self._flight(distance, speed)
+                if flight >= 20.0:
+                    continue
+                ordinary = ((goal_distance < self.SHOOT_RANGE and room > 0.0)
+                            or (goal_distance < 15.0 and room > -2.0))
+                # Only an already fast ball permits the modest extension.
+                # It must reach an open aim quickly with useful speed left.
+                extended = (goal_distance < 38.0 and speed >= 24.0
+                            and flight <= 2.0 and room > 1.75
+                            and speed * self._friction ** (flight * self._hz) >= 12.0)
+                if not (ordinary or extended):
+                    continue
             score = room - abs(y - by) * 0.025
             if best_shot is None or score > best_shot[0]:
                 best_shot = (score, room, sx, sy)
         if best_shot is not None:
             _, room, sx, sy = best_shot
-            if (goal_distance < self.SHOOT_RANGE and room > 0.0) or (goal_distance < 15.0 and room > -2.0):
+            if finisher or (goal_distance < self.SHOOT_RANGE and room > 0.0) or (goal_distance < 15.0 and room > -2.0):
                 return self._kick_to_velocity(vx, vy, sx, sy)
 
         pressure = min((math.hypot(o[1] - bx, o[2] - by) for o in opponents), default=100.0)
@@ -338,7 +396,21 @@ class Guardiola2011(TeamController):
                 receiver_space = min((math.hypot(tx - o[1] - o[3] * 0.4,
                                                   ty - o[2] - o[4] * 0.4)
                                       for o in opponents), default=100.0)
-                score = (tx - bx) * 0.05 + min(room, 6.0) * 0.16 - gap * 0.02
+                # These are decision preferences, not player stat bonuses.
+                # Every role retains the same achievable-velocity, lane and
+                # pressured-recycle requirements above.
+                if p[0] == 1:       # Beckenbauer: composed progression.
+                    score = (tx - bx) * 0.045 + min(room, 6.0) * 0.20 - gap * 0.023
+                elif p[0] == 2:     # Iniesta: short, safe progressive links.
+                    score = (tx - bx) * 0.05 + min(room, 6.0) * 0.20 - gap * 0.024
+                elif p[0] == 3:     # Messi: progressive links to the striker.
+                    score = (tx - bx) * 0.065 + min(room, 6.0) * 0.16 - gap * 0.02
+                    if receiver[0] == 4 and gain >= 6.0 and abs(ty) < self._half_height * 0.5:
+                        score += 0.10
+                elif p[0] == 4:     # Ronaldo Nazario: face the opponent goal.
+                    score = (tx - bx) * 0.07 + min(room, 6.0) * 0.16 - gap * 0.02
+                else:
+                    score = (tx - bx) * 0.05 + min(room, 6.0) * 0.16 - gap * 0.02
                 candidate = (score, velocity[0], velocity[1])
                 if best_pass is None or score > best_pass[0]:
                     best_pass = candidate
@@ -348,6 +420,15 @@ class Guardiola2011(TeamController):
                     best_break = candidate
             chosen = best_pass if (pressure < 4.5 or p[0] == 0) else best_break
             if chosen is not None:
+                # Ronaldo can advance through a genuinely clear central
+                # corridor. A viable clear shot has already taken priority.
+                # Keep the safe outlet when the carry would meet a defender.
+                if (p[0] == 4 and bx > 5.0 and goal_distance > 15.0
+                        and abs(by) < self._half_height * 0.5 and pressure >= 6.5):
+                    cx, cy, tx, ty, clearance = self._carry_velocity(p, bx, by, pressure, opponents)
+                    if (tx - bx >= 3.5 and clearance >= 5.0
+                            and self._lane(bx, by, tx, ty, math.hypot(cx, cy), opponents) > 1.0):
+                        return self._kick_to_velocity(vx, vy, cx, cy)
                 return self._kick_to_velocity(vx, vy, chosen[1], chosen[2])
 
         if p[0] == 0:
@@ -356,17 +437,27 @@ class Guardiola2011(TeamController):
             ux, uy = _unit(1.0, side * 0.6)
             return self._kick_to_velocity(vx, vy, ux * 22.0, uy * 22.0)
 
+        cx, cy, _, _, _ = self._carry_velocity(p, bx, by, pressure, opponents)
+        return self._kick_to_velocity(vx, vy, cx, cy)
+
+    def _carry_velocity(self, p, bx, by, pressure, opponents):
+        # Messi uses a shorter control horizon under pressure. Open-field
+        # touches retain the team's existing speed, and no role exceeds it.
+        close_control = p[0] == 3 and pressure < 4.5
+        lookahead = 3.5 if close_control else 5.0
+        touch_speed = min(self.DRIBBLE_SPEED, 7.0) if close_control else self.DRIBBLE_SPEED
+        forward_weight = 0.70 if p[0] == 4 else 0.45
+        centre_weight = 0.06 if p[0] in (3, 4) else 0.04
         best = None
         goal_ux, goal_uy = _unit(self._right - bx, -by)
         for dx, dy in ((goal_ux, goal_uy), (1.0, 0.0), (0.85, 0.53), (0.85, -0.53)):
-            tx, ty = self._target(bx + dx * 5.0, by + dy * 5.0)
+            tx, ty = self._target(bx + dx * lookahead, by + dy * lookahead)
             clearance = min((math.hypot(tx - o[1] - o[3] * 0.2,
                                         ty - o[2] - o[4] * 0.2) for o in opponents), default=15.0)
-            score = min(clearance, 10.0) + (tx - bx) * 0.45 - abs(ty) * 0.04
+            score = min(clearance, 10.0) + (tx - bx) * forward_weight - abs(ty) * centre_weight
             if best is None or score > best[0]:
-                best = (score, dx, dy)
-        return self._kick_to_velocity(vx, vy, best[1] * self.DRIBBLE_SPEED,
-                                       best[2] * self.DRIBBLE_SPEED)
+                best = (score, dx, dy, tx, ty, clearance)
+        return best[1] * touch_speed, best[2] * touch_speed, best[3], best[4], best[5]
 
     def _requested_velocity(self, vx, vy, kick):
         direction, power = kick
@@ -468,7 +559,7 @@ class Guardiola2011(TeamController):
         protected = (obs.tick < self._restart_until and self._restart_owner == 1)
         friends = [(p.id, *p.position, *p.velocity) for p in obs.my_players]
         opponents = [(p.id, *p.position, *p.velocity) for p in obs.opponents]
-        actions = TeamAction()
+        actions = TeamAction(debug={"roles": self.PLAYER_ROLES})
         if not friends:
             return actions
         keeper = friends[0]
@@ -512,7 +603,11 @@ class Guardiola2011(TeamController):
         if free:
             cover_target = self._target(min(28.0, bx - 2.0),
                                         _clip(by, -self._half_height + 2.0, self._half_height - 2.0))
-            cover = self._closest_eta(free, cover_target)
+            cover = self._role_closest_eta(free, cover_target, cover=True)
+            if cover[0] == 1:
+                cover_target = self._target(min(28.0, bx - 3.5), cover_target[1])
+            elif cover[0] == 2:
+                cover_target = self._target(min(28.0, bx - 2.75), cover_target[1])
             targets[cover[0]] = cover_target
             free = [p for p in free if p[0] != cover[0]]
         if attack:
@@ -520,7 +615,7 @@ class Guardiola2011(TeamController):
             free.sort(key=lambda p: p[2])
             for index, p in enumerate(free):
                 lane = 0.0 if len(free) == 1 else -spread + 2.0 * spread * index / (len(free) - 1)
-                targets[p[0]] = self._target(bx + 12.0, by * 0.2 + lane)
+                targets[p[0]] = self._role_support(p, bx, by, lane)
         else:
             threats = sorted(opponents, key=lambda p: p[1] + abs(p[2]) * 0.2)
             for threat in threats:
@@ -530,7 +625,7 @@ class Guardiola2011(TeamController):
                     continue
                 ux, uy = _unit(self._left - threat[1], -threat[2])
                 target = self._target(threat[1] + ux * 3.0, threat[2] + uy * 3.0)
-                marker = self._closest_eta(free, target)
+                marker = self._role_closest_eta(free, target)
                 targets[marker[0]] = target
                 free = [p for p in free if p[0] != marker[0]]
             for p in free:
