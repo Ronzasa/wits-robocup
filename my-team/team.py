@@ -1,16 +1,14 @@
-"""Balanced Pep–Klopp coach with coordinated cover and planned wall outlets.
+"""Balanced Pep–Klopp hybrid with public-physics action planning.
 
-Settled possession retains coordinated receivers and pressure-aware touches.
-Wide defensive duels use a goal-facing screen; uncertain phase changes retain
-nearby goal-side marks briefly. Receiver-aware wall passes account for friction,
-inelastic rebounds, body blocks and both legs of the interception race.
-Wide keeper collections require a short, clearly winning race; outgoing
-clearances release the keeper to recover. Wall search has a fixed work budget,
-and shared interception forecasts avoid duplicate work each decision.
+Shared dense forecasts and momentum-aware interception coordinate the team.
+The carrier compares reachable shots, receiver-led passes at several powers,
+and recoverable touches, including its own first body contact. Side-wall
+outlets and attacking end-wall cutbacks name a receiver and compare both legs
+with the opponents' interception race. One covering role stays behind attacks;
+verified transitions retain brief counterpressing and quick counters.
 
-Verified losses permit a brief selective counterpress; regains permit quick
-counters. Only public canonical observations and the public course profile are
-used. Player attributes are unchanged; supplied seeds and identities are unused.
+Only canonical public observations and the documented course physics profile
+are used. Player attributes are unchanged. Seeds and opponent names are unused.
 """
 import math
 
@@ -30,7 +28,10 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola + Jurgen Klopp Hybrid"
-    version = "6.1-pep-klopp-bounded-defense"
+    version = "7.0-hybrid-physics-planner"
+    LINK_MARGIN = 0.10
+    SHOT_MARGIN = -0.04
+    OPTION_SWITCH_MARGIN = 0.15
     BANK_LAUNCH_BUDGET = 12
     COVER_SHAPE = True
     KEEPER_PRIORITY = True
@@ -128,7 +129,11 @@ class Guardiola2011(TeamController):
         self._roll = tuple(self._dt * (1.0 - drag) / (1.0 - self._friction)
                            for drag in self._drag)
         self._forecast_steps = tuple((tick * self._dt, self._roll[tick])
-                                    for tick in (0, 3, 6, 10, 15, 22, 30, 42, 58, 80))
+                                    for tick in (0, 2, 4, 6, 9, 12, 16, 20, 25, 31, 38, 47, 58, 70, 80))
+        self._reach_table = tuple(
+            (self._dt*self._damping*(1.0-self._damping**n)/(1.0-self._damping),
+             self._dt*self._acc/(1.0-self._damping)*(n-self._damping*(1.0-self._damping**n)/(1.0-self._damping)))
+            for n in range(83))
         self._ready = True
 
     def _target(self, x, y):
@@ -194,7 +199,7 @@ class Guardiola2011(TeamController):
         elapsed = 0
         hit = min(self._crossing_ticks(bx, vx, xwall),
                   self._crossing_ticks(by, vy, ywall))
-        for wanted in (3, 6, 10, 15, 22, 30, 42, 58, 80):
+        for wanted in (2, 4, 6, 9, 12, 16, 20, 25, 31, 38, 47, 58, 70, 80):
             while hit <= wanted:
                 steps = hit - elapsed
                 scale = self._roll[steps]
@@ -226,36 +231,24 @@ class Guardiola2011(TeamController):
             samples.append((wanted * self._dt, bx + vx * scale, by + vy * scale))
         return samples
 
-    def _intercept(self, p, samples):
-        # Keep the original operation order, but load player data and field
-        # invariants once instead of calling _eta for every forecast sample.
-        _, px, py, pvx, pvy = p
-        speed, kick_range = self._speed, self._eta_range
-        hypot = math.hypot
-        best_cost = None
-        best_x = best_y = 0.0
-        for t, x, y in samples:
-            dx, dy = x - px, y - py
-            d = hypot(dx, dy)
-            if d < 1e-6:
-                eta = 0.0
+    def _intercept(self,p,samples):
+        _,px,py,pvx,pvy=p
+        best=None
+        for t,x,y in samples:
+            dx,dy=x-px,y-py
+            d=math.hypot(dx,dy)
+            n=max(0,int(round(t*self._hz)))
+            if n==0:
+                feasible=d<=self._eta_range
             else:
-                speed_towards = (dx * pvx + dy * pvy) / d
-                sideways = abs(dx * pvy - dy * pvx) / d
-                startup = 1.0 - speed_towards / speed
-                if startup <= 0.0:
-                    startup = 0.0
-                startup *= 0.30
-                distance = d - kick_range
-                if distance <= 0.0:
-                    distance = 0.0
-                eta = distance / speed + startup + sideways * 0.025
-            if eta <= t + 0.06:
-                return (eta if eta > t else t), (x, y)
-            cost = eta + t * 0.12
-            if best_cost is None or cost < best_cost:
-                best_cost, best_x, best_y = cost, x, y
-        return None if best_cost is None else (best_cost, (best_x, best_y))
+                coast,reach=self._reach_table[n]
+                feasible=(d<=self._speed*t+self._eta_range and
+                          math.hypot(dx-pvx*coast,dy-pvy*coast)<=reach+self._eta_range)
+            if feasible:
+                return t,(x,y)
+            cost=self._eta(p,x,y)+t*.12
+            if best is None or cost<best[0]:best=(cost,(x,y))
+        return best
 
     def _closest_eta(self, players, target):
         # Strict comparison preserves min's first-player tie breaking.
@@ -782,7 +775,7 @@ class Guardiola2011(TeamController):
                     best = score, kick, movement
         return best
 
-    def _choose_kick(self, p, bx, by, vx, vy, friends, opponents):
+    def _legacy_policy_kick(self, p, bx, by, vx, vy, friends, opponents):
         self._bank_plan = None
         self._pass_plan = None
         kick = self._legacy_choose_kick(p,bx,by,vx,vy,friends,opponents)
@@ -1469,3 +1462,246 @@ class Guardiola2011(TeamController):
             receiver = next(p for p in outfield if p[0] == recipient)
             actions.set(recipient,PlayerAction(movement=self._move(receiver,self._target(*target))))
         return actions
+
+    def _option_path(self, launch):
+        # Launch already includes the first movement/contact tick.
+        return [(t+self._dt,x,y) for t,x,y in self._trajectory(*launch)]
+
+    def _early_body_margin(self, path, opponents, until):
+        margin = 2.0
+        for t,x,y in path:
+            if t>min(until,0.55):
+                break
+            n=max(1,int(round(t*self._hz)))
+            decay=self._damping**n
+            coast=self._dt*self._damping*(1.0-decay)/(1.0-self._damping)
+            reach=self._dt*self._acc/(1.0-self._damping)*(n-self._damping*(1.0-decay)/(1.0-self._damping))
+            for q in opponents:
+                radius=self._range if self._enemy_cooldowns.get(q[0],0)<=n else self._contact
+                gap=math.hypot(x-q[1]-q[3]*coast,y-q[2]-q[4]*coast)
+                margin=min(margin,(gap-reach-radius)/self._speed)
+        return margin
+
+    def _link_option(self,p,bx,by,vx,vy,receiver,opponents,tx,ty,speed):
+        ux,uy=_unit(tx-bx,ty-by)
+        kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+        if kick is None:
+            return None
+        movement=self._move(p,(bx+0.3,by))
+        sx,sy=self._requested_velocity(vx,vy,kick)
+        launch=self._carrier_contact(p,bx,by,sx,sy,movement)
+        if launch is None:
+            return None
+        path=self._option_path(launch)
+        arrival,point=self._intercept(receiver,path)
+        if arrival>1.8 or point[0]<self._left+9.0 or math.hypot(point[0]-bx,point[1]-by)<4.0:
+            return None
+        enemy=min((self._intercept(q,path)[0] for q in opponents),default=100.0)
+        margin=enemy-arrival
+        if margin<self.LINK_MARGIN or self._early_body_margin(path,opponents,arrival)<-0.04:
+            return None
+        progress=math.hypot(self._right-bx,by)-math.hypot(self._right-point[0],point[1])
+        space=min((math.hypot(point[0]-q[1]-q[3]*min(arrival,.5),point[1]-q[2]-q[4]*min(arrival,.5)) for q in opponents),default=20.0)
+        score=0.9+progress*.15+min(margin,.8)*3.0+min(space,9.0)*.10-arrival*.7
+        if abs(point[1])<12.0 and point[0]>self._right-27.0:
+            score+=1.0
+        if p[0]==0 or bx<self._left+17.0:
+            score+=.7
+        return score,kick,movement,(receiver[0],point[0],point[1])
+
+    def _search_links(self,p,bx,by,vx,vy,friends,opponents):
+        best=None
+        for q in friends:
+            if q[0] in (p[0],0):
+                continue
+            gap=math.hypot(q[1]-bx,q[2]-by)
+            if not 4.0<gap<39.0:
+                continue
+            # Different powers let a nearby receiver collect the pass rather
+            # than treating every link as a 24-unit/s clearance.
+            for speed in (14.0,20.0,26.0):
+                lead=min(.9,self._flight(gap,speed))
+                tx,ty=self._target(q[1]+q[3]*lead*.8,q[2]+q[4]*lead*.8)
+                option=self._link_option(p,bx,by,vx,vy,q,opponents,tx,ty,speed)
+                if option is not None and (best is None or option[0]>best[0]):
+                    best=option
+        return best
+
+    def _goal_path(self,launch):
+        x,y,vx,vy=launch
+        path=[(self._dt,x,y)]
+        wall=self._half_height-self._ball_radius
+        goal=self._right-self._ball_radius
+        for tick in range(2,61):
+            oldx,oldy=x,y
+            x+=vx*self._dt;y+=vy*self._dt
+            if abs(y)>wall:
+                side=1.0 if y>0.0 else -1.0
+                y=side*wall*2.0-y;vy=-side*abs(vy)*self._wall
+            if x>=goal and vx>0.0:
+                fraction=(goal-oldx)/max(1e-9,x-oldx)
+                gy=oldy+(y-oldy)*fraction
+                if abs(gy)>self._mouth+.15:
+                    return None
+                time=(tick-1+fraction)*self._dt
+                path.append((time,goal,gy))
+                return path,(time,gy,math.hypot(vx,vy))
+            if x<=self._left+self._ball_radius:
+                return None
+            vx*=self._friction;vy*=self._friction
+            if tick%2==0:
+                path.append((tick*self._dt,x,y))
+        return None
+
+    def _shot_option(self,p,bx,by,vx,vy,opponents,target_y,bank=False):
+        if bank:
+            wall=(self._half_height-self._ball_radius)*(1.0 if by>=0.0 else -1.0)
+            aim_y=wall+(wall-target_y)/self._wall
+        else:
+            aim_y=target_y
+        ux,uy=_unit(self._right-bx,aim_y-by)
+        along=vx*ux+vy*uy
+        sideways=max(0.0,vx*vx+vy*vy-along*along)
+        if sideways>=self._impulse*self._impulse:
+            return None
+        speed=min(self._ball_cap,along+math.sqrt(self._impulse*self._impulse-sideways))
+        kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+        if kick is None:
+            return None
+        movement=self._move(p,(bx+.3,by))
+        sx,sy=self._requested_velocity(vx,vy,kick)
+        launch=self._carrier_contact(p,bx,by,sx,sy,movement)
+        if launch is None:
+            return None
+        forecast=self._goal_path(launch)
+        if forecast is None:
+            return None
+        path,(flight,gy,end_speed)=forecast
+        if flight>2.5 or end_speed<6.0:
+            return None
+        margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
+        body=self._early_body_margin(path,opponents,flight)
+        if margin<self.SHOT_MARGIN or body<-.06:
+            return None
+        score=6.0+min(margin,.5)*4.0-flight*.7+min(end_speed,20.0)*.03
+        return score,kick,movement,None
+
+    def _before_endwall(self,p,bx,by,vx,vy,friends,opponents):
+        fallback=self._legacy_policy_kick(p,bx,by,vx,vy,friends,opponents)
+        pressure=min((math.hypot(q[1]-bx,q[2]-by) for q in opponents),default=100.0)
+        fallback_plan=self._pass_plan
+        fallback_bank=self._bank_plan
+        fallback_move=self._touch_movement
+        best=None
+        # Clear, reachable shots retain priority over sideways retention.
+        if bx>self._right-40.0:
+            for y in (-5.7,-3.0,0.0,3.0,5.7):
+                option=self._shot_option(p,bx,by,vx,vy,opponents,y)
+                if option is not None and (best is None or option[0]>best[0]):
+                    best=option
+        link=self._search_links(p,bx,by,vx,vy,friends,opponents)
+        if link is not None and (best is None or link[0]>best[0]):
+            best=link
+        # Rate the existing action too; a search is not permission to replace
+        # a productive shot or carry with an arbitrary pass.
+        old_score=-2.0
+        if fallback is not None:
+            sx,sy=self._requested_velocity(vx,vy,fallback)
+            move=fallback_move or self._move(p,(bx+.3,by))
+            launch=self._carrier_contact(p,bx,by,sx,sy,move)
+            goal=self._goal_path(launch) if launch is not None and sx>0.0 else None
+            if goal is not None:
+                path,(flight,gy,end_speed)=goal
+                margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
+                old_score=6.0+min(margin,.5)*4.0-flight*.7+min(end_speed,20.0)*.03
+            elif fallback_plan is not None:
+                receiver=next((q for q in friends if q[0]==fallback_plan[0]),None)
+                if receiver is not None:
+                    rated=self._link_option(p,bx,by,vx,vy,receiver,opponents,fallback_plan[1],fallback_plan[2],math.hypot(sx,sy))
+                    old_score=rated[0] if rated is not None else -.5
+            elif math.hypot(sx,sy)<=10.5:
+                path=self._touch_path(p,bx,by,vx,vy,fallback,move,opponents)
+                old_score=path[0]*.55 if path is not None else -2.0
+        if best is not None and best[0]>old_score+self.OPTION_SWITCH_MARGIN:
+            self._touch_movement=best[2]
+            self._pass_plan=best[3]
+            self._bank_plan=None
+            return best[1]
+        self._pass_plan=fallback_plan
+        self._bank_plan=fallback_bank
+        self._touch_movement=fallback_move
+        return fallback
+
+    def _endwall_link(self,p,bx,by,vx,vy,friends,opponents):
+        if bx<15.0 or abs(by)<8.0 or p[0]==0:
+            return None
+        wall=self._right-self._ball_radius
+        movement=self._move(p,(bx+.3,by))
+        best=None
+        for q in friends[1:]:
+            if q[0]==p[0] or q[1]<max(bx+2.0,self._right-24.0):
+                continue
+            for extra in (-4.0,0.0,4.0):
+                tx,ty=self._target(q[1]+q[3]*.4,q[2]+q[4]*.4+extra)
+                virtual=wall+(wall-tx)/self._wall
+                ux,uy=_unit(virtual-bx,ty-by)
+                along=vx*ux+vy*uy
+                sideways=max(0.0,vx*vx+vy*vy-along*along)
+                if sideways>=self._impulse*self._impulse:
+                    continue
+                speed=min(self._ball_cap,along+math.sqrt(self._impulse*self._impulse-sideways))
+                kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+                if kick is None:continue
+                sx,sy=self._requested_velocity(vx,vy,kick)
+                launch=self._carrier_contact(p,bx,by,sx,sy,movement)
+                if launch is None or launch[2]<6.0:continue
+                n=self._crossing_ticks(launch[0],launch[2],wall)
+                if n>32:continue
+                hit_y=launch[1]+launch[3]*self._roll[n]
+                if not self._mouth+1.1<abs(hit_y)<self._half_height-1.0:
+                    continue
+                path=self._option_path(launch)
+                post=[sample for sample in path if sample[0]>(n+1)*self._dt]
+                if not post:continue
+                arrival,point=self._intercept(q,post)
+                if arrival>2.4 or point[0]<self._right-25.0:continue
+                enemy=min((self._intercept(o,path)[0] for o in opponents),default=100.0)
+                margin=enemy-arrival
+                if margin<.12 or self._early_body_margin(path,opponents,arrival)<-.04:
+                    continue
+                progress=math.hypot(self._right-bx,by)-math.hypot(self._right-point[0],point[1])
+                space=min((math.hypot(point[0]-o[1],point[1]-o[2]) for o in opponents),default=20.0)
+                score=.9+progress*.15+min(margin,.8)*3.0+min(space,9.0)*.10-arrival*.7
+                if point[0]>self._right-20.0 and abs(point[1])<12.0:score+=1.0
+                if best is None or score>best[0]:
+                    best=score,kick,movement,(q[0],point[0],point[1])
+        return best
+
+    def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
+        fallback=self._before_endwall(p,bx,by,vx,vy,friends,opponents)
+        if fallback is None or bx<15.0 or abs(by)<8.0:
+            return fallback
+        sx,sy=self._requested_velocity(vx,vy,fallback)
+        move=self._touch_movement or self._move(p,(bx+.3,by))
+        launch=self._carrier_contact(p,bx,by,sx,sy,move)
+        if launch is not None:
+            goal=self._goal_path(launch)
+            if goal is not None:
+                path,_=goal
+                margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
+                if margin>=-.04:return fallback
+        option=self._endwall_link(p,bx,by,vx,vy,friends,opponents)
+        if option is None:return fallback
+        score=-2.0
+        if self._pass_plan is not None:
+            q=next((q for q in friends if q[0]==self._pass_plan[0]),None)
+            rated=self._link_option(p,bx,by,vx,vy,q,opponents,self._pass_plan[1],self._pass_plan[2],math.hypot(sx,sy)) if q else None
+            if rated is not None:score=rated[0]
+        elif math.hypot(sx,sy)<=10.5:
+            rated=self._touch_path(p,bx,by,vx,vy,fallback,move,opponents)
+            if rated is not None:score=rated[0]*.55
+        if option[0]>score+.2:
+            self._touch_movement=option[2]
+            self._pass_plan=option[3];self._bank_plan=option[3]
+            return option[1]
+        return fallback

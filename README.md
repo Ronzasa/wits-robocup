@@ -1,5 +1,10 @@
 # Soccer agent platform — student edition
 
+Current competition controller: **[team.py — v7.0](my-team/team.py)** on the
+`main` branch. [Read the local validation results](docs/v7.0-validation.md).
+Upload only `team.py` through the course submission system; a GitHub push does
+not update the league entry.
+
 Write a soccer team in Python, play it against reference opponents on your own
 machine, and watch the match in your browser.
 
