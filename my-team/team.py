@@ -1,14 +1,16 @@
-"""Balanced Pep–Klopp hybrid with public-physics action planning.
+"""Balanced Pep--Klopp hybrid with contact-aware shot selection.
 
-Shared dense forecasts and momentum-aware interception coordinate the team.
-The carrier compares reachable shots, receiver-led passes at several powers,
-and recoverable touches, including its own first body contact. Side-wall
-outlets and attacking end-wall cutbacks name a receiver and compare both legs
-with the opponents' interception race. One covering role stays behind attacks;
-verified transitions retain brief counterpressing and quick counters.
+The finishing check includes a nearby defender's legal movement, kick readiness
+and body contact before the next ball step. Threatened fallback shots lose
+their safety bonus and can yield to a reachable pass or a verified recoverable
+touch. Emergency clearances remain available when no better action qualifies.
 
-Only canonical public observations and the documented course physics profile
-are used. Player attributes are unchanged. Seeds and opponent names are unused.
+Dense ball forecasts, receiver-led links, side-wall and end-wall outlets,
+balanced counterpressing, cover and keeper behaviour retain the v7 structure.
+Only public canonical observations and documented course physics are used;
+player attributes stay fixed, and seeds/opponent identities are unused.
+Early-contact reach bounds are conservative approximations, not guaranteed
+predictions of the opponent's chosen action or of a goal.
 """
 import math
 
@@ -28,7 +30,8 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola + Jurgen Klopp Hybrid"
-    version = "7.0-hybrid-physics-planner"
+    version = "9.0-contact-aware-finishing"
+    SHOT_CONTACT_TICKS = 3
     LINK_MARGIN = 0.10
     SHOT_MARGIN = -0.04
     OPTION_SWITCH_MARGIN = 0.15
@@ -1581,7 +1584,8 @@ class Guardiola2011(TeamController):
             return None
         margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
         body=self._early_body_margin(path,opponents,flight)
-        if margin<self.SHOT_MARGIN or body<-.06:
+        contact=self._shot_contact_margin(bx,by,launch,opponents,flight)
+        if margin<self.SHOT_MARGIN or body<-.06 or contact<-.02:
             return None
         score=6.0+min(margin,.5)*4.0-flight*.7+min(end_speed,20.0)*.03
         return score,kick,movement,None
@@ -1593,6 +1597,7 @@ class Guardiola2011(TeamController):
         fallback_bank=self._bank_plan
         fallback_move=self._touch_movement
         best=None
+        blocked_shot=False
         # Clear, reachable shots retain priority over sideways retention.
         if bx>self._right-40.0:
             for y in (-5.7,-3.0,0.0,3.0,5.7):
@@ -1613,7 +1618,12 @@ class Guardiola2011(TeamController):
             if goal is not None:
                 path,(flight,gy,end_speed)=goal
                 margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
+                contact=self._shot_contact_margin(bx,by,launch,opponents,flight)
                 old_score=6.0+min(margin,.5)*4.0-flight*.7+min(end_speed,20.0)*.03
+                if (bx>self._right-40.0 and fallback_plan is None and fallback_bank is None
+                        and (contact<-.02 or margin<self.SHOT_MARGIN or self._early_body_margin(path,opponents,flight)<-.06)):
+                    old_score=-2.0
+                    blocked_shot=True
             elif fallback_plan is not None:
                 receiver=next((q for q in friends if q[0]==fallback_plan[0]),None)
                 if receiver is not None:
@@ -1622,6 +1632,16 @@ class Guardiola2011(TeamController):
             elif math.hypot(sx,sy)<=10.5:
                 path=self._touch_path(p,bx,by,vx,vy,fallback,move,opponents)
                 old_score=path[0]*.55 if path is not None else -2.0
+        if blocked_shot:
+            controlled=self._controlled_touch(p,bx,by,vx,vy,opponents)
+            if controlled is not None:
+                csx,csy=self._requested_velocity(vx,vy,controlled[1])
+                control_launch=self._carrier_contact(p,bx,by,csx,csy,controlled[2])
+                control_path=self._touch_path(p,bx,by,vx,vy,controlled[1],controlled[2],opponents)
+                if (control_launch is not None and control_path is not None
+                        and self._shot_contact_margin(bx,by,control_launch,opponents,.15)>=-.02):
+                    candidate=(control_path[0]*.55,controlled[1],controlled[2],None)
+                    if best is None or candidate[0]>best[0]:best=candidate
         if best is not None and best[0]>old_score+self.OPTION_SWITCH_MARGIN:
             self._touch_movement=best[2]
             self._pass_plan=best[3]
@@ -1687,9 +1707,11 @@ class Guardiola2011(TeamController):
         if launch is not None:
             goal=self._goal_path(launch)
             if goal is not None:
-                path,_=goal
+                path,goal_details=goal
                 margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.0)
-                if margin>=-.04:return fallback
+                contact=self._shot_contact_margin(bx,by,launch,opponents,goal_details[0])
+                if (margin>=self.SHOT_MARGIN and contact>=-.02
+                        and self._early_body_margin(path,opponents,goal_details[0])>=-.06):return fallback
         option=self._endwall_link(p,bx,by,vx,vy,friends,opponents)
         if option is None:return fallback
         score=-2.0
@@ -1705,3 +1727,41 @@ class Guardiola2011(TeamController):
             self._pass_plan=option[3];self._bank_plan=option[3]
             return option[1]
         return fallback
+
+    def _shot_contact_margin(self, bx, by, launch, opponents, until):
+        # Players move, then kick at the pre-step ball, then the ball moves.
+        # Launch already contains our first movement/contact tick. Subsequent
+        # ready defenders can kick at that position before the next ball step.
+        x, y, vx, vy = launch
+        oldx, oldy = bx, by
+        best = 100.0
+        wall = self._half_height - self._ball_radius
+        steps = min(self.SHOT_CONTACT_TICKS, max(1, int(math.ceil(until*self._hz))))
+        for n in range(1, steps+1):
+            coast, reach = self._reach_table[n]
+            elapsed = n * self._dt
+            for q in opponents:
+                qx, qy = q[1]+q[3]*coast, q[2]+q[4]*coast
+                # A body can touch the ball after this movement/ball step.
+                body = max(math.hypot(x-qx,y-qy)-reach-self._contact,
+                           math.hypot(x-q[1],y-q[2])-self._speed*elapsed-self._contact)
+                best = min(best, body)
+                if self._enemy_cooldowns.get(q[0],0) <= n:
+                    # The previous ball position is available to a kicker.
+                    kick = max(math.hypot(oldx-qx,oldy-qy)-reach-self._range,
+                               math.hypot(oldx-q[1],oldy-q[2])-self._speed*elapsed-self._range)
+                    best = min(best, kick)
+            if best < -.02:
+                return best
+            if x >= self._right-self._ball_radius or x <= self._left+self._ball_radius:
+                break
+            oldx, oldy = x, y
+            x += vx*self._dt
+            y += vy*self._dt
+            if abs(y)>wall:
+                side=1.0 if y>0.0 else -1.0
+                y=side*wall*2.0-y
+                vy=-side*abs(vy)*self._wall
+            vx *= self._friction
+            vy *= self._friction
+        return best

@@ -1,9 +1,14 @@
 # Soccer agent platform — student edition
 
-Recommended competition controller: **[team.py — v7.0](my-team/team.py)** on the
-`main` branch. [Read its local validation results](docs/v7.0-validation.md).
+Recommended competition controller: **[team.py — v9.0](my-team/team.py)** on the
+`main` branch. [Read its local validation results](docs/v9.0-validation.md).
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
+
+Version 9 corrects early defender-contact prediction and compares threatened shots
+with verified alternatives. On 672 paired fresh fixtures, it earned
+**1699 versus v7's 1535 points**, with **542 versus 477 wins**.
+[Read the full comparison](docs/v9.0-validation.md).
 
 The complete requested **[v8.0 tactical experiment](experiments/v8-full/team.py)**
 adds striker marking, five-player goal defence at a two-goal lead, rebound
