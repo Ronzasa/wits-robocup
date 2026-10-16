@@ -4,6 +4,9 @@ Settled possession retains coordinated receivers and pressure-aware touches.
 Wide defensive duels use a goal-facing screen; uncertain phase changes retain
 nearby goal-side marks briefly. Receiver-aware wall passes account for friction,
 inelastic rebounds, body blocks and both legs of the interception race.
+Wide keeper collections require a short, clearly winning race; outgoing
+clearances release the keeper to recover. Wall search has a fixed work budget,
+and shared interception forecasts avoid duplicate work each decision.
 
 Verified losses permit a brief selective counterpress; regains permit quick
 counters. Only public canonical observations and the public course profile are
@@ -27,7 +30,8 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola + Jurgen Klopp Hybrid"
-    version = "6.0-pep-klopp-wall-cover"
+    version = "6.1-pep-klopp-bounded-defense"
+    BANK_LAUNCH_BUDGET = 12
     COVER_SHAPE = True
     KEEPER_PRIORITY = True
     KEEPER_RECOVERY = True
@@ -355,7 +359,7 @@ class Guardiola2011(TeamController):
             room = min(room, lateral - needed)
         return room
 
-    def _transition_observe(self, obs, protected, friends, opponents):
+    def _transition_observe(self, obs, protected, friends, opponents, race_info=None):
         # Persist only a directly observed touch/control, never the nearest
         # runner or phase label. A loose ball alone cannot invent a regain.
         score = tuple(obs.score)
@@ -386,9 +390,12 @@ class Guardiola2011(TeamController):
         owner = 0 if direct in ours else 1 if direct in theirs else None
         bx, by = obs.ball.position
         vx, vy = obs.ball.velocity
-        samples = self._trajectory(bx, by, vx, vy)
-        our_race = min((self._intercept(p, samples)[0] for p in friends if p[0] != 0), default=100.0)
-        their_race = min((self._intercept(p, samples)[0] for p in opponents), default=100.0)
+        if race_info is None:
+            samples = self._trajectory(bx, by, vx, vy)
+            our_race = min((self._intercept(p,samples)[0] for p in friends if p[0]!=0),default=100.0)
+            their_race = min((self._intercept(p,samples)[0] for p in opponents),default=100.0)
+        else:
+            our_race,their_race=race_info
         pressure = min((math.hypot(p[1]-bx, p[2]-by) for p in opponents), default=100.0)
         favorable = (bx > self._left + 12.0 and pressure >= 3.2
                      and our_race + 0.10 < their_race)
@@ -1023,18 +1030,24 @@ class Guardiola2011(TeamController):
         normal_move = self._move(p, (bx + 0.3, by))
         brake = _unit(-p[3], -p[4])
         best = None
+        direct_cache = {}
+        used = 0
         candidates = [(receiver, offset) for receiver in friends[1:] for offset in (0.0, 7.0, 13.0)]
         for receiver, wall_lead in candidates:
             if receiver[0] == p[0] or receiver[1] < bx + 5.0:
                 continue
             # A wall route has a cost: an already open direct pass wins.
-            direct = self._pass_velocity(bx, by, vx, vy, receiver[1], receiver[2])
-            if direct is not None:
-                direct_path = self._trajectory(bx,by,direct[0],direct[1])
-                own = self._intercept(receiver,direct_path)[0]
-                enemy = min((self._intercept(o,direct_path)[0] for o in opponents),default=100.0)
-                if own+0.18<enemy and self._lane(bx,by,receiver[1],receiver[2],direct[2],opponents)>1.5:
-                    continue
+            if receiver[0] not in direct_cache:
+                direct = self._pass_velocity(bx,by,vx,vy,receiver[1],receiver[2])
+                safe = False
+                if direct is not None:
+                    direct_path=self._trajectory(bx,by,direct[0],direct[1])
+                    own=self._intercept(receiver,direct_path)[0]
+                    enemy=min((self._intercept(o,direct_path)[0] for o in opponents),default=100.0)
+                    safe=(own+0.18<enemy and self._lane(bx,by,receiver[1],receiver[2],direct[2],opponents)>1.5)
+                direct_cache[receiver[0]]=safe
+            if direct_cache[receiver[0]]:
+                continue
             for extra in (0.0, 3.0):
                 lateral = (1.0 if by>=0.0 else -1.0)*wall_lead
                 tx, ty = self._target(receiver[1] + extra, receiver[2] + lateral)
@@ -1060,12 +1073,19 @@ class Guardiola2011(TeamController):
                 kick = self._kick_to_velocity(vx, vy, velocity[0], velocity[1])
                 if kick is None:
                     continue
+                previous_launch = None
                 for movement in (normal_move, brake):
                     sx, sy = self._requested_velocity(vx, vy, kick)
                     launch = self._carrier_contact(p, bx, by, sx, sy, movement)
                     if (launch is None or launch[2]<=4.0 or launch[3]*wall<=0.0
                             or abs(launch[1])>self._half_height-self._ball_radius):
                         continue
+                    if launch == previous_launch:
+                        continue
+                    previous_launch=launch
+                    if self.BANK_LAUNCH_BUDGET and used>=self.BANK_LAUNCH_BUDGET:
+                        return best
+                    used+=1
                     path, bounce = self._bank_path(*launch)
                     if bounce is None or bounce > 1.2:
                         continue
@@ -1085,15 +1105,15 @@ class Guardiola2011(TeamController):
                     relevant = [s for s in path if s[0] <= arrival + 0.16]
                     enemy = 100.0
                     for t, x0, y0 in relevant:
+                        if t<=0.35:
+                            steps=max(1,int(round(t*self._hz)))
+                            decay=self._damping**steps
+                            coast=self._dt*self._damping*(1.0-decay)/(1.0-self._damping)
+                            reach=self._dt*self._acc/(1.0-self._damping)*(steps-self._damping*(1.0-decay)/(1.0-self._damping))
                         for opponent in opponents:
                             reachable = self._eta(opponent,x0,y0) <= t+0.03
                             if t<=0.35:
-                                # A cooldown prevents a kick, not a physical
-                                # block. Include immediate moving body reach.
-                                steps=max(1,int(round(t*self._hz)))
-                                decay=self._damping**steps
-                                coast=self._dt*self._damping*(1.0-decay)/(1.0-self._damping)
-                                reach=self._dt*self._acc/(1.0-self._damping)*(steps-self._damping*(1.0-decay)/(1.0-self._damping))
+                                # Bodies still obstruct a pass on cooldown.
                                 ex=opponent[1]+opponent[3]*coast
                                 ey=opponent[2]+opponent[4]*coast
                                 radius=(self._range if self._enemy_cooldowns.get(opponent[0],0)<=steps else self._contact)
@@ -1238,7 +1258,6 @@ class Guardiola2011(TeamController):
         protected = (obs.tick < self._restart_until and self._restart_owner == 1)
         friends = [(p.id, *p.position, *p.velocity) for p in obs.my_players]
         opponents = [(p.id, *p.position, *p.velocity) for p in obs.opponents]
-        self._transition_observe(obs, protected, friends, opponents)
         self._enemy_cooldowns = {p.id:p.kick_cooldown_ticks for p in obs.opponents}
         actions = TeamAction(debug={"roles": self.PLAYER_ROLES})
         if not friends:
@@ -1267,6 +1286,8 @@ class Guardiola2011(TeamController):
                 enemy_eta = eta
         if enemy_eta is None:
             enemy_eta = 100.0
+        self._transition_observe(obs,protected,friends,opponents,
+            (min((v[0] for k,v in races.items() if k!=0),default=100.0),enemy_eta))
         attack = races[chaser[0]][0] <= enemy_eta + 0.12
 
         keeper_x = self._left + 2.2
@@ -1280,6 +1301,14 @@ class Guardiola2011(TeamController):
                 keeper_y = by + vy * time_to_line
         keeper_target = (keeper_x, _clip(keeper_y, -self._mouth, self._mouth))
         sweep = bx < self._left+10.0 and self._eta(keeper,bx,by)<races[chaser[0]][0]*0.85
+        if sweep and abs(by)>self._mouth+1.0:
+            # Wide collection is useful only with a clear first arrival.
+            # Do not drag the keeper along its own fast outgoing clearance.
+            ours=self._eta(keeper,bx,by)
+            theirs=min((self._eta(o,bx,by) for o in opponents),default=100.0)
+            away=(obs.ball.last_touch==keeper[0] and vx>6.0
+                  and (bx-keeper[1])*vx+(by-keeper[2])*vy>0.0)
+            sweep=(not away and ours<=1.10 and ours+0.20<theirs)
         if self.KEEPER_PRIORITY and self.PREDICTIVE_KEEPER and vx<-8.0 and math.hypot(vx,vy)>=12.0 and bx>keeper_x:
             flight=(keeper_x-bx)/vx
             if 0.0<flight<0.55:
