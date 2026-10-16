@@ -1,9 +1,16 @@
 # Soccer agent platform — student edition
 
-Current competition controller: **[team.py — v7.0](my-team/team.py)** on the
-`main` branch. [Read the local validation results](docs/v7.0-validation.md).
+Recommended competition controller: **[team.py — v7.0](my-team/team.py)** on the
+`main` branch. [Read its local validation results](docs/v7.0-validation.md).
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
+
+The complete requested **[v8.0 tactical experiment](experiments/v8-full/team.py)**
+adds striker marking, five-player goal defence at a two-goal lead, rebound
+counters, third-man short passing, Pelé finishing, long shots and wall collection.
+It earned **1,464 versus v7's 1,555 points** on 672 paired fresh fixtures and
+conceded **566 versus 476 goals**. It remains experimental;
+[read the results and limitations](docs/v8.0-validation.md) before uploading it.
 
 Write a soccer team in Python, play it against reference opponents on your own
 machine, and watch the match in your browser.
