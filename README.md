@@ -5,6 +5,13 @@ Recommended competition controller: **[team.py — v9.1](my-team/team.py)** on t
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
 
+[TITAN-10B](experiments/titan-10b/team.py) checks executable receiver movements
+and the actual command after role selection. On 720 paired fresh local fixtures
+it earned **1917 versus v9.1's 1847 points**. Raw deadline misses rose from 22
+to 33, failing the registered timing gate; v9.1 remains recommended.
+[Read all metrics and limitations](docs/titan-10b-validation.md).
+The unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
+
 The [strict interception build](experiments/strict-interceptions/team.py) requires
 physically verified pass receptions and rebound collection. On 560 paired fresh
 local fixtures it earned **1507 versus v9.0's 1440 points** and passed the
