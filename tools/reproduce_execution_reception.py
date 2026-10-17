@@ -47,6 +47,9 @@ def snapshot(c, obs, action, before):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--challenger', type=Path,
+                        default=ROOT / 'experiments/titan-10b/team.py',
+                        help='Execution model to use for the receiver-only recovery.')
     args = parser.parse_args()
     if args.out.exists():
         parser.error('Use a new output directory; preserve previous runs.')
@@ -63,7 +66,7 @@ def main():
     opponent_path.parent.mkdir()
     opponent_path.write_bytes(opponent)
     champion = load('reception_v91', champion_path)
-    challenger = load('reception_execution', ROOT / 'experiments/titan-10b/team.py')
+    challenger = load('reception_execution', args.challenger.resolve())
 
     class Replay(champion.Guardiola2011):
         def reset(self, seed):

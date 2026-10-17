@@ -12,6 +12,13 @@ to 33, failing the registered timing gate; v9.1 remains recommended.
 [Read all metrics and limitations](docs/titan-10b-validation.md).
 The unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 
+On `titan-10b-r-runtime`, [TITAN-10B-R](experiments/titan-10b-r/team.py)
+preserves TITAN-10B decisions while reducing runtime. It earned **1922 versus
+v9.1's 1864 points** across 720 fresh paired fixtures and passed every original
+promotion gate. It is approved as the v10.0 candidate on this feature branch.
+The active `my-team/team.py` and all frozen baselines remain unchanged.
+[Read the full runtime and promotion evidence](docs/titan-10b-r-validation.md).
+
 The [strict interception build](experiments/strict-interceptions/team.py) requires
 physically verified pass receptions and rebound collection. On 560 paired fresh
 local fixtures it earned **1507 versus v9.0's 1440 points** and passed the

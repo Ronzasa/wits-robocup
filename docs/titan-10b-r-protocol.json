@@ -1,0 +1,48 @@
+{
+  "registered_utc": "2026-10-17T17:05:04.699598+00:00",
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "sources": {
+    "champion": {
+      "path": "champions/v9.1/team.py",
+      "sha256": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6"
+    },
+    "runtime": {
+      "path": "experiments/titan-10b-r/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    }
+  },
+  "opponents_archive": "tests/fixtures/titan-10b-opponents.zip",
+  "opponents_archive_sha256": "817378b57ab0eb1f8519ee9fbd9f68e2524b9ee393026550be1c4fe56dda66ed",
+  "seeds": {
+    "validation": [
+      1345300419,
+      1339953594,
+      211926972,
+      1581440374,
+      1941971150,
+      1092556230
+    ],
+    "stress": [
+      784083240,
+      1426356639,
+      870551050,
+      1659280265,
+      1517888952,
+      1739680390
+    ]
+  },
+  "fixture_order_seed": 101017,
+  "workers": 1,
+  "fixture_count_per_source": 720,
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "gate": "More fresh points and positive paired whole-seed bootstrap95%lower bound. Zero policy exceptions, no reproducible deadline failures. Mean decision<=champion*1.35+0.04ms; no more than2 additional raw deadline misses per1000fixtures. Otherwise retainv9.1.",
+  "timing_policy": "Preserve all raw results. Repeat only exact timeout-containing fixtures, max3, firstclean regardlessscore. Exceptions never repaired. Raw timing gate unchanged.",
+  "environment": "Single serial worker; pair and source order balanced. No controller timers/GC/deadline/affinity changes.",
+  "freshness": {
+    "previous_protocols_checked": 26,
+    "previous_seeds_excluded": 246,
+    "no_overlapping_seed": true
+  }
+}
