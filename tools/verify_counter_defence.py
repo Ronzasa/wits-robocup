@@ -59,6 +59,8 @@ def main():
                             def inspect(obs,friends,enemies,chaser,races,enemy_eta,targets,receive_target,protected):
                                 nonlocal captured,changed_count,doubles,threat_ticks,receiver_ticks,examples
                                 before=dict(targets)
+                                episode_before={k:getattr(driven,k) for k in ('_counter_score','_counter_tick',
+                                    '_counter_double_until','_counter_double_latched')}
                                 method(obs,friends,enemies,chaser,races,enemy_eta,targets,receive_target,protected)
                                 changed={i for i in targets if targets[i]!=before[i]}
                                 locked={0,chaser[0]}
@@ -80,6 +82,11 @@ def main():
                                         'ready':[p[0] for p in friends if obs.can_kick(p[0])],
                                         'friends':friends,'opponents':enemies,'chaser':chaser,'races':races,'enemy_eta':enemy_eta,
                                         'press_owner':driven._press_contact_owner,'own_contact_tick':driven._press_own_contact_tick,
+                                        'friend_cooldowns':dict(driven._friend_cooldowns),
+                                        'enemy_cooldowns':dict(driven._enemy_cooldowns),'episode_before':episode_before,
+                                        'public_field':{k:getattr(obs.field,k) for k in ('simulation_hz','max_speed',
+                                            'acceleration','ball_friction','kick_impulse','kick_range','my_goal','opponent_goal',
+                                            'height','goal_width','centre_circle_radius','player_radius','ball_radius')},
                                         'guard':driven._shape_cover_id,'receiver':receive_target,'protected':protected,
                                         'before':before,'after':dict(targets),'trace':dict(driven._counter_trace)})
                                     examples+=1

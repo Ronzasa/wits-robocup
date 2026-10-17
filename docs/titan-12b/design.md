@@ -12,7 +12,7 @@ commands intact. Emergency support reserves the verified receiver, if present,
 or the most advanced existing free-runner target as the outlet; it never rewrites
 that player's attacking command. It does not manufacture an additional player.
 
-## Independent components
+## Initial independent components (development precursors)
 
 * **Detector:** reuse v10's directly observed own-contact/loss evidence and the
   already-computed ball races. A genuine recent loss, likely impending loss, or
@@ -43,7 +43,7 @@ marking and counterpress are not rewritten. The new hook runs after existing
 verified receiver planning and never edits the goalkeeper, primary chaser or
 named receiver target. A current ready kicker keeps all original decisions.
 
-## Cost and legal interface
+## Initial cost and legal interface
 
 There is no new ball rollout, pass-race search or simulation tree. There are at
 most four threat candidates and five friends; lane checks and the one support
@@ -77,7 +77,7 @@ The regression fixture now preserves the exact public field values, including
 The snapshots then reproduced exactly, without relaxing comparisons or changing
 controller code. The earlier failed test logs remain in the evidence archive.
 
-## Registered extension: physically observed counterpass routes
+## Registered extension: observed-flight precursor
 
 Both speculative cover variants and the one flight-filter refinement lost
 points in the completed 48-fixture development screens. Before any held-out
@@ -115,3 +115,70 @@ checks before combination. Their complete development ablation will precede
 selection and one 768-pair held-out qualification. Even a weak development
 winner will receive that final qualification; no favorable cohort will be
 selected, pooled or rerun to override a failed gate.
+
+## Final integration: anticipate a legal release before it occurs
+
+The observed-flight precursor found 229 threat ticks in 38,400 shared native
+observations per variant, but no useful positioning changes: the defender was
+too late. A second version also considers up to two legal imminent releases
+while an opposing carrier controls the ball just after our loss. This is a
+bounded prediction of possible enemy actions, not a claim to know enemy intent.
+
+The carrier must be ready to kick. Its forecast uses the unchanged legal
+kick-impulse, requested-velocity and actual carrier-contact helpers, with movement
+toward our goal. At most two forward/central receivers within 35 pitch units
+are considered. The resulting wall-aware routes use the same dense public
+physics and strict contact witnesses. Current observations at t=0 are not
+mistaken for new collections: future contacts start at the next movement step.
+All feasible opposing receivers compete along each route, and a physically
+earlier primary chaser suppresses a needless cover intervention. An unavailable
+contact remains infeasible; no ETA is substituted.
+
+Controlled central shooting danger, already goal-bound near-term shots and
+terminal collections inside 14 units of our goal retain the baseline response.
+This protects the keeper's existing decisions and avoids new goal-mouth cover
+assignments. Opponent cooldowns, launch power, player acceleration and speed
+caps remain official. Hypothetical contacts assume the public free-motion
+forecast; future collisions and the opponent's chosen action remain unknown.
+
+Requiring a goal-side marker to arrive *before* the opposing collection made
+the strict predictive positioning variants inactive too. Before any physical-
+threat strength tournament or held-out result, the final integration restored
+the **original independently tested cover target selector**, rather than adding
+another set of fitted timing coefficients. Its positioning ETA is a heuristic,
+distinct from the opponent's physically verified collection. The final detector
+is identical to the predictive precursor, and the target selector/assignment
+methods are identical to the initial independently tested components. Regression
+tests enforce this method-level isolation.
+
+`verified-cover` and `verified-double` passed independent native checks before
+`verified-combined` was created. All three then entered the same complete paired
+development screen. The registered selection chose the combined controller:
+71 versus v10's 70 points, 51 versus 48 goals scored, 45 conceded each. Single
+cover tied it; emergency support alone matched v10. This is preliminary evidence,
+not a promotion result. The selected source was copied **byte-for-byte** to
+`experiments/titan-12b/team.py`, and both its expansion and final qualification
+protocols were frozen before the expansion began.
+
+The selected source hash is
+`8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074`,
+already committed in checkpoint `f843834`. Both assignments are enabled. Their
+methods are identical to the isolated variants; only the two action flags differ.
+The combined source passed **135 regressions** and 38,400 native shared-state
+checks before its first tournament. Across all independent precursors and the
+combination, 499,200 shared native decisions checked preservation of original
+state, kicks and protected role commands. These are diagnostic comparisons,
+not extra independent strength samples or a guarantee of zero timing spikes.
+
+The final work adds at most two 1.25-second forecasts and ten bounded contact
+queries. Local dense step metadata is shared by queries on the same path without
+changing our passing cache or receiver aim. It is disabled whenever any own
+player is ready to kick, so it cannot overlap the expensive own kick search.
+There is no full-tree search, learning dependency or submitted timer/GC control.
+The registered promotion gates and untouched final seed cohort are unchanged.
+
+A final post-qualification development-seed replay added an exact snapshot of
+the selected controller, including public cooldowns and pre-hook emergency
+state. It reproduces without tolerance relaxation. Final verification passed
+136 tests. These additional 9,600 native shared-state checks bring the diagnostic
+total to 508,800; the controller and every formal result remain unchanged.

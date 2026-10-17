@@ -19,6 +19,12 @@ It passed every original promotion gate. `my-team/team.py` contains the exact
 tested build; the unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 [Read the full runtime and promotion evidence](docs/titan-10b-r-validation.md).
 
+[TITAN-12B counter-defence](docs/titan-12b/README.md) completed 2,400 local full-match
+fixtures and 136 regression tests. Fresh qualification scored 1,445 versus
+v10.0’s 1,449 points and failed the raw deadline gap. **v10.0 remains active**;
+`experiments/titan-12b/team.py` is an unpromoted research controller. All failures
+and exact repeats are preserved in the report.
+
 The [strict interception build](experiments/strict-interceptions/team.py) requires
 physically verified pass receptions and rebound collection. On 560 paired fresh
 local fixtures it earned **1507 versus v9.0's 1440 points** and passed the

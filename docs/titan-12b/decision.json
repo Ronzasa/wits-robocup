@@ -1,0 +1,34 @@
+{
+  "decision": "RETAIN_V10_0",
+  "active_changed": false,
+  "main_changed": false,
+  "candidate": "experiments/titan-12b/team.py",
+  "candidate_sha256": "8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074",
+  "status": "UNPROMOTED",
+  "selected_configuration": "verified-combined",
+  "fresh_paired_fixtures": 768,
+  "fresh_points": {
+    "champion": 1449,
+    "challenger": 1445
+  },
+  "paired_95_points_per_match": [
+    -0.052083333333333336,
+    0.041666666666666664
+  ],
+  "raw_misses": {
+    "champion": 2,
+    "challenger": 6
+  },
+  "raw_extra_misses_per_1000": 5.208333333333333,
+  "failed_gates": [
+    "more_points",
+    "positive_paired_95_lower",
+    "raw_deadline_delta_at_most_2_per_1000"
+  ],
+  "formal_fixtures": 2400,
+  "source_side_decisions": 5760000,
+  "source_side_raw_misses": 13,
+  "source_side_policy_exceptions": 0,
+  "regression_tests_passed": 136,
+  "active_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+}

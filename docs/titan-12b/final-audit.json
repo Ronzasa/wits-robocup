@@ -1,0 +1,137 @@
+{
+  "all_schedules_complete": true,
+  "protocol_hashes_verified": true,
+  "source_hashes_verified": true,
+  "source_fixture_counts": {
+    "screen": {
+      "champion": 48,
+      "detect": 48,
+      "cover": 48,
+      "double": 48
+    },
+    "refinement-screen": {
+      "champion": 48,
+      "refinement": 48
+    },
+    "verified-screen": {
+      "champion": 48,
+      "verified-cover": 48,
+      "verified-double": 48,
+      "verified-combined": 48
+    },
+    "verified-expansion": {
+      "champion": 192,
+      "route": 192
+    },
+    "validation-route": {
+      "champion": 768,
+      "route": 768
+    }
+  },
+  "scheduled_fixtures": 2400,
+  "source_side_decisions": 5760000,
+  "source_raw_misses_by_run": {
+    "screen": {
+      "champion": 0,
+      "detect": 1,
+      "cover": 0,
+      "double": 0
+    },
+    "refinement-screen": {
+      "champion": 0,
+      "refinement": 0
+    },
+    "verified-screen": {
+      "champion": 0,
+      "verified-cover": 0,
+      "verified-double": 0,
+      "verified-combined": 0
+    },
+    "verified-expansion": {
+      "champion": 2,
+      "route": 2
+    },
+    "validation-route": {
+      "champion": 2,
+      "route": 6
+    }
+  },
+  "source_raw_errors_by_run": {
+    "screen": {
+      "champion": 0,
+      "detect": 0,
+      "cover": 0,
+      "double": 0
+    },
+    "refinement-screen": {
+      "champion": 0,
+      "refinement": 0
+    },
+    "verified-screen": {
+      "champion": 0,
+      "verified-cover": 0,
+      "verified-double": 0,
+      "verified-combined": 0
+    },
+    "verified-expansion": {
+      "champion": 0,
+      "route": 0
+    },
+    "validation-route": {
+      "champion": 0,
+      "route": 0
+    }
+  },
+  "selected_source_repeated_failures": [],
+  "frozen_active_and_archives": {
+    "my-team/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "champions/v10.0/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "champions/v9.1/team.py": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6",
+    "experiments/titan-10b/team.py": "269a24fe3f826500b3d6c1aad76f8770f0084f5a3ad81258cd7c2f50fba36108"
+  },
+  "disjoint_seed_registry": true,
+  "native_diagnostics": {
+    "native-independent": {
+      "fixtures": 48,
+      "decisions": 115200,
+      "changed_ticks": 833,
+      "raw_misses": 0
+    },
+    "native-refinement": {
+      "fixtures": 16,
+      "decisions": 38400,
+      "changed_ticks": 754,
+      "raw_misses": 0
+    },
+    "native-route-independent": {
+      "fixtures": 48,
+      "decisions": 115200,
+      "changed_ticks": 0,
+      "raw_misses": 1
+    },
+    "native-predictive-independent": {
+      "fixtures": 48,
+      "decisions": 115200,
+      "changed_ticks": 0,
+      "raw_misses": 0
+    },
+    "native-verified-independent": {
+      "fixtures": 32,
+      "decisions": 76800,
+      "changed_ticks": 10,
+      "raw_misses": 0
+    },
+    "native-combined": {
+      "fixtures": 16,
+      "decisions": 38400,
+      "changed_ticks": 1,
+      "raw_misses": 1
+    },
+    "native-selected-regression": {
+      "fixtures": 4,
+      "decisions": 9600,
+      "changed_ticks": 1,
+      "raw_misses": 0
+    }
+  }
+}

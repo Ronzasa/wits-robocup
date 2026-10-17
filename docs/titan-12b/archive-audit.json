@@ -1,0 +1,11 @@
+{
+  "archive_sha256": "5ab97582ce880d705541a9d7f30ddccb2f80da078952a435ca4e9677b5bfab38",
+  "manifest_files": 161,
+  "zip_integrity_passed": true,
+  "every_manifest_digest_verified": true,
+  "all_baseline_raw_and_accepted_records_included": true,
+  "original_raw_evidence_unchanged_after_final_case_test": true,
+  "all_current_source_hashes_verified": true,
+  "formal_fixtures": 2400,
+  "final_tests_passed": 136
+}

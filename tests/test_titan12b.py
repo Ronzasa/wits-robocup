@@ -17,7 +17,7 @@ MODES = ('detect','cover','double','refinement','route-detect','route-cover','ro
 
 
 def controller(mode='cover'):
-    path=ROOT/'experiments'/('titan-12b-'+mode)/'team.py'
+    path=ROOT/'experiments'/('titan-12b' if mode=='selected' else 'titan-12b-'+mode)/'team.py'
     spec=importlib.util.spec_from_file_location('counter_'+mode,path)
     mod=importlib.util.module_from_spec(spec);spec.loader.exec_module(mod)
     c=mod.Guardiola2011();c._setup(FIELD)
@@ -334,5 +334,25 @@ class Titan12BTests(unittest.TestCase):
         self.assertEqual(methods('verified-double'),methods('verified-combined'))
         combined=controller('verified-combined')
         self.assertEqual((combined.COUNTER_COVER,combined.COUNTER_DOUBLE),(True,True))
+
+    def test_final_selected_controller_reproduces_exact_native_cover_and_episode_state(self):
+        data=json.loads((ROOT/'tests/fixtures/titan-12b-selected-case.json').read_text())
+        self.assertEqual(hashlib.sha256((ROOT/'experiments/titan-12b/team.py').read_bytes()).hexdigest(),data['source_sha256'])
+        self.assertTrue(data['cases'])
+        for row in data['cases']:
+            c=controller('selected');c._setup(S(**row['public_field']))
+            c._friend_cooldowns={int(k):v for k,v in row['friend_cooldowns'].items()}
+            c._enemy_cooldowns={int(k):v for k,v in row['enemy_cooldowns'].items()}
+            c._shape_cover_id=row['guard'];c._press_contact_owner=row['press_owner']
+            c._press_own_contact_tick=row['own_contact_tick']
+            for key,value in row['episode_before'].items():
+                setattr(c,key,tuple(value) if key=='_counter_score' and value is not None else value)
+            obs=observation(row['tick'],row['holder'],row['touch'],row['ball'][:2],row['ball'][2:],row['ready'])
+            obs.score=tuple(row['score'])
+            targets={int(k):tuple(v) for k,v in row['before'].items()}
+            c._counter_defence(obs,row['friends'],row['opponents'],row['chaser'],
+                {int(k):v for k,v in row['races'].items()},row['enemy_eta'],targets,row['receiver'],row['protected'])
+            self.assertEqual(json.loads(json.dumps(targets)),row['after'])
+            self.assertEqual(json.loads(json.dumps(c._counter_trace)),row['trace'])
 
 if __name__=='__main__':unittest.main()

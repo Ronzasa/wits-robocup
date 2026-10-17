@@ -1,0 +1,21 @@
+{
+  "ok": true,
+  "source_sha256": "8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074",
+  "stats": {
+    "matches played": 5,
+    "decisions": 2000,
+    "mean decision (ms)": "0.217",
+    "slowest decision (ms)": "5.386",
+    "deadline (ms)": "20.0",
+    "exceptions": 0,
+    "over deadline": 0,
+    "missing player actions": 0,
+    "non-finite values": 0,
+    "formation": "custom (5 spots)"
+  },
+  "errors": [],
+  "warnings": [],
+  "folder_errors": [],
+  "static_flags": [],
+  "status": "UNPROMOTED: failed fresh points/confidence and raw deadline gates"
+}

@@ -1,0 +1,20 @@
+{
+  "experiments/titan-12b/team.py": "8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074",
+  "experiments/titan-12b-cover/team.py": "21b5e4acb37aa94981968c156d674735089936faf6cf120513f43e4fa7f9e5ef",
+  "experiments/titan-12b-detect/team.py": "605c257437cb58560e5c0a2c5405733e95f637f8e971851b9cf1184d41ac6447",
+  "experiments/titan-12b-double/team.py": "a502dca8adf1cefc230a886e390a0415ad9671c02c17699a844ce8d3fb59f3ba",
+  "experiments/titan-12b-predictive-cover/team.py": "eeb722c753aa5a3b25d6e06aa14b472e4fc18ee67c714659da990174b4fb2450",
+  "experiments/titan-12b-predictive-detect/team.py": "07fd446437c43ae9cb10f5be17fbd091b76483b89b13691b4422b7f8c7028859",
+  "experiments/titan-12b-predictive-double/team.py": "b41b8e25777b212e6375bc060c01c6400e4acb45f4c35c0bd68bed0d1f0b14d0",
+  "experiments/titan-12b-refinement/team.py": "19df08b49df1f1f953fa68cc52f69793775528cf19690eff29d02a2d268806aa",
+  "experiments/titan-12b-route-cover/team.py": "a1abfcaef637b8abb9097bbd93927b4359fa1ea57704951b76c8c61f1ebe2a78",
+  "experiments/titan-12b-route-detect/team.py": "6b7ea53d72962d5d92b2fa1fb8cf4bb1de14707dd84da87d6ec8f5b357c2aa4f",
+  "experiments/titan-12b-route-double/team.py": "9cfd1e5495c246b914ce1dd64ce7dfb0a008ef0673e6d8d4affbea1de1ceaa90",
+  "experiments/titan-12b-verified-combined/team.py": "8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074",
+  "experiments/titan-12b-verified-cover/team.py": "b6bf12527e69bda0d5024f3a8a69b9dde55320a809a2774055c73cb40c90f9da",
+  "experiments/titan-12b-verified-double/team.py": "361b70828f0317593b68f950fee54a762eed41ab1feb0fc62dcd4de61d3e8516",
+  "my-team/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "champions/v10.0/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "champions/v9.1/team.py": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6",
+  "experiments/titan-10b/team.py": "269a24fe3f826500b3d6c1aad76f8770f0084f5a3ad81258cd7c2f50fba36108"
+}
