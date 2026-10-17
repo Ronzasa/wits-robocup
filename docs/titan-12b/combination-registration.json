@@ -1,0 +1,11 @@
+{
+  "registered_utc": "2026-10-17T22:39:57.530999+00:00",
+  "source": {
+    "path": "experiments/titan-12b-verified-combined/team.py",
+    "sha256": "8e33c9f624ec9bf61282eaa076cc2b539ec511c72d320787d8c91fc7be1d4074"
+  },
+  "prerequisites": "All134 corrected regressions and independent verified-cover/double native invariants passed before creating the combined source. New135th regression requires identical methods and only action-flag changes.",
+  "independent_results": "Initial heuristic point losses retained. Verified-risk variants have no football strength result yet; the upcoming paired screen measures both independent variants and their interaction. Combination is experimental, not a claim that failed precursors qualified.",
+  "changes": "Only enable both independently tested assignments under the same physical threat detector; no new tactics, thresholds or physics.",
+  "next": "Combined native invariants, complete development ablation and frozen final selection, then the unused route16 cohort. No further tactical changes."
+}

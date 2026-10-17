@@ -1,0 +1,47 @@
+{
+  "registered_utc": "2026-10-17T22:28:39.122274+00:00",
+  "amendment": "One development-only architecture extension before any heldout outcomes. Initial single-cover, double and one bounded flight-filter refinement all lost development points; retain all failed sources/results. Original promotion gates unchanged.",
+  "hypothesis": "Speculative next-pass receivers are the wrong threat model. Identify physically possible opponent collection on the currently observed ball route, before the existing chaser can win, and cover that collection opportunity.",
+  "computation": "At most one dense1.25s public-physics path, four opponent verified contacts and one primary-chaser verified contact. No heuristic ETA replaces an unavailable contact. Explicit local step metadata leaves passing caches and receiver aims unchanged. Never run the new verification while any own kicker is ready; heavy own kick-search and new route verification are disjoint.",
+  "safeguards": [
+    "Preserve existing keeper/chaser for already goal-bound shots",
+    "Do not change cover for opponent collections within14 pitch units of our goal; no goal-mouth crowding",
+    "Require defender positioning ETA before collection/lane arrival with0.05s lead, not a late arrival",
+    "Preserve all current protected role commands and immediate recovery; emergency max0.6s/one outlet unchanged"
+  ],
+  "independent_sources": {
+    "route-detect": {
+      "path": "experiments/titan-12b-route-detect/team.py",
+      "sha256": "6b7ea53d72962d5d92b2fa1fb8cf4bb1de14707dd84da87d6ec8f5b357c2aa4f"
+    },
+    "route-cover": {
+      "path": "experiments/titan-12b-route-cover/team.py",
+      "sha256": "a1abfcaef637b8abb9097bbd93927b4359fa1ea57704951b76c8c61f1ebe2a78"
+    },
+    "route-double": {
+      "path": "experiments/titan-12b-route-double/team.py",
+      "sha256": "9cfd1e5495c246b914ce1dd64ce7dfb0a008ef0673e6d8d4affbea1de1ceaa90"
+    }
+  },
+  "sequence": "Run independent regressions and native invariants for new detector/cover/double before creating the combined source. Then48 fixtures/source ablation screen for cover/double/combined, expand the best complete challenger to192 development fixtures, freeze it, and run768 final fresh paired fixtures regardless development sign. No further tactical tuning.",
+  "selection": "Select highest completed development points; ties prefer fewer conceded, then more scored, then combined if still tied. All variants remain experimental until fresh gates. Use route seed cohort only once, no pooling/optional re-testing.",
+  "fresh_final_seeds": [
+    1214869030,
+    732694762,
+    299077774,
+    473495619,
+    1371142112,
+    1177387517,
+    1736504669,
+    263943293,
+    315511817,
+    1179924952,
+    2004742753,
+    1209252042,
+    2032322315,
+    1960957602,
+    596815916,
+    1810283885
+  ],
+  "heldout_results_seen": false
+}

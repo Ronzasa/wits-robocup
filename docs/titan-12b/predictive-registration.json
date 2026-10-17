@@ -1,0 +1,25 @@
+{
+  "registered_utc": "2026-10-17T22:34:02.835406+00:00",
+  "reason": "Observed-flight verification matched every original action in115200 native decisions. It found229 threat ticks per source but no useful defender arrival windows: reacting after release was too late. Extend this same physical-route architecture to imminent legal releases before the pass, before any new-route development tournament or heldout results.",
+  "change": "At most two legal22-unit/s opponent launches under a real recent loss while an opponent controls the ball outside central shooting danger; receiver collection and primary-chaser races remain physically verified. Ignore existing t=0 contacts: require next-decision-step contact. No estimates replace an unavailable contact.",
+  "physics": "Reuse unchanged kick-to-velocity, actual carrier-contact, requested-velocity and dense wall-aware pass-path helpers. Enemy carrier movement points toward our goal. Respect public kick cooldown and legal impulse. At most two paths / eight opponent contacts / two primary-chaser contacts, no passing-cache mutation.",
+  "freeze": "Last development change. No coefficients or tactical source changes after this registration. Run independent native checks, then create the combined source, screen all action variants on48 fixtures each, expand the development winner to192, and run768 final heldout pairs regardless development sign.",
+  "combined_prerequisite": "Independent detector, single-cover and double-defence regressions/native invariants must pass before creation. The tournament screen compares all three action variants as an ablation, without declaring isolated losses to be proven improvements.",
+  "final_selection": "Highest development points; ties fewer conceded, more scored, then combined. Final source copied byte-for-byte to experiments/titan-12b/team.py before fresh qualification.",
+  "fresh_final_group": "Existing unused route16 seed cohort, used once. No old/favorable heldout cohorts pooled.",
+  "sources": {
+    "predictive-detect": {
+      "path": "experiments/titan-12b-predictive-detect/team.py",
+      "sha256": "07fd446437c43ae9cb10f5be17fbd091b76483b89b13691b4422b7f8c7028859"
+    },
+    "predictive-cover": {
+      "path": "experiments/titan-12b-predictive-cover/team.py",
+      "sha256": "eeb722c753aa5a3b25d6e06aa14b472e4fc18ee67c714659da990174b4fb2450"
+    },
+    "predictive-double": {
+      "path": "experiments/titan-12b-predictive-double/team.py",
+      "sha256": "b41b8e25777b212e6375bc060c01c6400e4acb45f4c35c0bd68bed0d1f0b14d0"
+    }
+  },
+  "gates": "Unchanged original points, paired95 confidence, zero exceptions, no repeated candidate deadlines, mean ceiling and <=2 additional raw misses/1000 fixtures."
+}

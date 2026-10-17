@@ -1,0 +1,31 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "fixture_order_seed": 181201,
+  "opponents_archive": "tests/fixtures/titan-12b-opponents.zip",
+  "opponents_archive_sha256": "457a258417a6deac6cd446f95e54d30661dffbc93419a58d8747337e0a7f0b8d",
+  "opponents": [
+    "v10",
+    "v10-counter",
+    "v10-press",
+    "v9.1",
+    "v10-compact",
+    "v10-linekeeper"
+  ],
+  "seeds": {
+    "development": [
+      2096210638,
+      405490241
+    ]
+  },
+  "sources": {
+    "champion": {
+      "path": "champions/v10.0/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "refinement": {
+      "path": "experiments/titan-12b-refinement/team.py",
+      "sha256": "19df08b49df1f1f953fa68cc52f69793775528cf19690eff29d02a2d268806aa"
+    }
+  }
+}

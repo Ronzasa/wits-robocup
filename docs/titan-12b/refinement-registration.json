@@ -1,0 +1,30 @@
+{
+  "registered_utc": "2026-10-17T22:20:21.697559+00:00",
+  "source": {
+    "path": "experiments/titan-12b-refinement/team.py",
+    "sha256": "19df08b49df1f1f953fa68cc52f69793775528cf19690eff29d02a2d268806aa"
+  },
+  "purpose": "One previously reserved development-only refinement of single cover; no double-defence combination.",
+  "evidence": "Original cover: 61 vs 70 points, 58 vs 45 conceded in 48 development fixtures. Native self-play replay seed405490241 side0/no-kickoff at ticks1035-1037 moved guard3 from ball-side(-34.7,3.7) toward hypothetical receiver(-46.4,-8.2) while ball(-32.7,3.7) travelled at(-24.5,3.8). A goal followed at1048; this is a concrete risk mismatch, not proof of sole causation.",
+  "only_tactical_difference": "If the ball is uncontrolled by an opponent, travelling goalward faster than10 units/s and in our final35 pitch units, return no new counter-cover override. Keep all v10 movement/keeper/interception decisions. All other ranking, times and coefficients unchanged.",
+  "registered_before": "Any refinement development fixtures or any TITAN-12B heldout validation",
+  "fresh_validation_seeds": [
+    460452472,
+    377090278,
+    528609464,
+    263747351,
+    373184261,
+    95656726,
+    1805043992,
+    1830457794,
+    1285880602,
+    1048636542,
+    1318250404,
+    402716602,
+    967728091,
+    1067911367,
+    1846255145,
+    1561932804
+  ],
+  "gates": "Exactly the original registered points, confidence, raw deadline and reliability gates; no relaxed thresholds or pooled cohorts."
+}

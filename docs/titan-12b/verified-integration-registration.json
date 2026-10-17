@@ -1,0 +1,19 @@
+{
+  "registered_utc": "2026-10-17T22:37:08.529852+00:00",
+  "type": "Final integration ablation before any route/predictive strength tournament or heldout result",
+  "reason": "Requiring goal-side cover to arrive before the opposing collection incorrectly treated defensive marking as interception. The strict versions exercised no positioning in native games. Restore the original, independently exercised target selector timings; keep the new physically verified threat detector. No new timing coefficients are searched.",
+  "exact_method_isolation": "_counter_threats identical to predictive modes; _counter_cover_target and _counter_defence identical to initial cover/double modes. Other original v10 methods unchanged.",
+  "frozen_sources": {
+    "verified-cover": {
+      "path": "experiments/titan-12b-verified-cover/team.py",
+      "sha256": "b6bf12527e69bda0d5024f3a8a69b9dde55320a809a2774055c73cb40c90f9da"
+    },
+    "verified-double": {
+      "path": "experiments/titan-12b-verified-double/team.py",
+      "sha256": "361b70828f0317593b68f950fee54a762eed41ab1feb0fc62dcd4de61d3e8516"
+    }
+  },
+  "sequence": "Independent regression/native checks, then create verified-combined; screen all three on48 paired fixtures, expand the best to192, freeze selected alias, run768 fresh pairs regardless development sign. No more tactical changes or coefficient tuning.",
+  "fresh_seed_group": "route, already reserved and unused",
+  "gates": "All original gates unchanged. Every failed and inactive precursor retained."
+}

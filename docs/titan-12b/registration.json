@@ -1,0 +1,27 @@
+{
+  "project": "TITAN-12B",
+  "base_main": "0a7a3aeba3950eb1b2ed0deeb7a06f2f9b3563e5",
+  "registered_utc": "2026-10-17T22:07:08.193734+00:00",
+  "champion_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "single_file": "One team.py per experiment, only math and official soccer imports. No submitted benchmark dependencies.",
+  "features": [
+    "Observation-only predictive counter detector, action equivalence against v10.0",
+    "Threat-limited goal-side adjustment of the designated cover defender, immediate release on secured possession",
+    "Independent high-risk second-defender selector with a hard role-capacity check",
+    "Combine only after independent regressions/native/development results; no heldout tuning"
+  ],
+  "role_capacity": "User explicitly permits one attacking outlet briefly during high-risk counters. Normal cover preserves the other two runners; emergency support retains GK, chaser, live receiver and at least one outlet, with a non-extending 0.6 second maximum.",
+  "development": "48 fixtures/source on six strong opponents and first two fresh development seeds, then 192/source on eight opponents and all six development seeds for positive-point active tactics. At most one development-only refinement may be frozen before any heldout results.",
+  "validation": "768 matched fixtures/serious challenger: 12 frozen styles x 16 unused seeds x 2 sides x 2 kickoffs. Separate reserved group per source. Whole-seed paired bootstrap 95%, 5000 resamples, fixed bootstrap RNG. No heldout tuning or pooling failed cohorts.",
+  "gates": {
+    "points": "More league points and positive paired whole-seed bootstrap 95% lower bound",
+    "exceptions": 0,
+    "repeated_candidate_deadline_failure": false,
+    "raw_extra_misses_per_1000_at_most": 2,
+    "mean_runtime_ms": "candidate <= champion * 1.35 + 0.04",
+    "official_acceptance": "All 5 public seeds (1001-1005), 400 ticks each, zero errors and deadline failures, one controller in team.py",
+    "attack_retention": "Report goals, points and turnovers; do not promote fewer points for lower goals conceded"
+  },
+  "timing": "Official native 20ms and 2400 ticks, one serial worker, rotated source order. Preserve every initial raw result. Exact timeout-containing fixture repeats max3, accept first clean regardless score. Never repair exceptions or erase raw misses. Record cgroup/CPU/wall; do not attribute unknown failures to environment.",
+  "promotion": "No modification of my-team/team.py unless all final promotion gates pass. No untested tactics combined."
+}
