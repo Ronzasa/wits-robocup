@@ -78,11 +78,24 @@ def main():
     }
     assert gate == evidence['decision']['gates']
     assert all(gate.values()) == evidence['decision']['eligible_for_v10_0']
+    # Preserve the original branch-only gate decision as historical evidence.
     assert not evidence['decision']['promotion_to_main_performed']
+    promotion = evidence.get('promotion')
     for path, expected in evidence['registration']['baselines'].items():
-        assert hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == expected
+        historical_path = ROOT / path
+        if promotion and path == 'my-team/team.py':
+            historical_path = ROOT / promotion['replaced_champion_archive']
+        assert hashlib.sha256(historical_path.read_bytes()).hexdigest() == expected
     for spec in evidence['protocol']['sources'].values():
         assert hashlib.sha256((ROOT / spec['path']).read_bytes()).hexdigest() == spec['sha256']
+    if promotion:
+        assert promotion['promoted'] and all(gate.values())
+        assert promotion['source_sha256'] == evidence['source_freeze']['source_sha256']
+        assert promotion['source_sha256'] == evidence['protocol']['sources']['runtime']['sha256']
+        assert hashlib.sha256((ROOT / promotion['active_source']).read_bytes()).hexdigest() == promotion['source_sha256']
+        validation = promotion['official_validation']
+        assert validation['ok'] and validation['stats']['decisions'] == 2000
+        assert validation['stats']['exceptions'] == validation['stats']['over deadline'] == 0
     print('Verified all 720 pairs, scores, pass/retention/runtime totals, raw deadlines, bootstrap, source hashes and original gates.')
 
 

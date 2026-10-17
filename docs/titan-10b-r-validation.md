@@ -1,11 +1,13 @@
 # TITAN-10B-R: execution-preserving runtime optimization
 
-**All original promotion gates passed.** TITAN-10B-R is approved as the v10.0 candidate on `titan-10b-r-runtime`.
-As requested, `main`, `my-team/team.py`, [archived v9.1](../champions/v9.1/team.py)
-and [frozen TITAN-10B](../experiments/titan-10b/team.py) are unchanged. The new
-implementation is [experiments/titan-10b-r/team.py](../experiments/titan-10b-r/team.py).
-Passing the gate records eligibility on this feature branch; it does not merge
-the branch or change the active submission.
+**Promoted to v10.0 on `main`.** TITAN-10B-R passed every original promotion
+gate. Following the user's approval, `my-team/team.py` and the workspace mirror
+now contain the exact frozen [tested build](../experiments/titan-10b-r/team.py).
+The unchanged [v9.1 champion](../champions/v9.1/team.py) and
+[original TITAN-10B](../experiments/titan-10b/team.py) remain preserved.
+No gameplay-source changes were made after validation. The results JSON retains
+the original branch-only gate decision and records activation separately in
+`promotion`.
 
 ## Runtime change and behavior baseline
 

@@ -10293,5 +10293,37 @@
     "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
   },
   "regression_count": 95,
-  "limitations": "Known local opponent pool, unused seeds, no measured live-league rank. No universal behavior or worst-case deadline guarantee; exact equivalence is established on the recorded native observations and regression cases."
+  "limitations": "Known local opponent pool, unused seeds, no measured live-league rank. No universal behavior or worst-case deadline guarantee; exact equivalence is established on the recorded native observations and regression cases.",
+  "promotion": {
+    "promoted": true,
+    "promoted_at_utc": "2026-10-17T17:31:31.153528+00:00",
+    "target_branch": "main",
+    "active_source": "my-team/team.py",
+    "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "feature_commit": "96195dbe34882b22315457d451908381fab1dd2a",
+    "replaced_champion_archive": "champions/v9.1/team.py",
+    "gameplay_source_changed_after_validation": false,
+    "decision_record_scope": "The decision object preserves the original branch-only gate evaluation. This promotion follows subsequent user authorization to replace active v9.1.",
+    "official_validation": {
+      "ok": true,
+      "controller": "Pep Guardiola + Jurgen Klopp Hybrid v10.0-titan10b-r (Guardiola2011)",
+      "errors": [],
+      "warnings": [],
+      "stats": {
+        "matches played": 5,
+        "decisions": 2000,
+        "mean decision (ms)": "0.212",
+        "slowest decision (ms)": "6.620",
+        "deadline (ms)": "20.0",
+        "exceptions": 0,
+        "over deadline": 0,
+        "missing player actions": 0,
+        "non-finite values": 0,
+        "formation": "custom (5 spots)"
+      },
+      "folder_errors": [],
+      "folder_warnings": [],
+      "static_review_flags": []
+    }
+  }
 }

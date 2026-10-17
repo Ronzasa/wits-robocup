@@ -1,22 +1,22 @@
 # Soccer agent platform — student edition
 
-Recommended competition controller: **[team.py — v9.1](my-team/team.py)** on the
-`main` branch. [Read its local validation results](docs/v9.1-interceptions-validation.md).
+Recommended competition controller: **[team.py — v10.0 (TITAN-10B-R)](my-team/team.py)** on the
+`main` branch. [Read its local validation results](docs/titan-10b-r-validation.md).
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
 
 [TITAN-10B](experiments/titan-10b/team.py) checks executable receiver movements
 and the actual command after role selection. On 720 paired fresh local fixtures
 it earned **1917 versus v9.1's 1847 points**. Raw deadline misses rose from 22
-to 33, failing the registered timing gate; v9.1 remains recommended.
+to 33, failing the registered timing gate; v9.1 was retained at that stage.
 [Read all metrics and limitations](docs/titan-10b-validation.md).
 The unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 
-On `titan-10b-r-runtime`, [TITAN-10B-R](experiments/titan-10b-r/team.py)
-preserves TITAN-10B decisions while reducing runtime. It earned **1922 versus
-v9.1's 1864 points** across 720 fresh paired fixtures and passed every original
-promotion gate. It is approved as the v10.0 candidate on this feature branch.
-The active `my-team/team.py` and all frozen baselines remain unchanged.
+[TITAN-10B-R](experiments/titan-10b-r/team.py) is now the active **v10.0**
+controller on `main`. It preserves TITAN-10B decisions while reducing runtime
+and earned **1922 versus v9.1's 1864 points** across 720 fresh paired fixtures.
+It passed every original promotion gate. `my-team/team.py` contains the exact
+tested build; the unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 [Read the full runtime and promotion evidence](docs/titan-10b-r-validation.md).
 
 The [strict interception build](experiments/strict-interceptions/team.py) requires

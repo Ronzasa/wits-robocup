@@ -1,6 +1,6 @@
 # TITAN-10B: execution-aware passing
 
-**Not promoted.** `my-team/team.py` and the workspace mirror remain byte-identical v9.1. The unchanged champion is [preserved here](../champions/v9.1/team.py).
+**Not promoted at this comparison.** v9.1 was retained and is [preserved here](../champions/v9.1/team.py). The runtime-optimized [TITAN-10B-R subsequently passed its gates and was promoted to v10.0](titan-10b-r-validation.md).
 The [frozen challenger](../experiments/titan-10b/team.py) remains separate and reviewable.
 Fresh points improved, but raw deadline misses rose **22 → 33**, exceeding the
 registered allowance of two additional misses per 1,000 fixtures. The original
