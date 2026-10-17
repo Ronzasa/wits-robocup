@@ -1,4 +1,4 @@
-"""Compare TITAN-10B-R with frozen TITAN-10B on shared native observations.
+"""Compare two controllers on shared native observations.
 
 This is an instrumented behavior diagnostic, not tournament evidence. The
 official runner measures each act separately at the normal 20 ms deadline.
@@ -33,6 +33,7 @@ def state(controller):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--baseline', type=Path, default=ROOT / 'experiments/titan-10b/team.py')
     p.add_argument('--challenger', type=Path, default=ROOT / 'experiments/titan-10b-r/team.py')
     p.add_argument('--against', nargs='+', default=[str(ROOT / 'champions/v9.1/team.py')])
     p.add_argument('--seeds', nargs='+', type=int, default=[1239849544])
@@ -40,7 +41,7 @@ def main():
     args = p.parse_args()
     if args.out.exists():
         p.error('Preserve prior results; choose a new output file.')
-    paths = [ROOT / 'experiments/titan-10b/team.py', args.challenger.resolve()]
+    paths = [args.baseline.resolve(), args.challenger.resolve()]
     classes = [load('behavior_original', paths[0]), load('behavior_runtime', paths[1])]
     original_decide = runner._decide
     records = []

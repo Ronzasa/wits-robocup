@@ -1,0 +1,24 @@
+{
+  "registered_utc": "2026-10-17T19:20:35.928662+00:00",
+  "motivation": "Original cover development screen lost29goalsfor and5points; source audit found unconditional deep cover can override a verified receiving target. No cover held-out validation data existed.",
+  "hypothesis": "Preserve valid live receptions and secure possession. Move only the assigned defender when possession is threatened; avoid duplicating an existing marker.",
+  "source_sha256": "4b9c63f367f4e7ee9061ab0341fd653123a60aacf18de7aefc8a209bfbba118a",
+  "tactical_base": "frozenv10; independently verified equivalent runtime helpers",
+  "development_rule": "48pairedfixtures onoriginal2devseeds*6styles*4;advanceonlyifmorepoints. Then192originaldevfixtures8styles*6seeds*4;advanceonlyifmorepoints andnoexceptions/mean/repeatedfailregression.",
+  "validation_rule": "576freshpairedfixtures12styles*12newseeds*4 withallunchangedpromotiongates. No heldouttuning. No combinationsbeforeindependentPASS.",
+  "fresh_seeds": [
+    568203017,
+    1789258739,
+    380469057,
+    754673536,
+    722575743,
+    437042008,
+    1850156503,
+    1441005445,
+    261736290,
+    2035205474,
+    1238586214,
+    1092503156
+  ],
+  "bounded_scope": "One refinement only; do not open an adaptive parameter search."
+}

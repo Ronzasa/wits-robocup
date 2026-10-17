@@ -1,0 +1,15 @@
+{
+  "decision": "RETAIN_V10_0",
+  "active_changed": false,
+  "eligible_tactical_features": [],
+  "combined_tournament_run": false,
+  "formal_fixtures": 7344,
+  "source_side_decisions": 17625600,
+  "source_side_raw_misses": 32,
+  "source_side_policy_errors": 0,
+  "research_reference": "experiments/titan-11/team.py",
+  "research_reference_sha256": "4b9c63f367f4e7ee9061ab0341fd653123a60aacf18de7aefc8a209bfbba118a",
+  "reference_status": "UNPROMOTED exact cover-r source; fresh points gate failed",
+  "active_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "regressions_passed": 116
+}

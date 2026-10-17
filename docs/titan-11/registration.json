@@ -1,0 +1,28 @@
+{
+  "started_utc": "2026-10-17T18:05:43.288406+00:00",
+  "base_main": "0a7a3aeba3950eb1b2ed0deeb7a06f2f9b3563e5",
+  "branch": "titan-11-championship",
+  "champion_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "active_must_remain_unchanged_until_all_gates_pass": true,
+  "school_evidence": {
+    "provided_by_user": true,
+    "rank": "60/195",
+    "win_rate": 0.6,
+    "gf_per_match": 2.85,
+    "ga_per_match": 1.12,
+    "reliability_events": 2481,
+    "decision_mean_ms": 1.045,
+    "active_version_verified": true,
+    "aggregation_scope_verified": false,
+    "site_access": "Web fetch unavailable; executor host policy does not allow Wits. Awaiting optional user metadata/error details.",
+    "verification_source": "User confirms active v10.0; no per-match exception/timeout details available."
+  },
+  "order": "Reliability evidence and behavior-preserving optimizations first. Independently screen progressive passing, movement, preventive defense, finishing and selective lookahead. No unverified combinations.",
+  "development": "48 fixtures/source screen (6strong styles*2development seeds*4arrangements);192/source expansion (8strong styles*6seeds*4). Select on points then wins, goals against, runtime.",
+  "individual_validation": "For each serious feature:576 paired fixtures vs untouched v10.0 (12strong/frozen styles*12unusedseeds*4). Freeze before validation; no held-out tuning. Reject feature if any gate fails.",
+  "combination": "Combine only features that separately passed validation; retest combination on another576paired unused fixtures against untouchedv10.0. If onlyonefeature passes, no new combination is needed.",
+  "gate": "More points AND positive paired whole-seed95%bootstrap lower bound;0policyexceptions,noreproducible deadlinefailures;mean<=champion*1.35+.04ms;atmost2additionalrawdeadline missesper1000fixtures.20ms native deadline unchanged.",
+  "raw_policy": "Retain every raw fixture and interruption. Repeat exact timeout-containing fixtures atmost3,firstclean regardlessscore. Never repair exceptions. Allrawtimingcounts stay in gate.",
+  "strong_testing": "Prefer v10.0-derived legal adversaries, v9.1, v9.0, compact defense, line goalkeeper, pressing, long passing and aggressive counters over weak baselines. Single serial match worker; alternate source order.",
+  "profiling": "CPU/wall and GC diagnostics explicitly excluded from competition reliability evidence. No controller GC/timer/process controls. Profile worst-case calls, then measured equivalent behavior."
+}

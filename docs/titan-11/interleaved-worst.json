@@ -1,0 +1,47 @@
+{
+  "scope": "Diagnostic,40hardpublicstates,12repeats,rotating sourceorder;no GC controls;all actions andnoncache states exact.",
+  "timings": {
+    "champion": {
+      "cpu_ms": {
+        "mean": 7.1725073083333335,
+        "p99": 10.539643,
+        "max": 11.932005,
+        "over20": 0
+      },
+      "wall_ms": {
+        "mean": 7.187925039583333,
+        "p99": 10.57401,
+        "max": 11.927871999999999,
+        "over20": 0
+      }
+    },
+    "reach-runtime": {
+      "cpu_ms": {
+        "mean": 4.387835375,
+        "p99": 7.116124999999999,
+        "max": 8.125077,
+        "over20": 0
+      },
+      "wall_ms": {
+        "mean": 4.398239385416667,
+        "p99": 7.113694,
+        "max": 8.122949,
+        "over20": 0
+      }
+    },
+    "reach-step-bound": {
+      "cpu_ms": {
+        "mean": 3.923476889583333,
+        "p99": 6.309273,
+        "max": 7.599345,
+        "over20": 0
+      },
+      "wall_ms": {
+        "mean": 3.930594383333333,
+        "p99": 6.3068029999999995,
+        "max": 7.596565999999999,
+        "over20": 0
+      }
+    }
+  }
+}

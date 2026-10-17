@@ -1,0 +1,53 @@
+{
+  "archive_sha256": "5e4ecd74f5765b70d568342e2c0dcbda2033693889cb7019b647215e88181ceb",
+  "archive_manifest_verified": true,
+  "all_nine_protocol_hashes_verified": true,
+  "raw_and_accepted_counts": {
+    "screen": {
+      "champion": 48,
+      "runtime": 48,
+      "passing": 48,
+      "movement": 48,
+      "cover": 48,
+      "finishing": 48,
+      "lookahead": 48
+    },
+    "expansion": {
+      "champion": 192,
+      "passing": 192,
+      "movement": 192,
+      "lookahead": 192
+    },
+    "validation-passing": {
+      "champion": 576,
+      "passing": 576
+    },
+    "validation-passing-r": {
+      "champion": 576,
+      "passing-r": 576
+    },
+    "validation-movement": {
+      "champion": 576,
+      "movement": 576
+    },
+    "validation-lookahead": {
+      "champion": 576,
+      "lookahead": 576
+    },
+    "cover-r-screen": {
+      "champion": 48,
+      "cover-r": 48
+    },
+    "cover-r-expansion": {
+      "champion": 192,
+      "cover-r": 192
+    },
+    "validation-cover-r": {
+      "champion": 576,
+      "cover-r": 576
+    }
+  },
+  "total_scheduled_fixtures": 7344,
+  "frozen_active_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "compilation_passed": true
+}

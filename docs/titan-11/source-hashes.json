@@ -1,0 +1,18 @@
+{
+  "champions/v10.0/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "experiments/titan-11/team.py": "4b9c63f367f4e7ee9061ab0341fd653123a60aacf18de7aefc8a209bfbba118a",
+  "experiments/titan-11-runtime-inline/team.py": "89e4124a5d47322974853726af649e1373c89a17400d15a78254c8396a00761b",
+  "experiments/titan-11-runtime-samples/team.py": "5f5160defb19476b992a76e12fc8f4e1cb50b5f6a8b0be386a048a4531ba0e4a",
+  "experiments/titan-11-runtime/team.py": "ec2eb0f5863bf71faeb6eba01d828da7c8470df9a05a41bd64e97cee3da0ad63",
+  "experiments/titan-11-reach-local/team.py": "350eadfa3f26be39b897bd8c94e41d693e03b687e5636c6ac0e66d261b7e4efd",
+  "experiments/titan-11-reach-bound/team.py": "988d6f9d8b613f125e48a9996c6cf662b9a82170eda241a5f680fcd90e8def2d",
+  "experiments/titan-11-reach-runtime/team.py": "1a7ac9d85ad82e85c18b4eee9daab21047d1827f6aa8fbd5cb03f1180bcbd3d2",
+  "experiments/titan-11-reach-step-bound/team.py": "7c67c1b4b88d49a3c529c03494e04fb1eebcf9a9989180ad960d6c25df785867",
+  "experiments/titan-11-passing/team.py": "d2fcd663a4c518eef6f8a16b641c755ae04263252704e0c04a1f8f57ef849c72",
+  "experiments/titan-11-passing-r/team.py": "d4c406cc95258136d6758d9d1de9c4ff09306276238c7a714c6b75e924536e1a",
+  "experiments/titan-11-movement/team.py": "40bf84978245e99f3f3a41eb54b0aeb921ae8fb4879654a3b2d46e0a5129f0e2",
+  "experiments/titan-11-cover/team.py": "1521e4b4cd582ae2cf93bb0f50cd385b954f0b0e41617669c5782a2cc52acfee",
+  "experiments/titan-11-finishing/team.py": "5f3c3e8b48999a350059619ce7770e1c1d817d74f985f3f6801860f567a7440d",
+  "experiments/titan-11-lookahead/team.py": "6bda67fc4c75728882316f3023af4e06639bc80e43d96374a38f4176f35c1b33",
+  "experiments/titan-11-cover-r/team.py": "4b9c63f367f4e7ee9061ab0341fd653123a60aacf18de7aefc8a209bfbba118a"
+}

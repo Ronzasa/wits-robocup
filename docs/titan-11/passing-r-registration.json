@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-10-17T18:53:27.751080+00:00",
+  "trigger": "Original passing source rejected:4rawdeadline misses vs2baseline on576fixtures;no gate relaxed.",
+  "runtime_work_predates_passing_result": true,
+  "decision": "Qualify same passing behavior with independently developed witness-runtime fixes as a new single-feature passing-r source. Verify exact behavior against original passing before fresh qualification. Do not combine it with any other tactical feature until every original gate passes.",
+  "seeds": "Rename the untouched reserved runtime seed group to passing-r; no values changed, none used by preceding tests. The combined group remains unused.",
+  "previous_registry_sha256": "6402a97dcf91ea669913647e68f7d2d87b4658d7f29dc853458d4a19e1bbae56",
+  "registry_sha256": "d3f558147bfc2d48cf72e2fd009a50c6d16e42f77199fea112706db2cf8ffdcc",
+  "passing_r_seeds": [
+    414340289,
+    1649469395,
+    1869070432,
+    657594512,
+    838515989,
+    48163936,
+    1728912390,
+    142414918,
+    1133280606,
+    1313184174,
+    1999573036,
+    1385054215
+  ],
+  "tactical_tuning_on_held_out": false,
+  "original_gate_retained": "More points AND positive paired whole-seed95%bootstrap lower bound;0policyexceptions,noreproducible deadlinefailures;mean<=champion*1.35+.04ms;atmost2additionalrawdeadline missesper1000fixtures.20ms native deadline unchanged."
+}

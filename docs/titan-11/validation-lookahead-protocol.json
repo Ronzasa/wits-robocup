@@ -1,0 +1,47 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "fixture_order_seed": 27348852,
+  "opponents_archive": "tests/fixtures/titan-11-opponents.zip",
+  "opponents_archive_sha256": "457a258417a6deac6cd446f95e54d30661dffbc93419a58d8747337e0a7f0b8d",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v9.0",
+    "v10-compact",
+    "v10-press",
+    "v10-counter",
+    "v10-long",
+    "v10-linekeeper",
+    "v10-mark",
+    "tight_links",
+    "long_shooter",
+    "wide_switch"
+  ],
+  "seeds": {
+    "validation": [
+      1350933611,
+      493636598,
+      875415625,
+      958168010,
+      2016655607,
+      1448955052,
+      1790715695,
+      1725110427,
+      1715124001,
+      622862676,
+      714894217,
+      1622471228
+    ]
+  },
+  "sources": {
+    "champion": {
+      "path": "champions/v10.0/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "lookahead": {
+      "path": "experiments/titan-11-lookahead/team.py",
+      "sha256": "6bda67fc4c75728882316f3023af4e06639bc80e43d96374a38f4176f35c1b33"
+    }
+  }
+}

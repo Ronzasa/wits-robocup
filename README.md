@@ -19,6 +19,12 @@ It passed every original promotion gate. `my-team/team.py` contains the exact
 tested build; the unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 [Read the full runtime and promotion evidence](docs/titan-10b-r-validation.md).
 
+[TITAN-11](docs/titan-11/README.md) completed 7,344 local full-match fixtures.
+Its faster movement verifier cut hard-case CPU time by 45.3% with identical
+recorded decisions, but no tactical challenger cleared every points and timing
+gate. **v10.0 remains active**; the new single-file controllers are experimental.
+All raw deadline failures and qualification rejections are preserved in the report.
+
 The [strict interception build](experiments/strict-interceptions/team.py) requires
 physically verified pass receptions and rebound collection. On 560 paired fresh
 local fixtures it earned **1507 versus v9.0's 1440 points** and passed the

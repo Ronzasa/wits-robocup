@@ -1,0 +1,8 @@
+{
+  "changed_utc": "2026-10-17T18:58:57.676625+00:00",
+  "scope": "Module docstring only; remove pending label before final source freeze. Executable AST identical.",
+  "native_equivalence_source_sha256": "bf3bdd50486fb5ba79cb7db47c7b6999bbb1ec4a99b8131aa695104eced75d01",
+  "qualification_source_sha256": "d4c406cc95258136d6758d9d1de9c4ff09306276238c7a714c6b75e924536e1a",
+  "executable_ast_sha256": "319f563e09f11a7b2c24cb4f5a1104aed0b0708d31200784734b07023655768a",
+  "preserved_exact_equivalence_source": "tests/fixtures/titan-11-passing-r-equivalence.py.gz"
+}
