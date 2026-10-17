@@ -1,11 +1,17 @@
 # Soccer agent platform — student edition
 
-Recommended competition controller: **[team.py — v9.0](my-team/team.py)** on the
-`main` branch. [Read its local validation results](docs/v9.0-validation.md).
+Recommended competition controller: **[team.py — v9.1](my-team/team.py)** on the
+`main` branch. [Read its local validation results](docs/v9.1-interceptions-validation.md).
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
 
-Version 9 corrects early defender-contact prediction and compares threatened shots
+The [strict interception build](experiments/strict-interceptions/team.py) requires
+physically verified pass receptions and rebound collection. On 560 paired fresh
+local fixtures it earned **1507 versus v9.0's 1440 points** and passed the
+promotion gate. [Read the results](docs/v9.1-interceptions-validation.md).
+The unchanged [v9.0 champion](champions/v9.0/team.py) is preserved.
+
+Version 9.0 corrected early defender-contact prediction and compared threatened shots
 with verified alternatives. On 672 paired fresh fixtures, it earned
 **1699 versus v7's 1535 points**, with **542 versus 477 wins**.
 [Read the full comparison](docs/v9.0-validation.md).
