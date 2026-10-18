@@ -1,0 +1,2707 @@
+{
+  "baseline_path": "/workspace/work/titan-x-run/qualification/accepted/v10",
+  "challenger_path": "/workspace/work/titan-x-run/qualification/accepted/titan-x",
+  "paired_fixtures": 768,
+  "independent_seed_blocks": 16,
+  "splits": [
+    "qualification"
+  ],
+  "points_per_match_difference": 0.009114583333333481,
+  "paired_seed_block_bootstrap_95": [
+    0.0,
+    0.0234375
+  ],
+  "goal_difference_per_match_change": -0.0026041666666667407,
+  "goals_scored_change": 2,
+  "goals_conceded_change": 4,
+  "fixtures_with_more_points": 4,
+  "fixtures_with_same_points": 763,
+  "fixtures_with_fewer_points": 1,
+  "baseline": {
+    "matches": 768,
+    "independent_seed_blocks": 16,
+    "wins": 453,
+    "draws": 133,
+    "losses": 182,
+    "points": 1492,
+    "points_per_match": 1.9427083333333333,
+    "points_per_match_seed_bootstrap_95": [
+      1.8723958333333335,
+      2.0169270833333335
+    ],
+    "goals_for": 1603,
+    "goals_against": 724,
+    "goal_difference": 879,
+    "goal_difference_per_match": 1.14453125,
+    "shots": 3397,
+    "shots_blocked": 1197,
+    "passes_attempted": 31248,
+    "passes_completed": 16164,
+    "passes_intercepted": 8841,
+    "passes_uncollected_derived": 6243,
+    "pass_completion": 0.5172811059907834,
+    "possession_fraction": 0.5387424045138889,
+    "control_fraction": 0.0953662109375,
+    "dribbles": 32518,
+    "dribble_distance": 69177.4452757,
+    "tackles_attempted": 3605,
+    "tackles_won": 719,
+    "turnovers": 4181,
+    "fouls": 0,
+    "policy_errors": 0,
+    "policy_timeouts": 0,
+    "decisions": 1843200,
+    "decision_mean_ms": 0.2139026104600303,
+    "decision_max_ms": 18.0793489998905,
+    "validation": {
+      "clamped_values": 0,
+      "dropped_debug_payloads": 0,
+      "invalid_player_ids": 0,
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "rejected_kicks": 0
+    },
+    "shot_quality": "not available",
+    "goalkeeper_saves": "not available"
+  },
+  "challenger": {
+    "matches": 768,
+    "independent_seed_blocks": 16,
+    "wins": 456,
+    "draws": 131,
+    "losses": 181,
+    "points": 1499,
+    "points_per_match": 1.9518229166666667,
+    "points_per_match_seed_bootstrap_95": [
+      1.8841145833333335,
+      2.0234375
+    ],
+    "goals_for": 1605,
+    "goals_against": 728,
+    "goal_difference": 877,
+    "goal_difference_per_match": 1.1419270833333333,
+    "shots": 3403,
+    "shots_blocked": 1208,
+    "passes_attempted": 31253,
+    "passes_completed": 16179,
+    "passes_intercepted": 8833,
+    "passes_uncollected_derived": 6241,
+    "pass_completion": 0.5176783028829233,
+    "possession_fraction": 0.5392936197916667,
+    "control_fraction": 0.09541395399305555,
+    "dribbles": 32497,
+    "dribble_distance": 69112.5029537,
+    "tackles_attempted": 3609,
+    "tackles_won": 720,
+    "turnovers": 4181,
+    "fouls": 0,
+    "policy_errors": 0,
+    "policy_timeouts": 0,
+    "decisions": 1843200,
+    "decision_mean_ms": 0.2231097509805006,
+    "decision_max_ms": 17.933984003320802,
+    "validation": {
+      "clamped_values": 0,
+      "dropped_debug_payloads": 0,
+      "invalid_player_ids": 0,
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "rejected_kicks": 0
+    },
+    "shot_quality": "not available",
+    "goalkeeper_saves": "not available"
+  },
+  "by_opponent": {
+    "/workspace/work/titan-x-run/qualification/opponents/aggressive-keeper/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 27,
+        "draws": 8,
+        "losses": 29,
+        "points": 89,
+        "points_per_match": 1.390625,
+        "points_per_match_seed_bootstrap_95": [
+          1.125,
+          1.65625
+        ],
+        "goals_for": 79,
+        "goals_against": 78,
+        "goal_difference": 1,
+        "goal_difference_per_match": 0.015625,
+        "shots": 282,
+        "shots_blocked": 78,
+        "passes_attempted": 2343,
+        "passes_completed": 1213,
+        "passes_intercepted": 676,
+        "passes_uncollected_derived": 454,
+        "pass_completion": 0.5177123346137431,
+        "possession_fraction": 0.5107356770833333,
+        "control_fraction": 0.1052734375,
+        "dribbles": 2910,
+        "dribble_distance": 4767.579909,
+        "tackles_attempted": 271,
+        "tackles_won": 58,
+        "turnovers": 391,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21913865318794024,
+        "decision_max_ms": 8.339896994584706,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 27,
+        "draws": 8,
+        "losses": 29,
+        "points": 89,
+        "points_per_match": 1.390625,
+        "points_per_match_seed_bootstrap_95": [
+          1.125,
+          1.65625
+        ],
+        "goals_for": 79,
+        "goals_against": 78,
+        "goal_difference": 1,
+        "goal_difference_per_match": 0.015625,
+        "shots": 282,
+        "shots_blocked": 78,
+        "passes_attempted": 2343,
+        "passes_completed": 1213,
+        "passes_intercepted": 676,
+        "passes_uncollected_derived": 454,
+        "pass_completion": 0.5177123346137431,
+        "possession_fraction": 0.5107356770833333,
+        "control_fraction": 0.1052734375,
+        "dribbles": 2910,
+        "dribble_distance": 4767.579909,
+        "tackles_attempted": 271,
+        "tackles_won": 58,
+        "turnovers": 391,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2284745889423334,
+        "decision_max_ms": 11.357761999533977,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/long_shooter/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 50,
+        "draws": 10,
+        "losses": 4,
+        "points": 160,
+        "points_per_match": 2.5,
+        "points_per_match_seed_bootstrap_95": [
+          2.296875,
+          2.703125
+        ],
+        "goals_for": 156,
+        "goals_against": 41,
+        "goal_difference": 115,
+        "goal_difference_per_match": 1.796875,
+        "shots": 256,
+        "shots_blocked": 147,
+        "passes_attempted": 2852,
+        "passes_completed": 1434,
+        "passes_intercepted": 785,
+        "passes_uncollected_derived": 633,
+        "pass_completion": 0.5028050490883591,
+        "possession_fraction": 0.53478515625,
+        "control_fraction": 0.10410807291666667,
+        "dribbles": 2758,
+        "dribble_distance": 6023.862391,
+        "tackles_attempted": 392,
+        "tackles_won": 67,
+        "turnovers": 353,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21607462900353389,
+        "decision_max_ms": 14.78219799901126,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 49,
+        "draws": 11,
+        "losses": 4,
+        "points": 158,
+        "points_per_match": 2.46875,
+        "points_per_match_seed_bootstrap_95": [
+          2.265625,
+          2.65625
+        ],
+        "goals_for": 156,
+        "goals_against": 42,
+        "goal_difference": 114,
+        "goal_difference_per_match": 1.78125,
+        "shots": 258,
+        "shots_blocked": 148,
+        "passes_attempted": 2836,
+        "passes_completed": 1428,
+        "passes_intercepted": 776,
+        "passes_uncollected_derived": 632,
+        "pass_completion": 0.5035260930888575,
+        "possession_fraction": 0.53595703125,
+        "control_fraction": 0.10366536458333334,
+        "dribbles": 2746,
+        "dribble_distance": 5996.334381,
+        "tackles_attempted": 389,
+        "tackles_won": 65,
+        "turnovers": 348,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2265755919698146,
+        "decision_max_ms": 16.67306300078053,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": -0.03125
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/quick_wall/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 64,
+        "draws": 0,
+        "losses": 0,
+        "points": 192,
+        "points_per_match": 3.0,
+        "points_per_match_seed_bootstrap_95": [
+          3.0,
+          3.0
+        ],
+        "goals_for": 330,
+        "goals_against": 28,
+        "goal_difference": 302,
+        "goal_difference_per_match": 4.71875,
+        "shots": 317,
+        "shots_blocked": 140,
+        "passes_attempted": 3161,
+        "passes_completed": 1950,
+        "passes_intercepted": 581,
+        "passes_uncollected_derived": 630,
+        "pass_completion": 0.6168933881683012,
+        "possession_fraction": 0.7292578125,
+        "control_fraction": 0.09128255208333333,
+        "dribbles": 3192,
+        "dribble_distance": 11425.854099,
+        "tackles_attempted": 150,
+        "tackles_won": 24,
+        "turnovers": 167,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.22584755887199512,
+        "decision_max_ms": 11.52741700207116,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 64,
+        "draws": 0,
+        "losses": 0,
+        "points": 192,
+        "points_per_match": 3.0,
+        "points_per_match_seed_bootstrap_95": [
+          3.0,
+          3.0
+        ],
+        "goals_for": 327,
+        "goals_against": 28,
+        "goal_difference": 299,
+        "goal_difference_per_match": 4.671875,
+        "shots": 303,
+        "shots_blocked": 141,
+        "passes_attempted": 3140,
+        "passes_completed": 1939,
+        "passes_intercepted": 574,
+        "passes_uncollected_derived": 627,
+        "pass_completion": 0.617515923566879,
+        "possession_fraction": 0.7300911458333333,
+        "control_fraction": 0.08910807291666667,
+        "dribbles": 3133,
+        "dribble_distance": 11403.270619,
+        "tackles_attempted": 156,
+        "tackles_won": 24,
+        "turnovers": 165,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.23413229626413568,
+        "decision_max_ms": 17.212345002917573,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/relay_legacy/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 61,
+        "draws": 1,
+        "losses": 2,
+        "points": 184,
+        "points_per_match": 2.875,
+        "points_per_match_seed_bootstrap_95": [
+          2.65625,
+          3.0
+        ],
+        "goals_for": 207,
+        "goals_against": 21,
+        "goal_difference": 186,
+        "goal_difference_per_match": 2.90625,
+        "shots": 366,
+        "shots_blocked": 106,
+        "passes_attempted": 2856,
+        "passes_completed": 1289,
+        "passes_intercepted": 960,
+        "passes_uncollected_derived": 607,
+        "pass_completion": 0.45133053221288516,
+        "possession_fraction": 0.5746223958333333,
+        "control_fraction": 0.08936197916666666,
+        "dribbles": 2417,
+        "dribble_distance": 5987.788502,
+        "tackles_attempted": 414,
+        "tackles_won": 87,
+        "turnovers": 262,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.20813909881961004,
+        "decision_max_ms": 11.840337996545713,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 61,
+        "draws": 1,
+        "losses": 2,
+        "points": 184,
+        "points_per_match": 2.875,
+        "points_per_match_seed_bootstrap_95": [
+          2.65625,
+          3.0
+        ],
+        "goals_for": 210,
+        "goals_against": 27,
+        "goal_difference": 183,
+        "goal_difference_per_match": 2.859375,
+        "shots": 386,
+        "shots_blocked": 110,
+        "passes_attempted": 2916,
+        "passes_completed": 1329,
+        "passes_intercepted": 977,
+        "passes_uncollected_derived": 610,
+        "pass_completion": 0.455761316872428,
+        "possession_fraction": 0.5749739583333333,
+        "control_fraction": 0.09348307291666667,
+        "dribbles": 2498,
+        "dribble_distance": 5966.914666,
+        "tackles_attempted": 421,
+        "tackles_won": 90,
+        "turnovers": 273,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21815168918356184,
+        "decision_max_ms": 10.629652999341488,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/tight_links/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 55,
+        "draws": 6,
+        "losses": 3,
+        "points": 171,
+        "points_per_match": 2.671875,
+        "points_per_match_seed_bootstrap_95": [
+          2.390625,
+          2.890625
+        ],
+        "goals_for": 185,
+        "goals_against": 34,
+        "goal_difference": 151,
+        "goal_difference_per_match": 2.359375,
+        "shots": 328,
+        "shots_blocked": 133,
+        "passes_attempted": 2712,
+        "passes_completed": 1300,
+        "passes_intercepted": 778,
+        "passes_uncollected_derived": 634,
+        "pass_completion": 0.47935103244837757,
+        "possession_fraction": 0.51357421875,
+        "control_fraction": 0.08107421875,
+        "dribbles": 2403,
+        "dribble_distance": 5242.713492,
+        "tackles_attempted": 399,
+        "tackles_won": 77,
+        "turnovers": 320,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.20581120219082058,
+        "decision_max_ms": 11.725322998245247,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 58,
+        "draws": 4,
+        "losses": 2,
+        "points": 178,
+        "points_per_match": 2.78125,
+        "points_per_match_seed_bootstrap_95": [
+          2.5,
+          2.96875
+        ],
+        "goals_for": 190,
+        "goals_against": 32,
+        "goal_difference": 158,
+        "goal_difference_per_match": 2.46875,
+        "shots": 321,
+        "shots_blocked": 140,
+        "passes_attempted": 2728,
+        "passes_completed": 1302,
+        "passes_intercepted": 785,
+        "passes_uncollected_derived": 641,
+        "pass_completion": 0.4772727272727273,
+        "possession_fraction": 0.514609375,
+        "control_fraction": 0.08059244791666667,
+        "dribbles": 2384,
+        "dribble_distance": 5319.310187,
+        "tackles_attempted": 401,
+        "tackles_won": 79,
+        "turnovers": 316,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2135011489953816,
+        "decision_max_ms": 11.398130001907703,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.109375
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v10-compact/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 32,
+        "draws": 16,
+        "losses": 16,
+        "points": 112,
+        "points_per_match": 1.75,
+        "points_per_match_seed_bootstrap_95": [
+          1.4375,
+          2.078125
+        ],
+        "goals_for": 71,
+        "goals_against": 47,
+        "goal_difference": 24,
+        "goal_difference_per_match": 0.375,
+        "shots": 290,
+        "shots_blocked": 57,
+        "passes_attempted": 2293,
+        "passes_completed": 1310,
+        "passes_intercepted": 591,
+        "passes_uncollected_derived": 392,
+        "pass_completion": 0.5713039686000873,
+        "possession_fraction": 0.4570703125,
+        "control_fraction": 0.09416015625,
+        "dribbles": 2820,
+        "dribble_distance": 5183.725281,
+        "tackles_attempted": 232,
+        "tackles_won": 47,
+        "turnovers": 410,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21007770122371502,
+        "decision_max_ms": 12.109452996810433,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 32,
+        "draws": 16,
+        "losses": 16,
+        "points": 112,
+        "points_per_match": 1.75,
+        "points_per_match_seed_bootstrap_95": [
+          1.4375,
+          2.078125
+        ],
+        "goals_for": 71,
+        "goals_against": 47,
+        "goal_difference": 24,
+        "goal_difference_per_match": 0.375,
+        "shots": 290,
+        "shots_blocked": 57,
+        "passes_attempted": 2293,
+        "passes_completed": 1310,
+        "passes_intercepted": 591,
+        "passes_uncollected_derived": 392,
+        "pass_completion": 0.5713039686000873,
+        "possession_fraction": 0.4570703125,
+        "control_fraction": 0.09416015625,
+        "dribbles": 2820,
+        "dribble_distance": 5183.725281,
+        "tackles_attempted": 232,
+        "tackles_won": 47,
+        "turnovers": 410,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.22028608203295144,
+        "decision_max_ms": 17.66962400142802,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v10-counter/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 19,
+        "draws": 21,
+        "losses": 24,
+        "points": 78,
+        "points_per_match": 1.21875,
+        "points_per_match_seed_bootstrap_95": [
+          0.90625,
+          1.515625
+        ],
+        "goals_for": 82,
+        "goals_against": 101,
+        "goal_difference": -19,
+        "goal_difference_per_match": -0.296875,
+        "shots": 241,
+        "shots_blocked": 96,
+        "passes_attempted": 2499,
+        "passes_completed": 1274,
+        "passes_intercepted": 748,
+        "passes_uncollected_derived": 477,
+        "pass_completion": 0.5098039215686274,
+        "possession_fraction": 0.5197591145833333,
+        "control_fraction": 0.09008463541666667,
+        "dribbles": 2565,
+        "dribble_distance": 5085.1027238,
+        "tackles_attempted": 267,
+        "tackles_won": 55,
+        "turnovers": 404,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.20734657639820853,
+        "decision_max_ms": 13.256559002911672,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 19,
+        "draws": 21,
+        "losses": 24,
+        "points": 78,
+        "points_per_match": 1.21875,
+        "points_per_match_seed_bootstrap_95": [
+          0.90625,
+          1.515625
+        ],
+        "goals_for": 82,
+        "goals_against": 101,
+        "goal_difference": -19,
+        "goal_difference_per_match": -0.296875,
+        "shots": 241,
+        "shots_blocked": 96,
+        "passes_attempted": 2499,
+        "passes_completed": 1274,
+        "passes_intercepted": 748,
+        "passes_uncollected_derived": 477,
+        "pass_completion": 0.5098039215686274,
+        "possession_fraction": 0.5197591145833333,
+        "control_fraction": 0.09008463541666667,
+        "dribbles": 2565,
+        "dribble_distance": 5085.1027238,
+        "tackles_attempted": 267,
+        "tackles_won": 55,
+        "turnovers": 404,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21756765247365215,
+        "decision_max_ms": 9.370699001010507,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v10-long/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 22,
+        "draws": 18,
+        "losses": 24,
+        "points": 84,
+        "points_per_match": 1.3125,
+        "points_per_match_seed_bootstrap_95": [
+          1.109375,
+          1.546875
+        ],
+        "goals_for": 77,
+        "goals_against": 89,
+        "goal_difference": -12,
+        "goal_difference_per_match": -0.1875,
+        "shots": 242,
+        "shots_blocked": 59,
+        "passes_attempted": 2473,
+        "passes_completed": 1295,
+        "passes_intercepted": 737,
+        "passes_uncollected_derived": 441,
+        "pass_completion": 0.523655479175091,
+        "possession_fraction": 0.5327018229166667,
+        "control_fraction": 0.11125651041666666,
+        "dribbles": 3106,
+        "dribble_distance": 5212.777272,
+        "tackles_attempted": 289,
+        "tackles_won": 58,
+        "turnovers": 383,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2243615463701095,
+        "decision_max_ms": 11.060190998250619,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 22,
+        "draws": 18,
+        "losses": 24,
+        "points": 84,
+        "points_per_match": 1.3125,
+        "points_per_match_seed_bootstrap_95": [
+          1.109375,
+          1.546875
+        ],
+        "goals_for": 77,
+        "goals_against": 89,
+        "goal_difference": -12,
+        "goal_difference_per_match": -0.1875,
+        "shots": 242,
+        "shots_blocked": 59,
+        "passes_attempted": 2473,
+        "passes_completed": 1295,
+        "passes_intercepted": 737,
+        "passes_uncollected_derived": 441,
+        "pass_completion": 0.523655479175091,
+        "possession_fraction": 0.5327018229166667,
+        "control_fraction": 0.11125651041666666,
+        "dribbles": 3106,
+        "dribble_distance": 5212.777272,
+        "tackles_attempted": 289,
+        "tackles_won": 58,
+        "turnovers": 383,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.23382872000089114,
+        "decision_max_ms": 8.869974000845104,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v10-press/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 26,
+        "draws": 17,
+        "losses": 21,
+        "points": 95,
+        "points_per_match": 1.484375,
+        "points_per_match_seed_bootstrap_95": [
+          1.203125,
+          1.765625
+        ],
+        "goals_for": 85,
+        "goals_against": 71,
+        "goal_difference": 14,
+        "goal_difference_per_match": 0.21875,
+        "shots": 303,
+        "shots_blocked": 84,
+        "passes_attempted": 2429,
+        "passes_completed": 1257,
+        "passes_intercepted": 704,
+        "passes_uncollected_derived": 468,
+        "pass_completion": 0.5174969123095924,
+        "possession_fraction": 0.5184309895833333,
+        "control_fraction": 0.07951822916666666,
+        "dribbles": 2274,
+        "dribble_distance": 4581.616883,
+        "tackles_attempted": 252,
+        "tackles_won": 39,
+        "turnovers": 374,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2054097169995354,
+        "decision_max_ms": 12.772050002240576,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 26,
+        "draws": 17,
+        "losses": 21,
+        "points": 95,
+        "points_per_match": 1.484375,
+        "points_per_match_seed_bootstrap_95": [
+          1.203125,
+          1.765625
+        ],
+        "goals_for": 85,
+        "goals_against": 71,
+        "goal_difference": 14,
+        "goal_difference_per_match": 0.21875,
+        "shots": 304,
+        "shots_blocked": 84,
+        "passes_attempted": 2427,
+        "passes_completed": 1257,
+        "passes_intercepted": 703,
+        "passes_uncollected_derived": 467,
+        "pass_completion": 0.5179233621755254,
+        "possession_fraction": 0.51802734375,
+        "control_fraction": 0.07932942708333333,
+        "dribbles": 2271,
+        "dribble_distance": 4588.198463,
+        "tackles_attempted": 252,
+        "tackles_won": 39,
+        "turnovers": 374,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21402152705642644,
+        "decision_max_ms": 17.933984003320802,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v10/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 25,
+        "draws": 14,
+        "losses": 25,
+        "points": 89,
+        "points_per_match": 1.390625,
+        "points_per_match_seed_bootstrap_95": [
+          1.3125,
+          1.453125
+        ],
+        "goals_for": 84,
+        "goals_against": 84,
+        "goal_difference": 0,
+        "goal_difference_per_match": 0.0,
+        "shots": 256,
+        "shots_blocked": 76,
+        "passes_attempted": 2305,
+        "passes_completed": 1158,
+        "passes_intercepted": 702,
+        "passes_uncollected_derived": 445,
+        "pass_completion": 0.5023861171366595,
+        "possession_fraction": 0.5,
+        "control_fraction": 0.10272135416666667,
+        "dribbles": 2873,
+        "dribble_distance": 4791.600476,
+        "tackles_attempted": 282,
+        "tackles_won": 59,
+        "turnovers": 377,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21637632610477908,
+        "decision_max_ms": 18.0793489998905,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 25,
+        "draws": 14,
+        "losses": 25,
+        "points": 89,
+        "points_per_match": 1.390625,
+        "points_per_match_seed_bootstrap_95": [
+          1.3125,
+          1.453125
+        ],
+        "goals_for": 84,
+        "goals_against": 84,
+        "goal_difference": 0,
+        "goal_difference_per_match": 0.0,
+        "shots": 256,
+        "shots_blocked": 76,
+        "passes_attempted": 2305,
+        "passes_completed": 1158,
+        "passes_intercepted": 702,
+        "passes_uncollected_derived": 445,
+        "pass_completion": 0.5023861171366595,
+        "possession_fraction": 0.5,
+        "control_fraction": 0.10272135416666667,
+        "dribbles": 2873,
+        "dribble_distance": 4791.600476,
+        "tackles_attempted": 282,
+        "tackles_won": 59,
+        "turnovers": 377,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.22506083052296808,
+        "decision_max_ms": 10.295081003278028,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/v9.1/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 16,
+        "draws": 15,
+        "losses": 33,
+        "points": 63,
+        "points_per_match": 0.984375,
+        "points_per_match_seed_bootstrap_95": [
+          0.6875,
+          1.265625
+        ],
+        "goals_for": 57,
+        "goals_against": 98,
+        "goal_difference": -41,
+        "goal_difference_per_match": -0.640625,
+        "shots": 240,
+        "shots_blocked": 58,
+        "passes_attempted": 2379,
+        "passes_completed": 1300,
+        "passes_intercepted": 668,
+        "passes_uncollected_derived": 411,
+        "pass_completion": 0.546448087431694,
+        "possession_fraction": 0.5187890625,
+        "control_fraction": 0.09678385416666667,
+        "dribbles": 2686,
+        "dribble_distance": 4921.3465779,
+        "tackles_attempted": 254,
+        "tackles_won": 39,
+        "turnovers": 376,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21300997953105139,
+        "decision_max_ms": 13.318441997398622,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 16,
+        "draws": 15,
+        "losses": 33,
+        "points": 63,
+        "points_per_match": 0.984375,
+        "points_per_match_seed_bootstrap_95": [
+          0.6875,
+          1.265625
+        ],
+        "goals_for": 57,
+        "goals_against": 98,
+        "goal_difference": -41,
+        "goal_difference_per_match": -0.640625,
+        "shots": 240,
+        "shots_blocked": 58,
+        "passes_attempted": 2379,
+        "passes_completed": 1300,
+        "passes_intercepted": 668,
+        "passes_uncollected_derived": 411,
+        "pass_completion": 0.546448087431694,
+        "possession_fraction": 0.5187890625,
+        "control_fraction": 0.09678385416666667,
+        "dribbles": 2686,
+        "dribble_distance": 4921.3465779,
+        "tackles_attempted": 254,
+        "tackles_won": 39,
+        "turnovers": 376,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.2219945001979795,
+        "decision_max_ms": 14.11206600459991,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.0
+    },
+    "/workspace/work/titan-x-run/qualification/opponents/wide_switch/team.py": {
+      "baseline": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 56,
+        "draws": 7,
+        "losses": 1,
+        "points": 175,
+        "points_per_match": 2.734375,
+        "points_per_match_seed_bootstrap_95": [
+          2.53125,
+          2.90625
+        ],
+        "goals_for": 190,
+        "goals_against": 32,
+        "goal_difference": 158,
+        "goal_difference_per_match": 2.46875,
+        "shots": 276,
+        "shots_blocked": 163,
+        "passes_attempted": 2946,
+        "passes_completed": 1384,
+        "passes_intercepted": 911,
+        "passes_uncollected_derived": 651,
+        "pass_completion": 0.4697895451459606,
+        "possession_fraction": 0.5551822916666667,
+        "control_fraction": 0.09876953125,
+        "dribbles": 2514,
+        "dribble_distance": 5953.477669,
+        "tackles_attempted": 403,
+        "tackles_won": 109,
+        "turnovers": 364,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.21523833681906504,
+        "decision_max_ms": 11.065639999287669,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "challenger": {
+        "matches": 64,
+        "independent_seed_blocks": 16,
+        "wins": 57,
+        "draws": 6,
+        "losses": 1,
+        "points": 177,
+        "points_per_match": 2.765625,
+        "points_per_match_seed_bootstrap_95": [
+          2.5625,
+          2.9375
+        ],
+        "goals_for": 187,
+        "goals_against": 31,
+        "goal_difference": 156,
+        "goal_difference_per_match": 2.4375,
+        "shots": 280,
+        "shots_blocked": 161,
+        "passes_attempted": 2914,
+        "passes_completed": 1374,
+        "passes_intercepted": 896,
+        "passes_uncollected_derived": 644,
+        "pass_completion": 0.47151681537405626,
+        "possession_fraction": 0.55880859375,
+        "control_fraction": 0.09850911458333333,
+        "dribbles": 2505,
+        "dribble_distance": 5876.342398,
+        "tackles_attempted": 395,
+        "tackles_won": 107,
+        "turnovers": 364,
+        "fouls": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decisions": 153600,
+        "decision_mean_ms": 0.22372238412591136,
+        "decision_max_ms": 12.339237997366581,
+        "validation": {
+          "clamped_values": 0,
+          "dropped_debug_payloads": 0,
+          "invalid_player_ids": 0,
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "rejected_kicks": 0
+        },
+        "shot_quality": "not available",
+        "goalkeeper_saves": "not available"
+      },
+      "points_per_match_difference": 0.03125
+    }
+  },
+  "scope": "Local seed variability over these fixed opponents; not a probability of winning the class competition.",
+  "raw_baseline": {
+    "matches": 768,
+    "independent_seed_blocks": 16,
+    "wins": 453,
+    "draws": 133,
+    "losses": 182,
+    "points": 1492,
+    "points_per_match": 1.9427083333333333,
+    "points_per_match_seed_bootstrap_95": [
+      1.8723958333333335,
+      2.0169270833333335
+    ],
+    "goals_for": 1603,
+    "goals_against": 724,
+    "goal_difference": 879,
+    "goal_difference_per_match": 1.14453125,
+    "shots": 3397,
+    "shots_blocked": 1197,
+    "passes_attempted": 31248,
+    "passes_completed": 16164,
+    "passes_intercepted": 8841,
+    "passes_uncollected_derived": 6243,
+    "pass_completion": 0.5172811059907834,
+    "possession_fraction": 0.5387424045138889,
+    "control_fraction": 0.0953662109375,
+    "dribbles": 32518,
+    "dribble_distance": 69177.4452757,
+    "tackles_attempted": 3605,
+    "tackles_won": 719,
+    "turnovers": 4181,
+    "fouls": 0,
+    "policy_errors": 0,
+    "policy_timeouts": 2,
+    "decisions": 1843200,
+    "decision_mean_ms": 0.21393656743578995,
+    "decision_max_ms": 26.914015994407237,
+    "validation": {
+      "clamped_values": 0,
+      "dropped_debug_payloads": 0,
+      "invalid_player_ids": 0,
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "rejected_kicks": 0
+    },
+    "shot_quality": "not available",
+    "goalkeeper_saves": "not available"
+  },
+  "raw_challenger": {
+    "matches": 768,
+    "independent_seed_blocks": 16,
+    "wins": 456,
+    "draws": 131,
+    "losses": 181,
+    "points": 1499,
+    "points_per_match": 1.9518229166666667,
+    "points_per_match_seed_bootstrap_95": [
+      1.8841145833333335,
+      2.0234375
+    ],
+    "goals_for": 1605,
+    "goals_against": 728,
+    "goal_difference": 877,
+    "goal_difference_per_match": 1.1419270833333333,
+    "shots": 3403,
+    "shots_blocked": 1208,
+    "passes_attempted": 31253,
+    "passes_completed": 16179,
+    "passes_intercepted": 8833,
+    "passes_uncollected_derived": 6241,
+    "pass_completion": 0.5176783028829233,
+    "possession_fraction": 0.5392936197916667,
+    "control_fraction": 0.09541395399305555,
+    "dribbles": 32497,
+    "dribble_distance": 69112.5029537,
+    "tackles_attempted": 3609,
+    "tackles_won": 720,
+    "turnovers": 4181,
+    "fouls": 0,
+    "policy_errors": 0,
+    "policy_timeouts": 2,
+    "decisions": 1843200,
+    "decision_mean_ms": 0.22318965736175755,
+    "decision_max_ms": 26.620691998687107,
+    "validation": {
+      "clamped_values": 0,
+      "dropped_debug_payloads": 0,
+      "invalid_player_ids": 0,
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "rejected_kicks": 0
+    },
+    "shot_quality": "not available",
+    "goalkeeper_saves": "not available"
+  },
+  "gates": {
+    "more_points": true,
+    "positive_whole_seed_95_lower": false,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "raw_deadline_allowance": true,
+    "mean_runtime": true,
+    "official_sdk": true,
+    "legal_actions": true,
+    "fresh_fixture_count": true
+  },
+  "extra_raw_misses_per_1000": 0.0,
+  "mean_runtime_ceiling_ms": 0.3287685241210409,
+  "repeated_candidate_deadline_failures": 0,
+  "tactics": {
+    "ticks": {
+      "trap_run": 346
+    },
+    "episodes": {
+      "trap_run": 62
+    },
+    "associations": {
+      "trap_run_goals_for_5s": 21,
+      "trap_run_goals_against_5s": 0,
+      "trap_run_turnover_events_5s": 23
+    },
+    "examples": [
+      {
+        "seed": 706413102,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "tight_links",
+        "tick": 335,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          39.831787109375,
+          -6.6822590827941895
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.16929206252098083
+        ],
+        "remaining_seconds": 103.25
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 1643,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          38.55418014526367,
+          -23.35381507873535
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.5269079804420471
+        ],
+        "remaining_seconds": 37.85
+      },
+      {
+        "seed": 323700284,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "tight_links",
+        "tick": 1428,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          42.01148223876953,
+          -4.880341053009033
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.07652425765991211
+        ],
+        "remaining_seconds": 48.6
+      },
+      {
+        "seed": 51052033,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 1331,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          39.844627380371094,
+          21.980697631835938
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4738142788410187
+        ],
+        "remaining_seconds": 53.45
+      },
+      {
+        "seed": 706413102,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 860,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          41.23748779296875,
+          8.931678771972656
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.2087479680776596
+        ],
+        "remaining_seconds": 77.0
+      },
+      {
+        "seed": 1370587122,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "tight_links",
+        "tick": 475,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.376712799072266,
+          13.394172668457031
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.29803115129470825
+        ],
+        "remaining_seconds": 96.25
+      },
+      {
+        "seed": 437371257,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 1215,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          39.35295486450195,
+          -18.278156280517578
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.408949077129364
+        ],
+        "remaining_seconds": 59.25
+      },
+      {
+        "seed": 706413102,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1032,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          41.23748779296875,
+          8.931678771972656
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.2087479680776596
+        ],
+        "remaining_seconds": 68.4
+      },
+      {
+        "seed": 1754771140,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "long_shooter",
+        "tick": 291,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          38.208614349365234,
+          24.38999366760254
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.5690699219703674
+        ],
+        "remaining_seconds": 105.45
+      },
+      {
+        "seed": 1370587122,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "tight_links",
+        "tick": 714,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.376712799072266,
+          13.394172668457031
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.29803115129470825
+        ],
+        "remaining_seconds": 84.3
+      },
+      {
+        "seed": 1481459767,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 1110,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          43.27376937866211,
+          -0.24880897998809814
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.033724114298820496
+        ],
+        "remaining_seconds": 64.5
+      },
+      {
+        "seed": 1462180457,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 2022,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          40.388301849365234,
+          7.7518486976623535
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.11539756506681442
+        ],
+        "remaining_seconds": 18.9
+      },
+      {
+        "seed": 51052033,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 1855,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          39.844627380371094,
+          21.980697631835938
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4738142788410187
+        ],
+        "remaining_seconds": 27.25
+      },
+      {
+        "seed": 437371257,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "tight_links",
+        "tick": 1606,
+        "event": "trap_run",
+        "score": [
+          2,
+          1
+        ],
+        "ball": [
+          42.40622329711914,
+          -22.551334381103516
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.50894695520401
+        ],
+        "remaining_seconds": 39.7
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1667,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          44.00439453125,
+          -2.1453473567962646
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.012371806427836418
+        ],
+        "remaining_seconds": 36.65
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1685,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          43.78379440307617,
+          -7.0669074058532715
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15747186541557312
+        ],
+        "remaining_seconds": 35.75
+      },
+      {
+        "seed": 324895653,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1107,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          39.77215576171875,
+          27.149417877197266
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.6830519437789917
+        ],
+        "remaining_seconds": 64.65
+      },
+      {
+        "seed": 1462180457,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 2077,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          40.388301849365234,
+          7.7518486976623535
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.11539756506681442
+        ],
+        "remaining_seconds": 16.15
+      },
+      {
+        "seed": 1859908722,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 462,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          41.49960708618164,
+          -7.0296807289123535
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.11593696475028992
+        ],
+        "remaining_seconds": 96.9
+      },
+      {
+        "seed": 1754771140,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 568,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          39.31175994873047,
+          6.988375186920166
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.09249406307935715
+        ],
+        "remaining_seconds": 91.6
+      },
+      {
+        "seed": 415742157,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "wide_switch",
+        "tick": 1596,
+        "event": "trap_run",
+        "score": [
+          2,
+          2
+        ],
+        "ball": [
+          39.455623626708984,
+          -8.189881324768066
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.19966834783554077
+        ],
+        "remaining_seconds": 40.2
+      },
+      {
+        "seed": 324895653,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 397,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          39.77215576171875,
+          27.149417877197266
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.6830519437789917
+        ],
+        "remaining_seconds": 100.15
+      },
+      {
+        "seed": 410470786,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 2215,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          39.38383483886719,
+          1.855701208114624
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.029814954847097397
+        ],
+        "remaining_seconds": 9.25
+      },
+      {
+        "seed": 323700284,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "wide_switch",
+        "tick": 901,
+        "event": "trap_run",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          39.428226470947266,
+          -0.5714031457901001
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.02010919898748398
+        ],
+        "remaining_seconds": 74.95
+      },
+      {
+        "seed": 1859908722,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 613,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          41.590065002441406,
+          23.364900588989258
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.5238783955574036
+        ],
+        "remaining_seconds": 89.35
+      },
+      {
+        "seed": 1859908722,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1904,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          41.49960708618164,
+          -7.0296807289123535
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.11593696475028992
+        ],
+        "remaining_seconds": 24.8
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 1965,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          38.55418014526367,
+          -23.35381507873535
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.5269079804420471
+        ],
+        "remaining_seconds": 21.75
+      },
+      {
+        "seed": 1697593208,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 718,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          38.28551483154297,
+          8.898235321044922
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.2150854766368866
+        ],
+        "remaining_seconds": 84.1
+      },
+      {
+        "seed": 1697593208,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1712,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          41.100677490234375,
+          -22.015138626098633
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.5780957937240601
+        ],
+        "remaining_seconds": 34.4
+      },
+      {
+        "seed": 1370587122,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 664,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.376712799072266,
+          13.394172668457031
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.29803115129470825
+        ],
+        "remaining_seconds": 86.8
+      },
+      {
+        "seed": 1462180457,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 361,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          40.75388717651367,
+          -18.39467430114746
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.37988895177841187
+        ],
+        "remaining_seconds": 101.95
+      },
+      {
+        "seed": 1370587122,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "v10-press",
+        "tick": 1399,
+        "event": "trap_run",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          37.56325912475586,
+          -5.218684673309326
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.1399230659008026
+        ],
+        "remaining_seconds": 50.05
+      },
+      {
+        "seed": 437371257,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "wide_switch",
+        "tick": 1109,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          37.16959762573242,
+          17.55255699157715
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4858599305152893
+        ],
+        "remaining_seconds": 64.55
+      },
+      {
+        "seed": 1164966803,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 783,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          42.403289794921875,
+          -8.352020263671875
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.12658488750457764
+        ],
+        "remaining_seconds": 80.85
+      },
+      {
+        "seed": 1754771140,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 263,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          43.49650192260742,
+          28.69166374206543
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.6551066040992737
+        ],
+        "remaining_seconds": 106.85
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 1783,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          44.00439453125,
+          -2.1453473567962646
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.012371806427836418
+        ],
+        "remaining_seconds": 30.85
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 1801,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          43.78379440307617,
+          -7.0669074058532715
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15747186541557312
+        ],
+        "remaining_seconds": 29.95
+      },
+      {
+        "seed": 410470786,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 2244,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          39.38383483886719,
+          1.855701208114624
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.029814954847097397
+        ],
+        "remaining_seconds": 7.8
+      },
+      {
+        "seed": 1481459767,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1060,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          43.27376937866211,
+          -0.24880897998809814
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.033724114298820496
+        ],
+        "remaining_seconds": 67.0
+      },
+      {
+        "seed": 1754771140,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "wide_switch",
+        "tick": 1468,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          42.362064361572266,
+          -5.632389068603516
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.05687424913048744
+        ],
+        "remaining_seconds": 46.6
+      },
+      {
+        "seed": 1754771140,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 622,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          39.31175994873047,
+          6.988375186920166
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.09249406307935715
+        ],
+        "remaining_seconds": 88.9
+      },
+      {
+        "seed": 1164966803,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 699,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          38.1197624206543,
+          7.604841232299805
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.1921275556087494
+        ],
+        "remaining_seconds": 85.05
+      },
+      {
+        "seed": 323700284,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "v10-counter",
+        "tick": 2267,
+        "event": "trap_run",
+        "score": [
+          1,
+          1
+        ],
+        "ball": [
+          40.112091064453125,
+          -4.908114433288574
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.14335091412067413
+        ],
+        "remaining_seconds": 6.65
+      },
+      {
+        "seed": 323700284,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "tight_links",
+        "tick": 217,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          41.8691291809082,
+          -5.960030555725098
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.1028115376830101
+        ],
+        "remaining_seconds": 109.15
+      },
+      {
+        "seed": 323700284,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "tight_links",
+        "tick": 2162,
+        "event": "trap_run",
+        "score": [
+          2,
+          1
+        ],
+        "ball": [
+          42.01148223876953,
+          -4.880341053009033
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.07652425765991211
+        ],
+        "remaining_seconds": 11.9
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "wide_switch",
+        "tick": 617,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.44153594970703,
+          -9.367132186889648
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.179594486951828
+        ],
+        "remaining_seconds": 89.15
+      },
+      {
+        "seed": 324895653,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "wide_switch",
+        "tick": 429,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          34.249752044677734,
+          -23.01020622253418
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.5904614329338074
+        ],
+        "remaining_seconds": 98.55
+      },
+      {
+        "seed": 1164966803,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 1170,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          42.403289794921875,
+          -8.352020263671875
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.12658488750457764
+        ],
+        "remaining_seconds": 61.5
+      },
+      {
+        "seed": 343625334,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "wide_switch",
+        "tick": 1356,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.44153594970703,
+          -9.367132186889648
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.179594486951828
+        ],
+        "remaining_seconds": 52.2
+      },
+      {
+        "seed": 1462180457,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "tight_links",
+        "tick": 216,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          41.63998794555664,
+          -12.878486633300781
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.2481689751148224
+        ],
+        "remaining_seconds": 109.2
+      },
+      {
+        "seed": 1859908722,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "tight_links",
+        "tick": 1871,
+        "event": "trap_run",
+        "score": [
+          3,
+          1
+        ],
+        "ball": [
+          39.51097869873047,
+          -5.949819564819336
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.16846126317977905
+        ],
+        "remaining_seconds": 26.45
+      },
+      {
+        "seed": 1370587122,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 650,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          38.376712799072266,
+          13.394172668457031
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.29803115129470825
+        ],
+        "remaining_seconds": 87.5
+      },
+      {
+        "seed": 437371257,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "tight_links",
+        "tick": 1625,
+        "event": "trap_run",
+        "score": [
+          2,
+          1
+        ],
+        "ball": [
+          42.40622329711914,
+          -22.551334381103516
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.50894695520401
+        ],
+        "remaining_seconds": 38.75
+      },
+      {
+        "seed": 323700284,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "v10-counter",
+        "tick": 1769,
+        "event": "trap_run",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          40.112091064453125,
+          -4.908114433288574
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.14335091412067413
+        ],
+        "remaining_seconds": 31.55
+      },
+      {
+        "seed": 1370587122,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "wide_switch",
+        "tick": 475,
+        "event": "trap_run",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          39.082725524902344,
+          25.68572235107422
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.6565005779266357
+        ],
+        "remaining_seconds": 96.25
+      },
+      {
+        "seed": 343625334,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 2167,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          39.569427490234375,
+          7.911809921264648
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.11516344547271729
+        ],
+        "remaining_seconds": 11.65
+      },
+      {
+        "seed": 343625334,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "quick_wall",
+        "tick": 1833,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          39.569427490234375,
+          7.911809921264648
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.11516344547271729
+        ],
+        "remaining_seconds": 28.35
+      },
+      {
+        "seed": 437371257,
+        "side": 0,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 440,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          40.49982833862305,
+          18.935760498046875
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4970114529132843
+        ],
+        "remaining_seconds": 98.0
+      },
+      {
+        "seed": 1697593208,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 885,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          38.28551483154297,
+          8.898235321044922
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.2150854766368866
+        ],
+        "remaining_seconds": 75.75
+      },
+      {
+        "seed": 1697593208,
+        "side": 1,
+        "kickoff": true,
+        "opponent": "relay_legacy",
+        "tick": 1879,
+        "event": "trap_run",
+        "score": [
+          4,
+          1
+        ],
+        "ball": [
+          41.100677490234375,
+          -22.015138626098633
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.5780957937240601
+        ],
+        "remaining_seconds": 26.05
+      },
+      {
+        "seed": 437371257,
+        "side": 1,
+        "kickoff": false,
+        "opponent": "quick_wall",
+        "tick": 1639,
+        "event": "trap_run",
+        "score": [
+          3,
+          1
+        ],
+        "ball": [
+          39.35295486450195,
+          -18.278156280517578
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.408949077129364
+        ],
+        "remaining_seconds": 38.05
+      },
+      {
+        "seed": 437371257,
+        "side": 0,
+        "kickoff": false,
+        "opponent": "relay_legacy",
+        "tick": 1072,
+        "event": "trap_run",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          40.49982833862305,
+          18.935760498046875
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4970114529132843
+        ],
+        "remaining_seconds": 66.4
+      }
+    ]
+  },
+  "qualified": false
+}

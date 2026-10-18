@@ -1,0 +1,10 @@
+{
+  "status": "RETAIN_V10_0",
+  "promoted": false,
+  "selected": "trap",
+  "sha256": "90a7dcba55da2605c59b4cd08d839d94e20a68e006bf52acf9305d01efda88bb",
+  "failed_gates": [
+    "positive_whole_seed_95_lower"
+  ],
+  "main_and_champion_unchanged": true
+}

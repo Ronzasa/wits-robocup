@@ -1,0 +1,70 @@
+{
+  "raw_deadline_calls": [
+    {
+      "source": "v10",
+      "opponent": "v10-press",
+      "seed": 1164966803,
+      "side": 1,
+      "kickoff": true,
+      "tick": 1512,
+      "sdk_wall_ms": 26.914015994407237,
+      "thread_cpu_ms": 26.91724,
+      "gc_overlap": []
+    },
+    {
+      "source": "titan-x",
+      "opponent": "long_shooter",
+      "seed": 706413102,
+      "side": 0,
+      "kickoff": true,
+      "tick": 2347,
+      "sdk_wall_ms": 21.597118000499904,
+      "thread_cpu_ms": 21.602131,
+      "gc_overlap": []
+    },
+    {
+      "source": "titan-x",
+      "opponent": "quick_wall",
+      "seed": 410470786,
+      "side": 0,
+      "kickoff": true,
+      "tick": 129,
+      "sdk_wall_ms": 26.620691998687107,
+      "thread_cpu_ms": 26.624395999999997,
+      "gc_overlap": []
+    },
+    {
+      "source": "v10",
+      "opponent": "quick_wall",
+      "seed": 1754771140,
+      "side": 0,
+      "kickoff": true,
+      "tick": 388,
+      "sdk_wall_ms": 23.492501997679938,
+      "thread_cpu_ms": 23.494515999999997,
+      "gc_overlap": []
+    }
+  ],
+  "raw_latency_tails": {
+    "v10": {
+      "count": 1843200,
+      "bin_width_ms": 0.025,
+      "p95_upper_ms": 0.525,
+      "p99_upper_ms": 2.025,
+      "p999_upper_ms": 4.2
+    },
+    "titan-x": {
+      "count": 1843200,
+      "bin_width_ms": 0.025,
+      "p95_upper_ms": 0.525,
+      "p99_upper_ms": 2.075,
+      "p999_upper_ms": 4.275
+    }
+  },
+  "gc_overlap_count": 0,
+  "wall_cpu_gap_over_5ms": 0,
+  "misses_by_source": {
+    "v10": 2,
+    "titan-x": 2
+  }
+}

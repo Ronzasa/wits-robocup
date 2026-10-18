@@ -2,6 +2,7 @@
 from collections import Counter
 import hashlib
 import json
+import math
 from pathlib import Path
 import zipfile
 
@@ -27,10 +28,41 @@ def same_games(folder,name):
 def slow_analysis(folder):
     rows=[json.loads(s) for s in (folder/'slow-decisions.jsonl').read_text().splitlines()]
     deadlines=[r for r in rows if r['sdk_wall_ms']>=20.]
-    return {'raw_deadline_calls':deadlines,
+    hist=read(folder/'decision-histograms.json')
+    tails={}
+    for name,bins in hist['histograms'].items():
+        ordered=sorted((int(k),v) for k,v in bins.items())
+        count=sum(v for _,v in ordered)
+        tails[name]={'count':count,'bin_width_ms':hist['bin_width_ms']}
+        for label,p in (('p95_upper_ms',.95),('p99_upper_ms',.99),('p999_upper_ms',.999)):
+            threshold=math.ceil(count*p);seen=0
+            for bucket,n in ordered:
+                seen+=n
+                if seen>=threshold:
+                    tails[name][label]=(bucket+1)*hist['bin_width_ms'];break
+    return {'raw_deadline_calls':deadlines,'raw_latency_tails':tails,
             'gc_overlap_count':sum(bool(r['gc_overlap']) for r in deadlines),
             'wall_cpu_gap_over_5ms':sum(r['sdk_wall_ms']-r['thread_cpu_ms']>5. for r in deadlines),
             'misses_by_source':dict(Counter(r['source'] for r in deadlines))}
+
+def changed_score_examples():
+    def rows(path):
+        return {r['fixture_id']:r for r in map(json.loads,path.read_text().splitlines())}
+    base=rows(WORK/'development/accepted/v10/matches.jsonl')
+    examples=[]
+    for name in ('power','trap','pinball','ambush'):
+        candidate=rows(WORK/('development/accepted/'+name+'/matches.jsonl'))
+        for key,row in candidate.items():
+            before=base[key];slot=row['candidate_slot']
+            if before['result']['score'] == row['result']['score']:
+                continue
+            examples.append({'tactic':name,'opponent':Path(row['opponent']).parent.name,
+                'seed':row['seed'],'side':slot,'own_kickoff':row['candidate_takes_kickoff'],
+                'baseline_score_canonical':[before['result']['score'][slot],before['result']['score'][1-slot]],
+                'tactic_score_canonical':[row['result']['score'][slot],row['result']['score'][1-slot]],
+                'tactical_examples':row.get('titan_x',{}).get('examples',[]),
+                'limits':'Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism.'})
+    return examples
 
 def archive():
     dest=ROOT/'tests/fixtures/titan-x-native-evidence.zip'
@@ -60,6 +92,7 @@ def main():
     timing=slow_analysis(WORK/'qualification')
     (DOC/'gameplay-consistency.json').write_text(json.dumps(consistency,indent=2)+'\n')
     (DOC/'timing-analysis.json').write_text(json.dumps(timing,indent=2)+'\n')
+    (DOC/'development-score-cases.json').write_text(json.dumps(changed_score_examples(),indent=2)+'\n')
     evidence=archive()
     lines=['# TITAN-X validation — four special-tactic experiments','',
            '**Decision: '+decision['status']+'. The active v10.0 champion and main are unchanged.**','',
@@ -88,6 +121,17 @@ def main():
              f"Integration justified: `{selection['integration_justified']}`. Best-failure qualification only: `{selection['best_failure_only']}`.",
             '','Inactive tactics are not carried forward merely for passing unit tests. The selection file states the preregistered rule and exact source hash. '
             'If development produced no supported tactic, the strongest failed standalone still underwent the requested fresh qualification; it was not silently declared a new champion.','',
+            'The power play reached its active state only once in development and launched no keeper-recycling pass; most advances were cancelled. '
+            'That is insufficient additional attacking involvement, and its points fell. The trap made ten run episodes, but no special trap pass. '
+            'Its score changes were against quick_wall in matches v10 already won: some winning margins increased and some decreased, with no additional league points. '
+            'The pinball produced no additional accepted pass, so it adds overhead without a measured opportunity. '
+            'The ambush made 38 challenge episodes but did not improve points or goals conceded. These observations reject enabling the four initial hypotheses; '
+            'they do not establish that every possible implementation of the concepts would fail.','',
+            'The power-play prototype has a specific limitation: its advanced-ball and backward-velocity guards remain active after activation. '
+            'They can cancel an attempted recycling phase as the ball returns toward the keeper. The keeper also has to travel while cover retreats. '
+            'This implementation therefore does not demonstrate a stable five-player passing network. The trap/pinball selectors retain a conservative '
+            'goal-bound-flight priority and productive-pass priority; their eligibility is much narrower than the raw number of attacks. '
+            'Those limits are reported as failed development hypotheses, rather than relaxing guards after seeing qualification data.','',
             '## Frozen fresh qualification','',
             '768 matched configurations per source: 12 fixed styles × 16 fresh seed blocks × both sides × both kickoffs, '
             '2,400 ticks each under the original native 20 ms deadline. Whole-seed bootstrap uses 5,000 resamples, fixed bootstrap seed 719331. '
@@ -101,6 +145,8 @@ def main():
         lines.append(f'| {label} | {b:.6f} | {c:.6f} |' if isinstance(b,float) else f'| {label} | {b} | {c} |')
     for label,key in [('Raw deadline misses','policy_timeouts'),('Raw policy exceptions','policy_errors'),('Raw maximum ms','decision_max_ms')]:
         lines.append(f"| {label} | {q['raw_baseline'][key]} | {q['raw_challenger'][key]} |")
+    for label,key in (('Raw p95 ms (bin upper)','p95_upper_ms'),('Raw p99 ms (bin upper)','p99_upper_ms'),('Raw p99.9 ms (bin upper)','p999_upper_ms')):
+        lines.append(f"| {label} | {timing['raw_latency_tails']['v10'][key]:.3f} | {timing['raw_latency_tails']['titan-x'][key]:.3f} |")
     lines+=['',f"Paired points-per-match change **{q['points_per_match_difference']:+.6f}**, 95% interval **{q['paired_seed_block_bootstrap_95']}**.",
             f"Extra raw misses per 1,000 fixtures: **{q['extra_raw_misses_per_1000']:.6f}** (maximum 2). "
             f"Accepted mean ceiling: **{q['mean_runtime_ceiling_ms']:.6f} ms** (v10 × 1.35 + 0.04 ms).",'',

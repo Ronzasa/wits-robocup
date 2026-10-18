@@ -1,0 +1,42 @@
+{
+  "power": {
+    "targeted": {
+      "identical": 14,
+      "total": 16
+    },
+    "development": {
+      "identical": 78,
+      "total": 96
+    }
+  },
+  "trap": {
+    "targeted": {
+      "identical": 16,
+      "total": 16
+    },
+    "development": {
+      "identical": 86,
+      "total": 96
+    }
+  },
+  "pinball": {
+    "targeted": {
+      "identical": 16,
+      "total": 16
+    },
+    "development": {
+      "identical": 96,
+      "total": 96
+    }
+  },
+  "ambush": {
+    "targeted": {
+      "identical": 13,
+      "total": 16
+    },
+    "development": {
+      "identical": 69,
+      "total": 96
+    }
+  }
+}

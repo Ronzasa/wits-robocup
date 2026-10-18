@@ -1,0 +1,1834 @@
+[
+  {
+    "tactic": "power",
+    "opponent": "aggressive-keeper",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      0,
+      1
+    ],
+    "tactic_score_canonical": [
+      0,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1852,
+        "event": "power_start",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          15.617711067199707,
+          6.344072341918945
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.19202598929405212
+        ],
+        "remaining_seconds": 27.4
+      },
+      {
+        "tick": 1852,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          15.617711067199707,
+          6.344072341918945
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.19202598929405212
+        ],
+        "remaining_seconds": 27.4
+      },
+      {
+        "tick": 1910,
+        "event": "power_cancel",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          48.41551208496094,
+          7.691830635070801
+        ],
+        "keeper": [
+          -26.730947494506836,
+          1.7383586168289185
+        ],
+        "remaining_seconds": 24.5
+      },
+      {
+        "tick": 1910,
+        "event": "power_recovery_tick",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          48.41551208496094,
+          7.691830635070801
+        ],
+        "keeper": [
+          -26.730947494506836,
+          1.7383586168289185
+        ],
+        "remaining_seconds": 24.5
+      },
+      {
+        "tick": 1969,
+        "event": "power_home",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          32.48036575317383,
+          27.18690299987793
+        ],
+        "keeper": [
+          -45.18960189819336,
+          0.7876974940299988
+        ],
+        "remaining_seconds": 21.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10",
+    "seed": 1595862619,
+    "side": 1,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      1,
+      1
+    ],
+    "tactic_score_canonical": [
+      0,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1812,
+        "event": "power_start",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          13.093694686889648,
+          -1.2946209907531738
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.009149654768407345
+        ],
+        "remaining_seconds": 29.4
+      },
+      {
+        "tick": 1812,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          13.093694686889648,
+          -1.2946209907531738
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.009149654768407345
+        ],
+        "remaining_seconds": 29.4
+      },
+      {
+        "tick": 1880,
+        "event": "power_cancel",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          49.50077438354492,
+          -16.080570220947266
+        ],
+        "keeper": [
+          -22.848289489746094,
+          -2.7306478023529053
+        ],
+        "remaining_seconds": 26.0
+      },
+      {
+        "tick": 1880,
+        "event": "power_recovery_tick",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          49.50077438354492,
+          -16.080570220947266
+        ],
+        "keeper": [
+          -22.848289489746094,
+          -2.7306478023529053
+        ],
+        "remaining_seconds": 26.0
+      },
+      {
+        "tick": 1949,
+        "event": "power_home",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          33.55994415283203,
+          10.828141212463379
+        ],
+        "keeper": [
+          -45.18846893310547,
+          -0.14587122201919556
+        ],
+        "remaining_seconds": 22.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10-counter",
+    "seed": 1595862619,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      3,
+      3
+    ],
+    "tactic_score_canonical": [
+      1,
+      3
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1836,
+        "event": "power_start",
+        "score": [
+          1,
+          3
+        ],
+        "ball": [
+          17.366683959960938,
+          23.931354522705078
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.8301826119422913
+        ],
+        "remaining_seconds": 28.2
+      },
+      {
+        "tick": 1836,
+        "event": "power_advance_tick",
+        "score": [
+          1,
+          3
+        ],
+        "ball": [
+          17.366683959960938,
+          23.931354522705078
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.8301826119422913
+        ],
+        "remaining_seconds": 28.2
+      },
+      {
+        "tick": 1859,
+        "event": "power_cancel",
+        "score": [
+          1,
+          3
+        ],
+        "ball": [
+          26.112207412719727,
+          26.01597785949707
+        ],
+        "keeper": [
+          -40.82489013671875,
+          2.1924493312835693
+        ],
+        "remaining_seconds": 27.05
+      },
+      {
+        "tick": 1859,
+        "event": "power_recovery_tick",
+        "score": [
+          1,
+          3
+        ],
+        "ball": [
+          26.112207412719727,
+          26.01597785949707
+        ],
+        "keeper": [
+          -40.82489013671875,
+          2.1924493312835693
+        ],
+        "remaining_seconds": 27.05
+      },
+      {
+        "tick": 1883,
+        "event": "power_home",
+        "score": [
+          1,
+          3
+        ],
+        "ball": [
+          38.77738571166992,
+          19.267446517944336
+        ],
+        "keeper": [
+          -45.195430755615234,
+          1.1906274557113647
+        ],
+        "remaining_seconds": 25.85
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10-compact",
+    "seed": 1595862619,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      2,
+      3
+    ],
+    "tactic_score_canonical": [
+      1,
+      4
+    ],
+    "tactical_examples": [],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10-counter",
+    "seed": 1844551422,
+    "side": 1,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      2,
+      2
+    ],
+    "tactic_score_canonical": [
+      1,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1824,
+        "event": "power_start",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          13.831900596618652,
+          -11.94504165649414
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.3693355619907379
+        ],
+        "remaining_seconds": 28.8
+      },
+      {
+        "tick": 1824,
+        "event": "power_advance_tick",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          13.831900596618652,
+          -11.94504165649414
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.3693355619907379
+        ],
+        "remaining_seconds": 28.8
+      },
+      {
+        "tick": 1866,
+        "event": "power_cancel",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          47.51750946044922,
+          -26.222057342529297
+        ],
+        "keeper": [
+          -33.30704116821289,
+          -2.9772019386291504
+        ],
+        "remaining_seconds": 26.7
+      },
+      {
+        "tick": 1866,
+        "event": "power_recovery_tick",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          47.51750946044922,
+          -26.222057342529297
+        ],
+        "keeper": [
+          -33.30704116821289,
+          -2.9772019386291504
+        ],
+        "remaining_seconds": 26.7
+      },
+      {
+        "tick": 1909,
+        "event": "power_home",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          37.26217269897461,
+          -28.289167404174805
+        ],
+        "keeper": [
+          -45.251708984375,
+          -1.0992980003356934
+        ],
+        "remaining_seconds": 24.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "aggressive-keeper",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      1,
+      2
+    ],
+    "tactic_score_canonical": [
+      1,
+      3
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1936,
+        "event": "power_start",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          12.379110336303711,
+          -11.585447311401367
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.3738579750061035
+        ],
+        "remaining_seconds": 23.2
+      },
+      {
+        "tick": 1936,
+        "event": "power_advance_tick",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          12.379110336303711,
+          -11.585447311401367
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.3738579750061035
+        ],
+        "remaining_seconds": 23.2
+      },
+      {
+        "tick": 1997,
+        "event": "power_cancel",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          45.75721740722656,
+          -26.113149642944336
+        ],
+        "keeper": [
+          -25.859020233154297,
+          -4.435801982879639
+        ],
+        "remaining_seconds": 20.15
+      },
+      {
+        "tick": 1997,
+        "event": "power_recovery_tick",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          45.75721740722656,
+          -26.113149642944336
+        ],
+        "keeper": [
+          -25.859020233154297,
+          -4.435801982879639
+        ],
+        "remaining_seconds": 20.15
+      },
+      {
+        "tick": 2059,
+        "event": "power_home",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          49.46604919433594,
+          -26.009519577026367
+        ],
+        "keeper": [
+          -45.261417388916016,
+          -1.0709116458892822
+        ],
+        "remaining_seconds": 17.05
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10-counter",
+    "seed": 953676901,
+    "side": 1,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      0,
+      3
+    ],
+    "tactic_score_canonical": [
+      1,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1700,
+        "event": "power_start",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          29.938247680664062,
+          16.627408981323242
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4495048224925995
+        ],
+        "remaining_seconds": 35.0
+      },
+      {
+        "tick": 1700,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          29.938247680664062,
+          16.627408981323242
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4495048224925995
+        ],
+        "remaining_seconds": 35.0
+      },
+      {
+        "tick": 1797,
+        "event": "power_active",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          45.147178649902344,
+          25.28841781616211
+        ],
+        "keeper": [
+          -12.764437675476074,
+          7.775346279144287
+        ],
+        "remaining_seconds": 30.15
+      },
+      {
+        "tick": 1818,
+        "event": "power_cancel",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          43.511566162109375,
+          26.23101806640625
+        ],
+        "keeper": [
+          -8.040085792541504,
+          8.98716926574707
+        ],
+        "remaining_seconds": 29.1
+      },
+      {
+        "tick": 1818,
+        "event": "power_recovery_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          43.511566162109375,
+          26.23101806640625
+        ],
+        "keeper": [
+          -8.040085792541504,
+          8.98716926574707
+        ],
+        "remaining_seconds": 29.1
+      },
+      {
+        "tick": 1919,
+        "event": "power_home",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          10.778018951416016,
+          -9.651744842529297
+        ],
+        "keeper": [
+          -45.28107833862305,
+          0.3999001979827881
+        ],
+        "remaining_seconds": 24.05
+      },
+      {
+        "tick": 2040,
+        "event": "power_start",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          18.946495056152344,
+          -7.688960075378418
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.26447606086730957
+        ],
+        "remaining_seconds": 18.0
+      },
+      {
+        "tick": 2040,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          18.946495056152344,
+          -7.688960075378418
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.26447606086730957
+        ],
+        "remaining_seconds": 18.0
+      },
+      {
+        "tick": 2088,
+        "event": "power_home",
+        "score": [
+          1,
+          2
+        ],
+        "ball": [
+          -0.0,
+          -0.0
+        ],
+        "keeper": [
+          -45.717628479003906,
+          -1.3682501316070557
+        ],
+        "remaining_seconds": 15.6
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "power",
+    "opponent": "v10-counter",
+    "seed": 953676901,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      0,
+      3
+    ],
+    "tactic_score_canonical": [
+      0,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1720,
+        "event": "power_start",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          12.18638801574707,
+          -18.21810531616211
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.6183310747146606
+        ],
+        "remaining_seconds": 34.0
+      },
+      {
+        "tick": 1720,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          12.18638801574707,
+          -18.21810531616211
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.6183310747146606
+        ],
+        "remaining_seconds": 34.0
+      },
+      {
+        "tick": 1751,
+        "event": "power_cancel",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          19.96534538269043,
+          -26.09247589111328
+        ],
+        "keeper": [
+          -37.653194427490234,
+          -2.5624186992645264
+        ],
+        "remaining_seconds": 32.45
+      },
+      {
+        "tick": 1751,
+        "event": "power_recovery_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          19.96534538269043,
+          -26.09247589111328
+        ],
+        "keeper": [
+          -37.653194427490234,
+          -2.5624186992645264
+        ],
+        "remaining_seconds": 32.45
+      },
+      {
+        "tick": 1783,
+        "event": "power_home",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          28.576107025146484,
+          -28.865896224975586
+        ],
+        "keeper": [
+          -45.231266021728516,
+          -1.2731372117996216
+        ],
+        "remaining_seconds": 30.85
+      },
+      {
+        "tick": 1928,
+        "event": "power_start",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          36.995723724365234,
+          11.794751167297363
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.3603222966194153
+        ],
+        "remaining_seconds": 23.6
+      },
+      {
+        "tick": 1928,
+        "event": "power_advance_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          36.995723724365234,
+          11.794751167297363
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.3603222966194153
+        ],
+        "remaining_seconds": 23.6
+      },
+      {
+        "tick": 1939,
+        "event": "power_cancel",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          45.45148849487305,
+          7.63358211517334
+        ],
+        "keeper": [
+          -45.40047836303711,
+          0.5006626844406128
+        ],
+        "remaining_seconds": 23.05
+      },
+      {
+        "tick": 1939,
+        "event": "power_recovery_tick",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          45.45148849487305,
+          7.63358211517334
+        ],
+        "keeper": [
+          -45.40047836303711,
+          0.5006626844406128
+        ],
+        "remaining_seconds": 23.05
+      },
+      {
+        "tick": 1940,
+        "event": "power_home",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          44.907615661621094,
+          7.215054035186768
+        ],
+        "keeper": [
+          -45.14249801635742,
+          0.515358567237854
+        ],
+        "remaining_seconds": 23.0
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      6,
+      0
+    ],
+    "tactic_score_canonical": [
+      7,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1990,
+        "event": "trap_run",
+        "score": [
+          6,
+          0
+        ],
+        "ball": [
+          41.27349853515625,
+          11.224610328674316
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.19859495759010315
+        ],
+        "remaining_seconds": 20.5
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 953676901,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      3,
+      0
+    ],
+    "tactic_score_canonical": [
+      2,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 2229,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          42.44475555419922,
+          -4.185532093048096
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15964275598526
+        ],
+        "remaining_seconds": 8.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      5,
+      1
+    ],
+    "tactic_score_canonical": [
+      6,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1810,
+        "event": "trap_run",
+        "score": [
+          5,
+          1
+        ],
+        "ball": [
+          41.27349853515625,
+          11.224610328674316
+        ],
+        "keeper": [
+          -47.80000686645508,
+          0.19859495759010315
+        ],
+        "remaining_seconds": 29.5
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 953676901,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      3,
+      0
+    ],
+    "tactic_score_canonical": [
+      2,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 2157,
+        "event": "trap_run",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          42.44475555419922,
+          -4.185532093048096
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15964275598526
+        ],
+        "remaining_seconds": 12.15
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      3,
+      0
+    ],
+    "tactic_score_canonical": [
+      4,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 2006,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          39.59099578857422,
+          -8.754965782165527
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15515033900737762
+        ],
+        "remaining_seconds": 19.7
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 953676901,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      6,
+      0
+    ],
+    "tactic_score_canonical": [
+      5,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1637,
+        "event": "trap_run",
+        "score": [
+          4,
+          0
+        ],
+        "ball": [
+          42.737979888916016,
+          -10.36502456665039
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.17991812527179718
+        ],
+        "remaining_seconds": 38.15
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "trap",
+    "opponent": "quick_wall",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      3,
+      0
+    ],
+    "tactic_score_canonical": [
+      4,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 2135,
+        "event": "trap_run",
+        "score": [
+          3,
+          0
+        ],
+        "ball": [
+          39.59099578857422,
+          -8.754965782165527
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.15515033900737762
+        ],
+        "remaining_seconds": 13.25
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "aggressive-keeper",
+    "seed": 1303372442,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      1,
+      0
+    ],
+    "tactic_score_canonical": [
+      1,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 769,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -17.581161499023438,
+          -7.537182331085205
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.4700315594673157
+        ],
+        "remaining_seconds": 81.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10",
+    "seed": 1595862619,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      1,
+      1
+    ],
+    "tactic_score_canonical": [
+      1,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 934,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -26.09545135498047,
+          -29.23150634765625
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -2.5590438842773438
+        ],
+        "remaining_seconds": 73.3
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-compact",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      0,
+      0
+    ],
+    "tactic_score_canonical": [
+      3,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 221,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          47.581703186035156,
+          -28.977102279663086
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -0.6443838477134705
+        ],
+        "remaining_seconds": 108.95
+      },
+      {
+        "tick": 2207,
+        "event": "ambush_challenge",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          39.490840911865234,
+          17.185277938842773
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4069691002368927
+        ],
+        "remaining_seconds": 9.65
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-counter",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      2,
+      2
+    ],
+    "tactic_score_canonical": [
+      0,
+      3
+    ],
+    "tactical_examples": [
+      {
+        "tick": 203,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -23.00126838684082,
+          -28.507421493530273
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -2.2250311374664307
+        ],
+        "remaining_seconds": 109.85
+      },
+      {
+        "tick": 745,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          1
+        ],
+        "ball": [
+          2.3173599243164062,
+          26.72193145751953
+        ],
+        "keeper": [
+          -47.79999542236328,
+          1.1176552772521973
+        ],
+        "remaining_seconds": 82.75
+      },
+      {
+        "tick": 2297,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          -10.360150337219238,
+          14.485455513000488
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.8608676195144653
+        ],
+        "remaining_seconds": 5.15
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "aggressive-keeper",
+    "seed": 1595862619,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      1,
+      2
+    ],
+    "tactic_score_canonical": [
+      0,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 934,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -26.09545135498047,
+          -29.23150634765625
+        ],
+        "keeper": [
+          -47.80000686645508,
+          -2.5590438842773438
+        ],
+        "remaining_seconds": 73.3
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-counter",
+    "seed": 1844551422,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      1,
+      1
+    ],
+    "tactic_score_canonical": [
+      2,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1042,
+        "event": "ambush_challenge",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          -24.992074966430664,
+          -1.558744192123413
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.23918992280960083
+        ],
+        "remaining_seconds": 67.9
+      },
+      {
+        "tick": 2030,
+        "event": "ambush_challenge",
+        "score": [
+          1,
+          1
+        ],
+        "ball": [
+          22.520557403564453,
+          22.613658905029297
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.6976629495620728
+        ],
+        "remaining_seconds": 18.5
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-press",
+    "seed": 1303372442,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      2,
+      0
+    ],
+    "tactic_score_canonical": [
+      0,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1067,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -21.58221435546875,
+          -0.7584186792373657
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.0006165709346532822
+        ],
+        "remaining_seconds": 66.65
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-counter",
+    "seed": 1303372442,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      2,
+      1
+    ],
+    "tactic_score_canonical": [
+      0,
+      2
+    ],
+    "tactical_examples": [
+      {
+        "tick": 759,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -16.731853485107422,
+          -19.580310821533203
+        ],
+        "keeper": [
+          -47.743438720703125,
+          -1.3821765184402466
+        ],
+        "remaining_seconds": 82.05
+      },
+      {
+        "tick": 1156,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -19.419775009155273,
+          -28.546825408935547
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -1.9895933866500854
+        ],
+        "remaining_seconds": 62.2
+      },
+      {
+        "tick": 2333,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          2
+        ],
+        "ball": [
+          -23.409318923950195,
+          0.8959288597106934
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.043685078620910645
+        ],
+        "remaining_seconds": 3.35
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10",
+    "seed": 1303372442,
+    "side": 1,
+    "own_kickoff": false,
+    "baseline_score_canonical": [
+      0,
+      0
+    ],
+    "tactic_score_canonical": [
+      1,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 769,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -17.581161499023438,
+          -7.537182331085205
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.4700315594673157
+        ],
+        "remaining_seconds": 81.55
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-compact",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      2,
+      1
+    ],
+    "tactic_score_canonical": [
+      4,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1806,
+        "event": "ambush_challenge",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          39.490840911865234,
+          17.185277938842773
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4069691002368927
+        ],
+        "remaining_seconds": 29.7
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-compact",
+    "seed": 1595862619,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      2,
+      3
+    ],
+    "tactic_score_canonical": [
+      2,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 486,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -10.740975379943848,
+          -13.937844276428223
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.8394312858581543
+        ],
+        "remaining_seconds": 95.7
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      0,
+      0
+    ],
+    "tactic_score_canonical": [
+      1,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 503,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -26.555450439453125,
+          14.064807891845703
+        ],
+        "keeper": [
+          -47.80000686645508,
+          1.4411665201187134
+        ],
+        "remaining_seconds": 94.85
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "aggressive-keeper",
+    "seed": 1303372442,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      0,
+      0
+    ],
+    "tactic_score_canonical": [
+      1,
+      1
+    ],
+    "tactical_examples": [
+      {
+        "tick": 503,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -26.555450439453125,
+          14.064807891845703
+        ],
+        "keeper": [
+          -47.80000686645508,
+          1.4411665201187134
+        ],
+        "remaining_seconds": 94.85
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-counter",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      3,
+      1
+    ],
+    "tactic_score_canonical": [
+      1,
+      3
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1476,
+        "event": "ambush_challenge",
+        "score": [
+          1,
+          1
+        ],
+        "ball": [
+          -10.360150337219238,
+          14.485455513000488
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.8608676195144653
+        ],
+        "remaining_seconds": 46.2
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      1,
+      1
+    ],
+    "tactic_score_canonical": [
+      1,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 400,
+        "event": "ambush_challenge",
+        "score": [
+          0,
+          0
+        ],
+        "ball": [
+          -29.320281982421875,
+          10.747029304504395
+        ],
+        "keeper": [
+          -47.80000686645508,
+          1.2234569787979126
+        ],
+        "remaining_seconds": 100.0
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  },
+  {
+    "tactic": "ambush",
+    "opponent": "v10-compact",
+    "seed": 1844551422,
+    "side": 0,
+    "own_kickoff": true,
+    "baseline_score_canonical": [
+      1,
+      0
+    ],
+    "tactic_score_canonical": [
+      2,
+      0
+    ],
+    "tactical_examples": [
+      {
+        "tick": 1573,
+        "event": "ambush_challenge",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          -22.666929244995117,
+          5.1786651611328125
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.4046531319618225
+        ],
+        "remaining_seconds": 41.35
+      },
+      {
+        "tick": 1787,
+        "event": "ambush_challenge",
+        "score": [
+          1,
+          0
+        ],
+        "ball": [
+          39.312198638916016,
+          7.150718688964844
+        ],
+        "keeper": [
+          -47.79999542236328,
+          0.1653897762298584
+        ],
+        "remaining_seconds": 30.65
+      },
+      {
+        "tick": 1876,
+        "event": "ambush_challenge",
+        "score": [
+          2,
+          0
+        ],
+        "ball": [
+          2.401672840118408,
+          -1.1855651140213013
+        ],
+        "keeper": [
+          -47.79999542236328,
+          -0.014156815595924854
+        ],
+        "remaining_seconds": 26.2
+      }
+    ],
+    "limits": "Matched full native match outcomes. Association with tactical commands does not by itself prove an individual goal mechanism."
+  }
+]
