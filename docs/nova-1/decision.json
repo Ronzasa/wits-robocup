@@ -1,0 +1,18 @@
+{
+  "status": "RETAIN_V10_0",
+  "promoted": false,
+  "candidate_sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+  "qualification_failed": [
+    "more_points",
+    "positive_paired_95_lower",
+    "unseen_more_points",
+    "unseen_no_material_regression",
+    "worst_style_no_collapse",
+    "head_to_head_no_collapse",
+    "no_repeated_deadline_failure",
+    "raw_deadlines"
+  ],
+  "confirmation_run": false,
+  "confirmation_failed": [],
+  "confirmation_cohort_remains_untouched": true
+}

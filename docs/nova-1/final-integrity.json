@@ -1,0 +1,19 @@
+{
+  "base_commit": "0a7a3aeba3950eb1b2ed0deeb7a06f2f9b3563e5",
+  "main_ref": "0a7a3aeba3950eb1b2ed0deeb7a06f2f9b3563e5",
+  "candidate_sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+  "v10_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "protected_paths": [
+    "my-team/team.py",
+    "champions",
+    "student-sdk",
+    "engine",
+    "configs"
+  ],
+  "protected_tracked_files_changed": false,
+  "evidence_archive_sha256": "bebc21462abb5a8d49ca8820928c20e77fde4e2a361bb7bf21c08eec743e958d",
+  "archive_files": 1735,
+  "private_status_excluded": true,
+  "confirmation_protocol_created": false,
+  "final_policy_edited_after_qualification": false
+}

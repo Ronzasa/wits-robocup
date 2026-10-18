@@ -1,0 +1,8 @@
+{
+  "path": "tests/fixtures/nova-1-native-evidence.zip",
+  "sha256": "bebc21462abb5a8d49ca8820928c20e77fde4e2a361bb7bf21c08eec743e958d",
+  "bytes": 21991300,
+  "evidence_files": 1735,
+  "uncompressed_bytes": 107777015,
+  "excluded": "Private STATUS.md and any non-whitelisted scratch assets."
+}

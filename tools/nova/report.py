@@ -91,6 +91,7 @@ def generate(work, archive):
     lines = [
         '# NOVA-1 native validation', '',
         '**Decision: ' + decision['status'] + '. No promotion or change to main/my-team/team.py.**', '',
+        ('The competitive objective was not achieved; v10.0 is the stronger measured submission. ' if decision['status']=='RETAIN_V10_0' else 'Both qualification cohorts passed; promotion still requires approval. ')+
         'The selected controller is an independently implemented five-player planner, not a TITAN tactical patch. '
         'The result below is a local native benchmark; it does not establish a school ranking or performance against private league leaders.', '',
         f"Frozen candidate: `{selection['candidate_path']}`, policy `{selected['name']}`, SHA-256 `{selection['candidate_sha256']}`. "
@@ -164,7 +165,7 @@ def generate(work, archive):
                      f"{b['paired_ppm']:+.4f} | {b['objective']:+.4f} |")
     lines += ['',
         'Generations use different development seeds/styles; these raw point totals are not causal comparisons of architecture revisions. '
-        'All parameter vectors, source hashes, framework snapshots and outcomes are retained. R4/R5/R6 source reconstruction must reproduce their exact hashes.', '',
+        'All parameter vectors, source hashes, framework snapshots and outcomes are retained. Every registered framework/population reconstruction must reproduce its exact hash.', '',
         'The initial population uses frozen R4. Development then exposed keeper carry/recovery and future receipt ownership inconsistencies; '
         'R5 corrects those command contracts, preserves support runs and models advancing carry pursuit. R6 prevents three similar cheap-ranked '
         'plans starving a distinct feasible action family from the same three-plan response budget. Each change has a focused regression, was frozen '
@@ -305,6 +306,10 @@ def generate(work, archive):
         'not proof of a sole cause and never grounds to discard a raw miss. '
         'The external observation window includes dispatch/return overhead, so CPU/GC observations are not an exact decomposition of SDK act() time.', '',
         '```json', json.dumps(observations, indent=2), '```', '']
+    if all(q['deadline_calls_with_gc_overlap']==0 and q['deadline_wall_cpu_gap_gt_5ms']==0 for q in observations.values()):
+        lines += ['No GC overlap or wall-minus-thread-CPU gap over 5 ms was recorded on these original deadline calls. '
+            'The measurements are consistent with CPU-accounted work, and do not justify dismissing the misses as long descheduling pauses. '
+            'They do not establish a sole root cause and never waive the registered gate.', '']
     replay_profile=read(work/'offline-profile/summary.json')
     lines += ['### Offline decision replay and hotspots', '',
         f"{replay_profile['native_frames_replayed']} recorded native frames reconstructed with pre-decision state and native kick/control gates; "
@@ -320,7 +325,8 @@ def generate(work, archive):
         f"Final regression run: {count.group(1) if count else 'see archived log'} tests; "
         f"official candidate intake: {intake['stats']['decisions']:,} decisions, passed={intake['ok']}. "
         'The complete regression log and SDK intake JSON are retained. All registered population sources are rebuilt and hash-checked by a regression; '
-        'the selected-source test also verifies the measured frozen policy and actual finite five-player commands.', '',
+        'the selected-source test also verifies the measured frozen policy and actual finite five-player commands. '
+        'Legacy v10 API tests protect the unchanged champion; NOVA-specific tests exercise the independent controller, shared physics and selected-source integrity.', '',
         'Run from this branch with the official student SDK/native engine installed:', '',
         '```bash',
         'python -m unittest discover -s tests -q',

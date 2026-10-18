@@ -1,0 +1,60 @@
+{
+  "histogram_intervals": {
+    "v10": {
+      "count": 1843200,
+      "bin_width_ms": 0.025,
+      "0.5": [
+        0.125,
+        0.15000000000000002
+      ],
+      "0.95": [
+        0.525,
+        0.55
+      ],
+      "0.99": [
+        2.1,
+        2.125
+      ],
+      "0.999": [
+        4.325,
+        4.3500000000000005
+      ]
+    },
+    "nova": {
+      "count": 1843200,
+      "bin_width_ms": 0.025,
+      "0.5": [
+        0.225,
+        0.25
+      ],
+      "0.95": [
+        0.45,
+        0.47500000000000003
+      ],
+      "0.99": [
+        3.6500000000000004,
+        3.6750000000000003
+      ],
+      "0.999": [
+        5.875,
+        5.9
+      ]
+    }
+  },
+  "original_slow_calls": {
+    "v10": {
+      "calls_ge_5ms": 1009,
+      "raw_calls_gt_20ms": 10,
+      "slow_calls_with_gc_overlap": 2,
+      "deadline_calls_with_gc_overlap": 0,
+      "deadline_wall_cpu_gap_gt_5ms": 0
+    },
+    "nova": {
+      "calls_ge_5ms": 5620,
+      "raw_calls_gt_20ms": 17,
+      "slow_calls_with_gc_overlap": 39,
+      "deadline_calls_with_gc_overlap": 0,
+      "deadline_wall_cpu_gap_gt_5ms": 0
+    }
+  }
+}
