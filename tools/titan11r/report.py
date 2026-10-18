@@ -18,7 +18,8 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True)
     a=p.parse_args();doc=ROOT/'docs/titan-11-repair';run=a.work/'validation'
     assert not (doc/'decision.json').exists()
-    gates=evaluate(run);r=gates['repair'];b=r['accepted']['baseline'];c=r['accepted']['challenger']
+    gates=json.loads((run/'gate-audit.json').read_text()) if (run/'gate-audit.json').exists() else evaluate(run)
+    r=gates['repair'];b=r['accepted']['baseline'];c=r['accepted']['challenger']
     (doc/'final-gates.json').write_text(json.dumps(gates,indent=2)+'\n')
     selection=json.loads((doc/'selection.json').read_text())
     decision={'status':'QUALIFIED_PENDING_REVIEW' if r['all_gates_pass'] else 'RETAIN_V10_0',
@@ -66,6 +67,21 @@ def main():
     table='| Version | Matches | Points | W/D/L | Goals for–against | Pass completion | Turnovers | Accepted mean ms | Initial raw misses |\n|---|---:|---:|---:|---:|---:|---:|---:|---:|\n'
     finaltable=table+'\n'.join(row(n,stages['validation'][n]) for n in ('v10','repair'))
     devtable=table+'\n'.join(row(n,stages['development'][n]) for n in ('v10','titan11','runtime','handoff','combined'))
+    diagnostic=json.loads((a.work/'repair-reproduction/summary.json').read_text())
+    latency=json.loads((a.work/'latency-diagnostics/summary.json').read_text())
+    (doc/'latency-diagnostics.json').write_text(json.dumps(latency,indent=2)+'\n')
+    latency_max=max(q['max_wall_ms'] for q in latency['cases'])
+    latency_cpu_max=max(q['max_cpu_ms'] for q in latency['cases'])
+    latency_new_misses=0
+    for path in (a.work/'latency-diagnostics').glob('*.json'):
+        if path.name=='summary.json':continue
+        q=json.loads(path.read_text());slot=q['original_raw_result']['candidate_slot']
+        latency_new_misses+=q['new_result']['result']['stats'][slot]['policy_timeouts']
+    diagnostic_table='| Fixed replay | Ours–theirs | Slow named passes | Coordinated plans | Intended touches |\n|---|---:|---:|---:|---:|\n'+'\n'.join(
+        f"| {q['label']} | {q['score'][0]}–{q['score'][1]} | {q['slow_passes']} | {q['coordinated']} | {q['intended_touches']} |" for q in diagnostic)
+    style_table='| Opponent | v10.0 points | Repair points | Difference |\n|---|---:|---:|---:|\n'+'\n'.join(
+        f"| {Path(name).parent.name} | {row['baseline']['points']} | {row['challenger']['points']} | {row['challenger']['points']-row['baseline']['points']:+d} |"
+        for name,row in r['accepted']['by_opponent'].items())
     text=f'''# TITAN-11 reception and runtime repair
 
 **{'The repair passes every registered local promotion gate and is ready for review. v10.0 remains active pending approval.' if r['all_gates_pass'] else 'Retain v10.0. The repair does not pass every registered promotion gate.'}**
@@ -76,9 +92,17 @@ Candidate: [`experiments/titan-11-r/team.py`](../experiments/titan-11-r/team.py)
 
 Two old native diagnostic games reproduced approved passes at ticks 1821 and 1865 with actual launch speeds about 10.2 units/s. The planner had physically verified a named recipient, but `act()` required more than 10.5 units/s to establish a reception plan, and cancelled live plans below 9 units/s. Approval and execution disagreed.
 
-The isolated handoff repair removes those speed-only gates for named passes. Every new and continuing plan still needs the original executable receiver rollout, safe first touch and strict full-route opponent race. Changed last touch, expiry, missing recipient or failed verification still cancel it. It does not change kicking decisions, shooting, keeper safeguards, cover or general movement targets.
+The isolated handoff repair removes those speed-only gates for named passes. Every new and continuing plan still needs the original executable receiver rollout, safe first touch and strict full-route opponent race. Changed last touch, expiry, missing recipient or failed verification still cancel it. The kick-selection, shooting, keeper-safeguard and cover functions retain their original source; the resulting on-policy games can differ.
 
 The independent runtime repair defers unused heuristic ETA calculations in `_intercept()` until its original reach tests find no sample. Its answer remains the same, including heuristic fallback, sparse samples and wall paths. It never substitutes heuristic ETA for verified pass feasibility. Exact replay matched 9,600 actions and reception states, avoiding 458,193 of 1,117,152 ETA calls. The patch changes only `_intercept()` and the two named-reception conditions in `act()`; all other method ASTs are identical. See [regression tests](../tests/test_titan11_repair.py), [exact comparison](titan-11-repair/runtime-equivalence.json) and [original failure inspection](titan-11-repair/failure-inspection.json).
+
+### Native reproductions and limits
+
+The two known development matches were replayed with both frozen and repaired controllers. Every repaired slow-pass plan commanded the verified receiver target. Outcomes were mixed:
+
+{diagnostic_table}
+
+Both original uncoordinated slow passes eventually reached their recipients through ordinary movement. The defect is a mismatch between approval and commanded coordination; these cases do **not** prove that the original receiver missed its collection. Repaired play follows different on-policy trajectories, so the two-versus-three pass samples are not a causal completion comparison. Scores did not improve in these two clips. They are excluded from qualification, and no code was changed in response. Full native paired tournaments, rather than these selected clips, determine eligibility.
 
 ## Registered development comparison
 
@@ -96,13 +120,23 @@ Selection: **{selection['selected']}**. Runtime-only football matched frozen TIT
 
 Paired points-per-match difference: **{r['accepted']['points_per_match_difference']:+.6f}**. Whole-seed paired bootstrap 95% interval: **{r['accepted']['paired_seed_block_bootstrap_95']}**. Additional initial raw deadline misses per 1,000 fixtures: **{r['extra_raw_misses_per_1000']:.6f}**, original maximum **2**. Failed gates: **{', '.join(failures) if failures else 'none'}**. Full inputs and per-opponent metrics: [final-gates.json](titan-11-repair/final-gates.json), [metrics.json](titan-11-repair/metrics.json).
 
+Initial raw football points, including the actual consequences of failed decisions: **{r['raw']['baseline']['points']} → {r['raw']['challenger']['points']}**; raw paired 95% interval **{r['raw']['paired_seed_block_bootstrap_95']}**. Worst initial raw decision: v10.0 **{r['raw']['baseline']['decision_max_ms']:.3f} ms**, repair **{r['raw']['challenger']['decision_max_ms']:.3f} ms**. First-clean maximum: **{b['decision_max_ms']:.3f} → {c['decision_max_ms']:.3f} ms**. The accepted-mean ceiling is **{b['decision_mean_ms']*1.35+.04:.6f} ms**.
+
+{style_table}
+
+Per-opponent rows are descriptive, with equal weighting in this registered local pool. They are not separate promotion tests or estimates of the opponent frequencies in the school league.
+
+The mean runtime reduction is real in this cohort, but neither previously failed promotion gate is repaired. Native pass completion improved while conceded goals and turnovers increased. Six of twelve styles yielded fewer points, including the direct v10.0 comparison. These mixed outcomes do not establish stronger retention or broad competitive superiority. No fresh result was used to create another variant or expand the registered cohort.
+
 Original gates remain unchanged: positive fresh points difference and paired 95% lower bound, zero policy exceptions, no repeated deadline failure, accepted mean at most baseline×1.35+0.04 ms, at most two additional raw misses per 1,000 fixtures, passing untouched official public-seed intake and valid actions. Initial raw results, exact timing repeats and first-clean football records are all retained. Repeats never erase raw misses. Local results do not establish an online league-ranking gain.
 
-The old 69/127 ms spikes remain unexplained: their original per-call CPU/GC traces do not exist. Faster typical computation and a new raw-deadline result cannot prove that arbitrary environmental stalls or the school's historical reliability counter are fixed.
+Eight separately instrumented exact repetitions of two new repair timeout fixtures and two new baseline timeout fixtures recorded **{latency_new_misses} new source-side misses**, with a maximum wall time of **{latency_max:.3f} ms** and maximum measured process CPU time of **{latency_cpu_max:.3f} ms**. They record wall/CPU/GC overlap without disabling collection or changing scheduling. These repetitions do not erase any qualification miss or identify the original call's cause. See [latency-diagnostics.json](titan-11-repair/latency-diagnostics.json).
+
+The old 69/127 ms spikes and the new raw spikes remain unexplained: their original per-call CPU/GC traces do not exist. Faster typical computation and a new raw-deadline result cannot prove that arbitrary environmental stalls or the school's historical reliability counter are fixed.
 
 ## Reproduction and evidence
 
-123 regressions passed before development; the selected-source test log is retained beside this report. [audit.json](titan-11-repair/audit.json) verifies the active champion and every pre-existing repository file. [registration.json](titan-11-repair/registration.json) records disjoint cohorts and the finite selection rule.
+123 regressions passed before development and again against the selected source before fresh qualification; both test logs are retained beside this report. The registered development and validation stages contain **2,944 complete native source-side matches and 7,065,600 source-side decisions**. Diagnostic repetitions, public intake and shared-state checks are separate. [audit.json](titan-11-repair/audit.json) verifies the active champion and every pre-existing repository file. [registration.json](titan-11-repair/registration.json) records disjoint cohorts and the finite selection rule.
 
 ```sh
 ROBOCUP_TEAM_PATH="$PWD/experiments/titan-11-r/team.py" python -m unittest discover -s tests -q

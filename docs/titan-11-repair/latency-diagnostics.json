@@ -1,0 +1,143 @@
+{
+  "cases": [
+    {
+      "original_stage": "validation",
+      "source": "repair",
+      "source_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v10-linekeeper/team.py-629584914-side0-kick1",
+      "diagnostic_repeat": 0,
+      "slow_calls": [],
+      "mean_wall_ms": 0.166930693356638,
+      "mean_cpu_ms": 0.16752607583333332,
+      "max_wall_ms": 2.9380339983617887,
+      "max_cpu_ms": 2.939767,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "repair",
+      "source_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v10-linekeeper/team.py-629584914-side0-kick1",
+      "diagnostic_repeat": 1,
+      "slow_calls": [],
+      "mean_wall_ms": 0.17144496786386298,
+      "mean_cpu_ms": 0.17206375875,
+      "max_wall_ms": 3.5089230004814453,
+      "max_cpu_ms": 3.5117149999999997,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "repair",
+      "source_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v10-long/team.py-1259170414-side0-kick0",
+      "diagnostic_repeat": 0,
+      "slow_calls": [],
+      "mean_wall_ms": 0.1881928687347075,
+      "mean_cpu_ms": 0.18888488833333333,
+      "max_wall_ms": 3.460050000285264,
+      "max_cpu_ms": 3.4531989999999997,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "repair",
+      "source_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v10-long/team.py-1259170414-side0-kick0",
+      "diagnostic_repeat": 1,
+      "slow_calls": [],
+      "mean_wall_ms": 0.1832520770691796,
+      "mean_cpu_ms": 0.1839788925,
+      "max_wall_ms": 3.3944800015888177,
+      "max_cpu_ms": 3.396715,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "v10",
+      "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v9.0/team.py-1209893948-side1-kick0",
+      "diagnostic_repeat": 0,
+      "slow_calls": [],
+      "mean_wall_ms": 0.2204944896084271,
+      "mean_cpu_ms": 0.2211160495833333,
+      "max_wall_ms": 4.829883000638802,
+      "max_cpu_ms": 4.831773,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "v10",
+      "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/v9.0/team.py-1209893948-side1-kick0",
+      "diagnostic_repeat": 1,
+      "slow_calls": [],
+      "mean_wall_ms": 0.22155909667920545,
+      "mean_cpu_ms": 0.22219761875,
+      "max_wall_ms": 4.615219000697834,
+      "max_cpu_ms": 4.616594,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "v10",
+      "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/long_shooter/team.py-1073353400-side1-kick1",
+      "diagnostic_repeat": 0,
+      "slow_calls": [
+        {
+          "tick": 130,
+          "wall_ms": 6.446074999985285,
+          "cpu_ms": 6.440246999999999,
+          "gc_overlap": [],
+          "score": [
+            0,
+            0
+          ],
+          "ball": [
+            -11.081232070922852,
+            -23.065685272216797,
+            -2.879666805267334,
+            -4.037188529968262
+          ]
+        }
+      ],
+      "mean_wall_ms": 0.21751240043916673,
+      "mean_cpu_ms": 0.21834888083333331,
+      "max_wall_ms": 6.446074999985285,
+      "max_cpu_ms": 6.440246999999999,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    },
+    {
+      "original_stage": "validation",
+      "source": "v10",
+      "source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+      "original_fixture_id": "repair-validation-/workspace/work/titan-11-repair/validation/opponents/long_shooter/team.py-1073353400-side1-kick1",
+      "diagnostic_repeat": 1,
+      "slow_calls": [
+        {
+          "tick": 130,
+          "wall_ms": 6.986068001424428,
+          "cpu_ms": 6.988207999999999,
+          "gc_overlap": [],
+          "score": [
+            0,
+            0
+          ],
+          "ball": [
+            -11.081232070922852,
+            -23.065685272216797,
+            -2.879666805267334,
+            -4.037188529968262
+          ]
+        }
+      ],
+      "mean_wall_ms": 0.19983629948910675,
+      "mean_cpu_ms": 0.20047841708333333,
+      "max_wall_ms": 6.986068001424428,
+      "max_cpu_ms": 6.988207999999999,
+      "interpretation": "Descriptive diagnostic. Original per-call trace absent; source of original wall-time spike remains unknown."
+    }
+  ],
+  "scope": "Investigate raw deadline fixtures with CPU/wall/GC traces; diagnostic only.\n\nDoes not change controller code, timer limits, GC policy, scheduling or physics.\nInstrumented repetitions cannot erase or explain an original uninstrumented\nfailure; they only reveal whether a new event is CPU- or wall-time dominated.\n"
+}

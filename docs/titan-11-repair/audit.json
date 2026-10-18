@@ -1,0 +1,12 @@
+{
+  "preexisting_files_unchanged": true,
+  "preexisting_commit": "947b6c8",
+  "active_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "original_titan11_sha256": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+  "candidate_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+  "fresh_native_configs_per_source": 1152,
+  "fresh_seed_blocks": 24,
+  "raw_timeout_gate_unchanged": 2.0,
+  "deadline_ms": 20.0,
+  "frozen_matches_protocol": true
+}
