@@ -214,7 +214,7 @@ class NovaTests(unittest.TestCase):
         path=ROOT/'docs/nova-1/selected-policy.json'
         if not path.exists():self.skipTest('Native development selection is not complete.')
         record=json.loads(path.read_text());row=record['selected'];v=row['vector']
-        framework=builder.framework_for(row['name'])
+        framework=row.get('framework') or builder.framework_for(row['name'])
         code=builder.build({'config':v[:8],'weights':v[8:]+[.4],'framework':framework},True)
         self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),record['candidate_sha256'])
         self.assertEqual((ROOT/record['candidate_path']).read_text(),code)
@@ -225,5 +225,18 @@ class NovaTests(unittest.TestCase):
         self.assertEqual(len(a.players),5)
         self.assertLessEqual(c._plans_evaluated,3);self.assertLessEqual(c._response_steps,60)
         self.assertTrue(all(math.isfinite(x) for p in a.players.values() for x in p.movement))
+
+    def test_press_response_accounts_for_an_initially_ready_defender_kick(self):
+        friends=[(0,-47.,0.,0.,0.),(1,-20.,15.,0.,0.),(2,47.7,0.,0.,0.),(3,-10.,-15.,0.,0.),(4,0.,20.,0.,0.)]
+        enemies=[(5,49.,-2.,0.,0.),(6,20.,25.,0.,0.),(7,20.,-25.,0.,0.),(8,30.,15.,0.,0.),(9,30.,-15.,0.,0.)]
+        node={'carrier':2,'kind':'shot','kick':((1.,0.),1.),'targets':{p[0]:p[1:3] for p in friends},
+              'movements':{p[0]:(0.,0.) for p in friends},'keeper_home':(-47.,0.)}
+        old=controller(params={'framework':'r7-pass'});new=controller(params={'framework':'r9-press'})
+        old.MODEL_STEPS=1;new.MODEL_STEPS=1
+        self.assertGreater(old._response(node,friends,enemies,(49.4,0.,0.,0.),1)[0],7.)
+        self.assertLess(new._response(node,friends,enemies,(49.4,0.,0.,0.),1)[0],1.)
+        self.assertGreater(new._response(node,friends,enemies,(49.4,0.,0.,0.),0)[0],7.)
+        new._enemy_cooldowns={5:5}
+        self.assertGreater(new._response(node,friends,enemies,(49.4,0.,0.,0.),1)[0],7.)
 
 if __name__=='__main__':unittest.main()

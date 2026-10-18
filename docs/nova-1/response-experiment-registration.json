@@ -1,0 +1,32 @@
+{
+  "change": "Only pressing response may use an available opponent kick on model step zero. Own uncommanded follow-up shots remain forbidden on step zero; blocking response retains one-step lag. Same3x2x10budget, no passing/shot-generation/keeper/defence changes.",
+  "base": "Completed population winner, only if framework R7-pass to keep change isolated.",
+  "screen_seeds": [
+    182605393,
+    1852850974
+  ],
+  "check_seeds": [
+    457453419,
+    764519840,
+    989670269,
+    2079281706
+  ],
+  "styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links"
+  ],
+  "screen_configs": 64,
+  "check_configs_if_screen_improves": 128,
+  "gates_each_cohort": "Positive paired points vs frozen population winner, worst style delta >=-.5 PPM, v10 head style delta >=-.25 PPM, SDK intake passed, zero errors. Adopt only if both cohorts pass; otherwise retain exact population winner.",
+  "point_selection_not_policy_tuning": true,
+  "promotion_gates_and_768_plus_conditional_confirmation_unchanged": true,
+  "no_qualification_or_sealed_outcomes_seen": true,
+  "population_budget_unchanged": 144,
+  "supplemental_development_budget_max_native_matches": 576
+}

@@ -4,7 +4,7 @@ Only the external harness observes selected plans. The standalone controller
 file remains byte-frozen. Recorded native first steps show when collisions
 or adversarial input invalidate the isolated launch prediction.
 """
-import argparse, hashlib, json, sys
+import argparse, hashlib, json, subprocess, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,6 +21,8 @@ def main():
     p.add_argument('--development-seed-index', type=int, default=18)
     a = p.parse_args()
     reg = json.loads((ROOT / 'docs/nova-1/registration.json').read_text())
+    if a.source is None and (ROOT/'docs/nova-1/response-experiment-registration.json').exists() and not (ROOT/'docs/nova-1/response-results.json').exists():
+        subprocess.run([sys.executable,str(ROOT/'tools/nova/response_experiment.py'),'--work',str(a.work)],cwd=ROOT,check=True)
     if a.source:
         source = a.source.resolve()
     else:

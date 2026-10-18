@@ -25,7 +25,7 @@ def main():
     assert registration['styles'] == reg['qualification_styles'][:8]
     chosen = json.loads((DOC / 'selected-policy.json').read_text())
     selected = chosen['selected'];v = selected['vector']
-    framework = framework_for(selected['name'])
+    framework = selected.get('framework') or framework_for(selected['name'])
     parameters = {'config': v[:8], 'weights': v[8:] + [.4], 'framework': framework}
     assert digest(ROOT / chosen['candidate_path']) == chosen['candidate_sha256']
     assert hashlib.sha256(build(parameters, True).encode()).hexdigest() == chosen['candidate_sha256']
