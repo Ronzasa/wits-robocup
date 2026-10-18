@@ -16,7 +16,7 @@ def methods(source):
 def build(parameters=None,joint=False):
     base=(ROOT/'my-team/team.py').read_text();assert hashlib.sha256(base.encode()).hexdigest()==CHAMPION
     params=parameters or {}
-    template='framework-r4.pyfrag' if params.get('framework')=='r4' else 'controller.pyfrag'
+    template={'r4':'framework-r4.pyfrag','r5':'framework-r5.pyfrag'}.get(params.get('framework'),'controller.pyfrag')
     physics=methods(base);source=(ROOT/'tools/nova'/template).read_text()
     source+='\n'.join(physics[name]+'\n' for name in PHYSICS)
     source=source.replace('    JOINT_MODEL=False','    JOINT_MODEL='+str(joint),1)

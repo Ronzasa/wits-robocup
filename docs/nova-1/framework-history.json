@@ -6,6 +6,13 @@
   },
   "generation_1_onward": {
     "framework": "r5",
-    "reason": "Development revealed goalkeeper carry plans whose next-tick role returned the keeper to goal, leaving the slow ball uncollected. Disallow incompatible keeper carries and model its recovery. No unseen or qualification results used."
+    "reason": "Development revealed goalkeeper carry plans whose next-tick role returned the keeper to goal, leaving the slow ball uncollected. Disallow incompatible keeper carries and model its recovery. No unseen or qualification results used.",
+    "template_sha256": "e7d0990b886519c34ac31b2f5873108cbedd6ecf2b4432db06aa07be09a46bb3",
+    "frozen_commit": "314b2a1",
+    "additional_execution_corrections": [
+      "Recipient becomes pursuit owner after a pass; passer takes cover/support.",
+      "Support runs continue toward the verified future reception during flight.",
+      "Carry responses use the movement law that actually follows the advancing ball."
+    ]
   }
 }
