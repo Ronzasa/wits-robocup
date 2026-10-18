@@ -166,6 +166,16 @@ def generate(work, archive):
         'plans starving a distinct feasible action family from the same three-plan response budget. Each change has a focused regression, was frozen '
         'before its generation and used development data only. No measured population source was edited.', '',
     ]
+    failed_intakes = [q for path in DOC.glob('generation-*-results.json') for q in read(path) if not q['intake_ok']]
+    lines += [f"Failed training intake evaluations: {len(failed_intakes)}. Their source hashes are ineligible for shortlist selection; "
+        'the native measurements and original validation reports remain in the evidence. A fast mean never cancels a failed intake.', '']
+    if failed_intakes:
+        lines += ['| Failed source | Original SDK error |', '|---|---|']
+        for row in failed_intakes:
+            validation = read(Path(row['run']) / (row['name'] + '-validation.json'))
+            lines.append(f"| {row['name']} | {'; '.join(validation['errors'])} |")
+        lines += ['', 'Public-intake timing failures do not have the native fixture slow-call CPU/GC instrumentation, '
+            'so the evidence cannot establish their cause. They remain failures regardless of the later native timing.', '']
     release_path = DOC / 'release-experiment-decision.json'
     if release_path.exists():
         release = read(release_path)

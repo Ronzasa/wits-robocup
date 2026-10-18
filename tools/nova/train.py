@@ -89,7 +89,9 @@ def shortlist(pool,work,reg,label,seeds):
     # it never becomes a champion by renaming it.
     result.sort(key=lambda q:(q['objective'],q['points'],q['goal_difference'],-q['mean_ms']),reverse=True)
     dump(DOC/(label+'-results.json'),result)
-    return result
+    eligible=[q for q in result if q['intake_ok'] and q['policy_errors']==0]
+    assert eligible,'No source passed the current development selection intake.'
+    return eligible
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);a=p.parse_args();work=a.work;work.mkdir(parents=True,exist_ok=True)
