@@ -353,14 +353,25 @@ class NovaController(TeamController):
         for n in nodes:n['value']-=n['features'][8]*max(0.,risk-1.)
         nodes.sort(key=lambda n:(-n['value'],n['kind'],n['kick']))
         if self.JOINT_MODEL:
-            for node in nodes[:self.PLAN_LIMIT]:
+            # Preserve action-family diversity before response evaluation.
+            # Otherwise three similar passes can exclude a feasible finish
+            # solely because the inexpensive prior undervalued it.
+            beam=[]
+            for kind in ('shot','pass','carry','clear'):
+                node=next((q for q in nodes if q['kind']==kind),None)
+                if node is not None:beam.append(node)
+                if len(beam)==self.PLAN_LIMIT:break
+            for node in nodes:
+                if len(beam)==self.PLAN_LIMIT:break
+                if not any(node is q for q in beam):beam.append(node)
+            for node in beam:
                 responses=[self._response(node,friends,opponents,ball,m) for m in (0,1)]
                 node['value']+=self.CONFIG[6]*(min(v for v,t in responses)*.7+sum(v for v,t in responses)*.15)
                 node['features'][10]=sum(t for v,t in responses)*.5
                 node['value']+=self.WEIGHTS[10]*node['features'][10]
                 self._plans_evaluated+=1
             # Only plans with an evaluated response compete with one another.
-            return max(nodes[:self.PLAN_LIMIT],key=lambda n:n['value'])
+            return max(beam,key=lambda n:n['value'])
         return nodes[0]
 
     def act(self,obs):

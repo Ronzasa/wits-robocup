@@ -11,7 +11,7 @@ def main():
         rows=json.loads(path.read_text())['population']
         for q in rows:
             v=q['vector'];params={'config':v[:8],'weights':v[8:]+[.4],
-                'framework':'r4' if q['name'].startswith('g00-') else 'r5'}
+                'framework':'r4' if q['name'].startswith('g00-') else 'r5' if q['name'].startswith('g01-') else 'r6'}
             code=build(params,True);assert hashlib.sha256(code.encode()).hexdigest()==q['sha256'],q['name']
             dest=a.out/q['name']/'team.py';dest.parent.mkdir();dest.write_text(code);total+=1
     print('Reconstructed and hash-verified',total,'standalone policies.')

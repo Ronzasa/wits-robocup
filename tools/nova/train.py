@@ -47,6 +47,8 @@ def make_source(name,vector,joint=True):
     path=ROOT/'experiments/nova-1-population'/name/'team.py';assert not path.exists();path.parent.mkdir(parents=True)
     parameters=pack(vector)
     if name.startswith('g00-'):parameters['framework']='r4'
+    elif name.startswith('g01-'):parameters['framework']='r5'
+    else:parameters['framework']='r6'
     path.write_text(build(parameters,joint));return str(path.relative_to(ROOT))
 
 def generation(g,mean,sigma,elites,work,reg,rng):

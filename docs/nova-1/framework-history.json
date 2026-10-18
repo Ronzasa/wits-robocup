@@ -4,7 +4,7 @@
     "template_sha256": "5a6195989a8954edc7ba949b6f4056f81673f987c0a097578750ecff546a98ae",
     "commit": "d6b6b1b"
   },
-  "generation_1_onward": {
+  "generation_1": {
     "framework": "r5",
     "reason": "Development revealed goalkeeper carry plans whose next-tick role returned the keeper to goal, leaving the slow ball uncollected. Disallow incompatible keeper carries and model its recovery. No unseen or qualification results used.",
     "template_sha256": "e7d0990b886519c34ac31b2f5873108cbedd6ecf2b4432db06aa07be09a46bb3",
@@ -14,5 +14,10 @@
       "Support runs continue toward the verified future reception during flight.",
       "Carry responses use the movement law that actually follows the advancing ball."
     ]
+  },
+  "generation_2_onward": {
+    "framework": "r6",
+    "template_sha256": "e457798247195b155bfc69ad0172cef3e3d2c03f7a0f46f8bb5cfcd07e3b4c59",
+    "reason": "Development and a response-model regression exposed beam starvation: three similar cheap-ranked actions could prevent any shot/retention family from reaching detailed opponent evaluation. Preserve family diversity inside the same three-plan budget. No heldout outcomes used."
   }
 }

@@ -126,4 +126,39 @@ class NovaTests(unittest.TestCase):
         self.assertLess(a.players[0].kick_power,.5)
         self.assertGreater(b.players[0].kick_power,.9)
 
+    def test_support_keeps_the_future_reception_point_while_ball_is_in_flight(self):
+        c=controller();c._previous_score=(0,0);c._receive=(3,2,(7.,0.),150)
+        seen=[];original=c._shape
+        def observed(*args,**kwargs):
+            seen.append(args[7] if len(args)>7 else kwargs.get('future'));return original(*args,**kwargs)
+        c._shape=observed;c.act(observation(ball=(4.,0.,10.,0.),last=2,tick=110))
+        self.assertIsNotNone(c._receive);self.assertIsNotNone(seen[0])
+        self.assertGreater(seen[0][0],4.)
+
+    def test_modeled_carrier_follows_the_moving_ball_instead_of_old_kick_origin(self):
+        c=controller();o=observation(kickers=(2,),holder=0,last=2)
+        friends=[(p.id,*p.position,*p.velocity) for p in o.my_players]
+        enemies=[(p.id,*p.position,*p.velocity) for p in o.opponents]
+        path=c._pass_path((0.,0.,0.,0.));targets,_=c._shape(friends,enemies,(0.,0.,0.,0.),path,friends[2],True)
+        node=next(n for n in c._proposals(friends[2],friends,enemies,(0.,0.,0.,0.),targets) if n['kind']=='carry')
+        calls=[];original=c._move
+        def moved(p,target,*args):
+            if p[0]==2:calls.append(target)
+            return original(p,target,*args)
+        c._move=moved;c._response(node,friends,enemies,(0.,0.,0.,0.),0)
+        self.assertGreater(len(calls),1)
+        self.assertGreater(calls[0][0],.3)
+        self.assertNotEqual(calls[0],calls[-1])
+
+    def test_response_beam_does_not_starve_a_distinct_feasible_action_family(self):
+        c=controller();seen=[]
+        nodes=[{'kind':'pass','value':v,'kick':((1.,0.),v/10.),'features':[0.]*12} for v in (4.,3.,2.)]
+        nodes.append({'kind':'shot','value':1.,'kick':((0.,1.),1.),'features':[0.]*12})
+        c._proposals=lambda *args:nodes
+        def response(node,*args):seen.append(node['kind']);return (10. if node['kind']=='shot' else 0.),0
+        c._response=response
+        chosen=c._select((2,0.,0.,0.,0.),[],[],(0.,0.,0.,0.),{},(0,0),1.)
+        self.assertIn('shot',seen);self.assertEqual(chosen['kind'],'shot')
+        self.assertLessEqual(c._plans_evaluated,3)
+
 if __name__=='__main__':unittest.main()
