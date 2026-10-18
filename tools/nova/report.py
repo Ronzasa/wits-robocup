@@ -81,6 +81,8 @@ def generate(work, archive):
     raw = gates['raw']
     reg = read(DOC / 'registration.json')
     selected = selection['selected']
+    population=[q for p in DOC.glob('generation-*-registration.json') for q in read(p)['population']]
+    unique_vectors=len({tuple(q['vector']) for q in population})
     tests = (work / 'selected-regressions.log').read_text()
     count = re.search(r'Ran (\d+) tests?', tests)
     intake = read(work / 'qualification/nova-validation.json')
@@ -145,7 +147,8 @@ def generate(work, archive):
         'not exact guarantees. Exact frozen helpers verify the pass and first kick. The policy embeds 8 geometry/risk parameters and 12 '
         'linear weights (19 active search dimensions); it imports only math and the permitted soccer SDK.', '',
         '## Development and actual learning budget', '',
-        f"{selection['total_evaluated_variants']} native policy evaluations, {selection['unique_parameter_sources']} distinct source hashes. "
+        f"{selection['total_evaluated_variants']} native policy evaluations, {selection['unique_parameter_sources']} distinct source hashes, "
+        f"{unique_vectors} distinct 19-dimensional parameter vectors. Retained elites are not counted as new parameter discoveries. "
         'Cross-entropy populations contain 24 policies, six elites and two retained parameter elites. Each policy plays 24 full native '
         'fixtures on a rotating six-style development league. The objective is paired points/match + 0.25 worst-style delta + '
         '0.15 mean of the two worst-style deltas. Pass counts never determine fitness. Repeated baseline fixtures across population batches '
@@ -285,6 +288,8 @@ def generate(work, archive):
         'From this populated final branch, the replay tool above verifies original source hashes and relocates only their paths in a new protocol; '
         'it preserves the original seeds, styles, ordering and limits. '
         'Reconstruction uses explicit generation-specific framework snapshots; it does not substitute the latest template for old policies.', '',
+        'New searches can differ because intake eligibility and the last timing tie-break depend on new measurements. '
+        'Exact registered source reconstruction and frozen-protocol replay remain available; no claim of identical timing or identical new search results across machines is made.', '',
         f"Evidence archive: `{archive['path']}`, SHA-256 `{archive['sha256']}`; "
         f"{archive['evidence_files']:,} manifest-verified files, {archive['bytes']:,} compressed bytes. "
         'It retains native raw/accepted records, all repeat attempts, source/opponent snapshots, intake reports, environments, slow-call evidence, '
