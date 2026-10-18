@@ -157,8 +157,10 @@ class NovaController(TeamController):
         point=plan[2] if plan else path[min(len(path)-1,12)][1:]
         receive=(plan[0],plan[1]) if plan else None
         future=point if plan else None
-        targets,cover=self._shape(friends,opponents,ball,path,carrier,True,receive,future)
-        targets[carrier[0]]=(ball[0]+.3,ball[1])
+        # Once released, the named recipient owns pursuit. The passer becomes
+        # cover/support; only its first command remains the verified kick step.
+        future_chaser=next((p for p in friends if plan is not None and p[0]==plan[0]),carrier)
+        targets,cover=self._shape(friends,opponents,ball,path,future_chaser,True,receive,future)
         movements={p[0]:self._move(p,targets[p[0]]) for p in friends}
         movements[carrier[0]]=move
         if receive is not None:movements[receive[0]]=self._move(next(p for p in friends if p[0]==receive[0]),receive[1])
@@ -270,6 +272,9 @@ class NovaController(TeamController):
                 if pid in own_ids:
                     target=node['targets'].get(pid,(p[1],p[2]))
                     if n>0 and pid==friends[0][0] and carrier==pid:target=node['keeper_home']
+                    elif n>0 and pid==carrier and node['kind']=='carry':
+                        follow=self._pass_path((x,y,vx,vy),until=1.) or [(0.,x,y)]
+                        target=self._target(*self._estimate_chase(p,follow)[1])
                     movement=node['movements'][pid] if n==0 else self._move(p,target)
                 else:
                     if pid==enemy_keeper:
@@ -379,15 +384,15 @@ class NovaController(TeamController):
         enemy=min((self._estimate_chase(q,path)[0] for q in opponents),default=100.)
         own_ready=any(obs.can_kick(p[0]) for p in friends)
         attack=own_ready or (obs.ball.controlling_team!=1 and self._estimate_chase(chaser,path)[0]+.03<enemy)
-        receive=None
+        receive=None;future=None
         if self._receive is not None:
             pid,passer,aim,expiry=self._receive
             receiver=next((p for p in out if p[0]==pid),None)
             if receiver is not None and obs.tick<=expiry and obs.ball.last_touch in (None,passer):
                 race=self._collect(receiver,path,opponents,after=0.,until=2.5,preferred=aim)
-                if race is not None:receive=(pid,race[0][2]);chaser=receiver;attack=True
+                if race is not None:receive=(pid,race[0][2]);future=race[0][1];chaser=receiver;attack=True
             if receive is None:self._receive=None
-        targets,cover=self._shape(friends,opponents,ball,path,chaser,attack,receive)
+        targets,cover=self._shape(friends,opponents,ball,path,chaser,attack,receive,future)
         protected=(obs.tick-self._restart_tick<3*self._hz and math.hypot(*ball[:2])<.7
                    and math.hypot(*ball[2:])<.2 and obs.ball.controlling_team==1)
         if protected:
