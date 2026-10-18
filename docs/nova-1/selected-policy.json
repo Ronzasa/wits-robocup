@@ -1,0 +1,1374 @@
+{
+  "selected": {
+    "name": "g04-p00",
+    "vector": [
+      12.195573,
+      8.216821,
+      9.820043,
+      2.897862,
+      2.907849,
+      0.104257,
+      0.64861,
+      0.80119,
+      7.459345,
+      3.443716,
+      1.332205,
+      0.413115,
+      1.162557,
+      -1.190252,
+      -1.357882,
+      0.691322,
+      -2.348647,
+      0.316718,
+      -1.009861
+    ],
+    "normalized": [
+      0.4425409285714285,
+      0.3477880666666666,
+      0.39100215,
+      0.3795724,
+      0.4509824137931035,
+      0.4950466666666667,
+      0.3603388888888889,
+      0.320476,
+      0.5872131818181818,
+      0.6887432,
+      0.58305125,
+      0.137705,
+      0.5812785,
+      0.269916,
+      0.4105295,
+      0.4228305,
+      0.5302705999999999,
+      0.3266872,
+      0.74753475
+    ],
+    "source": "experiments/nova-1-population/g04-p00/team.py",
+    "sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+    "objective": -1.9296875,
+    "paired_ppm": -1.203125,
+    "worst_style_ppm": -1.875,
+    "style_deltas": {
+      "v10-counter": -1.5625,
+      "v10-long": -1.0,
+      "v9.1": -1.875,
+      "v10-press": -0.9375,
+      "long_shooter": -0.8125,
+      "tight_links": -1.0625,
+      "v10": -0.9375,
+      "v10-compact": -1.4375
+    },
+    "points": 74,
+    "baseline_points": 228,
+    "goal_difference": -200,
+    "policy_errors": 0,
+    "raw_deadlines": 4,
+    "mean_ms": 0.31434303814044995,
+    "intake_ok": true,
+    "run": "/workspace/work/nova-1-run/g04-batch00",
+    "selection_run": "/workspace/work/nova-1-run/selection-1"
+  },
+  "candidate_path": "experiments/nova-1/team.py",
+  "candidate_sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+  "total_evaluated_variants": 144,
+  "unique_parameter_sources": 141,
+  "status": "FROZEN before unseen styles or qualification; not promoted",
+  "all_development_variants": [
+    {
+      "name": "g00-p22",
+      "source": "experiments/nova-1-population/g00-p22/team.py",
+      "sha256": "3360fc3a8ed473c91c4822f4d0451482cfc482f6f233e6bc8cec147e07cc88f5",
+      "objective": -1.6583333333333332,
+      "paired_ppm": -0.9583333333333333,
+      "points": 10,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p02",
+      "source": "experiments/nova-1-population/g00-p02/team.py",
+      "sha256": "42c968658ed632b297ff7a8f217e866c6da95abc170955e24ce167de0c5ac2bb",
+      "objective": -1.7229166666666667,
+      "paired_ppm": -1.0416666666666667,
+      "points": 8,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p09",
+      "source": "experiments/nova-1-population/g00-p09/team.py",
+      "sha256": "e0a618df9dde516fb0dda62a4c0e4c3ddd48de34488abb7cd726247b737b1295",
+      "objective": -1.7833333333333332,
+      "paired_ppm": -1.0833333333333333,
+      "points": 7,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p19",
+      "source": "experiments/nova-1-population/g00-p19/team.py",
+      "sha256": "51a49fc84851d9491ab09a37af6c9d7017ac05e50e667102b79fc815c25b7828",
+      "objective": -1.8895833333333332,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p04",
+      "source": "experiments/nova-1-population/g00-p04/team.py",
+      "sha256": "6ed4c558dc15c20af37ad7c456013318f4d27b1e817b3ddea18d3ed32d3a8eb6",
+      "objective": -1.8895833333333332,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p15",
+      "source": "experiments/nova-1-population/g00-p15/team.py",
+      "sha256": "2ffb7f87362cdc14e7644e938ed716e9b74f4388936b5a445d9e167e94617e75",
+      "objective": -1.9041666666666668,
+      "paired_ppm": -1.0416666666666667,
+      "points": 8,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p20",
+      "source": "experiments/nova-1-population/g00-p20/team.py",
+      "sha256": "3d2eb3370902d715832ad7999ce8c9e3677148f4292f834955b233f2de2ae569",
+      "objective": -1.9895833333333333,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p07",
+      "source": "experiments/nova-1-population/g00-p07/team.py",
+      "sha256": "4a40e5d2bd679c0e71cf742f224026fcdf9930b3b0ad3dfa26460a09aee17885",
+      "objective": -2.0125,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p11",
+      "source": "experiments/nova-1-population/g00-p11/team.py",
+      "sha256": "6033ffc8f11ee863526f62f7b6613ce8f56174930e6f85cb50d29a6b0e811eb1",
+      "objective": -2.0708333333333333,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p08",
+      "source": "experiments/nova-1-population/g00-p08/team.py",
+      "sha256": "8614a97b0f923581eea977d5e82ae2d756f52821c03987bce0e738603e739544",
+      "objective": -2.072916666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p13",
+      "source": "experiments/nova-1-population/g00-p13/team.py",
+      "sha256": "0637830897e7ac7476d5c670948eae1a824f215f18713929486e0e30dcf5ea58",
+      "objective": -2.09375,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p16",
+      "source": "experiments/nova-1-population/g00-p16/team.py",
+      "sha256": "e55c3272e25e60c547350c4a60c6bd2e8718139f85b54c13b30ffc865153cb0c",
+      "objective": -2.09375,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p05",
+      "source": "experiments/nova-1-population/g00-p05/team.py",
+      "sha256": "98fad344ba19012a6116cf59d2cfd5b55b295b91c7a352edf0a7e3679c362337",
+      "objective": -2.1125,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p10",
+      "source": "experiments/nova-1-population/g00-p10/team.py",
+      "sha256": "98b54f7518ff1bdada4d2ae1e78f052f443593d2596674c773ee6d6eab1fe14c",
+      "objective": -2.1125,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p14",
+      "source": "experiments/nova-1-population/g00-p14/team.py",
+      "sha256": "461e9cd8e0aa260f7ede84e80907fdf496435c1653fa373ce8ed9b92c0bbde50",
+      "objective": -2.154166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p00",
+      "source": "experiments/nova-1-population/g00-p00/team.py",
+      "sha256": "ea77c4bc8e3c5eb0bb4710e1273e7d8a17c60e3df541afc99b24c7b2ac56f5b3",
+      "objective": -2.154166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p17",
+      "source": "experiments/nova-1-population/g00-p17/team.py",
+      "sha256": "5178fdad43d723cc2d980bb683f357689d8c90b5d025b55be7c78e5e912c4cb1",
+      "objective": -2.154166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p12",
+      "source": "experiments/nova-1-population/g00-p12/team.py",
+      "sha256": "608e1d532ce4a2de9978c1e9888e446ae790b4c47bfa9643a442dc3deb804cb7",
+      "objective": -2.154166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p03",
+      "source": "experiments/nova-1-population/g00-p03/team.py",
+      "sha256": "df88e44598df35ec31789c9e5f18cfc49df1a810d4b7dbd81e7b291493747bb7",
+      "objective": -2.1958333333333333,
+      "paired_ppm": -1.3333333333333333,
+      "points": 1,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p18",
+      "source": "experiments/nova-1-population/g00-p18/team.py",
+      "sha256": "b4c0e3f1e4aa75aeb57abe547b9159cf2ef30fac9607a89889f8126e32c0460e",
+      "objective": -2.1958333333333333,
+      "paired_ppm": -1.3333333333333333,
+      "points": 1,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p01",
+      "source": "experiments/nova-1-population/g00-p01/team.py",
+      "sha256": "b9e912a11b16f81061da591ebbf08c9f69dccd72345453f6a58632516be4e34f",
+      "objective": -2.2375,
+      "paired_ppm": -1.375,
+      "points": 0,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p21",
+      "source": "experiments/nova-1-population/g00-p21/team.py",
+      "sha256": "b310d71c00bcb5d7b3034995bfd71ad2ba13233dc278e81b89786d38eace0272",
+      "objective": -2.2375,
+      "paired_ppm": -1.375,
+      "points": 0,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p06",
+      "source": "experiments/nova-1-population/g00-p06/team.py",
+      "sha256": "0b2a31603036928c628a4c681ef70260230e0cd53a0bab8d9656108bc5a137a6",
+      "objective": -2.2375,
+      "paired_ppm": -1.375,
+      "points": 0,
+      "baseline_points": 33
+    },
+    {
+      "name": "g00-p23",
+      "source": "experiments/nova-1-population/g00-p23/team.py",
+      "sha256": "219e26f4eadc474e2c3810cc49c2aa72e58294cda268b23799c3e9283285cab4",
+      "objective": -2.2375,
+      "paired_ppm": -1.375,
+      "points": 0,
+      "baseline_points": 33
+    },
+    {
+      "name": "g01-p01",
+      "source": "experiments/nova-1-population/g01-p01/team.py",
+      "sha256": "f66078fdfb7aeb227f749ea45fec8bc2a5f7219dc718ea93df366e52df6257d0",
+      "objective": -1.1666666666666665,
+      "paired_ppm": -0.6666666666666665,
+      "points": 39,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p18",
+      "source": "experiments/nova-1-population/g01-p18/team.py",
+      "sha256": "5a5e14f9a8a7b0114425a257ab7d02f361bdc774c71098940b85adb3878a4b26",
+      "objective": -1.2249999999999996,
+      "paired_ppm": -0.6249999999999998,
+      "points": 40,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p21",
+      "source": "experiments/nova-1-population/g01-p21/team.py",
+      "sha256": "571113405159ce559888bfd72ec1d6d262fc5640c91bcc3d2e8c87e5ba948ddc",
+      "objective": -1.2479166666666666,
+      "paired_ppm": -0.6666666666666665,
+      "points": 39,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p00",
+      "source": "experiments/nova-1-population/g01-p00/team.py",
+      "sha256": "4c3ea829a8a7a27b306a389f7b701bdd6eab3c0ced0eeebc65453029d37fc916",
+      "objective": -1.2895833333333333,
+      "paired_ppm": -0.7083333333333333,
+      "points": 38,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p06",
+      "source": "experiments/nova-1-population/g01-p06/team.py",
+      "sha256": "d74896104616b5df0b5f0489c90c3d1e29f9b861ac66de57c17cf8134dd289ca",
+      "objective": -1.2916666666666665,
+      "paired_ppm": -0.7916666666666665,
+      "points": 36,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p19",
+      "source": "experiments/nova-1-population/g01-p19/team.py",
+      "sha256": "6e9378ae52ba05439f1e14bbe6e9fb79a10875bf3cc7e6696f9c2fe5529d231e",
+      "objective": -1.3333333333333333,
+      "paired_ppm": -0.8333333333333333,
+      "points": 35,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p10",
+      "source": "experiments/nova-1-population/g01-p10/team.py",
+      "sha256": "ac30847ccecb5bd0eda2e8bea89e6a8e7e52cb74a58640421d7f6498b7b8c051",
+      "objective": -1.5562499999999997,
+      "paired_ppm": -0.7499999999999998,
+      "points": 37,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p04",
+      "source": "experiments/nova-1-population/g01-p04/team.py",
+      "sha256": "9333dd1ee5f4ecc7f3f87a54fad92486faa88de9691fe15eb2f5db5b4d66bc86",
+      "objective": -1.5999999999999996,
+      "paired_ppm": -0.9999999999999998,
+      "points": 31,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p15",
+      "source": "experiments/nova-1-population/g01-p15/team.py",
+      "sha256": "0f34ba612f773134336c1ebfbeb0787025bbbc28505c39a1255236b84a630868",
+      "objective": -1.6395833333333332,
+      "paired_ppm": -0.9583333333333333,
+      "points": 32,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p09",
+      "source": "experiments/nova-1-population/g01-p09/team.py",
+      "sha256": "ccec94731895ad7856315ac931aab45fe629ecf77732560a90265c58cf6b8bff",
+      "objective": -1.8437499999999998,
+      "paired_ppm": -0.9999999999999998,
+      "points": 31,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p20",
+      "source": "experiments/nova-1-population/g01-p20/team.py",
+      "sha256": "04bbfdd8004db3aae9fb60e3800b288dcb09911a1bdb32a8ecbb5fd5b1f59f2c",
+      "objective": -1.8479166666666664,
+      "paired_ppm": -1.1666666666666665,
+      "points": 27,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p17",
+      "source": "experiments/nova-1-population/g01-p17/team.py",
+      "sha256": "351a26b1c1753115cd5a23593c61a2ef82245d4c2b80c30d2c78de3ddb229989",
+      "objective": -1.9062499999999998,
+      "paired_ppm": -1.1249999999999998,
+      "points": 28,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p02",
+      "source": "experiments/nova-1-population/g01-p02/team.py",
+      "sha256": "9935bb6bae80d65a1ca8c6ef24ad0189f7b76de5c9e2449335f97ba9ecd25e2d",
+      "objective": -1.9687499999999998,
+      "paired_ppm": -1.1249999999999998,
+      "points": 28,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p23",
+      "source": "experiments/nova-1-population/g01-p23/team.py",
+      "sha256": "00792b6605f673e944e80dc0ae184e03a5f04b1a4144189fd246ea2c011dbcc4",
+      "objective": -1.9687499999999998,
+      "paired_ppm": -1.1249999999999998,
+      "points": 28,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p05",
+      "source": "experiments/nova-1-population/g01-p05/team.py",
+      "sha256": "38fc76691a46c75e1e02b96d939cb7810b7bdc6804c6006de84ee3bcc4fdbcae",
+      "objective": -2.027083333333333,
+      "paired_ppm": -1.0833333333333333,
+      "points": 29,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p03",
+      "source": "experiments/nova-1-population/g01-p03/team.py",
+      "sha256": "43fdc9a76889911b205ffbb9994f77cd5e324eb5c68332a8a4cf2f8e47126a37",
+      "objective": -2.0479166666666666,
+      "paired_ppm": -1.0416666666666665,
+      "points": 30,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p22",
+      "source": "experiments/nova-1-population/g01-p22/team.py",
+      "sha256": "680a3a0945ca8b1c62871143c819870e6245c8de8715ba15d692afa5507ec82c",
+      "objective": -2.2312499999999997,
+      "paired_ppm": -1.2499999999999998,
+      "points": 25,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p12",
+      "source": "experiments/nova-1-population/g01-p12/team.py",
+      "sha256": "1251dfbc6e2272fb6862572cf24722a6c153874a94a6464a7adaae8d0f0e605c",
+      "objective": -2.2375,
+      "paired_ppm": -1.375,
+      "points": 22,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p16",
+      "source": "experiments/nova-1-population/g01-p16/team.py",
+      "sha256": "f1f6c4fbaf83adcc83fbee5d8e82850c41ca044524899a9620a6a79c8ca8a98f",
+      "objective": -2.439583333333333,
+      "paired_ppm": -1.333333333333333,
+      "points": 23,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p14",
+      "source": "experiments/nova-1-population/g01-p14/team.py",
+      "sha256": "3ab7d5434c0e96e9a6a4640074c4ac5ffcb1064030d1cb9b883140f5639e46d0",
+      "objective": -2.4666666666666663,
+      "paired_ppm": -1.5416666666666665,
+      "points": 18,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p07",
+      "source": "experiments/nova-1-population/g01-p07/team.py",
+      "sha256": "c2c2e0bdbc7c33688bfa6ef13fec9d0d676478fb851fb1fc53a3e10580f73e3c",
+      "objective": -2.5,
+      "paired_ppm": -1.375,
+      "points": 22,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p11",
+      "source": "experiments/nova-1-population/g01-p11/team.py",
+      "sha256": "7e79a4ca5b9928f111bf0a62fcc34614a9aaddd694c4e7bf0f212c426535d20e",
+      "objective": -2.51875,
+      "paired_ppm": -1.375,
+      "points": 22,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p13",
+      "source": "experiments/nova-1-population/g01-p13/team.py",
+      "sha256": "a3cdddc1df7a4be2f9531d14b1a1102d1e99cb91dc1e15838fa00ac4073ce872",
+      "objective": -2.64375,
+      "paired_ppm": -1.5,
+      "points": 19,
+      "baseline_points": 55
+    },
+    {
+      "name": "g01-p08",
+      "source": "experiments/nova-1-population/g01-p08/team.py",
+      "sha256": "3317925e9b0c86b8da7350f0755b5ce3987f915fc2737e9c977d0842fbc77a01",
+      "objective": -2.7041666666666666,
+      "paired_ppm": -1.5416666666666665,
+      "points": 18,
+      "baseline_points": 55
+    },
+    {
+      "name": "g02-p23",
+      "source": "experiments/nova-1-population/g02-p23/team.py",
+      "sha256": "1293f16148c047c2f348b45f93aa2a15a48ee08ac9ca5b1a49962929c5f5b4fb",
+      "objective": -1.6604166666666667,
+      "paired_ppm": -0.9166666666666667,
+      "points": 31,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p12",
+      "source": "experiments/nova-1-population/g02-p12/team.py",
+      "sha256": "e725bd5a6af9976675b31a5af67cd6095ae7f808e9c34fe7052534e6f90dbefb",
+      "objective": -1.7625000000000002,
+      "paired_ppm": -1.0000000000000002,
+      "points": 29,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p01",
+      "source": "experiments/nova-1-population/g02-p01/team.py",
+      "sha256": "367d8f1fa2d7bed63a1455b0a94e0ebbd36475286b9b5ea4e3a4e380357f1c49",
+      "objective": -1.8229166666666667,
+      "paired_ppm": -1.0416666666666667,
+      "points": 28,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p05",
+      "source": "experiments/nova-1-population/g02-p05/team.py",
+      "sha256": "d61f625dd5a90b517d3178055228d1d6490f9e812724f917f2c5ddcda254bb1b",
+      "objective": -1.8416666666666668,
+      "paired_ppm": -1.0416666666666667,
+      "points": 28,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p19",
+      "source": "experiments/nova-1-population/g02-p19/team.py",
+      "sha256": "9d41b569261da96fb22e2f7563da027830222ceb5e49de97a4272bac5979b504",
+      "objective": -1.8625000000000003,
+      "paired_ppm": -1.0000000000000002,
+      "points": 29,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p13",
+      "source": "experiments/nova-1-population/g02-p13/team.py",
+      "sha256": "e79418b62cd6535049a90bde47e67d936039fc83e28fe320e7f75da200c7294d",
+      "objective": -1.8645833333333335,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p18",
+      "source": "experiments/nova-1-population/g02-p18/team.py",
+      "sha256": "f3e621266caa2b02f333cd891d8b8d1113147ff25ddfe3de3b226945e86f8cd7",
+      "objective": -1.8833333333333335,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p20",
+      "source": "experiments/nova-1-population/g02-p20/team.py",
+      "sha256": "c47b9b6395b9755e4beaaf849380ad5d3082f4ff685612eb5c7fb1e15152beee",
+      "objective": -1.8833333333333335,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p11",
+      "source": "experiments/nova-1-population/g02-p11/team.py",
+      "sha256": "226247ae34a68347e9d7ca55e39f6de0ab3f45da3cdb5653766ced97f9b327fb",
+      "objective": -1.8833333333333335,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p22",
+      "source": "experiments/nova-1-population/g02-p22/team.py",
+      "sha256": "ecf5f951bfffc1aa3d80ff5f9d922b7a87a93025a6fdebb6ce531ccf6f096851",
+      "objective": -1.9250000000000003,
+      "paired_ppm": -1.1250000000000002,
+      "points": 26,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p14",
+      "source": "experiments/nova-1-population/g02-p14/team.py",
+      "sha256": "03e410b3b44cf71d0957e08769793a1ae008f12490ba4362c8ab6a8fa5d79490",
+      "objective": -1.9645833333333336,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p04",
+      "source": "experiments/nova-1-population/g02-p04/team.py",
+      "sha256": "b1e8e029d431e49236eae54a9875c259eb6b12bd34700d636ec813f6675f8b1a",
+      "objective": -1.9645833333333336,
+      "paired_ppm": -1.0833333333333335,
+      "points": 27,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p10",
+      "source": "experiments/nova-1-population/g02-p10/team.py",
+      "sha256": "7d19f7eabc9b774c2641221dbd9fe65cf528ccfff7628731be837ea1665ef182",
+      "objective": -1.9666666666666668,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p21",
+      "source": "experiments/nova-1-population/g02-p21/team.py",
+      "sha256": "de2358db55404c9475ca8bbbb4fa97a130bb5d70b9fd731b650fbca52424ecf9",
+      "objective": -1.9666666666666668,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p00",
+      "source": "experiments/nova-1-population/g02-p00/team.py",
+      "sha256": "46d403e9f82514bb2c352a49d51eae381d76307e0f7e0a91f5dbad0433536041",
+      "objective": -2.0479166666666666,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p07",
+      "source": "experiments/nova-1-population/g02-p07/team.py",
+      "sha256": "e4f482d339fa7426d137d3632f11571670da783792349908de013e2e9e033d46",
+      "objective": -2.0479166666666666,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p06",
+      "source": "experiments/nova-1-population/g02-p06/team.py",
+      "sha256": "b20b76d5981acf7b2f2316332c5332823149e7ebe22ba4c6c99a56bdc41b4815",
+      "objective": -2.0479166666666666,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p02",
+      "source": "experiments/nova-1-population/g02-p02/team.py",
+      "sha256": "b61a533f9429a83aa98000b3aae3ee98002fe98908697e31f8aeb74d072cea89",
+      "objective": -2.0479166666666666,
+      "paired_ppm": -1.1666666666666667,
+      "points": 25,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p03",
+      "source": "experiments/nova-1-population/g02-p03/team.py",
+      "sha256": "c1a908556ba71107ff62a73ad5bcd69a024616e60c0bd93633f2313ebd59ae40",
+      "objective": -2.0708333333333333,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p15",
+      "source": "experiments/nova-1-population/g02-p15/team.py",
+      "sha256": "5b1fd587b771b0b92d21f381e155729839bf92429544595d1baef1142f4e060c",
+      "objective": -2.0895833333333336,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p08",
+      "source": "experiments/nova-1-population/g02-p08/team.py",
+      "sha256": "63de81522f7e1809c17ffa81be3264524a5ef0694b71e84f757d5d3ef3b63672",
+      "objective": -2.0895833333333336,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p09",
+      "source": "experiments/nova-1-population/g02-p09/team.py",
+      "sha256": "7b3987e9b9530afe62049312dc292a4378cc97f5b3fb9d372ae411dd22ddc6e6",
+      "objective": -2.0895833333333336,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p17",
+      "source": "experiments/nova-1-population/g02-p17/team.py",
+      "sha256": "d10aa3f98f52a23fef7ae41867ad4477f77de5ed5c2f999e5e01da3e1c05ecd5",
+      "objective": -2.0895833333333336,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g02-p16",
+      "source": "experiments/nova-1-population/g02-p16/team.py",
+      "sha256": "6a931e0c4302ae4ae23a3f6ae7594a1834fa459e6a23ef8867ea42b4cc80a8cd",
+      "objective": -2.0895833333333336,
+      "paired_ppm": -1.2083333333333335,
+      "points": 24,
+      "baseline_points": 53
+    },
+    {
+      "name": "g03-p15",
+      "source": "experiments/nova-1-population/g03-p15/team.py",
+      "sha256": "aea451b22a3378a8e682629a0db66952e9ad2987e20688066faae741b29c3551",
+      "objective": -0.9791666666666667,
+      "paired_ppm": -0.41666666666666674,
+      "points": 30,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p20",
+      "source": "experiments/nova-1-population/g03-p20/team.py",
+      "sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+      "objective": -1.3541666666666667,
+      "paired_ppm": -0.7916666666666667,
+      "points": 21,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p16",
+      "source": "experiments/nova-1-population/g03-p16/team.py",
+      "sha256": "2d4383633bf2dbee71c852412a9f6233a0c2cc2f10ee096e5f618e05a0f60d1c",
+      "objective": -1.4145833333333335,
+      "paired_ppm": -0.8333333333333334,
+      "points": 20,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p01",
+      "source": "experiments/nova-1-population/g03-p01/team.py",
+      "sha256": "77594a63f0600f0017820d20d8af963e6b1f903bb42d88260355b66f96aabb5f",
+      "objective": -1.4958333333333336,
+      "paired_ppm": -0.8333333333333334,
+      "points": 20,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p06",
+      "source": "experiments/nova-1-population/g03-p06/team.py",
+      "sha256": "d20ba814da276ecde7899394cb4cce690c936941f75b3e94dea68e91b838ae3b",
+      "objective": -1.5583333333333336,
+      "paired_ppm": -0.9583333333333334,
+      "points": 17,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p17",
+      "source": "experiments/nova-1-population/g03-p17/team.py",
+      "sha256": "fd2d4790e182ecef7d03cb83ab3410396289992bfdcb96fa4f513dd16ce93023",
+      "objective": -1.5770833333333334,
+      "paired_ppm": -0.8333333333333334,
+      "points": 20,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p21",
+      "source": "experiments/nova-1-population/g03-p21/team.py",
+      "sha256": "138839568eff6f0b50e263fb251b0710e3d9a41be2c1738e576d9293e500bd39",
+      "objective": -1.6145833333333335,
+      "paired_ppm": -0.8333333333333334,
+      "points": 20,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p11",
+      "source": "experiments/nova-1-population/g03-p11/team.py",
+      "sha256": "36f694b20f95a1f12b809b10d36593d81c13f75e399f48769a53e4a1ee0afd63",
+      "objective": -1.6395833333333334,
+      "paired_ppm": -0.9583333333333334,
+      "points": 17,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p23",
+      "source": "experiments/nova-1-population/g03-p23/team.py",
+      "sha256": "fae94c5a103b51730d1fe2ef7c511a6eb055ffdd0834ed23c69549c8fdaf7b7c",
+      "objective": -1.68125,
+      "paired_ppm": -1.0,
+      "points": 16,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p09",
+      "source": "experiments/nova-1-population/g03-p09/team.py",
+      "sha256": "6a149a599b0ec0bd3b7f2e6230513825366b2e538cc4db5191c03503eb69f532",
+      "objective": -1.6833333333333336,
+      "paired_ppm": -1.0833333333333335,
+      "points": 14,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p05",
+      "source": "experiments/nova-1-population/g03-p05/team.py",
+      "sha256": "c0339f841de9d5bb1710e6d09660fba3b80b2371d21516015cdca8485da6b8d0",
+      "objective": -1.7208333333333334,
+      "paired_ppm": -0.9583333333333334,
+      "points": 17,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p14",
+      "source": "experiments/nova-1-population/g03-p14/team.py",
+      "sha256": "76fc42da58e39e22efc1ec3bd9ce63d9b5e1ff38ad79ff5a064de24c1e4eb4c3",
+      "objective": -1.7645833333333334,
+      "paired_ppm": -1.0833333333333335,
+      "points": 14,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p12",
+      "source": "experiments/nova-1-population/g03-p12/team.py",
+      "sha256": "235cd0f20fc57dba77e27ebe9addb78352b8056c904e319ab3fde64ad420f7dd",
+      "objective": -1.8479166666666667,
+      "paired_ppm": -1.1666666666666667,
+      "points": 12,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p04",
+      "source": "experiments/nova-1-population/g03-p04/team.py",
+      "sha256": "ed8f4496ae0bb40a885fc147f01c2d80c318b11537e3523aec8eb6c139de9e76",
+      "objective": -1.8479166666666667,
+      "paired_ppm": -1.1666666666666667,
+      "points": 12,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p22",
+      "source": "experiments/nova-1-population/g03-p22/team.py",
+      "sha256": "bb5bcd33395222757b1f45618cf428737865e95d9d4ae90a34a997be7fb3c3d6",
+      "objective": -1.95,
+      "paired_ppm": -1.25,
+      "points": 10,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p10",
+      "source": "experiments/nova-1-population/g03-p10/team.py",
+      "sha256": "588fa9e0bc30c08a1f97f2d08758929660839d280c741f01806d4bd643a7034d",
+      "objective": -2.0333333333333337,
+      "paired_ppm": -1.3333333333333335,
+      "points": 8,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p18",
+      "source": "experiments/nova-1-population/g03-p18/team.py",
+      "sha256": "1f27e1847b7733187b0e83cd6d78d3e5321d4b59663d314b47959a31902ce4ed",
+      "objective": -2.154166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 9,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p02",
+      "source": "experiments/nova-1-population/g03-p02/team.py",
+      "sha256": "74c5de09c61c4610543d565329675dd36261b9cb3e561a6ee7319c07106bdac2",
+      "objective": -2.216666666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 9,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p13",
+      "source": "experiments/nova-1-population/g03-p13/team.py",
+      "sha256": "52688d86beaa453f92fc3bcf689ebc347eeb0840f21bd0d4c77dcfe28c532786",
+      "objective": -2.2375,
+      "paired_ppm": -1.25,
+      "points": 10,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p08",
+      "source": "experiments/nova-1-population/g03-p08/team.py",
+      "sha256": "4a1d09d0b36e1efd127b07b904910ccbf556541eb7198b4168ef44165ecea7fb",
+      "objective": -2.279166666666667,
+      "paired_ppm": -1.4166666666666667,
+      "points": 6,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p07",
+      "source": "experiments/nova-1-population/g03-p07/team.py",
+      "sha256": "d1d9aef783324189357b0025b8e4cd3b85232857fe63ce5aa74f12edc090b534",
+      "objective": -2.3583333333333334,
+      "paired_ppm": -1.3333333333333335,
+      "points": 8,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p03",
+      "source": "experiments/nova-1-population/g03-p03/team.py",
+      "sha256": "545e16e163ca00f1ca1d44740f4d5bcfaf85981e4f5467b0286d30c7dcb61ce9",
+      "objective": -2.360416666666667,
+      "paired_ppm": -1.4166666666666667,
+      "points": 6,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p00",
+      "source": "experiments/nova-1-population/g03-p00/team.py",
+      "sha256": "74bc05f20342e46519cf2bd9894e59b5bf363f169952078d4c83d5982584a9ce",
+      "objective": -2.4,
+      "paired_ppm": -1.375,
+      "points": 7,
+      "baseline_points": 40
+    },
+    {
+      "name": "g03-p19",
+      "source": "experiments/nova-1-population/g03-p19/team.py",
+      "sha256": "c26394689a7e36bdd2285f15b132e7ff8060c31123d11491960925aa2abc62e1",
+      "objective": -2.60625,
+      "paired_ppm": -1.5,
+      "points": 4,
+      "baseline_points": 40
+    },
+    {
+      "name": "g04-p19",
+      "source": "experiments/nova-1-population/g04-p19/team.py",
+      "sha256": "f03bd84a01b9826f9d7cdd2382a83e45727a4589cca33c75f3697ba9e698fb45",
+      "objective": -0.5729166666666665,
+      "paired_ppm": -0.2916666666666665,
+      "points": 50,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p09",
+      "source": "experiments/nova-1-population/g04-p09/team.py",
+      "sha256": "e61753e0bdf2669b1e1c57f4a1beba039ff1ca75bc56be5c1e7e859b270ac883",
+      "objective": -0.6125,
+      "paired_ppm": -0.125,
+      "points": 54,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p00",
+      "source": "experiments/nova-1-population/g04-p00/team.py",
+      "sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+      "objective": -0.6125,
+      "paired_ppm": -0.25,
+      "points": 51,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p02",
+      "source": "experiments/nova-1-population/g04-p02/team.py",
+      "sha256": "718daf31c84401913b64e7031f184b0933519c104a840f225dd094af06c298c7",
+      "objective": -0.675,
+      "paired_ppm": -0.25,
+      "points": 51,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p13",
+      "source": "experiments/nova-1-population/g04-p13/team.py",
+      "sha256": "17f03cd483aea6aaab38d9600a233b831e86f2fa5aa0bfa513a3641e1bf48023",
+      "objective": -0.7354166666666665,
+      "paired_ppm": -0.2916666666666665,
+      "points": 50,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p05",
+      "source": "experiments/nova-1-population/g04-p05/team.py",
+      "sha256": "7823c793e6a24707a4adf237d39f6ce47024c9a4badc7c4efc2abeff435ac1d3",
+      "objective": -0.7958333333333335,
+      "paired_ppm": -0.3333333333333335,
+      "points": 49,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p07",
+      "source": "experiments/nova-1-population/g04-p07/team.py",
+      "sha256": "1c8e41ad6a0c30bbfbd4de92d20c168d2255eb4c40fbbde186187c835d713164",
+      "objective": -0.7958333333333335,
+      "paired_ppm": -0.3333333333333335,
+      "points": 49,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p12",
+      "source": "experiments/nova-1-population/g04-p12/team.py",
+      "sha256": "24994251ba4da20b84c355903bb4b8f8eabc04747a4f1cb536cf6e5fecac0c6e",
+      "objective": -0.7958333333333335,
+      "paired_ppm": -0.3333333333333335,
+      "points": 49,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p20",
+      "source": "experiments/nova-1-population/g04-p20/team.py",
+      "sha256": "221f73df5993edd567e27dab27b4f016d952831b42a9c7f734c4142903d5bcc6",
+      "objective": -0.81875,
+      "paired_ppm": -0.375,
+      "points": 48,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p04",
+      "source": "experiments/nova-1-population/g04-p04/team.py",
+      "sha256": "8c71c366158629433a768e5b57500169b645f427a1ae4f1fb69e47b622a8558d",
+      "objective": -0.8583333333333335,
+      "paired_ppm": -0.3333333333333335,
+      "points": 49,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p22",
+      "source": "experiments/nova-1-population/g04-p22/team.py",
+      "sha256": "7b6a4b18e8f0698fd4bd894870957283f376102cb55bc5774bc118a9a81dd370",
+      "objective": -0.8791666666666668,
+      "paired_ppm": -0.41666666666666674,
+      "points": 47,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p06",
+      "source": "experiments/nova-1-population/g04-p06/team.py",
+      "sha256": "24b21891382e734c32205ab8a5624dda9ed44b4bfac44c6faf94e8091a7f300e",
+      "objective": -0.91875,
+      "paired_ppm": -0.375,
+      "points": 48,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p01",
+      "source": "experiments/nova-1-population/g04-p01/team.py",
+      "sha256": "b487b40278a2b54df55383eed0de65d650d3cfa52e58c486fb316fff3064b904",
+      "objective": -0.91875,
+      "paired_ppm": -0.375,
+      "points": 48,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p08",
+      "source": "experiments/nova-1-population/g04-p08/team.py",
+      "sha256": "6b3f33727d97ec25c9a05a3cf8e07c7d7d50d0b2221b6bca98a47df97d9d70cf",
+      "objective": -0.9416666666666668,
+      "paired_ppm": -0.41666666666666674,
+      "points": 47,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p17",
+      "source": "experiments/nova-1-population/g04-p17/team.py",
+      "sha256": "3220fbabf6dc716a64ba44c40ee83eb4904da6a2239ec49eabda890570051a20",
+      "objective": -0.9791666666666667,
+      "paired_ppm": -0.41666666666666674,
+      "points": 47,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p03",
+      "source": "experiments/nova-1-population/g04-p03/team.py",
+      "sha256": "1703a2e225869ed4e64930bbad38308fbfdc65e34fdf59396591ffd9ed95bd63",
+      "objective": -1.0020833333333332,
+      "paired_ppm": -0.45833333333333326,
+      "points": 46,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p14",
+      "source": "experiments/nova-1-population/g04-p14/team.py",
+      "sha256": "0e5c1038ac7270d9c2425978af6e2e5507bd4e26eb378b21b54a13e6abf8b41c",
+      "objective": -1.0020833333333332,
+      "paired_ppm": -0.45833333333333326,
+      "points": 46,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p21",
+      "source": "experiments/nova-1-population/g04-p21/team.py",
+      "sha256": "aa595e7950461af68c5d417ed579a6981b4029de4ff41b31e236c0f0b4b2e2f5",
+      "objective": -1.0020833333333332,
+      "paired_ppm": -0.45833333333333326,
+      "points": 46,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p10",
+      "source": "experiments/nova-1-population/g04-p10/team.py",
+      "sha256": "ecd9c12b701fcbb8a496e80f533a3a940ac56db5327e2f396cf7150d39a765e1",
+      "objective": -1.0020833333333332,
+      "paired_ppm": -0.45833333333333326,
+      "points": 46,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p23",
+      "source": "experiments/nova-1-population/g04-p23/team.py",
+      "sha256": "6ec4c16baf763d4fb147c7161e2a1e8901fa0cb1c5a326f2583965dffdfdb5c6",
+      "objective": -1.0020833333333332,
+      "paired_ppm": -0.45833333333333326,
+      "points": 46,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p15",
+      "source": "experiments/nova-1-population/g04-p15/team.py",
+      "sha256": "2444ea0227f643279283bd581bdcde9bf3425d100a775af26787a0cf9e9f463e",
+      "objective": -1.0229166666666667,
+      "paired_ppm": -0.5416666666666667,
+      "points": 44,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p11",
+      "source": "experiments/nova-1-population/g04-p11/team.py",
+      "sha256": "0ab82f30ff22ba29a247000101f90e0f4cff7892e052b04677953a24735dd8a4",
+      "objective": -1.0625,
+      "paired_ppm": -0.5,
+      "points": 45,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p16",
+      "source": "experiments/nova-1-population/g04-p16/team.py",
+      "sha256": "f7894ab3c289814e1c3ca55e4902237dad4f9fa8ead63c69affe6446578e2ffd",
+      "objective": -1.1041666666666667,
+      "paired_ppm": -0.5416666666666667,
+      "points": 44,
+      "baseline_points": 57
+    },
+    {
+      "name": "g04-p18",
+      "source": "experiments/nova-1-population/g04-p18/team.py",
+      "sha256": "7a8d91b5c5cdf69b0ef0e21b564bd31f30d426e9b71c3aa14ef4865e33f7f501",
+      "objective": -1.1645833333333333,
+      "paired_ppm": -0.5833333333333333,
+      "points": 43,
+      "baseline_points": 57
+    },
+    {
+      "name": "g05-p15",
+      "source": "experiments/nova-1-population/g05-p15/team.py",
+      "sha256": "1c83ebf07aa0a40336192a76f970cd7c918b172db64486d815142458ae01de12",
+      "objective": -1.5354166666666664,
+      "paired_ppm": -0.7916666666666666,
+      "points": 14,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p02",
+      "source": "experiments/nova-1-population/g05-p02/team.py",
+      "sha256": "719e6769a03ea5f8f0735d8331b554f3e38c53523f0bf512f9ab7504f7454593",
+      "objective": -1.6625,
+      "paired_ppm": -1.0,
+      "points": 9,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p09",
+      "source": "experiments/nova-1-population/g05-p09/team.py",
+      "sha256": "e8981c8a8f25e9c30d9b66fe033f29287e9d588859632a5a19f2ca951cde2e26",
+      "objective": -1.7604166666666667,
+      "paired_ppm": -0.9166666666666667,
+      "points": 11,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p20",
+      "source": "experiments/nova-1-population/g05-p20/team.py",
+      "sha256": "80542fb432ca4d367860376bca0eddb0ac4eed7aa5fee8fa6d6b58cacb887e34",
+      "objective": -1.84375,
+      "paired_ppm": -1.0,
+      "points": 9,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p04",
+      "source": "experiments/nova-1-population/g05-p04/team.py",
+      "sha256": "6071a20c4a83ab6a6ecfcce92e588f224a5df2ff6828bc64a1b3bd7e2573d2ca",
+      "objective": -1.8458333333333332,
+      "paired_ppm": -1.0833333333333333,
+      "points": 7,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p23",
+      "source": "experiments/nova-1-population/g05-p23/team.py",
+      "sha256": "1e6e3dd28d7c789becaf55fa02f8f0fea4abd4107c44511b265b3bcfcecc813c",
+      "objective": -1.8666666666666667,
+      "paired_ppm": -1.0416666666666667,
+      "points": 8,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p00",
+      "source": "experiments/nova-1-population/g05-p00/team.py",
+      "sha256": "f03bd84a01b9826f9d7cdd2382a83e45727a4589cca33c75f3697ba9e698fb45",
+      "objective": -1.8666666666666667,
+      "paired_ppm": -1.0416666666666667,
+      "points": 8,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p14",
+      "source": "experiments/nova-1-population/g05-p14/team.py",
+      "sha256": "7d8d1ad359ffd3436aa0e45c179cf0eea2f7768b26ac66765877ff032df1cf08",
+      "objective": -1.86875,
+      "paired_ppm": -1.125,
+      "points": 6,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p05",
+      "source": "experiments/nova-1-population/g05-p05/team.py",
+      "sha256": "892721cf6aec60011b5f5da72101a8fddf2c1fccdf38c29879c8069791c031b5",
+      "objective": -1.8875,
+      "paired_ppm": -1.125,
+      "points": 6,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p16",
+      "source": "experiments/nova-1-population/g05-p16/team.py",
+      "sha256": "837c8298efa65e4e6687f7dc0e11420fb48fd20a47ebc5062262040434640dd1",
+      "objective": -1.8895833333333332,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p17",
+      "source": "experiments/nova-1-population/g05-p17/team.py",
+      "sha256": "a8c09255d6f2b6531e416da2f698830b20775d0b458ce843c341cba84b7752a8",
+      "objective": -1.9104166666666667,
+      "paired_ppm": -1.1666666666666667,
+      "points": 5,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p07",
+      "source": "experiments/nova-1-population/g05-p07/team.py",
+      "sha256": "3761e3e63aa53d7410e2c9ca1cad27402650c88fa13246d1b2ed8953264db30d",
+      "objective": -1.9270833333333333,
+      "paired_ppm": -1.0833333333333333,
+      "points": 7,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p06",
+      "source": "experiments/nova-1-population/g05-p06/team.py",
+      "sha256": "24cdd868c460aedd49143d950dc3e1e55864e534a06054b5481169c4f2e2bc0b",
+      "objective": -1.9270833333333333,
+      "paired_ppm": -1.0833333333333333,
+      "points": 7,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p11",
+      "source": "experiments/nova-1-population/g05-p11/team.py",
+      "sha256": "56f49b1204f50cb60a9802563e4cdce438cd560ccfa5996aea107c706d252793",
+      "objective": -1.9291666666666667,
+      "paired_ppm": -1.1666666666666667,
+      "points": 5,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p22",
+      "source": "experiments/nova-1-population/g05-p22/team.py",
+      "sha256": "2eaeb05320a83a0ccd27cd22a033369d9ffc919393e9f38085f3f98137e82102",
+      "objective": -1.9729166666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p12",
+      "source": "experiments/nova-1-population/g05-p12/team.py",
+      "sha256": "f955e1c2f3663af867899da87578a16c76e72d71046ce4c11b5f9a5c38c835e9",
+      "objective": -2.0125,
+      "paired_ppm": -1.25,
+      "points": 3,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p18",
+      "source": "experiments/nova-1-population/g05-p18/team.py",
+      "sha256": "ef53b367bfab40e22fdf1b435d4f14e9a9f92409eba46a932924b89a5203fd11",
+      "objective": -2.033333333333333,
+      "paired_ppm": -1.2083333333333333,
+      "points": 4,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p10",
+      "source": "experiments/nova-1-population/g05-p10/team.py",
+      "sha256": "4553f82ef4ad0c6bd7cc4b8494e238775e4d837270d7979e9eca2c2ee41b49a4",
+      "objective": -2.0541666666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p21",
+      "source": "experiments/nova-1-population/g05-p21/team.py",
+      "sha256": "9c99f6f73e1b31ef4e8c782551d4b37c3379eb3eed4730f123b22c5879434c3d",
+      "objective": -2.0541666666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p08",
+      "source": "experiments/nova-1-population/g05-p08/team.py",
+      "sha256": "a72720dcb56de8352ac11b912cd562c6215e3f03990817c42a6f7fc892312600",
+      "objective": -2.095833333333333,
+      "paired_ppm": -1.3333333333333333,
+      "points": 1,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p03",
+      "source": "experiments/nova-1-population/g05-p03/team.py",
+      "sha256": "71c19be5279fd29be787c95e4f821b64557ecbb47a1af6263da5361450059b7c",
+      "objective": -2.095833333333333,
+      "paired_ppm": -1.3333333333333333,
+      "points": 1,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p19",
+      "source": "experiments/nova-1-population/g05-p19/team.py",
+      "sha256": "3062dac6850a3968759479aadac999ed9fa7532d99268bd22ec3171c90e8b191",
+      "objective": -2.135416666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p13",
+      "source": "experiments/nova-1-population/g05-p13/team.py",
+      "sha256": "51ea734c355829be0533d11bfc2b849965f9b14820daeee4ca2092f27228de16",
+      "objective": -2.135416666666667,
+      "paired_ppm": -1.2916666666666667,
+      "points": 2,
+      "baseline_points": 33
+    },
+    {
+      "name": "g05-p01",
+      "source": "experiments/nova-1-population/g05-p01/team.py",
+      "sha256": "e61753e0bdf2669b1e1c57f4a1beba039ff1ca75bc56be5c1e7e859b270ac883",
+      "objective": -2.177083333333333,
+      "paired_ppm": -1.3333333333333333,
+      "points": 1,
+      "baseline_points": 33
+    }
+  ]
+}

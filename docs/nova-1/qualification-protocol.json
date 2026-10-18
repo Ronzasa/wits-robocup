@@ -1,0 +1,55 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/nova-1-qualification.zip",
+  "opponents_archive_sha256": "e9b9e38fb2a23b16646cbae493123f0a5b133535d3f12df9cc71ef5385bb5353",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links",
+    "unseen-asymmetric",
+    "unseen-counter",
+    "unseen-swarm",
+    "unseen-long"
+  ],
+  "seeds": {
+    "qualification": [
+      1973818336,
+      623099844,
+      346680969,
+      1170560696,
+      723680727,
+      457794674,
+      557776318,
+      1519459662,
+      1243247004,
+      954680722,
+      36203561,
+      1902198243,
+      494825264,
+      354893572,
+      1148130265,
+      516780488
+    ]
+  },
+  "fixture_order_seed": 9011901,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "nova": {
+      "path": "experiments/nova-1/team.py",
+      "sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "training": false,
+  "timing": "Unmodified SDK wall timer/deadline; external thread CPU and GC-overlap observations applied equally. Every initial miss and failed repeat retained."
+}
