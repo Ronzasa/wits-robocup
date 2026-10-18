@@ -2,6 +2,7 @@
 import argparse, hashlib, json, math, re, zipfile
 from pathlib import Path
 from build import framework_for
+from profile_replays import profile
 
 ROOT = Path(__file__).resolve().parents[2]
 DOC = ROOT / 'docs/nova-1'
@@ -172,7 +173,7 @@ def generate(work, archive):
     if failed_intakes:
         lines += ['| Failed source | Original SDK error |', '|---|---|']
         for row in failed_intakes:
-            validation = read(Path(row['run']) / (row['name'] + '-validation.json'))
+            validation = read(work / Path(row['run']).name / (row['name'] + '-validation.json'))
             lines.append(f"| {row['name']} | {'; '.join(validation['errors'])} |")
         lines += ['', 'Public-intake timing failures do not have the native fixture slow-call CPU/GC instrumentation, '
             'so the evidence cannot establish their cause. They remain failures regardless of the later native timing.', '']
@@ -254,7 +255,18 @@ def generate(work, archive):
         'The external harness records thread CPU and GC overlap on the original slow calls for both controllers, and per-fixture cgroup/wall/CPU changes. '
         'GC policy, clocks, affinity, SDK and engine remain unchanged. Correlation with GC or a wall/CPU gap is diagnostic evidence, '
         'not proof of a sole cause and never grounds to discard a raw miss.', '',
-        '```json', json.dumps(observations, indent=2), '```', '',
+        '```json', json.dumps(observations, indent=2), '```', '']
+    replay_profile=read(work/'offline-profile/summary.json')
+    lines += ['### Offline decision replay and hotspots', '',
+        f"{replay_profile['native_frames_replayed']} recorded native frames reconstructed with pre-decision state and native kick/control gates; "
+        f"action mismatches: {replay_profile['action_mismatches']}. Maximum evaluated plans/steps: "
+        f"{replay_profile['max_response_plans']}/{replay_profile['max_model_steps']}. "
+        'This checks command replay, not the accuracy of hypothetical opponent responses. '
+        'The separate cProfile replay adds overhead and uses Python observation records; its timings never enter a deadline gate.', '',
+        '| Function | Calls | Own ms | Cumulative ms |', '|---|---:|---:|---:|']
+    for row in replay_profile['function_profile'][:12]:
+        lines.append(f"| {row['function']} | {row['calls']:,} | {row['self_ms']:.2f} | {row['cumulative_ms']:.2f} |")
+    lines += ['',
         '## Reproduction and evidence', '',
         f"Final regression run: {count.group(1) if count else 'see archived log'} tests; "
         f"official candidate intake: {intake['stats']['decisions']:,} decisions, passed={intake['ok']}. "
@@ -292,6 +304,7 @@ def main():
     p.add_argument('--work', type=Path, required=True)
     p.add_argument('--archive', type=Path, default=ROOT / 'tests/fixtures/nova-1-native-evidence.zip')
     args = p.parse_args()
+    profile(args.work/'execution-replays',args.work/'offline-profile')
     archive = make_archive(args.work, args.archive)
     generate(args.work, archive)
 

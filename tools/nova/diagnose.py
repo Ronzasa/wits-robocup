@@ -49,12 +49,19 @@ def main():
                     nonlocal pending, active
                     if c is not controller:return original(c, obs)
                     before = controller._receive
+                    before_state = {name: getattr(controller, name) for name in
+                        ('_receive', '_previous_score', '_chaser_id', '_cover_id', '_restart_tick')}
                     controller._observed_plan = None
                     answer = original(c, obs)
                     plan = controller._observed_plan
                     ball = (*obs.ball.position, *obs.ball.velocity)
                     if obs.tick % 5 == 0:
                         timeline.append({'tick': obs.tick, 'score': obs.score, 'ball': ball,
+                            'time_remaining': obs.time_remaining, 'before_state': before_state,
+                            'controlling_team': obs.ball.controlling_team, 'controlling_player': obs.ball.controlling_player,
+                            'can_kick': [p.id for p in obs.my_players if obs.can_kick(p.id)],
+                            'actions': {pid: {'movement': action.movement, 'kick_direction': action.kick_direction,
+                                             'kick_power': action.kick_power} for pid, action in answer[0].players.items()},
                             'last_touch': obs.ball.last_touch, 'receive': controller._receive,
                             'chaser': controller._chaser_id, 'cover': controller._cover_id,
                             'friends': [(p.id, *p.position, *p.velocity, p.kick_cooldown_ticks) for p in obs.my_players],
