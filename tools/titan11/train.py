@@ -20,7 +20,7 @@ def fit(x,y,logistic=False):
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--traces',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
     if a.out.exists():p.error('Preserve training evidence.')
-    a.out.mkdir(parents=True);games=json.load(gzip.open(a.traces,'rt'));seeds=sorted({g['seed'] for g in games});assert len(seeds)>=2
+    a.out.mkdir(parents=True);payload=json.load(gzip.open(a.traces,'rt'));games=payload['games'] if isinstance(payload,dict) else payload;seeds=sorted({g['seed'] for g in games});assert len(seeds)>=2
     records={'value':[],'shot':[]}
     for game in games:
         for r in game['trace']:

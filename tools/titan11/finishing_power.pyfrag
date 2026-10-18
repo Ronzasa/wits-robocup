@@ -1,0 +1,20 @@
+    def _ti_finesse(self,p,bx,by,vx,vy,opponents):
+        """Two physically achievable power/direction trials, no ETA approval."""
+        if bx<self._right-28.:return
+        movement=self._move(p,(bx+.3,by))
+        for y,factor in ((-4.5,.80),(4.5,.92)):
+            desired=self._shot_velocity(bx,by,vx,vy,y)
+            if desired is None:continue
+            kick=self._kick_to_velocity(vx,vy,desired[0]*factor,desired[1]*factor)
+            if kick is None:continue
+            launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),movement)
+            if launch is None:continue
+            goal=self._goal_path(launch)
+            if goal is None:continue
+            path,(flight,gy,speed)=goal
+            if flight>2. or speed<6. or self._shot_contact_margin(bx,by,launch,opponents,min(flight,.15))<-.02:continue
+            margin=min((self._eta(q,x,y)-t for t,x,y in path for q in opponents),default=1.)
+            score=6.+min(margin,.5)*4.-flight*.7+min(speed,20.)*.03
+            # This is only a cheap beam-ranking proposal. Acceptance and
+            # value still use executed keeper responses/full defender races.
+            self._ti_note('shot',(score,kick,movement,None))

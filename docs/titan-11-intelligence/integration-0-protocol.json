@@ -1,0 +1,76 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-11-intelligence-opponents.zip",
+  "opponents_archive_sha256": "457a258417a6deac6cd446f95e54d30661dffbc93419a58d8747337e0a7f0b8d",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v9.0",
+    "v10-press",
+    "v10-counter",
+    "v10-compact",
+    "v10-long",
+    "tight_links"
+  ],
+  "seeds": {
+    "development": [
+      442797613,
+      1480416298
+    ]
+  },
+  "fixture_order_seed": 110108,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "all": {
+      "path": "experiments/titan-11-integration-all/team.py",
+      "sha256": "4d1a82910f4589ccd6c5ee95e14186a176d527cc0223c4c4babde41bd310bb6e"
+    },
+    "all-minus-predictive": {
+      "path": "experiments/titan-11-integration-all-minus-predictive/team.py",
+      "sha256": "a9ce16c7ed24e410ba219007d48f0bb018e03e4b1edd0bce13439e8984f0522a"
+    },
+    "all-minus-coordinated": {
+      "path": "experiments/titan-11-integration-all-minus-coordinated/team.py",
+      "sha256": "7e567e06395992aedeeda7931a998b1a0c993135a46d16b6423c5b6dc2717a66"
+    },
+    "all-minus-finishing": {
+      "path": "experiments/titan-11-integration-all-minus-finishing/team.py",
+      "sha256": "4479b122b68da98f50a7a21cece730d91f9f34ee8ff7e48b88e1b1f8020d4b49"
+    },
+    "all-minus-defence": {
+      "path": "experiments/titan-11-integration-all-minus-defence/team.py",
+      "sha256": "5d64f77061581dbdbb970019aa1efe26b47a4f6af2ca0ae15ac1db6cd6a8bb35"
+    },
+    "all-minus-playbooks": {
+      "path": "experiments/titan-11-integration-all-minus-playbooks/team.py",
+      "sha256": "44ae651d7d2e2614189eea4c76f8fa225f165a2a21b6422968404d5e2f30876e"
+    },
+    "all-minus-learning": {
+      "path": "experiments/titan-11-integration-all-minus-learning/team.py",
+      "sha256": "c292046e8ef352eafa644b022d5dd13da9559cbacbf1aaf68fb7c1730516a26c"
+    },
+    "selected": {
+      "path": "experiments/titan-11-integration-selected/team.py",
+      "sha256": "38546f253a2799fc52569ebc2bcd2709899318ad86ca8ea2faedce838177685f"
+    },
+    "selected-minus-predictive": {
+      "path": "experiments/titan-11-integration-selected-minus-predictive/team.py",
+      "sha256": "03ff3193ac824e61ed384854a5450853d63670cf76f0208a7d6e7e7459bacaac"
+    },
+    "selected-minus-coordinated": {
+      "path": "experiments/titan-11-integration-selected-minus-coordinated/team.py",
+      "sha256": "882925c90dc1bc60ac84c44e33d859543eb3bb69c543471bfd6becc474d84dc3"
+    },
+    "selected-minus-playbooks": {
+      "path": "experiments/titan-11-integration-selected-minus-playbooks/team.py",
+      "sha256": "a02d562752250b31290403a52ffd21cbab76aae7bb031a0ebcea4d0fdbb17447"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "scope": "Both pitch sides and kickoff arrangements. All raw timeouts kept; first clean exact repeats stored separately."
+}

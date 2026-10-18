@@ -14,7 +14,7 @@ def build(flags,params=None,runtime=True):
     config={'risk':1.,'width':12.,'switch':.18,'value_scale':.45,'value_weights':[0.]*8,'shot_weights':[],'open_width':.18,'through_lead':1.,'shoot_bias':0.,'shot_scale':1.,'pressure':1.,'transition_aggression':1.,'rest_gap':0.,'space_gain':.065}
     config.update(params or {})
     if runtime:
-        reference=Path('/workspace/work/titan-11-intelligence/previous-runtime.py').read_text() if Path('/workspace/work/titan-11-intelligence/previous-runtime.py').exists() else (ROOT/'tools/titan11/reach_reference.pyfrag').read_text()
+        reference=(ROOT/'tools/titan11/reach_reference.pyfrag').read_text()
         node,_=method(base,'_pass_reachable');_,code=method(reference,'_pass_reachable');lines=base.splitlines(True);lines[node.lineno-1:node.end_lineno]=[code];base=''.join(lines)
     for name in ('_choose_kick','_link_option','_shot_option','_bank_release','_endwall_link','initial_formation'):
         base=base.replace('    def '+name+'(', '    def _v10'+('_' if not name.startswith('_') else '')+name+'(',1)
@@ -41,7 +41,14 @@ def build(flags,params=None,runtime=True):
     attrs+=''.join('    TI_'+k.upper()+' = '+repr(tuple(v) if isinstance(v,list) else v)+'\n' for k,v in config.items())
     base=base.replace('    version = "10.0-titan10b-r"','    version = "11.0-tactical-intelligence-experimental"\n'+attrs,1)
     base='"""Unpromoted TITAN-11 tactical intelligence; frozen v10.0 remains active.\nStandalone, bounded public-physics rollouts and offline fitted parameters.\n"""\n'+base[base.index('import math'):]
-    base+='\n'+(ROOT/'tools/titan11/components.pyfrag').read_text()
+    fragment=(ROOT/'tools/titan11/components.pyfrag').read_text()
+    if config.get('finishing_revision')==2:
+        fragment=fragment.replace('        if self.TI_FINISHING and bx>self._right-32.:','        if self.TI_FINISHING:self._ti_finesse(p,bx,by,vx,vy,opponents)\n        if self.TI_FINISHING and bx>self._right-32.:')
+        fragment+='\n'+(ROOT/'tools/titan11/finishing_power.pyfrag').read_text()
+    if config.get('coordination_revision')==2:
+        fragment=fragment.replace('        if not (self._ti_secure or follow):return', '        pending=self._receive_plan is not None and obs.ball.last_touch==self._receive_plan[1]\n        if not (self._ti_secure or follow or pending):return')
+        fragment=fragment.replace('        if best is None or best[1][1]==fallback:\n', '        if best is None or best[1][1]==fallback:\n            if best is not None and best[2][0]==\'shot\':self._ti_rebound=(self._right-8.,best[2][1],self._ti_tick+20)\n')
+    base+='\n'+fragment
     ast.parse(base);return base
 
 def main():

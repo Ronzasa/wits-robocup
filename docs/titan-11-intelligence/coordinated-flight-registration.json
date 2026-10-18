@@ -1,0 +1,7 @@
+{
+  "reason": "Native replay/code inspection: keep third-man runs active during an existing verified reception, and arm follow-up support for retained baseline shots. Original source frozen.",
+  "source": "experiments/titan-11-coordinated-flight/team.py",
+  "sha256": "3dbb37676955eea7ca5c31ef8886e6d71d3b036cba339724114184f1d9b02e77",
+  "constraints": "Never change the live receiver, keeper or chaser; no speculative own possession. Pending plan was verified by act before target coordination.",
+  "selection": "Independent paired ablation with v10; do not pool with original coordination screen."
+}

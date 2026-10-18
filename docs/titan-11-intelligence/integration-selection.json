@@ -1,0 +1,10 @@
+{
+  "selected_name": "selected-minus-coordinated",
+  "active": [
+    "predictive",
+    "playbooks",
+    "learning"
+  ],
+  "source": "experiments/titan-11-integration-selected-minus-coordinated/team.py",
+  "reason": "Best eligible development points, then goal difference, then mean runtime; rejected features prohibited."
+}
