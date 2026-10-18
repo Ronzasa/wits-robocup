@@ -29,7 +29,8 @@ def assess(work):
     b,c=raw['baseline'],raw['challenger'];extra=(c['policy_timeouts']-b['policy_timeouts'])*1000/accepted['paired_fixtures']
     intake=json.loads((work/'nova-validation.json').read_text())
     repeats=load_rows(work/'timing-repeats.jsonl')
-    repeated=sum(any(q.get('policy_timeouts',0) for q in r['result']['result']['stats']) for r in repeats if r['source']=='nova')
+    repeated=sum(bool(r['result']['result']['stats'][r['result']['candidate_slot']].get('policy_timeouts',0)) for r in repeats if r['source']=='nova')
+    repeated_opponent=sum(bool(r['result']['result']['stats'][1-r['result']['candidate_slot']].get('policy_timeouts',0)) for r in repeats if r['source']=='nova')
     # Rejected kicks are a gameplay outcome, not malformed SDK actions.
     malformed=sum(v for k,v in c['validation'].items() if k not in ('actions_validated','players_validated','rejected_kicks'))
     source=json.loads((work/'metadata.json').read_text())['protocol']['sources']['nova']
@@ -45,7 +46,7 @@ def assess(work):
         'valid_actions':malformed==0,'source_frozen':digest(ROOT/source['path'])==source['sha256'],
         'principal_fixture_count':accepted['paired_fixtures']>=768}
     result={'flags':flags,'all_gates_pass':all(flags.values()),'extra_raw_misses_per_1000':extra,
-        'repeated_deadline_failures':repeated,'head_to_head':head,'worst_style_ppm_delta':worst,
+        'repeated_deadline_failures':repeated,'repeated_opponent_deadline_failures':repeated_opponent,'head_to_head':head,'worst_style_ppm_delta':worst,
         'accepted':accepted,'raw':raw,'unseen':unseen}
     save(work/'gates.json',result);return result
 

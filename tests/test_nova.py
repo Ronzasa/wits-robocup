@@ -164,15 +164,30 @@ class NovaTests(unittest.TestCase):
     def test_registered_population_sources_reconstruct_exactly(self):
         for path in sorted((ROOT/'docs/nova-1').glob('generation-*-registration.json')):
             for row in json.loads(path.read_text())['population']:
-                v=row['vector'];framework='r4' if row['name'].startswith('g00-') else 'r5' if row['name'].startswith('g01-') else 'r6'
+                v=row['vector'];framework=builder.framework_for(row['name'])
                 code=builder.build({'config':v[:8],'weights':v[8:]+[.4],'framework':framework},True)
                 self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),row['sha256'],row['name'])
+
+    def test_body_aware_release_preserves_a_forward_kick_when_braking_is_executable(self):
+        # Native development frame 495: moving back into a forward kick
+        # rebounds it toward our goal; a legal brake avoids that contact.
+        c=controller(params={'framework':'r7-pass'})
+        p=(3,-27.50908851623535,1.678697109222412,-7.894841194152832,1.2928566932678223)
+        ball=(-29.600231170654297,2.02117657661438,15.737109184265137,-5.779429912567139)
+        u=(9./math.hypot(9.,-6.),-6./math.hypot(9.,-6.));desired=(u[0]*7.5,u[1]*7.5)
+        kick=c._kick_to_velocity(*ball[2:],*desired)
+        self.assertIsNotNone(kick)
+        move=c._move(p,(ball[0]+.3,ball[1]));brake=tuple(-v/math.hypot(*p[3:]) for v in p[3:])
+        old=c._carrier_contact(p,*ball[:2],*c._requested_velocity(*ball[2:],kick),move)
+        release=c._release_step(p,ball,kick,[move,brake],desired)
+        self.assertLess(old[2],0.);self.assertGreater(release[1][2],0.)
+        self.assertEqual(release[0],brake);self.assertLessEqual(math.hypot(*release[0]),1.000001)
 
     def test_selected_source_is_the_measured_frozen_policy(self):
         path=ROOT/'docs/nova-1/selected-policy.json'
         if not path.exists():self.skipTest('Native development selection is not complete.')
         record=json.loads(path.read_text());row=record['selected'];v=row['vector']
-        framework='r4' if row['name'].startswith('g00-') else 'r5' if row['name'].startswith('g01-') else 'r6'
+        framework=builder.framework_for(row['name'])
         code=builder.build({'config':v[:8],'weights':v[8:]+[.4],'framework':framework},True)
         self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),record['candidate_sha256'])
         self.assertEqual((ROOT/record['candidate_path']).read_text(),code)

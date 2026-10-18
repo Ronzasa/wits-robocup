@@ -1,6 +1,7 @@
 """Render NOVA's actual frozen native evidence; never manufacture missing runs."""
 import argparse, hashlib, json, math, re, zipfile
 from pathlib import Path
+from build import framework_for
 
 ROOT = Path(__file__).resolve().parents[2]
 DOC = ROOT / 'docs/nova-1'
@@ -154,7 +155,7 @@ def generate(work, archive):
     for path in sorted(DOC.glob('generation-*-results.json')):
         rows = read(path)
         g = int(path.name.split('-')[1]); b = rows[0]
-        framework = 'R4' if g == 0 else 'R5' if g == 1 else 'R6'
+        framework = framework_for(b['name']).upper()
         lines.append(f"| {g} | {framework} | {len(rows)} | {b['name']} | {b['points']}/{b['baseline_points']} | "
                      f"{b['paired_ppm']:+.4f} | {b['objective']:+.4f} |")
     lines += ['',

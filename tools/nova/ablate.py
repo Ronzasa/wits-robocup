@@ -7,7 +7,7 @@ does not read or use qualification styles/seeds.
 """
 import argparse, hashlib, json, sys
 from pathlib import Path
-from build import build
+from build import build,framework_for
 from protocol import write, digest
 from train import run, scores
 
@@ -25,7 +25,7 @@ def main():
     assert registration['styles'] == reg['qualification_styles'][:8]
     chosen = json.loads((DOC / 'selected-policy.json').read_text())
     selected = chosen['selected'];v = selected['vector']
-    framework = 'r4' if selected['name'].startswith('g00-') else 'r5' if selected['name'].startswith('g01-') else 'r6'
+    framework = framework_for(selected['name'])
     parameters = {'config': v[:8], 'weights': v[8:] + [.4], 'framework': framework}
     assert digest(ROOT / chosen['candidate_path']) == chosen['candidate_sha256']
     assert hashlib.sha256(build(parameters, True).encode()).hexdigest() == chosen['candidate_sha256']

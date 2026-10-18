@@ -8,6 +8,12 @@ CHAMPION='5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6'
 DEFAULT_CONFIG=[12.,7.,12.,3.,2.5,.10,.65,1.]
 DEFAULT_WEIGHTS=[4.5,1.5,1.6,.7,.6,-.5,-.7,1.4,-2.,.5,-1.2,.4]
 
+def framework_for(name):
+    generation=int(name[1:3])
+    path=ROOT/'docs/nova-1/framework-schedule.json'
+    schedule=json.loads(path.read_text()) if path.exists() else {}
+    return schedule.get(str(generation),'r4' if generation==0 else 'r5' if generation==1 else 'r6')
+
 def methods(source):
     cls=next(n for n in ast.parse(source).body if isinstance(n,ast.ClassDef))
     lines=source.splitlines(True)
@@ -16,7 +22,7 @@ def methods(source):
 def build(parameters=None,joint=False):
     base=(ROOT/'my-team/team.py').read_text();assert hashlib.sha256(base.encode()).hexdigest()==CHAMPION
     params=parameters or {}
-    template={k:'framework-'+k+'.pyfrag' for k in ('r4','r5','r6')}.get(params.get('framework'),'controller.pyfrag')
+    template={k:'framework-'+k+'.pyfrag' for k in ('r4','r5','r6','r7-pass','r7-carry','r7-both')}.get(params.get('framework'),'controller.pyfrag')
     physics=methods(base);source=(ROOT/'tools/nova'/template).read_text()
     source+='\n'.join(physics[name]+'\n' for name in PHYSICS)
     source=source.replace('    JOINT_MODEL=False','    JOINT_MODEL='+str(joint),1)

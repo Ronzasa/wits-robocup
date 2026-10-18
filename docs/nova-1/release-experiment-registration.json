@@ -1,0 +1,27 @@
+{
+  "reference": "g02-p00",
+  "independent_seeds": [
+    1192655875,
+    1479006280
+  ],
+  "combined_seeds": [
+    139886068,
+    1160696162
+  ],
+  "styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter"
+  ],
+  "independent_models": [
+    "R6 unchanged",
+    "R7 pass first-step choice only",
+    "R7 carry first-step choice only"
+  ],
+  "combined_only_if_both_independent_features_help": true,
+  "decision": "Positive paired points against R6; no style worse by >.5 points/match and v10 head style no worse by >.25. Choose largest points+robustness objective. Intake and zero exceptions required. No qualification gate is relaxed. If none qualify, retain R6.",
+  "no_new_expensive_pass_races": true,
+  "no_shooting_goalkeeper_or_defence_changes": true,
+  "registered_before_native_results": true
+}

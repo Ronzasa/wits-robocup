@@ -7,7 +7,7 @@ import argparse,hashlib,json,math,os,random,shutil,statistics,subprocess,sys,zip
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'tools/nova'));sys.path.insert(0,str(ROOT/'tools/benchmarks'))
-from build import build,DEFAULT_CONFIG,DEFAULT_WEIGHTS
+from build import build,DEFAULT_CONFIG,DEFAULT_WEIGHTS,framework_for
 from protocol import write,digest
 from benchmark import candidate_score,points
 DOC=ROOT/'docs/nova-1'
@@ -46,9 +46,7 @@ def scores(out,name):
 def make_source(name,vector,joint=True):
     path=ROOT/'experiments/nova-1-population'/name/'team.py';assert not path.exists();path.parent.mkdir(parents=True)
     parameters=pack(vector)
-    if name.startswith('g00-'):parameters['framework']='r4'
-    elif name.startswith('g01-'):parameters['framework']='r5'
-    else:parameters['framework']='r6'
+    parameters['framework']=framework_for(name)
     path.write_text(build(parameters,joint));return str(path.relative_to(ROOT))
 
 def generation(g,mean,sigma,elites,work,reg,rng):
