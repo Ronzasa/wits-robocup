@@ -33,7 +33,7 @@ def make_archive(work, dest):
     """Whitelist native evidence, logs and source snapshots, not private scratch."""
     assert not dest.exists(), dest
     paths = [p for p in sorted(work.rglob('*')) if p.is_file()
-             and p.suffix in ('.json', '.jsonl', '.log', '.py')]
+             and p.suffix in ('.json', '.jsonl', '.log', '.py', '.rep')]
     # This file is an explicitly private working note, even if renamed later.
     assert all(p.name != 'STATUS.md' for p in paths)
     manifest = [{'path': str(p.relative_to(work)), 'bytes': p.stat().st_size,
@@ -168,8 +168,18 @@ def generate(work, archive):
     lines += ['',
         'Each shortlist uses 128 fixture configurations per candidate on four development seeds, with up to eight distinct intake-passing sources. '
         'The registered extra two generations run only if the first shortlist remains weaker or fragile. '
-        'Failed intake hashes are ineligible for selection. Training, shortlists, qualification and conditional confirmation use disjoint seed cohorts.', '',
-        '### Preserved failures', '',
+        'Failed intake hashes are ineligible for selection. Training, shortlists, qualification and conditional confirmation use disjoint seed cohorts.', '']
+    if (DOC / 'ablation-results.json').exists():
+        ablation = read(DOC / 'ablation-results.json')
+        lines += ['### Independent development diagnostics', '',
+            'Preregistered after the architecture fixes but before source selection: 64 paired configurations per source on two separate development seeds. '
+            'These diagnostics neither select parameters nor replace the frozen candidate. They isolate response evaluation with identical learned '
+            'weights and compare learned vs default parameters within the same framework.', '',
+            '| Model | NOVA/v10 points | Paired Δ | Worst-style Δ |', '|---|---|---:|---:|']
+        for name, b in ablation['models'].items():
+            lines.append(f"| {name} | {b['points']}/{b['baseline_points']} | {b['paired_ppm']:+.4f} | {b['worst_style_ppm']:+.4f} |")
+        lines += ['', 'Negative ablations are retained; architectural complexity alone is not evidence of competitive value.', '']
+    lines += ['### Preserved failures', '',
         'The first independent baseline passed the public short SDK check but raised two IndexErrors in a full native game. '
         'At tick 1352 the conservative forecast had already stopped near the opponent goal aperture while the native engine still supplied a live ball '
         '(x=49.9508247375, y=5.5898900032). R2 handles an empty forecast using the observed live position. '
@@ -205,14 +215,14 @@ def generate(work, archive):
         '```bash',
         'python -m unittest discover -s tests -q',
         'python tools/nova/rebuild_population.py --out work/nova-rebuilt',
-        '# Use a fresh checkout/work directory for the full registered learning run:',
-        'python tools/nova/train.py --work /absolute/path/to/new-native-evidence',
-        '# qualify.py freezes source/protocol, runs 768 pairs, and conditionally confirms:',
-        'python tools/nova/qualify.py --work /absolute/path/to/new-native-evidence',
+        'python tools/nova/replay_registered.py --protocol docs/nova-1/qualification-protocol.json --out work/nova-qualification-replay',
+        'python tools/nova/replay_registered.py --protocol docs/nova-1/g00-batch00-protocol.json --population work/nova-rebuilt --out work/nova-g00-replay',
         '```', '',
         'The training program deliberately refuses to overwrite existing source registrations or evidence. '
-        'To reproduce from an already-populated final branch, retain the registered JSON/protocols and use the reconstruction tool plus '
-        '`tools/benchmarks/run_nova.py --protocol <registered-protocol> --out <new-directory>`. '
+        'The full search command is `python tools/nova/train.py --work <fresh-evidence-directory>` in a clean development checkout '
+        'with generated generation/selection files absent. `qualify.py` then freezes the source and principal protocol and conditionally confirms. '
+        'From this populated final branch, the replay tool above verifies original source hashes and relocates only their paths in a new protocol; '
+        'it preserves the original seeds, styles, ordering and limits. '
         'Reconstruction uses explicit generation-specific framework snapshots; it does not substitute the latest template for old policies.', '',
         f"Evidence archive: `{archive['path']}`, SHA-256 `{archive['sha256']}`; "
         f"{archive['evidence_files']:,} manifest-verified files, {archive['bytes']:,} compressed bytes. "
