@@ -1,0 +1,11 @@
+{
+  "generation_0": {
+    "framework": "r4",
+    "template_sha256": "5a6195989a8954edc7ba949b6f4056f81673f987c0a097578750ecff546a98ae",
+    "commit": "d6b6b1b"
+  },
+  "generation_1_onward": {
+    "framework": "r5",
+    "reason": "Development revealed goalkeeper carry plans whose next-tick role returned the keeper to goal, leaving the slow ball uncollected. Disallow incompatible keeper carries and model its recovery. No unseen or qualification results used."
+  }
+}

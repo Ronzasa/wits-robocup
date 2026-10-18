@@ -45,7 +45,9 @@ def scores(out,name):
             'mean_ms':summary['decision_mean_ms'],'intake_ok':intake['ok']}
 def make_source(name,vector,joint=True):
     path=ROOT/'experiments/nova-1-population'/name/'team.py';assert not path.exists();path.parent.mkdir(parents=True)
-    path.write_text(build(pack(vector),joint));return str(path.relative_to(ROOT))
+    parameters=pack(vector)
+    if name.startswith('g00-'):parameters['framework']='r4'
+    path.write_text(build(parameters,joint));return str(path.relative_to(ROOT))
 
 def generation(g,mean,sigma,elites,work,reg,rng):
     candidates=[]

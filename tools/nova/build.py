@@ -15,9 +15,10 @@ def methods(source):
 
 def build(parameters=None,joint=False):
     base=(ROOT/'my-team/team.py').read_text();assert hashlib.sha256(base.encode()).hexdigest()==CHAMPION
-    physics=methods(base);source=(ROOT/'tools/nova/controller.pyfrag').read_text()
-    source+='\n'.join(physics[name]+'\n' for name in PHYSICS)
     params=parameters or {}
+    template='framework-r4.pyfrag' if params.get('framework')=='r4' else 'controller.pyfrag'
+    physics=methods(base);source=(ROOT/'tools/nova'/template).read_text()
+    source+='\n'.join(physics[name]+'\n' for name in PHYSICS)
     source=source.replace('    JOINT_MODEL=False','    JOINT_MODEL='+str(joint),1)
     source=source.replace('    CONFIG=(12.,7.,12.,3.,2.5,.10,.65,1.0)','    CONFIG='+repr(tuple(params.get('config',DEFAULT_CONFIG))),1)
     source=source.replace('    WEIGHTS=(4.5,1.5,1.6,.7,.6,-.5,-.7,1.4,-2.0,.5,-1.2,.4)','    WEIGHTS='+repr(tuple(params.get('weights',DEFAULT_WEIGHTS))),1)

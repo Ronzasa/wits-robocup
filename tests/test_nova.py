@@ -117,4 +117,13 @@ class NovaTests(unittest.TestCase):
         c=controller(params={'config':[9.,5.,8.,2.,2.1,.07,.2,.5],'weights':[1.]*12})
         self.assertEqual(c.CONFIG[0],9.);self.assertEqual(c.WEIGHTS,(1.,)*12)
 
+    def test_keeper_never_selects_a_carry_it_will_not_follow_next_tick(self):
+        friends=[(0,-47.7,0.,0.,0.),(1,-8.,10.,0.,0.),(2,-8.,-10.,0.,0.),(3,0.,15.,0.,0.),(4,0.,-15.,0.,0.)]
+        obs=observation(ball=(-46.,0.,0.,0.),friends=friends,kickers=(0,),holder=0,last=0)
+        old=controller(params={'framework':'r4'});new=controller()
+        a=old.act(obs);b=new.act(obs)
+        self.assertIsNotNone(a.players[0].kick_direction);self.assertIsNotNone(b.players[0].kick_direction)
+        self.assertLess(a.players[0].kick_power,.5)
+        self.assertGreater(b.players[0].kick_power,.9)
+
 if __name__=='__main__':unittest.main()

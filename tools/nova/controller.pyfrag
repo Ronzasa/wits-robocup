@@ -173,7 +173,7 @@ class NovaController(TeamController):
         value=sum(w*x for w,x in zip(self.WEIGHTS,features))
         return {'kind':kind,'kick':kick,'move':move,'carrier':carrier[0],'receive':plan,
                 'launch':launch,'path':path,'targets':targets,'movements':movements,
-                'features':features,'value':value,'cover':cover}
+                'features':features,'value':value,'cover':cover,'keeper_home':base_targets[friends[0][0]]}
 
     def _proposals(self,carrier,friends,opponents,ball,targets):
         bx,by,vx,vy=ball;nodes=[]
@@ -231,7 +231,10 @@ class NovaController(TeamController):
             route,margin=race
             plan=(q[0],route[2],route[1])
             nodes.append(self._joint_node('pass',carrier,kick,move,plan,launch,path,friends,opponents,ball,targets,margin=margin,arrival=route[0]))
-        for y in (-6.,0.,6.):
+        # A keeper returns to its line on the next tick. A slow carry would
+        # require incompatible follow-up commands; release to a verified
+        # outfielder or clear instead of predicting an unexecuted dribble.
+        for y in (() if carrier[0]==friends[0][0] else (-6.,0.,6.)):
             direction=_unit(9.,y)
             kick=self._kick_to_velocity(vx,vy,direction[0]*7.5,direction[1]*7.5)
             if kick is None:continue
@@ -265,6 +268,7 @@ class NovaController(TeamController):
                 pid=p[0]
                 if pid in own_ids:
                     target=node['targets'].get(pid,(p[1],p[2]))
+                    if n>0 and pid==friends[0][0] and carrier==pid:target=node['keeper_home']
                     movement=node['movements'][pid] if n==0 else self._move(p,target)
                 else:
                     if pid==enemy_keeper:
