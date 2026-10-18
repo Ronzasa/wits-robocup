@@ -302,7 +302,8 @@ def generate(work, archive):
     lines += ['',
         'The external harness records thread CPU and GC overlap on the original slow calls for both controllers, and per-fixture cgroup/wall/CPU changes. '
         'GC policy, clocks, affinity, SDK and engine remain unchanged. Correlation with GC or a wall/CPU gap is diagnostic evidence, '
-        'not proof of a sole cause and never grounds to discard a raw miss.', '',
+        'not proof of a sole cause and never grounds to discard a raw miss. '
+        'The external observation window includes dispatch/return overhead, so CPU/GC observations are not an exact decomposition of SDK act() time.', '',
         '```json', json.dumps(observations, indent=2), '```', '']
     replay_profile=read(work/'offline-profile/summary.json')
     lines += ['### Offline decision replay and hotspots', '',
