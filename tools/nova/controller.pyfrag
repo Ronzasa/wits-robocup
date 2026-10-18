@@ -173,7 +173,8 @@ class NovaController(TeamController):
         value=sum(w*x for w,x in zip(self.WEIGHTS,features))
         return {'kind':kind,'kick':kick,'move':move,'carrier':carrier[0],'receive':plan,
                 'launch':launch,'path':path,'targets':targets,'movements':movements,
-                'features':features,'value':value,'cover':cover,'keeper_home':base_targets[friends[0][0]]}
+                'features':features,'value':value,'cover':cover,
+                'keeper_home':(self._left+self.CONFIG[4],_clip(ball[1]*self.CONFIG[4]/max(self.CONFIG[4],ball[0]-self._left),-self._mouth,self._mouth))}
 
     def _proposals(self,carrier,friends,opponents,ball,targets):
         bx,by,vx,vy=ball;nodes=[]
