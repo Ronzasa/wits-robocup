@@ -1,0 +1,77 @@
+{
+  "trace_sha256": "75586aa90f22a2cd67211391d77795c9b224a71a3dba0c0808d1ae9df374ed5a",
+  "train_seed": 442797613,
+  "heldout_calibration_seeds": [
+    1480416298
+  ],
+  "scope": "Native labels on public v10 states. Shot label = goal within next 40 observations, a two-second conversion proxy, not official xG. Held-out calibration is descriptive; do not claim general calibrated probability. Policy selection uses separate native matches.",
+  "value": {
+    "train_samples": 1920,
+    "heldout_samples": 1920,
+    "heldout_mse_or_brier": 1.6977690710823168,
+    "constant_train_mean_mse_or_brier": 1.7138671875,
+    "heldout_label_mean": 1.59375,
+    "predicted_mean": 1.4147417900918786,
+    "bins": [
+      {
+        "low": 0,
+        "high": 1,
+        "n": 62,
+        "predicted": 0.9168661775688222,
+        "observed": 1.3387096774193548
+      },
+      {
+        "low": 1,
+        "high": 2,
+        "n": 1849,
+        "predicted": 1.4282613606072492,
+        "observed": 1.5954570037858302
+      },
+      {
+        "low": 2,
+        "high": 3.01,
+        "n": 9,
+        "predicted": 2.0670309115929633,
+        "observed": 3.0
+      }
+    ]
+  },
+  "shot": {
+    "train_samples": 92,
+    "heldout_samples": 83,
+    "heldout_mse_or_brier": 0.19029444370346016,
+    "constant_train_mean_mse_or_brier": 0.1943198123306079,
+    "heldout_label_mean": 0.7590361445783133,
+    "predicted_mean": 0.7015628667266159,
+    "bins": [
+      {
+        "low": 0,
+        "high": 0.25,
+        "n": 7,
+        "predicted": 0.1542182654635961,
+        "observed": 0.7142857142857143
+      },
+      {
+        "low": 0.25,
+        "high": 0.5,
+        "n": 5,
+        "predicted": 0.3934967514178885,
+        "observed": 0.2
+      },
+      {
+        "low": 0.5,
+        "high": 0.75,
+        "n": 27,
+        "predicted": 0.6997212322057472,
+        "observed": 0.7407407407407407
+      },
+      {
+        "low": 0.75,
+        "high": 1.01,
+        "n": 44,
+        "predicted": 0.8247780239413482,
+        "observed": 0.8409090909090909
+      }
+    ]
+  }
+}

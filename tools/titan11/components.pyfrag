@@ -1,0 +1,376 @@
+    # TITAN-11 components: fixed work budgets; public observations only.
+    def _ti_observe(self, obs):
+        self._ti_obs = obs
+        self._ti_options = None
+        self._ti_rollouts = 0
+        self._ti_selected = 'v10'
+        if self._ti_score is not None and (tuple(obs.score) != self._ti_score or obs.tick <= self._ti_tick):
+            self._ti_sequence = None
+            self._ti_rebound = None
+            self._ti_third = None
+        self._ti_score, self._ti_tick = tuple(obs.score), obs.tick
+        self._ti_secure = (obs.ball.controlling_team == 0 or any(obs.can_kick(q.id) for q in obs.my_players))
+        holder = obs.ball.controlling_team
+        if holder is not None and holder != self._ti_owner:
+            if holder == 0 and self._ti_owner == 1:
+                self._ti_regain = obs.tick
+            if holder == 1:
+                self._ti_loss = obs.tick
+            self._ti_owner = holder
+        self._ti_shot_checks = 0
+        if self._ti_sequence is not None and (obs.tick-self._ti_sequence[0]>40 or holder==1):self._ti_sequence=None
+
+    def _ti_note(self, kind, option, path=None, aim=None):
+        if option is None or self._ti_options is None:
+            return
+        node = (kind, option, path, aim)
+        group = [o for o in self._ti_options if o[0] == kind]
+        # Retain only the three best proposals in each action family.
+        if len(group) < 3:
+            self._ti_options.append(node)
+        else:
+            worst = min(group, key=lambda o:o[1][0])
+            if option[0] > worst[1][0]:
+                self._ti_options.remove(worst)
+                self._ti_options.append(node)
+
+    def _link_option(self, p, bx, by, vx, vy, receiver, opponents, tx, ty, speed):
+        option = self._v10_link_option(p,bx,by,vx,vy,receiver,opponents,tx,ty,speed)
+        self._ti_note('pass',option,self._runtime_path,self._next_receive_aim)
+        return option
+
+    def _shot_option(self, p, bx, by, vx, vy, opponents, target_y, bank=False):
+        option = self._v10_shot_option(p,bx,by,vx,vy,opponents,target_y,bank)
+        self._ti_note('shot',option)
+        return option
+
+    def _endwall_link(self,p,bx,by,vx,vy,friends,opponents):
+        option=self._v10_endwall_link(p,bx,by,vx,vy,friends,opponents)
+        self._ti_note('endwall',option)
+        return option
+
+    def _bank_release(self,p,bx,by,vx,vy,friends,opponents):
+        option=self._v10_bank_release(p,bx,by,vx,vy,friends,opponents)
+        self._ti_note('sidewall',option)
+        return option
+
+    def _ti_through(self,p,bx,by,vx,vy,friends,opponents):
+        # Empty-space targets, with the same executable receiver verification
+        # used for every ordinary link. Cheap geometry precedes two launches.
+        candidates=[]
+        for q in friends:
+            if q[0] in (0,p[0]) or not 5.0<math.hypot(q[1]-bx,q[2]-by)<29.0:
+                continue
+            for lead,lateral in ((4.0*self.TI_THROUGH_LEAD,0.0),(1.5,-5.0 if q[2]>by else 5.0)):
+                target=self._target(q[1]+lead+q[3]*.25,q[2]+lateral+q[4]*.25)
+                space=min((math.hypot(target[0]-o[1]-o[3]*.4,target[1]-o[2]-o[4]*.4) for o in opponents),default=20.)
+                if space<3.0:continue
+                rank=(target[0]-bx)*.12+min(space,12.)*.18-abs(target[1])*.025
+                candidates.append((rank,q,target))
+        candidates.sort(key=lambda r:(-r[0],r[1][0],r[2]))
+        for _,q,target in candidates[:2]:
+            option=self._link_option(p,bx,by,vx,vy,q,opponents,*target,20.)
+            if option is not None:
+                self._ti_note('through',option,self._runtime_path,self._next_receive_aim)
+
+    def _ti_wall(self,p,bx,by,vx,vy,friends,opponents):
+        if abs(by)<10. or p[0]==0:return None
+        q=max((q for q in friends if q[0] not in (0,p[0]) and 4.<q[1]-bx<24.),key=lambda q:q[1],default=None)
+        if q is None:return None
+        wall=(self._half_height-self._ball_radius)*(1. if by>=0 else -1.)
+        tx,ty=self._target(q[1]+q[3]*.5,q[2]+q[4]*.5)
+        virtual=wall+(wall-ty)/self._wall
+        ux,uy=_unit(tx-bx,virtual-by)
+        kick=self._kick_to_velocity(vx,vy,ux*26.,uy*26.)
+        if kick is None:return None
+        move=self._move(p,(bx+.3,by));launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),move)
+        if launch is None:return None
+        _,bounce=self._bank_path(*launch)
+        if bounce is None or bounce>1.0:return None
+        path=self._pass_path(launch,(bx,by),2.0)
+        race=self._pass_race(q,path,opponents,.16,bounce+self._dt,2.0)
+        if race is None:return None
+        (arrival,point),enemy=race
+        if point[0]<bx+3.:return None
+        option=(1.+(point[0]-bx)*.15+min(enemy-arrival,.8)*3.-arrival*.7,kick,move,(q[0],*point))
+        self._ti_note('sidewall',option,path,self._next_receive_aim)
+        return option
+
+    def _ti_keeper_response(self,keeper,path):
+        # Two plausible keeper responses, executed with the actual _move law:
+        # hold the goal-line crossing, or attack the current ball. A kick is
+        # possible only before the ball step and after player movement.
+        earliest=math.inf
+        if not path:return earliest
+        goal_y=path[-1][2]
+        cooldown=self._enemy_cooldowns.get(keeper[0],0)
+        for chase in (False,True):
+            state=keeper
+            for index in range(1,len(path)):
+                t,x,y=path[index];pre=path[index-1]
+                n=int(round(t*self._hz))
+                ready=cooldown<=n-1 and math.hypot(state[1]-pre[1],state[2]-pre[2])<=self._range
+                target=(pre[1]-.3,pre[2]) if ready else (pre[1],pre[2]) if chase else (self._right-2.2,_clip(goal_y,-self._mouth,self._mouth))
+                ax,ay=self._move(state,target)
+                pvx=state[3]*self._damping+ax*self._acc;pvy=state[4]*self._damping+ay*self._acc
+                speed=math.hypot(pvx,pvy)
+                if speed>self._speed:pvx,pvy=pvx*self._speed/speed,pvy*self._speed/speed
+                px,py=state[1]+pvx*self._dt,state[2]+pvy*self._dt
+                if (ready and math.hypot(px-pre[1],py-pre[2])<self._range-.18) or math.hypot(px-x,py-y)<=self._contact:
+                    earliest=min(earliest,t);break
+                state=(keeper[0],px,py,pvx,pvy)
+        return earliest
+
+    def _ti_shot_features(self,launch,opponents,origin):
+        goal=self._goal_path(launch)
+        if goal is None:return None
+        _,(flight,gy,speed)=goal
+        if not opponents:return None
+        keeper=opponents[0]
+        return (1.,flight/2.,abs(gy)/6.,math.hypot(keeper[1]-(self._right-self._ball_radius),keeper[2]-gy)/15.,keeper[4]*(gy-keeper[2])/60.,speed/30.)
+
+    def _ti_sigmoid(self,value):
+        return 1./(1.+math.exp(-_clip(value,-30.,30.)))
+
+    def _ti_future_value(self,x,y,space,friends,opponents,retained):
+        # Compact native-outcome regression; coefficients are fitted offline.
+        vals=(1.,x/50.,abs(y)/30.,float(retained),float(not retained),min(20.,space)/20.,0.,sum(q[1]<x-4 for q in friends if q[0]!=0)/4.)
+        return sum(a*b for a,b in zip(self.TI_VALUE_WEIGHTS,vals))
+
+    def _ti_evaluate(self,node,p,bx,by,vx,vy,friends,opponents):
+        self._ti_rollouts+=1
+        kind,option,path,aim=node
+        _,kick,move,plan=option
+        launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),move)
+        if launch is None:return None
+        goal=self._goal_path(launch)
+        if goal is not None and plan is None:
+            _,(flight,gy,speed)=goal
+            value=5.8+self.TI_SHOOT_BIAS-flight*.65+min(speed,25.)*.025
+            if self.TI_FINISHING and self._ti_shot_checks>=2:return None
+            if self.TI_FINISHING:
+                self._ti_shot_checks+=1
+                dense=self._pass_path(launch,(bx,by),min(2.,flight))
+                keeper=self._ti_keeper_response(opponents[0],dense) if opponents else math.inf
+                steps=tuple((t,int(round(t*self._hz)),x,y,dense[i-1] if i else None) for i,(t,x,y) in enumerate(dense))
+                # Full-route defender feasibility includes cooldown and body
+                # contact; no optimistic ETA is substituted when unavailable.
+                contact=min((r[0] for q in opponents[1:] for r in [self._verified_intercept(q,dense,self._enemy_cooldowns.get(q[0],0),until=min(flight,2.),steps=steps)] if r is not None),default=math.inf)
+                value-=self.TI_RISK*(2.7 if min(keeper,contact)<=flight else 0.)
+                if self.TI_SHOT_WEIGHTS:
+                    sf=self._ti_shot_features(launch,opponents,(bx,by))
+                    if sf is not None:value=2.+self.TI_SHOOT_BIAS+5.*self.TI_SHOT_SCALE*self._ti_sigmoid(sum(a*b for a,b in zip(self.TI_SHOT_WEIGHTS,sf)))-self.TI_RISK*(1.5 if min(keeper,contact)<=flight else 0.)
+            return value,option,('shot',gy,flight)
+        arrival=.7;retained=False
+        if plan is not None:
+            receiver=next((q for q in friends if q[0]==plan[0]),None)
+            if receiver is None:return None
+            if path is None or not path or path[0][1:]!=(bx,by):
+                horizon=2.0 if kind in ('sidewall','endwall') else 1.8
+                after=self._dt
+                if kind=='sidewall':
+                    _,bounce=self._bank_path(*launch)
+                    if bounce is None:return None
+                    after=bounce+self._dt
+                elif kind=='endwall':after=(self._crossing_ticks(launch[0],launch[2],self._right-self._ball_radius)+2)*self._dt
+                path=self._pass_path(launch,(bx,by),horizon)
+                race=self._pass_race(receiver,path,opponents,.10,after,horizon)
+                if race is None:return None
+                arrival,point=race[0];aim=self._next_receive_aim or point
+            else:
+                route=self._receiver_rollout(receiver,path,aim or plan[1:],self._friend_cooldowns.get(receiver[0],0),self._dt,1.8)
+                if route is None:return None
+                arrival,point=route[:2]
+            x,y=point;retained=True
+            base=2.7
+        else:
+            speed=math.hypot(launch[2],launch[3])
+            if speed<=10.5:
+                touch=self._touch_path(p,bx,by,vx,vy,kick,move,opponents)
+                if touch is None:return None
+                # Native-physics verified carry endpoint, bounded future leaf.
+                x,y=self._target(bx+launch[2]*.55,by+launch[3]*.55);retained=True;base=2.3+touch[0]*.08
+            else:
+                # Emergency clearances are valuable only in danger. Existing
+                # fallback remains legal even if no new action beats it.
+                path=self._pass_path(launch,(bx,by),1.0)
+                if not path:return None
+                _,x,y=path[-1];base=1.5 if bx<self._left+18. else -.5
+        space=min((math.hypot(x-q[1]-q[3]*min(arrival,.6),y-q[2]-q[4]*min(arrival,.6)) for q in opponents),default=20.)
+        progress=math.hypot(self._right-bx,by)-math.hypot(self._right-x,y)
+        support=sum(math.hypot(x-q[1]-q[3]*.5,y-q[2]-q[4]*.5)<14. for q in friends if q[0] not in (0,p[0]))
+        behind=sum(q[1]<min(bx,x)-3. for q in friends if q[0]!=0)
+        exposure=max(0.,2.-behind)*max(0.,1.-(x-self._left)/65.)
+        score=base+progress*.12+min(space,10.)*self.TI_SPACE_GAIN+support*.09-arrival*.22-self.TI_RISK*(exposure*.65+max(0.,4.-space)*.18)
+        if self.TI_COORDINATED:
+            # Jointly score the support configuration commanded this tick.
+            points=self._ti_targets_now
+            score+=.12*sum(5.<math.hypot(x-t[0],y-t[1])<18. for pid,t in points.items() if pid not in (0,p[0],plan[0] if plan else -1))
+        if self.TI_LEARNING:
+            score+=self.TI_VALUE_SCALE*self._ti_future_value(x,y,space,friends,opponents,retained)
+        return score,option,(kind,x,y)
+
+    def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
+        enabled=self.TI_PREDICTIVE or self.TI_COORDINATED or self.TI_FINISHING or self.TI_LEARNING
+        self._ti_options=[] if enabled else None
+        fallback=self._v10_choose_kick(p,bx,by,vx,vy,friends,opponents)
+        saved=(self._touch_movement,self._pass_plan,self._bank_plan)
+        if fallback is None:return fallback
+        move=saved[0] or self._move(p,(bx+.3,by));plan=saved[2] or saved[1]
+        baseline=('baseline',(0.,fallback,move,plan),None,None)
+        if self.TI_PLAYBOOKS:
+            opening=math.hypot(bx,by)<.75 and math.hypot(vx,vy)<.2 and self._ti_obs.ball.controlling_team==0
+            continuation=self._ti_sequence is not None and p[0]==self._ti_sequence[1] and self._ti_tick-self._ti_sequence[0]<40
+            if opening or continuation or (p[0]==0 and min((math.hypot(q[1]-bx,q[2]-by) for q in opponents),default=100.)<8.):
+                # Opening/circulation playbooks abort unless a full receiver
+                # race succeeds now; no blind commitment to a scripted kick.
+                pool=sorted((q for q in friends if q[0] not in (0,p[0]) and 5.<math.hypot(q[1]-bx,q[2]-by)<24.),key=lambda q:(abs(q[2]-by),q[0]))
+                option=None
+                for q in pool[:2]:
+                    proposal=self._link_option(p,bx,by,vx,vy,q,opponents,q[1]+q[3]*.4,q[2]+q[4]*.4,14.)
+                    if proposal is not None and (option is None or proposal[0]>option[0]):option=proposal
+                if option is not None:
+                    self._touch_movement=option[2];self._pass_plan=option[3];self._bank_plan=None
+                    self._ti_selected='restart' if opening else 'distribution';self._ti_sequence=(self._ti_tick,option[3][0]);self._ti_options=None
+                    return option[1]
+            wall=self._ti_wall(p,bx,by,vx,vy,friends,opponents)
+            if wall is not None and plan is None and math.hypot(*self._requested_velocity(vx,vy,fallback))<=10.5:
+                self._touch_movement=wall[2];self._pass_plan=wall[3];self._bank_plan=wall[3];self._ti_selected='sidewall';self._ti_options=None
+                return wall[1]
+        if not enabled:
+            self._ti_options=None
+            return fallback
+        if self.TI_COORDINATED:
+            for q in [q for q in friends if q[0] not in (0,p[0]) and q[0] in self._ti_targets_now][:2]:
+                target=self._ti_targets_now[q[0]]
+                if 4.<math.hypot(target[0]-bx,target[1]-by)<26.:
+                    option=self._link_option(p,bx,by,vx,vy,q,opponents,*target,20.)
+                    self._ti_note('joint',option,self._runtime_path,self._next_receive_aim)
+        if self.TI_PREDICTIVE:self._ti_through(p,bx,by,vx,vy,friends,opponents)
+        if self.TI_FINISHING and bx>self._right-32.:
+            # One additional achievable wall direction, not unbounded sampling.
+            self._shot_option(p,bx,by,vx,vy,opponents,-4.5 if by>0 else 4.5,abs(by)>12.)
+        proposals=self._ti_options or []
+        self._ti_options=None
+        # At most two challenger rollouts plus the unchanged fallback leaf.
+        ranked=sorted(proposals,key=lambda n:(-n[1][0],n[0],n[1][1]))
+        unique=[]
+        for node in ranked:
+            if node[1][1]==fallback:continue
+            if not any(n[1][1]==node[1][1] for n in unique):unique.append(node)
+            if len(unique)==2:break
+        best=self._ti_evaluate(baseline,p,bx,by,vx,vy,friends,opponents)
+        for node in unique:
+            # Finishing-only ablation compares shots and current action;
+            # learned-only ablation evaluates the existing action proposals.
+            if not (self.TI_PREDICTIVE or self.TI_COORDINATED or self.TI_LEARNING) and node[0]!='shot':continue
+            rated=self._ti_evaluate(node,p,bx,by,vx,vy,friends,opponents)
+            if rated is not None and (best is None or rated[0]>best[0]+self.TI_SWITCH):best=rated
+        if best is None or best[1][1]==fallback:
+            self._touch_movement,self._pass_plan,self._bank_plan=saved
+            return fallback
+        option=best[1];self._touch_movement=option[2];self._pass_plan=option[3]
+        self._bank_plan=option[3] if best[2][0] in ('sidewall','endwall') else None
+        self._ti_selected=best[2][0]
+        if option[3] is not None:
+            third=max((q for q in friends if q[0] not in (0,p[0],option[3][0])),key=lambda q:q[1],default=None)
+            self._ti_third=(third[0],option[3][0],self._ti_tick+24) if third else None
+        elif best[2][0]=='shot':self._ti_rebound=(self._right-8.,best[2][1],self._ti_tick+20)
+        return option[1]
+
+    def _ti_threats(self,obs,opponents):
+        bx,by=obs.ball.position
+        threats=[]
+        for q in opponents:
+            if q[0]==5:continue
+            x,y=q[1]+q[3]*.4,q[2]+q[4]*.4
+            goal=math.hypot(x-self._left,y)
+            contact=math.hypot(q[1]-bx,q[2]-by)<self._range+1.
+            lane=abs(y)<14. and x<bx-3.
+            danger=max(0.,1.-goal/65.)*3.+(1.4 if contact else 0.)+(1.0 if lane else 0.)+max(0.,-q[3])*.06
+            threats.append((danger,q,self._target(x+_unit(self._left-x,-y)[0]*3.,y+_unit(self._left-x,-y)[1]*3.)))
+        threats.sort(key=lambda r:(-r[0],r[1][0]));return threats
+
+    def _ti_defend(self,obs,friends,opponents,chaser,targets,locked):
+        bx,by=obs.ball.position;vx,vy=obs.ball.velocity
+        if self._ti_secure or (obs.ball.controlling_team!=1 and not (obs.ball.last_touch is not None and obs.ball.last_touch>=5 and vx<-5.)):return
+        # Actual, imminent shots retain the proven goalkeeping/cover response.
+        if vx<-8. and 0.<(self._left-bx)/vx<1.25 and abs(by+vy*(self._left-bx)/vx)<self._mouth+.6:return
+        ranked=self._ti_threats(obs,opponents)
+        if not ranked or ranked[0][0]<2.3*self.TI_PRESSURE:return
+        free=[q for q in friends if q[0] not in locked]
+        cover_id=getattr(self,'_shape_cover_id',None)
+        primary=next((q for q in free if q[0]==cover_id),None)
+        if primary is None:return
+        high=(bx< -12. and sum(r[0]>2.5 for r in ranked)>=2 and obs.tick-self._ti_loss<24)
+        count=min(2 if high else 1,len(free)-1) # One outlet survives emergency double cover.
+        if count<=0:return
+        guards=[primary]
+        if count==2:guards.append(min((q for q in free if q[0]!=primary[0]),key=lambda q:sum(self._eta(q,*r[2]) for r in ranked[:2])))
+        choices=[ranked[0:count]]
+        if count==2:choices.append([ranked[1],ranked[0]])
+        assign=min(choices,key=lambda rs:sum(self._eta(q,*r[2])+math.dist(targets[q[0]],r[2])*.015 for q,r in zip(guards,rs)))
+        for q,r in zip(guards,assign):
+            target=r[2]
+            if math.dist(q[1:3],target)>15.:continue
+            targets[q[0]]=target
+        self._ti_defence_ids=tuple(q[0] for q in guards)
+
+    def _ti_coordinate(self,obs,friends,opponents,chaser,targets,locked):
+        follow=(self._ti_rebound is not None and obs.tick<=self._ti_rebound[2] and obs.ball.last_touch in (0,1,2,3,4) and obs.ball.velocity[0]>6.)
+        if not (self._ti_secure or follow):return
+        bx,by=obs.ball.position
+        cover=getattr(self,'_shape_cover_id',None)
+        if cover is not None and cover not in locked and self.TI_REST_GAP>0.:
+            targets[cover]=self._target(min(targets[cover][0],bx-self.TI_REST_GAP),targets[cover][1])
+        available=[q for q in friends if q[0] not in locked and q[0]!=cover]
+        if not available:return
+        if self._receive_plan is not None:
+            third=max(available,key=lambda q:q[1])
+            self._ti_third=(third[0],self._receive_plan[0],obs.tick+16)
+        available=sorted(available,key=lambda q:(q[2],q[0]))[:2]
+        width=self.TI_WIDTH*(.7 if bx>25 else 1.)
+        choices=[]
+        for i,q in enumerate(available):
+            side=-1. if i==0 and len(available)>1 else 1. if len(available)>1 else (-1. if by>0 else 1.)
+            regain=obs.tick-self._ti_regain<24
+            forward=8.*self.TI_TRANSITION_AGGRESSION if regain or q[0]==4 else 4.
+            nominal=targets[q[0]]
+            options=[nominal,self._target(bx+forward,side*width),self._target(bx+2.,by+side*8.)]
+            if self._ti_third and self._ti_third[0]==q[0] and obs.tick<=self._ti_third[2]:options[1]=self._target(bx+10.,q[2]*.5)
+            choices.append(options)
+        best=None
+        for a in choices[0]:
+            for b in (choices[1] if len(choices)>1 else [None]):
+                pts=[a]+([b] if b is not None else [])
+                if b is not None and math.dist(a,b)<7.:continue
+                score=0.
+                for q,t in zip(available,pts):
+                    space=min((math.hypot(t[0]-o[1]-o[3]*.4,t[1]-o[2]-o[4]*.4) for o in opponents),default=20.)
+                    gap=math.hypot(t[0]-bx,t[1]-by)
+                    score+=min(space,12.)*.3-min(abs(gap-12.),15.)*.12-math.dist(q[1:3],t)*.06+(t[0]-bx)*.035
+                if b is not None:
+                    # Non-collinear triangles give the carrier two exit angles.
+                    score+=min(1.,abs((a[0]-bx)*(b[1]-by)-(a[1]-by)*(b[0]-bx))/150.)*.7
+                if best is None or score>best[0]:best=(score,pts)
+        if best:
+            for q,t in zip(available,best[1]):targets[q[0]]=t
+        if self._ti_rebound and obs.tick<=self._ti_rebound[2] and obs.ball.velocity[0]>6. and available:
+            q=min(available,key=lambda q:self._eta(q,*self._ti_rebound[:2]))
+            targets[q[0]]=self._target(*self._ti_rebound[:2])
+
+    def _ti_targets(self,obs,protected,friends,opponents,chaser,targets,attack):
+        self._ti_defence_ids=()
+        locked={0,chaser[0]}
+        if self._receive_plan is not None:locked.add(self._receive_plan[0])
+        if not protected:
+            if self.TI_COORDINATED:self._ti_coordinate(obs,friends,opponents,chaser,targets,locked)
+            if self.TI_DEFENCE:self._ti_defend(obs,friends,opponents,chaser,targets,locked)
+        self._ti_targets_now=dict(targets)
+
+    def initial_formation(self,field):
+        formation=self._v10_initial_formation(field)
+        if self.TI_PLAYBOOKS:
+            formation[2]=(-.15*field.width,-self.TI_OPEN_WIDTH*field.height)
+            formation[3]=(-.15*field.width,self.TI_OPEN_WIDTH*field.height)
+        return formation
