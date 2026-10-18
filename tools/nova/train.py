@@ -109,7 +109,7 @@ def main():
         for g in range(4,6):
             ranked,mean,sigma=generation(g,mean,sigma,elites,work,reg,rng);elites=ranked[:2];pool.extend(ranked)
         selected=shortlist(pool,work,reg,'selection-1',reg['development'][12:16]);best=selected[0]
-    dest=ROOT/'experiments/nova-1/team.py';assert not dest.exists();dest.parent.mkdir(parents=True);shutil.copyfile(ROOT/best['source'],dest)
+    dest=ROOT/'experiments/nova-1/team.py';assert not dest.exists();dest.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/best['source'],dest)
     dump(DOC/'selected-policy.json',{'selected':best,'candidate_path':str(dest.relative_to(ROOT)),'candidate_sha256':digest(dest),
         'total_evaluated_variants':len(pool),'unique_parameter_sources':len({q['sha256'] for q in pool}),
         'status':'FROZEN before unseen styles or qualification; not promoted','all_development_variants':[{k:q[k] for k in ('name','source','sha256','objective','paired_ppm','points','baseline_points')} for q in pool]})
