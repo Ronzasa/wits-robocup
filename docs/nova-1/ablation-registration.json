@@ -1,0 +1,24 @@
+{
+  "seeds": [
+    1880366427,
+    1420534023
+  ],
+  "styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links"
+  ],
+  "fixtures_per_source": 64,
+  "models": [
+    "selected learned joint",
+    "same parameters without response evaluation",
+    "default parameters in same selected framework"
+  ],
+  "purpose": "Preregistered development-only diagnostics of learning and response evaluation; no candidate reselection, qualification or heldout exposure. Preserve negative results.",
+  "registered_before_selection": true
+}

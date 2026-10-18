@@ -1,5 +1,5 @@
 """Independent NOVA policy contracts and reused physics equivalence."""
-import ast,hashlib,importlib.util,math,random,sys,types,unittest
+import ast,hashlib,importlib.util,json,math,random,sys,types,unittest
 from pathlib import Path
 from types import SimpleNamespace as S
 ROOT=Path(__file__).resolve().parents[1]
@@ -160,5 +160,28 @@ class NovaTests(unittest.TestCase):
         chosen=c._select((2,0.,0.,0.,0.),[],[],(0.,0.,0.,0.),{},(0,0),1.)
         self.assertIn('shot',seen);self.assertEqual(chosen['kind'],'shot')
         self.assertLessEqual(c._plans_evaluated,3)
+
+    def test_registered_population_sources_reconstruct_exactly(self):
+        for path in sorted((ROOT/'docs/nova-1').glob('generation-*-registration.json')):
+            for row in json.loads(path.read_text())['population']:
+                v=row['vector'];framework='r4' if row['name'].startswith('g00-') else 'r5' if row['name'].startswith('g01-') else 'r6'
+                code=builder.build({'config':v[:8],'weights':v[8:]+[.4],'framework':framework},True)
+                self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),row['sha256'],row['name'])
+
+    def test_selected_source_is_the_measured_frozen_policy(self):
+        path=ROOT/'docs/nova-1/selected-policy.json'
+        if not path.exists():self.skipTest('Native development selection is not complete.')
+        record=json.loads(path.read_text());row=record['selected'];v=row['vector']
+        framework='r4' if row['name'].startswith('g00-') else 'r5' if row['name'].startswith('g01-') else 'r6'
+        code=builder.build({'config':v[:8],'weights':v[8:]+[.4],'framework':framework},True)
+        self.assertEqual(hashlib.sha256(code.encode()).hexdigest(),record['candidate_sha256'])
+        self.assertEqual((ROOT/record['candidate_path']).read_text(),code)
+        self.assertTrue(row['intake_ok'])
+        c=load(code).NovaController();c._setup(FIELD)
+        obs=observation(kickers=(2,),holder=0,last=2)
+        a=c.act(obs)
+        self.assertEqual(len(a.players),5)
+        self.assertLessEqual(c._plans_evaluated,3);self.assertLessEqual(c._response_steps,60)
+        self.assertTrue(all(math.isfinite(x) for p in a.players.values() for x in p.movement))
 
 if __name__=='__main__':unittest.main()
