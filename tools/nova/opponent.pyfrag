@@ -1,0 +1,79 @@
+"""Independent parameterized adversary; no TITAN tactical code."""
+import math
+from soccer import TeamController,TeamAction,PlayerAction
+
+
+def unit(x,y):
+    d=math.hypot(x,y)
+    return (x/d,y/d) if d>1e-8 else (0.,0.)
+
+
+class Opponent(TeamController):
+    name='NOVA frozen development adversary'
+    version='1'
+    MODE='attack'
+    PARAMS=(12.,10.,30.,.5,2.2)
+
+    def __init__(self):self.last=None;self.restart=0
+
+    def initial_formation(self,f):
+        w=self.PARAMS[0]
+        return [(f.my_goal[0]+2.,0.),(-26.,-w*.4),(-19.,w),(-14.,-w),(-f.centre_circle_radius-2.,1.)]
+
+    def move(self,p,t,f):
+        dx,dy=t[0]-p.position[0],t[1]-p.position[1];d=math.hypot(dx,dy)
+        ux,uy=unit(dx,dy);desired=min(f.max_speed,d*4.)
+        ax=(ux*desired-p.velocity[0]*.9)/(f.acceleration/f.simulation_hz)
+        ay=(uy*desired-p.velocity[1]*.9)/(f.acceleration/f.simulation_hz)
+        n=math.hypot(ax,ay)
+        return (ax/n,ay/n) if n>1. else (ax,ay)
+
+    def act(self,o):
+        if self.last!=o.score:self.last=o.score;self.restart=o.tick
+        f=o.field;bx,by=o.ball.position;vx,vy=o.ball.velocity;players=o.my_players
+        width,depth,shoot,lateral,gk=self.PARAMS
+        nearest=min(players[1:],key=lambda p:math.dist(p.position,(bx+vx*.15,by+vy*.15)))
+        carrier=min([p for p in players if o.can_kick(p.id)],key=lambda p:math.dist(p.position,(bx,by)),default=None)
+        protected=o.ball.controlling_team==1 and math.hypot(bx,by)<.7 and math.hypot(vx,vy)<.2 and o.tick-self.restart<3*f.simulation_hz
+        actions=TeamAction()
+        for i,p in enumerate(players):
+            if i==0:
+                t=(f.my_goal[0]+gk,max(-6.,min(6.,by*gk/max(3.,bx-f.my_goal[0]))))
+                if vx< -8.:
+                    dt=(t[0]-bx)/vx
+                    if 0.<dt<1.:t=(t[0],max(-6.,min(6.,by+vy*dt)))
+            elif p.id==nearest.id:t=(bx+vx*.12,by+vy*.12)
+            elif self.MODE in ('block','counter'):
+                target=sorted(o.opponents,key=lambda q:q.position[0])[min(i,len(o.opponents)-1)]
+                t=(min(bx-depth,target.position[0]-3.),target.position[1]*.7)
+                if self.MODE=='counter' and i==4:t=(max(3.,bx+20.),-by*.3)
+            elif self.MODE=='press':
+                t=(bx-2.+i*2.,by+(-1. if i%2 else 1.)*min(width,5.))
+            elif self.MODE=='swarm':t=(bx+vx*.3+(i-2)*2.,by+(i-2)*2.)
+            elif self.MODE=='wall':t=(bx+depth+i*2.,(-1. if i%2 else 1.)*(f.height*.5-5.))
+            elif self.MODE=='chiral':t=(bx+depth+(i%2)*5.,width*(1. if i>2 else -.25))
+            else:t=(bx+depth+i*2.,(-1. if i%2 else 1.)*width+by*.25)
+            t=(max(f.my_goal[0]+2.,min(f.opponent_goal[0]-2.,t[0])),max(-f.height*.5+2.,min(f.height*.5-2.,t[1])))
+            if protected and i:
+                radius=f.centre_circle_radius+3.;ux,uy=unit(p.position[0],p.position[1]);t=(ux*radius,uy*radius)
+            movement=self.move(p,t,f);kick=None
+            if carrier is not None and p.id==carrier.id and not protected:
+                movement=self.move(p,(bx+.3,by),f)
+                if bx>f.opponent_goal[0]-shoot:
+                    ys=(-5.6,5.6)
+                    y=max(ys,key=lambda y:math.dist(o.opponents[0].position,(f.opponent_goal[0],y)))
+                    kick=unit(f.opponent_goal[0]-bx,y-by),1.
+                else:
+                    q=max([q for q in players[1:] if q.id!=p.id],key=lambda q:q.position[0]-abs(q.position[1]-by)*.2)
+                    pressure=min(math.dist(q.position,(bx,by)) for q in o.opponents)
+                    if q.position[0]>bx+3. and (pressure<6. or self.MODE in ('counter','long','wall')):
+                        tx,ty=q.position[0]+q.velocity[0]*.4,q.position[1]+q.velocity[1]*.4
+                        if self.MODE=='wall':ty=(f.height*.5-.45)*2.*(1. if by>0 else -1.)-ty
+                        kick=unit(tx-bx,ty-by),min(1.,max(.5,math.dist(q.position,(bx,by))/30.))
+                    else:
+                        ux,uy=unit(10.,-by*lateral)
+                        dx,dy=ux*7.-vx,uy*7.-vy;norm=math.hypot(dx,dy)
+                        if norm>.02:kick=((dx/norm,dy/norm),min(1.,norm/f.kick_impulse))
+            if kick is None:actions.set(p.id,PlayerAction(movement=movement))
+            else:actions.set(p.id,PlayerAction(movement=movement,kick_direction=kick[0],kick_power=kick[1]))
+        return actions

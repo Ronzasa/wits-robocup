@@ -1,0 +1,19 @@
+{
+  "frozen_source_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "reused_methods": {
+    "_target": "04bf700d654c92b24695ba7c9952c9240284fd8e99f789747dcc62743ddee2a4",
+    "_move": "2d663622270c915f7ff0df5e5cbd7a720c615fc95db63efc198e055988a6781b",
+    "_pass_path": "5c7dbe645bdb5eefc566bc73b65058340a79a9de1cf7a3172b62ed1e6adf9d3e",
+    "_pass_reachable": "3df213af7673661b72b9930b3bb78119a5e2b8721ec3770a00d4707418f33575",
+    "_pass_steps": "f9b8071a9a5b7f68f54cbbb32e77a0184644be1f30f4219a44ca7e8fd228e052",
+    "_verified_intercept": "f76de6ef7bad714459c28968f542eeab33897fb7709f0f9d11bf0181fb2e7b4b",
+    "_receiver_rollout": "82f6d237db552cd35edd6527a23011170437b6e6d3ed9f1d225bce95ae2ee3c5",
+    "_first_touch_safe": "032550ea217b7d9dbbd9c728e716ed07d777a4060ee1be55de3551a19f705494",
+    "_kick_to_velocity": "206c6f543f176ca231beb39ed518905e6da93828f3c5c41f87849dc7eac96dd0",
+    "_requested_velocity": "c2fdb8a93c37100e37930d4b3c05c42fd0ba5da55ea3b8b4e6ea53d80d4996b3",
+    "_carrier_contact": "e449226faaaf7fa9e1a38cde4733bf7b8244c672797440af279ac062ac84b300",
+    "_goal_path": "0597a17820bd69f312f86b9d71fd8315efc1c3af1a1c3375fd249f59a476b43d"
+  },
+  "reuse_scope": "Only movement/flight/contact and physical-witness validation; all team decision and goalkeeper architecture is independently implemented.",
+  "equivalence": "Exact method source plus 2000 randomized reach/move/contact comparisons, dense wall forecasts and executable receiver rollouts."
+}
