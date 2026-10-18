@@ -1,3 +1,6 @@
+> TITAN-11 tactical intelligence is an unpromoted experiment. v10.0 remains active.
+> [Code, all six feature ablations, 768-pair fresh validation and full evidence](docs/titan-11-validation.md).
+
 # Soccer agent platform — student edition
 
 Recommended competition controller: **[team.py — v10.0 (TITAN-10B-R)](my-team/team.py)** on the

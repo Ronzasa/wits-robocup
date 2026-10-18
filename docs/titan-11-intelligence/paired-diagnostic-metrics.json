@@ -1,0 +1,3416 @@
+{
+  "scope": "Fixed paired diagnostic public traces. Counter/danger, kickoff-window and wall-reflection counters are explicit proxies, not full-cohort native statistics or causal labels. Reflections require boundary proximity, unchanged last touch and approximately 0.75 normal restitution; body contacts can still confound this inference. No result used for source tuning.",
+  "data": {
+    "v10": {
+      "matches": 4,
+      "totals": {
+        "planned_releases": 68,
+        "planned_intended_receiver_touch": 58,
+        "wall_reflection_proxy": 55,
+        "own_wall_recovery_proxy": 9,
+        "own_wall_routes_proxy": 23,
+        "goals_for": 4,
+        "opponent_danger_contact_ticks": 281,
+        "planned_other_teammate_touch": 9,
+        "planned_pending_at_trace_end": 0,
+        "restart_sequences": 16,
+        "forecast_goalbound_shots": 9,
+        "forecast_shot_goals_within_40_ticks": 5,
+        "goals_against": 8,
+        "counter_concession_proxy": 2,
+        "planned_no_touch_within_52_ticks": 1
+      },
+      "per_fixture": [
+        {
+          "style": "v10-press",
+          "seed": 442797613,
+          "side": 0,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 12,
+            "planned_intended_receiver_touch": 10,
+            "wall_reflection_proxy": 15,
+            "own_wall_recovery_proxy": 1,
+            "own_wall_routes_proxy": 5,
+            "goals_for": 1,
+            "opponent_danger_contact_ticks": 106,
+            "planned_other_teammate_touch": 2,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 2,
+            "forecast_goalbound_shots": 3,
+            "forecast_shot_goals_within_40_ticks": 2
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 30,
+              "end_tick": 44,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 83,
+              "end_tick": 106,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 487,
+              "end_tick": 493,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1087,
+              "end_tick": 1097,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1275,
+              "end_tick": 1284,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1283,
+              "end_tick": 1292,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1501,
+              "end_tick": 1530,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1972,
+              "end_tick": 1984,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 2319,
+              "end_tick": 2325,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2325,
+              "end_tick": 2333,
+              "recipient": 2,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 2332,
+              "end_tick": 2343,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2348,
+              "end_tick": 2354,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 288,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 98,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 137,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 526,
+              "axis": "end",
+              "last_touch": 5,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 598,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 794,
+              "axis": "end",
+              "last_touch": 8,
+              "first_new_touch": 0,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 933,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 977,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1171,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1219,
+              "axis": "end",
+              "last_touch": 3,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1414,
+              "axis": "side",
+              "last_touch": 7,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1668,
+              "axis": "side",
+              "last_touch": 2,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1885,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1937,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2088,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2282,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 249,
+              "features": [
+                1.0,
+                0.48897466504673637,
+                0.9955939525828309,
+                0.5239909908421124,
+                0.29044805862174855,
+                0.7474275193799708
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 272,
+              "features": [
+                1.0,
+                0.38566119289674805,
+                1.0353602085712648,
+                0.4477760180419605,
+                0.11561439498609456,
+                0.6629286412896291
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 1306,
+              "features": [
+                1.0,
+                0.4356584766607213,
+                1.0047043336696808,
+                0.4922872849620218,
+                0.08083800408095504,
+                0.7386112842272344
+              ],
+              "goal_within_40_ticks": 0
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 0,
+            "score": [
+              1,
+              0
+            ],
+            "outcome": "team_a_win",
+            "goal_difference": 1,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 2790.314118,
+            "stats": [
+              {
+                "possession_ticks": 613,
+                "controlled_ticks": 147,
+                "territory_ticks": 1108,
+                "kicks": 69,
+                "shots": 5,
+                "shots_blocked": 3,
+                "passes_attempted": 30,
+                "passes_completed": 12,
+                "passes_intercepted": 10,
+                "pass_distance": 92.09174,
+                "dribbles": 29,
+                "dribble_distance": 46.531033,
+                "tackles_attempted": 7,
+                "tackles_won": 0,
+                "turnovers": 8,
+                "fouls": 0,
+                "goals": 1,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 1272.3897529854185,
+                  "max_ms": 12.786922000032064,
+                  "bucket_counts": [
+                    0,
+                    0,
+                    63,
+                    1866,
+                    362,
+                    50,
+                    30,
+                    26,
+                    3,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1787,
+                "controlled_ticks": 236,
+                "territory_ticks": 1238,
+                "kicks": 106,
+                "shots": 8,
+                "shots_blocked": 2,
+                "passes_attempted": 40,
+                "passes_completed": 27,
+                "passes_intercepted": 10,
+                "pass_distance": 205.18654,
+                "dribbles": 45,
+                "dribble_distance": 105.97954,
+                "tackles_attempted": 3,
+                "tackles_won": 0,
+                "turnovers": 8,
+                "fouls": 0,
+                "goals": 0,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 1403.4862780040385,
+                  "max_ms": 18.330758000047354,
+                  "bucket_counts": [
+                    0,
+                    0,
+                    118,
+                    1790,
+                    348,
+                    35,
+                    61,
+                    44,
+                    3,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-press",
+          "seed": 442797613,
+          "side": 1,
+          "kickoff": 0,
+          "counts": {
+            "wall_reflection_proxy": 15,
+            "own_wall_recovery_proxy": 2,
+            "own_wall_routes_proxy": 6,
+            "opponent_danger_contact_ticks": 42,
+            "goals_against": 4,
+            "planned_releases": 19,
+            "planned_intended_receiver_touch": 18,
+            "planned_other_teammate_touch": 1,
+            "counter_concession_proxy": 1,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 5,
+            "forecast_goalbound_shots": 2,
+            "forecast_shot_goals_within_40_ticks": 0
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 528,
+              "end_tick": 544,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 548,
+              "end_tick": 550,
+              "recipient": 2,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 550,
+              "end_tick": 557,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 562,
+              "end_tick": 566,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 566,
+              "end_tick": 573,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 814,
+              "end_tick": 848,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 862,
+              "end_tick": 867,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1228,
+              "end_tick": 1242,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1484,
+              "end_tick": 1498,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1516,
+              "end_tick": 1519,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1519,
+              "end_tick": 1529,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1533,
+              "end_tick": 1545,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1545,
+              "end_tick": 1549,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1819,
+              "end_tick": 1825,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2123,
+              "end_tick": 2137,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2136,
+              "end_tick": 2144,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2149,
+              "end_tick": 2156,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2161,
+              "end_tick": 2170,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2220,
+              "end_tick": 2254,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 504,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1199,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1454,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 2093,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 89,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 118,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 181,
+              "axis": "end",
+              "last_touch": 1,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 388,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 400,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 405,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 645,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 653,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1024,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1150,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1293,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 1654,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1935,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2242,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 2357,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 1762,
+              "features": [
+                1.0,
+                0.9563396337682687,
+                1.0438247438698653,
+                0.4517501423001563,
+                0.051729774647836936,
+                0.3811562615429283
+              ],
+              "goal_within_40_ticks": 0
+            },
+            {
+              "tick": 1844,
+              "features": [
+                1.0,
+                0.4089099733669712,
+                1.0491081206532482,
+                0.43035233485268914,
+                0.08146203906181061,
+                0.6654691778439231
+              ],
+              "goal_within_40_ticks": 0
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 1,
+            "score": [
+              4,
+              0
+            ],
+            "outcome": "team_a_win",
+            "goal_difference": 4,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1145.383761,
+            "stats": [
+              {
+                "possession_ticks": 1209,
+                "controlled_ticks": 148,
+                "territory_ticks": 1215,
+                "kicks": 83,
+                "shots": 3,
+                "shots_blocked": 2,
+                "passes_attempted": 43,
+                "passes_completed": 17,
+                "passes_intercepted": 13,
+                "pass_distance": 215.506,
+                "dribbles": 30,
+                "dribble_distance": 107.487274,
+                "tackles_attempted": 5,
+                "tackles_won": 1,
+                "turnovers": 2,
+                "fouls": 0,
+                "goals": 4,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 506.54470900417436,
+                  "max_ms": 3.952569999910338,
+                  "bucket_counts": [
+                    0,
+                    105,
+                    1964,
+                    220,
+                    40,
+                    60,
+                    11,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1191,
+                "controlled_ticks": 252,
+                "territory_ticks": 1046,
+                "kicks": 99,
+                "shots": 4,
+                "shots_blocked": 0,
+                "passes_attempted": 39,
+                "passes_completed": 22,
+                "passes_intercepted": 15,
+                "pass_distance": 169.4517,
+                "dribbles": 45,
+                "dribble_distance": 68.93317,
+                "tackles_attempted": 5,
+                "tackles_won": 0,
+                "turnovers": 7,
+                "fouls": 0,
+                "goals": 0,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 566.4230829993357,
+                  "max_ms": 4.9794769997788535,
+                  "bucket_counts": [
+                    0,
+                    47,
+                    2008,
+                    226,
+                    25,
+                    68,
+                    25,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-counter",
+          "seed": 442797613,
+          "side": 0,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 18,
+            "planned_intended_receiver_touch": 13,
+            "wall_reflection_proxy": 12,
+            "own_wall_recovery_proxy": 4,
+            "own_wall_routes_proxy": 5,
+            "planned_other_teammate_touch": 4,
+            "opponent_danger_contact_ticks": 67,
+            "goals_against": 1,
+            "goals_for": 3,
+            "planned_no_touch_within_52_ticks": 1,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 5,
+            "forecast_goalbound_shots": 3,
+            "forecast_shot_goals_within_40_ticks": 3
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 30,
+              "end_tick": 44,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 83,
+              "end_tick": 106,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 460,
+              "end_tick": 462,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 462,
+              "end_tick": 486,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 485,
+              "end_tick": 492,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 563,
+              "end_tick": 577,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 586,
+              "end_tick": 597,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 729,
+              "end_tick": 734,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 743,
+              "end_tick": 754,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 962,
+              "end_tick": 1015,
+              "recipient": 4,
+              "outcome": "no_touch_within_52_ticks"
+            },
+            {
+              "start_tick": 1132,
+              "end_tick": 1152,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1152,
+              "end_tick": 1171,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1289,
+              "end_tick": 1325,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1567,
+              "end_tick": 1570,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1580,
+              "end_tick": 1600,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1604,
+              "end_tick": 1606,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1606,
+              "end_tick": 1616,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1891,
+              "end_tick": 1907,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 533,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 766,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            },
+            {
+              "tick": 1197,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.04132231404958678
+            },
+            {
+              "tick": 1925,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.2975206611570248
+            }
+          ],
+          "walls": [
+            {
+              "tick": 98,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 137,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 418,
+              "axis": "end",
+              "last_touch": 8,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 473,
+              "axis": "end",
+              "last_touch": 1,
+              "first_new_touch": 0,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 670,
+              "axis": "end",
+              "last_touch": 1,
+              "first_new_touch": 5,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 725,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 898,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 914,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1023,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 1310,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 2310,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2325,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 753,
+              "features": [
+                1.0,
+                0.3084530333904483,
+                1.0079436829275474,
+                0.2624622030825503,
+                -0.12839851996371063,
+                0.8341321137096626
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 1186,
+              "features": [
+                1.0,
+                0.2614100972933249,
+                1.075891048442777,
+                0.3652917087364129,
+                0.001459449345606528,
+                0.8120875770344943
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 1911,
+              "features": [
+                1.0,
+                0.3268430032471705,
+                1.0002069578097594,
+                0.24830496764344664,
+                -0.1547643064117082,
+                0.8216201439363731
+              ],
+              "goal_within_40_ticks": 1
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 0,
+            "score": [
+              3,
+              1
+            ],
+            "outcome": "team_a_win",
+            "goal_difference": 2,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1349.512871,
+            "stats": [
+              {
+                "possession_ticks": 774,
+                "controlled_ticks": 262,
+                "territory_ticks": 1110,
+                "kicks": 102,
+                "shots": 1,
+                "shots_blocked": 0,
+                "passes_attempted": 42,
+                "passes_completed": 22,
+                "passes_intercepted": 11,
+                "pass_distance": 192.84439,
+                "dribbles": 52,
+                "dribble_distance": 117.97098,
+                "tackles_attempted": 5,
+                "tackles_won": 1,
+                "turnovers": 7,
+                "fouls": 0,
+                "goals": 3,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 604.8085780121255,
+                  "max_ms": 6.8475800003398035,
+                  "bucket_counts": [
+                    0,
+                    47,
+                    1938,
+                    251,
+                    77,
+                    64,
+                    17,
+                    6,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1626,
+                "controlled_ticks": 319,
+                "territory_ticks": 1141,
+                "kicks": 123,
+                "shots": 5,
+                "shots_blocked": 0,
+                "passes_attempted": 43,
+                "passes_completed": 31,
+                "passes_intercepted": 7,
+                "pass_distance": 258.50366,
+                "dribbles": 57,
+                "dribble_distance": 131.37207,
+                "tackles_attempted": 5,
+                "tackles_won": 0,
+                "turnovers": 8,
+                "fouls": 0,
+                "goals": 1,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 1,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 669.7579219853651,
+                  "max_ms": 58.66229999992356,
+                  "bucket_counts": [
+                    3,
+                    106,
+                    1915,
+                    206,
+                    60,
+                    62,
+                    43,
+                    4,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-counter",
+          "seed": 442797613,
+          "side": 1,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 19,
+            "planned_intended_receiver_touch": 17,
+            "wall_reflection_proxy": 13,
+            "own_wall_recovery_proxy": 2,
+            "own_wall_routes_proxy": 7,
+            "opponent_danger_contact_ticks": 66,
+            "goals_against": 3,
+            "planned_other_teammate_touch": 2,
+            "counter_concession_proxy": 1,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 4,
+            "forecast_goalbound_shots": 1,
+            "forecast_shot_goals_within_40_ticks": 0
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 36,
+              "end_tick": 51,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 85,
+              "end_tick": 112,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 396,
+              "end_tick": 412,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 416,
+              "end_tick": 418,
+              "recipient": 2,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 418,
+              "end_tick": 425,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 430,
+              "end_tick": 435,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1043,
+              "end_tick": 1049,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1061,
+              "end_tick": 1079,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1230,
+              "end_tick": 1260,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1259,
+              "end_tick": 1282,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1281,
+              "end_tick": 1296,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1552,
+              "end_tick": 1566,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1807,
+              "end_tick": 1821,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1839,
+              "end_tick": 1842,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1842,
+              "end_tick": 1852,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1851,
+              "end_tick": 1863,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1872,
+              "end_tick": 1882,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2020,
+              "end_tick": 2046,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2045,
+              "end_tick": 2055,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 372,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1523,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1777,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 102,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 231,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 286,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 871,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 907,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1148,
+              "axis": "end",
+              "last_touch": 3,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1164,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1617,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 1982,
+              "axis": "end",
+              "last_touch": 8,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1983,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2120,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 2327,
+              "axis": "side",
+              "last_touch": 5,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2372,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": false
+            }
+          ],
+          "shots": [
+            {
+              "tick": 439,
+              "features": [
+                1.0,
+                1.326831060849222,
+                0.20585531650417468,
+                0.1441801749608592,
+                0.0008759290433621775,
+                0.41894530452695145
+              ],
+              "goal_within_40_ticks": 0
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 1,
+            "score": [
+              3,
+              0
+            ],
+            "outcome": "team_a_win",
+            "goal_difference": 3,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1207.428795,
+            "stats": [
+              {
+                "possession_ticks": 1250,
+                "controlled_ticks": 88,
+                "territory_ticks": 1267,
+                "kicks": 61,
+                "shots": 3,
+                "shots_blocked": 1,
+                "passes_attempted": 33,
+                "passes_completed": 14,
+                "passes_intercepted": 7,
+                "pass_distance": 116.4498,
+                "dribbles": 20,
+                "dribble_distance": 85.71871,
+                "tackles_attempted": 4,
+                "tackles_won": 0,
+                "turnovers": 1,
+                "fouls": 0,
+                "goals": 3,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 1,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 560.7465049856728,
+                  "max_ms": 105.34769800005961,
+                  "bucket_counts": [
+                    2,
+                    82,
+                    2116,
+                    122,
+                    23,
+                    42,
+                    12,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1150,
+                "controlled_ticks": 218,
+                "territory_ticks": 1024,
+                "kicks": 89,
+                "shots": 2,
+                "shots_blocked": 0,
+                "passes_attempted": 38,
+                "passes_completed": 22,
+                "passes_intercepted": 13,
+                "pass_distance": 159.7214,
+                "dribbles": 36,
+                "dribble_distance": 55.00941,
+                "tackles_attempted": 3,
+                "tackles_won": 0,
+                "turnovers": 4,
+                "fouls": 0,
+                "goals": 0,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 577.757667005244,
+                  "max_ms": 6.0665330001938855,
+                  "bucket_counts": [
+                    0,
+                    35,
+                    1986,
+                    270,
+                    26,
+                    55,
+                    24,
+                    4,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        }
+      ]
+    },
+    "titan11": {
+      "matches": 4,
+      "totals": {
+        "planned_releases": 82,
+        "planned_intended_receiver_touch": 62,
+        "planned_other_teammate_touch": 17,
+        "wall_reflection_proxy": 43,
+        "own_wall_recovery_proxy": 6,
+        "own_wall_routes_proxy": 20,
+        "planned_no_touch_within_52_ticks": 2,
+        "opponent_danger_contact_ticks": 195,
+        "goals_for": 9,
+        "planned_pending_at_trace_end": 1,
+        "restart_sequences": 16,
+        "forecast_goalbound_shots": 12,
+        "forecast_shot_goals_within_40_ticks": 9,
+        "goals_against": 3
+      },
+      "per_fixture": [
+        {
+          "style": "v10-press",
+          "seed": 442797613,
+          "side": 0,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 16,
+            "planned_intended_receiver_touch": 10,
+            "planned_other_teammate_touch": 5,
+            "wall_reflection_proxy": 10,
+            "own_wall_recovery_proxy": 1,
+            "own_wall_routes_proxy": 7,
+            "planned_no_touch_within_52_ticks": 1,
+            "opponent_danger_contact_ticks": 31,
+            "goals_for": 3,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 4,
+            "forecast_goalbound_shots": 4,
+            "forecast_shot_goals_within_40_ticks": 2
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 30,
+              "end_tick": 45,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 49,
+              "end_tick": 53,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 53,
+              "end_tick": 61,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 60,
+              "end_tick": 68,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 72,
+              "end_tick": 79,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 230,
+              "end_tick": 236,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 412,
+              "end_tick": 465,
+              "recipient": 3,
+              "outcome": "no_touch_within_52_ticks"
+            },
+            {
+              "start_tick": 782,
+              "end_tick": 784,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 784,
+              "end_tick": 805,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 824,
+              "end_tick": 829,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1541,
+              "end_tick": 1567,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1782,
+              "end_tick": 1808,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2067,
+              "end_tick": 2082,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2320,
+              "end_tick": 2323,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 2322,
+              "end_tick": 2323,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 2323,
+              "end_tick": 2336,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1039,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.3305785123966942
+            },
+            {
+              "tick": 1828,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            },
+            {
+              "tick": 2242,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 141,
+              "axis": "end",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 153,
+              "axis": "side",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1203,
+              "axis": "side",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1206,
+              "axis": "end",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1257,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1267,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1547,
+              "axis": "end",
+              "last_touch": 4,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 1669,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1988,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2027,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": false
+            }
+          ],
+          "shots": [
+            {
+              "tick": 241,
+              "features": [
+                1.0,
+                0.5234327089386611,
+                0.7240065519005969,
+                0.4203144682326091,
+                0.020406300221506506,
+                0.7075753952713849
+              ],
+              "goal_within_40_ticks": 0
+            },
+            {
+              "tick": 242,
+              "features": [
+                1.0,
+                0.34167688769191384,
+                0.8004370170159992,
+                0.23743204848442906,
+                -0.012612228360386234,
+                0.8216201439363732
+              ],
+              "goal_within_40_ticks": 0
+            },
+            {
+              "tick": 1812,
+              "features": [
+                1.0,
+                0.37257056597806515,
+                1.0423482182375698,
+                0.42755761412266363,
+                -0.05137076204767246,
+                0.803152902701613
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 2228,
+              "features": [
+                1.0,
+                0.32417671310683155,
+                1.0536519772274098,
+                0.40874567647199556,
+                1.1348337100039514e-08,
+                0.7879650885411508
+              ],
+              "goal_within_40_ticks": 1
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 0,
+            "score": [
+              3,
+              0
+            ],
+            "outcome": "team_a_win",
+            "goal_difference": 3,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 2770.77432,
+            "stats": [
+              {
+                "possession_ticks": 1596,
+                "controlled_ticks": 174,
+                "territory_ticks": 1247,
+                "kicks": 97,
+                "shots": 5,
+                "shots_blocked": 2,
+                "passes_attempted": 37,
+                "passes_completed": 22,
+                "passes_intercepted": 7,
+                "pass_distance": 162.0132,
+                "dribbles": 43,
+                "dribble_distance": 160.46823,
+                "tackles_attempted": 4,
+                "tackles_won": 0,
+                "turnovers": 3,
+                "fouls": 0,
+                "goals": 3,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 1431.4913709949906,
+                  "max_ms": 9.647679999943648,
+                  "bucket_counts": [
+                    0,
+                    0,
+                    27,
+                    1828,
+                    406,
+                    34,
+                    54,
+                    49,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 804,
+                "controlled_ticks": 110,
+                "territory_ticks": 1040,
+                "kicks": 69,
+                "shots": 4,
+                "shots_blocked": 0,
+                "passes_attempted": 37,
+                "passes_completed": 19,
+                "passes_intercepted": 13,
+                "pass_distance": 112.745026,
+                "dribbles": 21,
+                "dribble_distance": 30.706568,
+                "tackles_attempted": 7,
+                "tackles_won": 1,
+                "turnovers": 6,
+                "fouls": 0,
+                "goals": 0,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 1,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 1226.4225679746232,
+                  "max_ms": 26.499867999518756,
+                  "bucket_counts": [
+                    0,
+                    0,
+                    91,
+                    1855,
+                    354,
+                    39,
+                    40,
+                    20,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-press",
+          "seed": 442797613,
+          "side": 1,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 21,
+            "planned_intended_receiver_touch": 18,
+            "planned_other_teammate_touch": 3,
+            "goals_for": 3,
+            "wall_reflection_proxy": 14,
+            "own_wall_recovery_proxy": 3,
+            "own_wall_routes_proxy": 6,
+            "opponent_danger_contact_ticks": 27,
+            "goals_against": 1,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 5,
+            "forecast_goalbound_shots": 4,
+            "forecast_shot_goals_within_40_ticks": 4
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 36,
+              "end_tick": 44,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 44,
+              "end_tick": 49,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 83,
+              "end_tick": 84,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 82,
+              "end_tick": 96,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 678,
+              "end_tick": 693,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 697,
+              "end_tick": 701,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 702,
+              "end_tick": 703,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 704,
+              "end_tick": 710,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1318,
+              "end_tick": 1345,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1545,
+              "end_tick": 1559,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1558,
+              "end_tick": 1581,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1712,
+              "end_tick": 1733,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1733,
+              "end_tick": 1755,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1769,
+              "end_tick": 1809,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1808,
+              "end_tick": 1828,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1832,
+              "end_tick": 1837,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1851,
+              "end_tick": 1862,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1910,
+              "end_tick": 1924,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2265,
+              "end_tick": 2286,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2310,
+              "end_tick": 2319,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2318,
+              "end_tick": 2329,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.7520661157024794
+            },
+            {
+              "tick": 215,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            },
+            {
+              "tick": 649,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1601,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            },
+            {
+              "tick": 1952,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 371,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 388,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 573,
+              "axis": "end",
+              "last_touch": 4,
+              "first_new_touch": 0,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 605,
+              "axis": "side",
+              "last_touch": 0,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 823,
+              "axis": "end",
+              "last_touch": 8,
+              "first_new_touch": 0,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 863,
+              "axis": "side",
+              "last_touch": 0,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1045,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1046,
+              "axis": "end",
+              "last_touch": 3,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1235,
+              "axis": "side",
+              "last_touch": 8,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1784,
+              "axis": "side",
+              "last_touch": 3,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 2059,
+              "axis": "side",
+              "last_touch": 7,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2070,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 7,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2219,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2220,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 185,
+              "features": [
+                1.0,
+                0.4270860208815692,
+                0.4747735997311922,
+                0.5703958845781034,
+                0.6263324698392497,
+                0.586392033026891
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 206,
+              "features": [
+                1.0,
+                0.19400438325247324,
+                0.5199352480442533,
+                0.39657593479587105,
+                -0.03315976690924249,
+                0.7219389172718008
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 1585,
+              "features": [
+                1.0,
+                0.37096947673006925,
+                1.0607618286980707,
+                0.4116009500989312,
+                0.049461178904380225,
+                0.8038636410603754
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 1934,
+              "features": [
+                1.0,
+                0.43733129317912023,
+                1.0529558133027235,
+                0.4223350802857775,
+                -0.007741789615086562,
+                0.7534435434237454
+              ],
+              "goal_within_40_ticks": 1
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 1,
+            "score": [
+              1,
+              3
+            ],
+            "outcome": "team_b_win",
+            "goal_difference": -2,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1250.140171,
+            "stats": [
+              {
+                "possession_ticks": 1253,
+                "controlled_ticks": 252,
+                "territory_ticks": 1361,
+                "kicks": 105,
+                "shots": 3,
+                "shots_blocked": 1,
+                "passes_attempted": 40,
+                "passes_completed": 26,
+                "passes_intercepted": 10,
+                "pass_distance": 241.65479,
+                "dribbles": 38,
+                "dribble_distance": 48.89407,
+                "tackles_attempted": 5,
+                "tackles_won": 0,
+                "turnovers": 4,
+                "fouls": 0,
+                "goals": 1,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 593.9809740029887,
+                  "max_ms": 6.08845700025995,
+                  "bucket_counts": [
+                    0,
+                    134,
+                    1852,
+                    260,
+                    54,
+                    68,
+                    27,
+                    5,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1147,
+                "controlled_ticks": 146,
+                "territory_ticks": 899,
+                "kicks": 83,
+                "shots": 2,
+                "shots_blocked": 1,
+                "passes_attempted": 45,
+                "passes_completed": 21,
+                "passes_intercepted": 15,
+                "pass_distance": 243.34738,
+                "dribbles": 28,
+                "dribble_distance": 80.952255,
+                "tackles_attempted": 6,
+                "tackles_won": 2,
+                "turnovers": 3,
+                "fouls": 0,
+                "goals": 3,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 579.1272950036728,
+                  "max_ms": 3.884407999976247,
+                  "bucket_counts": [
+                    0,
+                    48,
+                    1869,
+                    371,
+                    35,
+                    55,
+                    22,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-counter",
+          "seed": 442797613,
+          "side": 0,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 30,
+            "planned_intended_receiver_touch": 23,
+            "planned_other_teammate_touch": 7,
+            "wall_reflection_proxy": 6,
+            "own_wall_recovery_proxy": 1,
+            "own_wall_routes_proxy": 3,
+            "opponent_danger_contact_ticks": 32,
+            "goals_for": 2,
+            "goals_against": 2,
+            "planned_pending_at_trace_end": 0,
+            "restart_sequences": 5,
+            "forecast_goalbound_shots": 3,
+            "forecast_shot_goals_within_40_ticks": 2
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 30,
+              "end_tick": 45,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 49,
+              "end_tick": 53,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 53,
+              "end_tick": 61,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 60,
+              "end_tick": 68,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 72,
+              "end_tick": 79,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 539,
+              "end_tick": 542,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 596,
+              "end_tick": 600,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 604,
+              "end_tick": 613,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 899,
+              "end_tick": 907,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 971,
+              "end_tick": 980,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 979,
+              "end_tick": 1001,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1206,
+              "end_tick": 1228,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1228,
+              "end_tick": 1235,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1235,
+              "end_tick": 1239,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1239,
+              "end_tick": 1242,
+              "recipient": 1,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1251,
+              "end_tick": 1258,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1651,
+              "end_tick": 1662,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1666,
+              "end_tick": 1670,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1669,
+              "end_tick": 1676,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1691,
+              "end_tick": 1697,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1701,
+              "end_tick": 1703,
+              "recipient": 2,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 1816,
+              "end_tick": 1854,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1885,
+              "end_tick": 1921,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1920,
+              "end_tick": 1939,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2121,
+              "end_tick": 2123,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 2122,
+              "end_tick": 2131,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2330,
+              "end_tick": 2345,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2349,
+              "end_tick": 2355,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2364,
+              "end_tick": 2369,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2382,
+              "end_tick": 2385,
+              "recipient": 2,
+              "outcome": "other_teammate_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1013,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            },
+            {
+              "tick": 1622,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 2039,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.1322314049586777
+            },
+            {
+              "tick": 2305,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.9052631578947369
+            }
+          ],
+          "walls": [
+            {
+              "tick": 140,
+              "axis": "end",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 153,
+              "axis": "side",
+              "last_touch": 2,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1146,
+              "axis": "side",
+              "last_touch": 7,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1763,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1896,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 2268,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 926,
+              "features": [
+                1.0,
+                0.42940970695771674,
+                1.062528289285236,
+                0.4118018733100491,
+                0.08719957491812234,
+                0.6190721110374415
+              ],
+              "goal_within_40_ticks": 0
+            },
+            {
+              "tick": 1000,
+              "features": [
+                1.0,
+                0.31222509861545206,
+                1.0516422916312116,
+                0.4261223867627526,
+                0.18435594699301835,
+                0.6984373471161277
+              ],
+              "goal_within_40_ticks": 1
+            },
+            {
+              "tick": 2021,
+              "features": [
+                1.0,
+                0.437990088692957,
+                1.044733773551408,
+                0.4335696250641762,
+                -4.921346187084518e-10,
+                0.7370328261625466
+              ],
+              "goal_within_40_ticks": 1
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 0,
+            "score": [
+              2,
+              2
+            ],
+            "outcome": "draw",
+            "goal_difference": 0,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1211.437047,
+            "stats": [
+              {
+                "possession_ticks": 1258,
+                "controlled_ticks": 170,
+                "territory_ticks": 1179,
+                "kicks": 97,
+                "shots": 4,
+                "shots_blocked": 0,
+                "passes_attempted": 45,
+                "passes_completed": 31,
+                "passes_intercepted": 7,
+                "pass_distance": 223.61842,
+                "dribbles": 34,
+                "dribble_distance": 81.68142,
+                "tackles_attempted": 2,
+                "tackles_won": 0,
+                "turnovers": 7,
+                "fouls": 0,
+                "goals": 2,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 586.0228170140545,
+                  "max_ms": 6.400315000064438,
+                  "bucket_counts": [
+                    0,
+                    60,
+                    1943,
+                    252,
+                    52,
+                    71,
+                    20,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 1142,
+                "controlled_ticks": 261,
+                "territory_ticks": 1083,
+                "kicks": 114,
+                "shots": 2,
+                "shots_blocked": 3,
+                "passes_attempted": 40,
+                "passes_completed": 24,
+                "passes_intercepted": 10,
+                "pass_distance": 195.26659,
+                "dribbles": 49,
+                "dribble_distance": 106.20337,
+                "tackles_attempted": 4,
+                "tackles_won": 2,
+                "turnovers": 5,
+                "fouls": 0,
+                "goals": 2,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 1,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 560.2086980134118,
+                  "max_ms": 59.05906500083802,
+                  "bucket_counts": [
+                    1,
+                    121,
+                    1986,
+                    168,
+                    54,
+                    53,
+                    16,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        },
+        {
+          "style": "v10-counter",
+          "seed": 442797613,
+          "side": 1,
+          "kickoff": 0,
+          "counts": {
+            "planned_releases": 15,
+            "planned_intended_receiver_touch": 11,
+            "planned_other_teammate_touch": 2,
+            "opponent_danger_contact_ticks": 105,
+            "wall_reflection_proxy": 13,
+            "own_wall_recovery_proxy": 1,
+            "own_wall_routes_proxy": 4,
+            "planned_no_touch_within_52_ticks": 1,
+            "goals_for": 1,
+            "planned_pending_at_trace_end": 1,
+            "restart_sequences": 2,
+            "forecast_goalbound_shots": 1,
+            "forecast_shot_goals_within_40_ticks": 1
+          },
+          "planned_receptions": [
+            {
+              "start_tick": 36,
+              "end_tick": 51,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 50,
+              "end_tick": 65,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 211,
+              "end_tick": 214,
+              "recipient": 3,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 213,
+              "end_tick": 234,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 732,
+              "end_tick": 736,
+              "recipient": 4,
+              "outcome": "other_teammate_touch"
+            },
+            {
+              "start_tick": 735,
+              "end_tick": 749,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 763,
+              "end_tick": 769,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 978,
+              "end_tick": 1031,
+              "recipient": 3,
+              "outcome": "no_touch_within_52_ticks"
+            },
+            {
+              "start_tick": 1041,
+              "end_tick": 1053,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1363,
+              "end_tick": 1374,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1393,
+              "end_tick": 1398,
+              "recipient": 2,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1762,
+              "end_tick": 1777,
+              "recipient": 4,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 1845,
+              "end_tick": 1871,
+              "recipient": 3,
+              "outcome": "intended_receiver_touch"
+            },
+            {
+              "start_tick": 2354,
+              "end_tick": 2360,
+              "recipient": 1,
+              "outcome": "intended_receiver_touch"
+            }
+          ],
+          "restarts": [
+            {
+              "tick": 0,
+              "first_kick_team": 0,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 1.0
+            },
+            {
+              "tick": 1882,
+              "first_kick_team": 1,
+              "goals_for_within_120_ticks": 0,
+              "goals_against_within_120_ticks": 0,
+              "control_fraction_120_ticks": 0.0
+            }
+          ],
+          "walls": [
+            {
+              "tick": 525,
+              "axis": "side",
+              "last_touch": 4,
+              "first_new_touch": null,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 538,
+              "axis": "end",
+              "last_touch": 4,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 858,
+              "axis": "end",
+              "last_touch": 4,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": false
+            },
+            {
+              "tick": 1161,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 8,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1275,
+              "axis": "end",
+              "last_touch": 8,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1338,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1344,
+              "axis": "end",
+              "last_touch": 9,
+              "first_new_touch": 3,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1716,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 1,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 1771,
+              "axis": "side",
+              "last_touch": 1,
+              "first_new_touch": 4,
+              "own_recovery_within_52_ticks": true
+            },
+            {
+              "tick": 1812,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 2,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2019,
+              "axis": "end",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2033,
+              "axis": "side",
+              "last_touch": 6,
+              "first_new_touch": 9,
+              "own_recovery_within_52_ticks": null
+            },
+            {
+              "tick": 2064,
+              "axis": "side",
+              "last_touch": 9,
+              "first_new_touch": 6,
+              "own_recovery_within_52_ticks": null
+            }
+          ],
+          "shots": [
+            {
+              "tick": 1871,
+              "features": [
+                1.0,
+                0.2511172568416517,
+                1.048990011672736,
+                0.38224789104537554,
+                -0.16025661629201762,
+                0.8597305671174521
+              ],
+              "goal_within_40_ticks": 1
+            }
+          ],
+          "native_result": {
+            "match_id": "Pep Guardiola + Jurgen Klopp Hybrid-vs-Pep Guardiola + Jurgen Klopp Hybrid-442797613",
+            "engine_version": "0.1.0",
+            "config_hash": "372990895c7eca2a",
+            "team_ids": [
+              "Pep Guardiola + Jurgen Klopp Hybrid",
+              "Pep Guardiola + Jurgen Klopp Hybrid"
+            ],
+            "team_versions": [
+              "1",
+              "1"
+            ],
+            "seed": 442797613,
+            "sides_swapped": false,
+            "kickoff_team": 1,
+            "score": [
+              0,
+              1
+            ],
+            "outcome": "team_b_win",
+            "goal_difference": -1,
+            "terminal_reason": "time_limit",
+            "ticks": 2400,
+            "wall_time_ms": 1318.521091,
+            "stats": [
+              {
+                "possession_ticks": 1447,
+                "controlled_ticks": 279,
+                "territory_ticks": 1011,
+                "kicks": 105,
+                "shots": 5,
+                "shots_blocked": 1,
+                "passes_attempted": 39,
+                "passes_completed": 23,
+                "passes_intercepted": 8,
+                "pass_distance": 165.56482,
+                "dribbles": 50,
+                "dribble_distance": 95.31183,
+                "tackles_attempted": 3,
+                "tackles_won": 1,
+                "turnovers": 7,
+                "fouls": 0,
+                "goals": 0,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 1,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 672.8719299835575,
+                  "max_ms": 107.03291600020748,
+                  "bucket_counts": [
+                    0,
+                    42,
+                    2072,
+                    154,
+                    40,
+                    54,
+                    37,
+                    0,
+                    0,
+                    0,
+                    0,
+                    1,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              },
+              {
+                "possession_ticks": 953,
+                "controlled_ticks": 166,
+                "territory_ticks": 1333,
+                "kicks": 66,
+                "shots": 4,
+                "shots_blocked": 1,
+                "passes_attempted": 24,
+                "passes_completed": 14,
+                "passes_intercepted": 4,
+                "pass_distance": 125.4472,
+                "dribbles": 29,
+                "dribble_distance": 46.285892,
+                "tackles_attempted": 6,
+                "tackles_won": 2,
+                "turnovers": 6,
+                "fouls": 0,
+                "goals": 1,
+                "own_goals": 0,
+                "policy_errors": 0,
+                "policy_timeouts": 0,
+                "validation": {
+                  "missing_actions": 0,
+                  "non_finite_values": 0,
+                  "clamped_values": 0,
+                  "rejected_kicks": 0,
+                  "invalid_player_ids": 0,
+                  "dropped_debug_payloads": 0
+                },
+                "decision_time_ms": {
+                  "count": 2400,
+                  "total_ms": 565.2762200079451,
+                  "max_ms": 4.128656000830233,
+                  "bucket_counts": [
+                    0,
+                    13,
+                    1991,
+                    284,
+                    50,
+                    42,
+                    18,
+                    2,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            ],
+            "replay_path": null,
+            "platform_error": null
+          }
+        }
+      ]
+    }
+  }
+}

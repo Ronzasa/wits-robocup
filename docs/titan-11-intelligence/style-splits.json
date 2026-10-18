@@ -1,0 +1,74 @@
+{
+  "development_styles": {
+    "styles": [
+      "v10",
+      "v9.1",
+      "v9.0",
+      "v10-press",
+      "v10-counter",
+      "v10-compact",
+      "v10-long",
+      "tight_links"
+    ],
+    "fixtures_per_controller": 512,
+    "baseline": {
+      "points": 830,
+      "wins": 238,
+      "draws": 116,
+      "losses": 158,
+      "goals_for": 813,
+      "goals_against": 591,
+      "passes_attempted": 19644,
+      "passes_completed": 10462,
+      "passes_intercepted": 5364,
+      "turnovers": 3001
+    },
+    "challenger": {
+      "points": 894,
+      "wins": 262,
+      "draws": 108,
+      "losses": 142,
+      "goals_for": 926,
+      "goals_against": 597,
+      "passes_attempted": 21262,
+      "passes_completed": 11779,
+      "passes_intercepted": 5465,
+      "turnovers": 2952
+    },
+    "points_difference": 64
+  },
+  "heldout_styles": {
+    "styles": [
+      "v10-linekeeper",
+      "v10-mark",
+      "long_shooter",
+      "wide_switch"
+    ],
+    "fixtures_per_controller": 256,
+    "baseline": {
+      "points": 557,
+      "wins": 171,
+      "draws": 44,
+      "losses": 41,
+      "goals_for": 521,
+      "goals_against": 173,
+      "passes_attempted": 10391,
+      "passes_completed": 5267,
+      "passes_intercepted": 2979,
+      "turnovers": 1359
+    },
+    "challenger": {
+      "points": 560,
+      "wins": 174,
+      "draws": 38,
+      "losses": 44,
+      "goals_for": 593,
+      "goals_against": 184,
+      "passes_attempted": 10711,
+      "passes_completed": 5722,
+      "passes_intercepted": 2800,
+      "turnovers": 1378
+    },
+    "points_difference": 3
+  }
+}

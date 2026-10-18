@@ -1,0 +1,101 @@
+{
+  "candidate_sha256": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+  "champion_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "active_submission_modified": false,
+  "all_registered_sources_still_frozen": true,
+  "registered_sources": {
+    "my-team/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "experiments/titan-11-integration-all/team.py": "4d1a82910f4589ccd6c5ee95e14186a176d527cc0223c4c4babde41bd310bb6e",
+    "experiments/titan-11-integration-all-minus-predictive/team.py": "a9ce16c7ed24e410ba219007d48f0bb018e03e4b1edd0bce13439e8984f0522a",
+    "experiments/titan-11-integration-all-minus-coordinated/team.py": "7e567e06395992aedeeda7931a998b1a0c993135a46d16b6423c5b6dc2717a66",
+    "experiments/titan-11-integration-all-minus-finishing/team.py": "4479b122b68da98f50a7a21cece730d91f9f34ee8ff7e48b88e1b1f8020d4b49",
+    "experiments/titan-11-integration-all-minus-defence/team.py": "5d64f77061581dbdbb970019aa1efe26b47a4f6af2ca0ae15ac1db6cd6a8bb35",
+    "experiments/titan-11-integration-all-minus-playbooks/team.py": "44ae651d7d2e2614189eea4c76f8fa225f165a2a21b6422968404d5e2f30876e",
+    "experiments/titan-11-integration-all-minus-learning/team.py": "c292046e8ef352eafa644b022d5dd13da9559cbacbf1aaf68fb7c1730516a26c",
+    "experiments/titan-11-integration-selected/team.py": "38546f253a2799fc52569ebc2bcd2709899318ad86ca8ea2faedce838177685f",
+    "experiments/titan-11-integration-selected-minus-predictive/team.py": "03ff3193ac824e61ed384854a5450853d63670cf76f0208a7d6e7e7459bacaac",
+    "experiments/titan-11-integration-selected-minus-coordinated/team.py": "882925c90dc1bc60ac84c44e33d859543eb3bb69c543471bfd6becc474d84dc3",
+    "experiments/titan-11-integration-selected-minus-playbooks/team.py": "a02d562752250b31290403a52ffd21cbab76aae7bb031a0ebcea4d0fdbb17447",
+    "experiments/titan-11-finishing-power/team.py": "ebf4cc31dce9d3bce7336fbf3558bbce4651cf93a9e29fea4ed27e5d8f49de18",
+    "experiments/titan-11-coordinated-flight/team.py": "3dbb37676955eea7ca5c31ef8886e6d71d3b036cba339724114184f1d9b02e77",
+    "experiments/titan-11-integration-selected-minus-learning/team.py": "f0d1e4c849d2943fca8723b4ee78df1d74e8725494695f92ecb80fbc93d36761",
+    "experiments/titan-11-search-0/team.py": "77c8f003670a40af854ed741fdbdd7066ee3aed8b4a9d2bbd3b30928778475f3",
+    "experiments/titan-11-search-1/team.py": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+    "experiments/titan-11-search-2/team.py": "e56a0b48d126c12d1624b42bd0e988b6adad16593f24a443f75bee63db252057",
+    "experiments/titan-11-search-3/team.py": "57793920e7e631492f4b06b47432ce22dae4b7735ee5cdad619439348839adb5",
+    "experiments/titan-11/team.py": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+    "experiments/titan-11-runtime-control/team.py": "82f9a1c96327012ca6a4c847ccefbb2bd7a0e8cbb74b71ac925f2f8149168549",
+    "experiments/titan-11-predictive/team.py": "73ae6aeb30ceca913f7de7c57209864c7f3d126356e10368a7c54c640b80d5f5",
+    "experiments/titan-11-coordinated/team.py": "1cf7d1e58cb4cd473be92a6f61e61a6259abb4a4d91f063a7662b98b155b6dea",
+    "experiments/titan-11-elite-finishing/team.py": "732b1d71c228cc06418f0df562ef0d85d4dc78c80f34d81c2b036c165154485a",
+    "experiments/titan-11-threat-defence/team.py": "f6ac309300faeefeeac11b854176fe6a6f8bf3a4dcec09dd46e86ee155b4f189",
+    "experiments/titan-11-playbooks/team.py": "175b45e0193006c7c106fe91379a3f8d15492055c14f1a7f1613ca8a2401e012",
+    "experiments/titan-11-learned-value/team.py": "07d56b6bbf0ea704af5dbd56f9de0a5ccbef3edade7c4d0c5b518647aa8b895e"
+  },
+  "protected_paths_unchanged_from_main": [
+    "my-team",
+    "champions/v9.1",
+    "experiments/titan-10b",
+    "experiments/titan-10b-r",
+    "experiments/strict-interceptions",
+    "experiments/v8-full",
+    "engine",
+    "student-sdk",
+    "configs",
+    "VERSION"
+  ],
+  "folder_errors": [],
+  "folder_flags": [],
+  "intake": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.236",
+      "slowest decision (ms)": "3.219",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    }
+  },
+  "regressions_exit_code": 0,
+  "test_log": "/workspace/work/titan-11-intelligence/final-audit.tests.log",
+  "test_summary": "----------------------------------------------------------------------\nRan 117 tests in 3.451s\n\nOK",
+  "branch": "titan-11-tactical-intelligence",
+  "prevalidation_regressions": 117,
+  "postqualification_regressions": 118,
+  "postqualification_test_summary": "----------------------------------------------------------------------\nRan 118 tests in 3.927s\n\nOK",
+  "exact_native_verification": {
+    "baseline_recorded_actions_identical": 9600,
+    "runtime_identical_decisions": 9600,
+    "feature_changed_shared_observations": {
+      "predictive": 31,
+      "coordinated": 3652,
+      "finishing": 54,
+      "defence": 1249,
+      "playbooks": 0,
+      "learning": 12,
+      "selected": 28
+    },
+    "selected_or_defence_ticks": {
+      "predictive": 18,
+      "coordinated": 14,
+      "finishing": 12,
+      "defence": 2741,
+      "playbooks": 0,
+      "learning": 12,
+      "selected": 20
+    },
+    "violations": [],
+    "scope": "Shared public observations, not on-policy match strength or timing. Future actions evolve internally on recorded observations."
+  },
+  "byte_exact_rebuild": {
+    "sha256": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+    "equal_to_registered_source": true
+  }
+}

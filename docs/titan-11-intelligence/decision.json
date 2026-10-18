@@ -1,0 +1,36 @@
+{
+  "recommendation": "RETAIN_V10_0",
+  "active_submission_modified": false,
+  "main_modified": false,
+  "candidate_sha256": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+  "frozen_v10_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "enabled": [
+    "predictive",
+    "playbooks",
+    "learning"
+  ],
+  "disabled": {
+    "coordinated": [
+      "removed by integration/search selection"
+    ],
+    "finishing": [
+      "higher_fresh_points",
+      "positive_paired_95_lower",
+      "no_repeated_deadline_failure"
+    ],
+    "defence": [
+      "higher_fresh_points",
+      "positive_paired_95_lower"
+    ]
+  },
+  "failed_gates": [
+    "positive_paired_95_lower",
+    "raw_deadlines"
+  ],
+  "formal_fixtures": 3520,
+  "prevalidation_tests_passed": 117,
+  "final_tests_passed": 118,
+  "primary_candidate_intake_passed": true,
+  "policy_exceptions_all_formal_sources": 0,
+  "promotion_authorized": false
+}

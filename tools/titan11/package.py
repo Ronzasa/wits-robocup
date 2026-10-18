@@ -4,12 +4,13 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
 
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--work',type=Path,required=True);p.add_argument('--out',type=Path,required=True);a=p.parse_args();a.out=a.out.resolve()
     if a.out.exists():p.error('Never replace an evidence archive.')
     entries={};excluded=[]
     for path in sorted(a.work.rglob('*')):
         if not path.is_file():continue
         relative=path.relative_to(a.work)
+        if relative==Path('STATUS.md') or path.name in ('package.log','archive-final.log'):continue
         if any(x in relative.parts for x in ('__pycache__','sources','opponents')):continue
         # Full 77MB training trace is reproducible; preserve its exact used
         # samples plus every native result and hash in the checked-in dataset.

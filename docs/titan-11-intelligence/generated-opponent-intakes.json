@@ -1,0 +1,84 @@
+{
+  "titan11-self": {
+    "sha256": "882925c90dc1bc60ac84c44e33d859543eb3bb69c543471bfd6becc474d84dc3",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.262",
+      "slowest decision (ms)": "5.373",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    },
+    "folder_errors": [],
+    "flags": []
+  },
+  "wall-specialist": {
+    "sha256": "38f8e555cf3fd49071427131636afd7ca4b88857b0bd95bd32bb0d12cdfd0aa3",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.265",
+      "slowest decision (ms)": "4.261",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    },
+    "folder_errors": [],
+    "flags": []
+  },
+  "generated-press": {
+    "sha256": "f0683cfe0d2594f58b224a307c120e997f7bad34e0a2fb254159ce6bf826335e",
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.217",
+      "slowest decision (ms)": "4.439",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    },
+    "folder_errors": [],
+    "flags": []
+  },
+  "generated-possession": {
+    "sha256": "5271df4797c42ce9306645ff4bdcc792ea9c0adea948072811381ad4d0bcb3d1",
+    "ok": false,
+    "errors": [
+      "1 of 2000 decisions exceeded the 20 ms deadline (slowest 26.8 ms). On the server these become repeated actions and count against reliability."
+    ],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.272",
+      "slowest decision (ms)": "26.787",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 1,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    },
+    "folder_errors": [],
+    "flags": []
+  }
+}

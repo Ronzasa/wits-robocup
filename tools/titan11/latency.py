@@ -22,7 +22,12 @@ def main():
                 row=json.loads(line);slot=row['candidate_slot'];stats=row['result']['stats'][slot]
                 if stats['policy_timeouts']:
                     cases.append((stage.name,name,meta['sources'][name],row))
-    cases=cases[:4];report=[];original=runner._decide
+    validation=cases
+    cases=[]
+    for name in ('titan11','v10'):
+        cases.extend([q for q in validation if q[0]=='validation' and q[1]==name][:2])
+    if not cases:cases=validation[:4]
+    report=[];original=runner._decide
     for stage,name,source,row in cases:
         for repeat in range(2):
             events=[];starts={};durations=[];slow=[];index=0

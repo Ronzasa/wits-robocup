@@ -1,0 +1,18 @@
+{
+  "scope": "One exact diagnostic repeat of the additional generated-opponent intake; original failure remains recorded and is not reclassified as a pass. This is a training opponent, not the submitted candidate or a final-validation opponent.",
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "matches played": 5,
+    "decisions": 2000,
+    "mean decision (ms)": "0.256",
+    "slowest decision (ms)": "4.478",
+    "deadline (ms)": "20.0",
+    "exceptions": 0,
+    "over deadline": 0,
+    "missing player actions": 0,
+    "non-finite values": 0,
+    "formation": "custom (5 spots)"
+  }
+}

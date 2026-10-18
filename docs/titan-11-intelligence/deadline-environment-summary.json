@@ -1,0 +1,6 @@
+{
+  "validation_fixtures_with_source_deadline_events": 11,
+  "source_deadline_events": 13,
+  "fixtures_with_cpu_quota_throttling": 0,
+  "interpretation": "No recorded CPU-quota throttling in these fixtures. No original per-call CPU/GC trace exists; the original spike causes remain unresolved."
+}

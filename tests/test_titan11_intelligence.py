@@ -15,6 +15,42 @@ def controller(flags=(),params=None):
     c=module(flags,params).Guardiola2011();c._setup(FIELD);return c
 
 class IntelligenceTests(unittest.TestCase):
+    def test_explicit_reduced_power_shots_are_legal_distinct_and_contact_checked(self):
+        c=controller(['finishing'],{'finishing_revision':2});c._ti_options=[]
+        c._ti_finesse((2,28.3,0.,0.,0.),30.,0.,0.,0.,[])
+        powers=[n[1][1][1] for n in c._ti_options]
+        self.assertEqual(len(powers),2)
+        self.assertTrue(all(0.<power<1. for power in powers))
+        self.assertNotEqual(powers[0],powers[1])
+        c._ti_options=[]
+        c._ti_finesse((2,-20.,0.,0.,0.),30.,0.,0.,0.,[])
+        self.assertEqual(c._ti_options,[])
+
+    def test_third_man_runs_before_verified_receiver_has_collected(self):
+        c=controller(['coordinated'],{'coordination_revision':2})
+        o=observation(ball=(0.,5.,15.,0.),holder=None,last=2,tick=101)
+        c._ti_observe(o);c._shape_cover_id=1;c._receive_plan=(3,2,140)
+        targets={p[0]:(p[1],p[2]) for p in FRIENDS};before=dict(targets)
+        c._ti_targets(o,False,FRIENDS,ENEMIES,FRIENDS[2],targets,True)
+        self.assertFalse(c._ti_secure)
+        self.assertIsNotNone(c._ti_third)
+        self.assertNotEqual(targets[4],before[4])
+        for pid in (0,1,2,3):self.assertEqual(targets[pid],before[pid])
+
+    def test_wall_playbook_collects_after_bounce_and_rejects_early_body_block(self):
+        c=controller(['playbooks'])
+        passer=(2,-1.7,20.,0.,0.);receiver=(4,12.,20.,0.,0.)
+        friends=[(0,-47.,0.,0.,0.),passer,receiver];opponents=[(5,47.,-20.,0.,0.)]
+        option=c._ti_wall(passer,0.,20.,0.,0.,friends,opponents)
+        self.assertIsNotNone(option)
+        launch=c._carrier_contact(passer,0.,20.,*c._requested_velocity(0.,0.,option[1]),option[2])
+        _,bounce=c._bank_path(*launch)
+        race=c._pass_race(receiver,c._pass_path(launch,(0.,20.),2.),opponents,.16,bounce+c._dt,2.)
+        self.assertIsNotNone(race)
+        self.assertGreater(race[0][0],bounce)
+        c._enemy_cooldowns={6:999}
+        self.assertIsNone(c._ti_wall(passer,0.,20.,0.,0.,friends,[*opponents,(6,2.,23.,0.,0.)]))
+
     def test_byte_frozen_champion(self):
         for p in ('my-team/team.py','champions/v10.0/team.py'):
             self.assertEqual(hashlib.sha256((ROOT/p).read_bytes()).hexdigest(),CHAMPION)
