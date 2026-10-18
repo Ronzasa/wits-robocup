@@ -230,6 +230,31 @@ def generate(work, archive):
             f"Adopted for uncreated generation 5: **{retention['adopted']}**. "
             'The existing generation-4 population stays byte-frozen. The original promotion gates and sealed cohorts remain unchanged. '
             'Focused regressions require an actual movement-only action for a controllable contact and reject retention of a fast ball or an imminent tackle.', '']
+    response_path=DOC/'response-results.json'
+    if response_path.exists():
+        response=read(response_path)
+        lines += ['### Initially available opponent kicks', '',
+            'A separate model regression exposes an optimistic first step: the previous response model never let a ready defender kick until step 1. '
+            'With a ready defender beside the ball, two opposing legal impulses cancel a close shot that the delayed model counted as a goal. '
+            'R9 changes only the pressing response to allow an opponent kick on step 0. '
+            'Own uncommanded follow-up shots remain forbidden on step 0; the blocking response retains its one-step lag. '
+            'The budget stays at three plans × two responses × ten steps.', '']
+        if response.get('skipped'):
+            lines += [response['skipped'], '']
+        else:
+            lines += ['This follow-up was registered before population selection ended and before any sealed outcome. '
+                'It reuses the population winner’s learned 19 parameters without retuning. '
+                'A 64-configuration screen uses two unused development seeds; a separate 128-configuration check on four more development seeds '
+                'runs only if the screen helps. Both cohorts must improve paired points without the registered style/head regressions, '
+                'pass SDK intake and raise no exceptions. Population snapshots and the original selection remain preserved.', '',
+                '| Development stage | Reference pts | Immediate-response pts | Δ points/match | Eligible |',
+                '|---|---:|---:|---:|---|']
+            for name in ('screen','check'):
+                row=response.get(name)
+                if row is not None:
+                    lines.append(f"| {name} | {row['reference']['points']} | {row['press_response']['points']} | {row['delta_ppm']:+.4f} | {'yes' if row['eligible'] else 'no'} |")
+            lines += ['',f"Adopted: **{response['adopted']}**. Learned parent: `{response['population_policy']}`. "
+                'The original promotion gates, principal qualification seeds and conditional competition confirmation remain unchanged.', '']
     lines += ['### Development selection', '', '| Stage | Selected policy | NOVA/v10 points | Paired Δ | Worst-style Δ |', '|---|---|---|---:|---:|']
     for path in sorted(DOC.glob('selection-*-results.json')):
         b = read(path)[0]
