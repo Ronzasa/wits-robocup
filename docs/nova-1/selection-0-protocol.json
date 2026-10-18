@@ -1,0 +1,67 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/nova-1-training.zip",
+  "opponents_archive_sha256": "b92e7ee1d240166a213ca890d8a9ab3b21919198fd8f54691070b12fad03b394",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links"
+  ],
+  "seeds": {
+    "development-selection": [
+      130288867,
+      566144281,
+      452835141,
+      451105414
+    ]
+  },
+  "fixture_order_seed": 9011901,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "g03-p15": {
+      "path": "experiments/nova-1-population/g03-p15/team.py",
+      "sha256": "aea451b22a3378a8e682629a0db66952e9ad2987e20688066faae741b29c3551"
+    },
+    "g01-p01": {
+      "path": "experiments/nova-1-population/g01-p01/team.py",
+      "sha256": "f66078fdfb7aeb227f749ea45fec8bc2a5f7219dc718ea93df366e52df6257d0"
+    },
+    "g01-p18": {
+      "path": "experiments/nova-1-population/g01-p18/team.py",
+      "sha256": "5a5e14f9a8a7b0114425a257ab7d02f361bdc774c71098940b85adb3878a4b26"
+    },
+    "g01-p21": {
+      "path": "experiments/nova-1-population/g01-p21/team.py",
+      "sha256": "571113405159ce559888bfd72ec1d6d262fc5640c91bcc3d2e8c87e5ba948ddc"
+    },
+    "g01-p00": {
+      "path": "experiments/nova-1-population/g01-p00/team.py",
+      "sha256": "4c3ea829a8a7a27b306a389f7b701bdd6eab3c0ced0eeebc65453029d37fc916"
+    },
+    "g01-p06": {
+      "path": "experiments/nova-1-population/g01-p06/team.py",
+      "sha256": "d74896104616b5df0b5f0489c90c3d1e29f9b861ac66de57c17cf8134dd289ca"
+    },
+    "g01-p19": {
+      "path": "experiments/nova-1-population/g01-p19/team.py",
+      "sha256": "6e9378ae52ba05439f1e14bbe6e9fb79a10875bf3cc7e6696f9c2fe5529d231e"
+    },
+    "g03-p20": {
+      "path": "experiments/nova-1-population/g03-p20/team.py",
+      "sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "training": true,
+  "timing": "Unmodified SDK wall timer/deadline; external thread CPU and GC-overlap observations applied equally. Every initial miss and failed repeat retained."
+}

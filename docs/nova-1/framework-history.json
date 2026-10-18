@@ -26,5 +26,10 @@
     "reason": "Native development points and matchup robustness; no heldout or qualification feedback.",
     "independent_experiment": "release-independent-protocol.json",
     "combined_test_run": false
+  },
+  "generation_5": {
+    "framework": "r7-pass",
+    "template_sha256": "77bcb167e723a55b0e91ffa44648bbe6a5bf63a58b22e67b491b8f19ae4c9d9b",
+    "reason": "Independent native development retention-action test; only adopt if points and matchup safety improve."
   }
 }
