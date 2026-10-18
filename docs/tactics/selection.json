@@ -1,0 +1,15 @@
+{
+  "selected": "trap",
+  "path": "experiments/titan-x-trap/team.py",
+  "sha256": "90a7dcba55da2605c59b4cd08d839d94e20a68e006bf52acf9305d01efda88bb",
+  "promising_independent_tactics": [],
+  "integration_justified": false,
+  "executed_episodes": {
+    "power": 23,
+    "trap": 10,
+    "pinball": 0,
+    "ambush": 42
+  },
+  "best_failure_only": true,
+  "rule": "No outcome tuning. Four initial flags off; standalone one-flag sources frozen before matches. A tactic is promising only with >v10 development points, positive goal-difference delta, zero exceptions, <=2 extra raw misses/1000 and mean<=v10*1.35+.04ms. It must execute at least 5 distinct tactical episodes or passes across targeted+development. Integrate only qualifying tactics; if multiple qualify test combination on 2 unused reserve seeds then select by points (tie: fewer flags). If none qualify, freeze the highest development points standalone as an explicitly rejected best-failure challenger for required fresh qualification; tie: goal difference then flag order. No source/flag selection after qualification."
+}

@@ -242,5 +242,32 @@ class SpecialTacticsTests(unittest.TestCase):
                     self.assertLessEqual(math.hypot(*action.movement),1.00000001)
                     self.assertTrue(0. <= action.kick_power <= 1.)
 
+    def test_tactical_launch_issues_the_first_touch_checked_receiver_command(self):
+        c=controller(GOALKEEPER_TRAP=True)
+        bx,by=28.72259926973003,-8.927497399941494
+        p=(3,bx-1.7,by,0.,0.)
+        q=(4,40.072594324986625,-3.094850453997598,3.981841673630939,1.0574074182965782)
+        enemies=[(5,bx+4.,-by*.5,-4.,0.)]
+        c._x_rush=True
+        option=c._x_trap(p,bx,by,0.,0.,[p,q],enemies)
+        self.assertIsNotNone(option)
+        obs=observation(ball=(bx,by,0.,0.),friends=[(0,-47.,0.,0.,0.),p,q],enemies=enemies)
+        # A vertical clearance is the fallback; force the already physically
+        # checked special option through the real v10 launch/planning path.
+        with patch.object(c,'_v10_choose_kick',return_value=((0.,1.),1.)),patch.object(c,'_x_trap',return_value=option):
+            actions=c.act(obs)
+        self.assertIsNotNone(c._receive_plan)
+        self.assertEqual(c._receive_plan[0],q[0])
+        self.assertEqual(actions.players[q[0]].movement,c._move(q,c._target(*option[4])))
+        self.assertIn('trap_pass',c._x_events)
+
+    def test_reset_clears_special_reception_and_power_state(self):
+        c=controller();c._x_power_state='active';c._x_reception=(4,3,2000,(38.,0.))
+        c._x_keeper_history=(1900,30.,0.)
+        c.reset(19)
+        self.assertEqual(c._x_power_state,'idle')
+        self.assertIsNone(c._x_reception)
+        self.assertIsNone(c._x_keeper_history)
+
 if __name__ == '__main__':
     unittest.main()

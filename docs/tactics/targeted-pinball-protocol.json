@@ -1,0 +1,40 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-x-opponents.zip",
+  "opponents_archive_sha256": "203cbd7b1c6d7fc5c7b2224403e48bd1465bc4205a5abe59901bc76c3e32a11f",
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "pinball": {
+      "path": "experiments/titan-x-pinball/team.py",
+      "sha256": "95b3e60324fe9f965678616a7eb9785f1070438be04f31dbeaf528a8716ba66f"
+    }
+  },
+  "seeds": {
+    "targeted-pinball": [
+      1144613387,
+      1467275440
+    ]
+  },
+  "opponents": [
+    "v10-compact",
+    "tight_links"
+  ],
+  "fixture_order_seed": 10182026,
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "gates": {
+    "more_points": true,
+    "whole_seed_bootstrap_95_lower_strictly_positive": true,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "extra_raw_deadline_misses_per_1000_max": 2.0,
+    "accepted_mean_max": "v10*1.35+0.04ms",
+    "official_sdk_validation": true,
+    "legal_actions": true,
+    "fixtures_min": 768
+  }
+}
