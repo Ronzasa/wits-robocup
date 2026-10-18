@@ -1,0 +1,140 @@
+{
+  "adopted": false,
+  "population_policy": "g04-p00",
+  "population_framework": "r7-pass",
+  "no_heldout_feedback": true,
+  "promotion_gates_unchanged": true,
+  "screen": {
+    "reference": {
+      "objective": -2.034375,
+      "paired_ppm": -1.34375,
+      "worst_style_ppm": -1.75,
+      "style_deltas": {
+        "v10-compact": -0.75,
+        "v10-long": -1.0,
+        "long_shooter": -1.625,
+        "v10": -1.25,
+        "v10-press": -1.375,
+        "v9.1": -1.5,
+        "v10-counter": -1.75,
+        "tight_links": -1.5
+      },
+      "points": 29,
+      "baseline_points": 115,
+      "goal_difference": -91,
+      "policy_errors": 0,
+      "raw_deadlines": 0,
+      "mean_ms": 0.3200900701291687,
+      "intake_ok": true
+    },
+    "press_response": {
+      "objective": -1.934375,
+      "paired_ppm": -1.234375,
+      "worst_style_ppm": -1.75,
+      "style_deltas": {
+        "v10-compact": -0.75,
+        "v10-long": -0.375,
+        "long_shooter": -1.5,
+        "v10": -1.125,
+        "v10-press": -1.375,
+        "v9.1": -1.75,
+        "v10-counter": -1.75,
+        "tight_links": -1.25
+      },
+      "points": 36,
+      "baseline_points": 115,
+      "goal_difference": -94,
+      "policy_errors": 0,
+      "raw_deadlines": 2,
+      "mean_ms": 0.32132814012049,
+      "intake_ok": true
+    },
+    "delta_ppm": 0.109375,
+    "style_deltas": {
+      "v10": 0.125,
+      "v9.1": -0.25,
+      "v10-compact": 0.0,
+      "v10-counter": 0.0,
+      "v10-press": 0.0,
+      "v10-long": 0.625,
+      "long_shooter": 0.125,
+      "tight_links": 0.25
+    },
+    "flags": {
+      "more_points": true,
+      "worst_style": true,
+      "head_style": true,
+      "intake": true,
+      "zero_errors": true
+    },
+    "eligible": true,
+    "run": "/workspace/work/nova-1-run/response-screen"
+  },
+  "check": {
+    "reference": {
+      "objective": -1.834375,
+      "paired_ppm": -1.203125,
+      "worst_style_ppm": -1.625,
+      "style_deltas": {
+        "v10-counter": -0.8125,
+        "v10-long": -1.125,
+        "v9.1": -1.3125,
+        "v10-press": -1.625,
+        "long_shooter": -1.1875,
+        "tight_links": -1.0625,
+        "v10": -1.125,
+        "v10-compact": -1.375
+      },
+      "points": 77,
+      "baseline_points": 231,
+      "goal_difference": -194,
+      "policy_errors": 0,
+      "raw_deadlines": 1,
+      "mean_ms": 0.3189924119534737,
+      "intake_ok": true
+    },
+    "press_response": {
+      "objective": -1.953125,
+      "paired_ppm": -1.296875,
+      "worst_style_ppm": -1.6875,
+      "style_deltas": {
+        "v10-counter": -0.9375,
+        "v10-long": -1.25,
+        "v9.1": -1.25,
+        "v10-press": -1.6875,
+        "long_shooter": -1.4375,
+        "tight_links": -1.25,
+        "v10": -1.25,
+        "v10-compact": -1.3125
+      },
+      "points": 65,
+      "baseline_points": 231,
+      "goal_difference": -212,
+      "policy_errors": 0,
+      "raw_deadlines": 1,
+      "mean_ms": 0.3212192713411592,
+      "intake_ok": true
+    },
+    "delta_ppm": -0.09375,
+    "style_deltas": {
+      "v10": -0.125,
+      "v9.1": 0.0625,
+      "v10-compact": 0.0625,
+      "v10-counter": -0.125,
+      "v10-press": -0.0625,
+      "v10-long": -0.125,
+      "long_shooter": -0.25,
+      "tight_links": -0.1875
+    },
+    "flags": {
+      "more_points": false,
+      "worst_style": true,
+      "head_style": true,
+      "intake": true,
+      "zero_errors": true
+    },
+    "eligible": false,
+    "run": "/workspace/work/nova-1-run/response-check"
+  },
+  "source_sha256": "6f7b1b409d62dfdfffe2d76b7f76c127ca89fff347e8f32142f4a2c7e8e9d9de"
+}
