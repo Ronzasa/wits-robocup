@@ -12,8 +12,8 @@ def build(runtime=False, handoff=False):
     source = (ROOT / 'experiments/titan-11/team.py').read_text()
     assert hashlib.sha256(source.encode()).hexdigest() == FROZEN
     if runtime:
-        # The ETA fallback cannot affect an earlier physically reachable
-        # sample. Evaluate it only if no sample passes the unchanged tests.
+        # The ETA fallback cannot affect an earlier heuristic reach result.
+        # Evaluate it only if no sample passes the unchanged chase tests.
         old = '''        best=None
         for t,x,y in samples:'''
         assert source.count(old) == 1

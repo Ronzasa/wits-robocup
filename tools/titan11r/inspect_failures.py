@@ -1,11 +1,17 @@
-import collections, gzip, importlib.util, json, sys
+import argparse, collections, gzip, importlib.util, json, sys
 from pathlib import Path
-ROOT=Path('/workspace/wits-robocup')
+ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT/'student-sdk'))
 from soccer import play_match
 spec=importlib.util.spec_from_file_location('frozen',ROOT/'experiments/titan-11/team.py')
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
-out=Path('/workspace/work/titan-11-repair')
+parser=argparse.ArgumentParser(description='Reproduce the frozen-source reception handoff failures; instrumented diagnostics only.')
+parser.add_argument('--replays',type=Path,required=True)
+parser.add_argument('--out',type=Path,required=True)
+args=parser.parse_args()
+if args.out.exists():parser.error('Preserve existing diagnostic evidence.')
+args.out.mkdir(parents=True)
+out=args.out
 records=[];counts=collections.Counter()
 class Audit(m.Guardiola2011):
     def _v10_choose_kick(self,*args):
@@ -37,7 +43,7 @@ class Audit(m.Guardiola2011):
                     'selected':self._ti_selected,'launch':launch,'base':self.base,'ratings':self.ratings,
                     'pass_plan':future,'receive_plan':self._receive_plan})
         return action
-for file in sorted(Path('/workspace/work/titan-11-intelligence/selected-replays').glob('*challenger.report.json')):
+for file in sorted(args.replays.glob('*challenger.report.json')):
     row=json.loads(file.read_text())['original_fixture'];fixture={k:row[k] for k in ('seed','candidate_slot','candidate_takes_kickoff','opponent')}
     c=Audit();side=row['candidate_slot'];teams=[c,row['opponent']]
     if side:teams.reverse()
