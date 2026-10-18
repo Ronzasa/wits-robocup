@@ -180,7 +180,7 @@ def generate(work, archive):
             'Pass-only and carry-only first-command changes were then tested independently with identical learned weights on '
             '32 paired configurations per source, four strong styles and two unused development seeds. '
             'Each chooses between the ordinary movement and a legal brake by post-contact velocity error, '
-            'before the existing physical pass verifier. It adds two cheap contact trials, not an additional expensive pass race. '
+            'before the existing physical pass verifier. It compares two cheap contact trials per option and keeps one launch, without an additional expensive pass race. '
             'A combined test runs only if both isolated features help. The registered development selection rules and all failures remain in the branch.', '',
             '| Variant | Points | Δ points/match vs R6 | Worst-style Δ vs R6 | Eligible |',
             '|---|---:|---:|---:|---|']
