@@ -1,0 +1,54 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-11-intelligence-opponents.zip",
+  "opponents_archive_sha256": "457a258417a6deac6cd446f95e54d30661dffbc93419a58d8747337e0a7f0b8d",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v9.0",
+    "v10-press",
+    "v10-counter",
+    "v10-compact",
+    "v10-long",
+    "tight_links",
+    "v10-linekeeper",
+    "v10-mark",
+    "long_shooter",
+    "wide_switch"
+  ],
+  "seeds": {
+    "validation": [
+      508124494,
+      1980880103,
+      1341842690,
+      502174036,
+      1981314315,
+      1413237916,
+      279909459,
+      1870467619,
+      1099308760,
+      338896828,
+      958730706,
+      1733917404,
+      1515945063,
+      192991786,
+      453404953,
+      1180978863
+    ]
+  },
+  "fixture_order_seed": 110108,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "titan11": {
+      "path": "experiments/titan-11/team.py",
+      "sha256": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "scope": "Both pitch sides and kickoff arrangements. All raw timeouts kept; first clean exact repeats stored separately."
+}
