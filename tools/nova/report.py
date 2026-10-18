@@ -342,6 +342,19 @@ def generate(work, archive):
         'Registered parameters, sources, protocols, fixed opponent archives and tests are committed separately.', '',
         'No generated controller needs this evidence, trainer, parameter files or any other Python file at runtime. '
         'The candidate remains a development experiment unless all registered promotion gates and confirmation pass and the user explicitly approves promotion.', '']
+    if decision['confirmation_run']:
+        confirmation=read(DOC/'confirmation-gates.json')
+        paired=confirmation['accepted']
+        lines += ['## Conditional competition confirmation', '',
+            f"{paired['paired_fixtures']} additional paired configurations on {paired['independent_seed_blocks']} untouched seed blocks. "
+            f"Accepted points v10.0/NOVA: {paired['baseline']['points']}/{paired['challenger']['points']}; "
+            f"paired points/match delta {paired['points_per_match_difference']:+.4f}, 95% interval {paired['paired_seed_block_bootstrap_95']}. "
+            f"Extra initial raw deadline misses per 1,000 fixtures: {confirmation['extra_raw_misses_per_1000']:+.4f}. "
+            f"All confirmation gates pass: {confirmation['all_gates_pass']}.", '',
+            metric_table(confirmation['raw']['baseline'],confirmation['raw']['challenger']), '',
+            '| Confirmation gate | Pass |', '|---|---|']
+        lines += [f"| {name} | {'yes' if okay else 'NO'} |" for name,okay in confirmation['flags'].items()]
+        lines.append('')
     (DOC / 'runtime-analysis.json').write_text(json.dumps({'histogram_intervals': runtime, 'original_slow_calls': observations}, indent=2) + '\n')
     (DOC / 'evidence-archive.json').write_text(json.dumps(archive, indent=2) + '\n')
     target = ROOT / 'docs/nova-1-validation.md'
