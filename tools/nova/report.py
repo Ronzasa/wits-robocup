@@ -165,7 +165,38 @@ def generate(work, archive):
         'R5 corrects those command contracts, preserves support runs and models advancing carry pursuit. R6 prevents three similar cheap-ranked '
         'plans starving a distinct feasible action family from the same three-plan response budget. Each change has a focused regression, was frozen '
         'before its generation and used development data only. No measured population source was edited.', '',
-        '### Development selection', '', '| Stage | Selected policy | NOVA/v10 points | Paired Δ | Worst-style Δ |', '|---|---|---|---:|---:|']
+    ]
+    release_path = DOC / 'release-experiment-decision.json'
+    if release_path.exists():
+        release = read(release_path)
+        lines += ['### Isolated first-command contact experiment', '',
+            'Four native development replays of frozen g02-p00 exposed a carrier-body reversal: at tick 495, '
+            'a forward carry request produced vx=−11.6259 after contact, while a legal braking first command preserved vx=+6.1468. '
+            'The case is a physical regression, not proof that braking wins games. Across those instrumented diagnostic games '
+            '33 named receivers touched their passes, 6 plans were superseded, 4 had another player touch first and 1 was unfinished; '
+            '16/179 isolated predicted launches differed from the next native position by more than half a unit, excluding goal resets. '
+            'Other-player collisions and opponent actions are not covered by an isolated carrier witness. '
+            'The diagnostic harness observes extra state, so none of its timing is used for qualification.', '',
+            'Pass-only and carry-only first-command changes were then tested independently with identical learned weights on '
+            '32 paired configurations per source, four strong styles and two unused development seeds. '
+            'Each chooses between the ordinary movement and a legal brake by post-contact velocity error, '
+            'before the existing physical pass verifier. It adds two cheap contact trials, not an additional expensive pass race. '
+            'A combined test runs only if both isolated features help. The registered development selection rules and all failures remain in the branch.', '',
+            '| Variant | Points | Δ points/match vs R6 | Worst-style Δ vs R6 | Eligible |',
+            '|---|---:|---:|---:|---|']
+        for name, b in release['independent_results'].items():
+            relative = b['relative_to_r6']
+            lines.append(f"| {name} | {b['points']} | {relative['ppm_delta']:+.4f} | {relative['worst_style_delta']:+.4f} | {'yes' if b['eligible'] else 'no'} |")
+        lines += ['', f"Framework for uncreated generations 3–5: **{release['framework']}**. "
+            f"Combined native test run: {release['combined_test_run']}. "
+            'The scheduler was paused between complete native batches for diagnostics; no decision was paused and no measured population source changed. '
+            'This development study used no qualification or heldout result.', '']
+        if release['combined_test_run']:
+            lines += ['Fresh combination cohort:', '', '| Variant | Points | Δ points/match vs R6 |', '|---|---:|---:|']
+            for name, b in release['selection_results'].items():
+                lines.append(f"| {name} | {b['points']} | {b['relative_to_r6']['ppm_delta']:+.4f} |")
+            lines.append('')
+    lines += ['### Development selection', '', '| Stage | Selected policy | NOVA/v10 points | Paired Δ | Worst-style Δ |', '|---|---|---|---:|---:|']
     for path in sorted(DOC.glob('selection-*-results.json')):
         b = read(path)[0]
         lines.append(f"| {path.stem} | {b['name']} | {b['points']}/{b['baseline_points']} | {b['paired_ppm']:+.4f} | {b['worst_style_ppm']:+.4f} |")

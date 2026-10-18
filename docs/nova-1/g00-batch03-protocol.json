@@ -1,0 +1,54 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/nova-1-training.zip",
+  "opponents_archive_sha256": "b92e7ee1d240166a213ca890d8a9ab3b21919198fd8f54691070b12fad03b394",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long"
+  ],
+  "seeds": {
+    "development-learning": [
+      1315543574
+    ]
+  },
+  "fixture_order_seed": 9011901,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "g00-p18": {
+      "path": "experiments/nova-1-population/g00-p18/team.py",
+      "sha256": "b4c0e3f1e4aa75aeb57abe547b9159cf2ef30fac9607a89889f8126e32c0460e"
+    },
+    "g00-p19": {
+      "path": "experiments/nova-1-population/g00-p19/team.py",
+      "sha256": "51a49fc84851d9491ab09a37af6c9d7017ac05e50e667102b79fc815c25b7828"
+    },
+    "g00-p20": {
+      "path": "experiments/nova-1-population/g00-p20/team.py",
+      "sha256": "3d2eb3370902d715832ad7999ce8c9e3677148f4292f834955b233f2de2ae569"
+    },
+    "g00-p21": {
+      "path": "experiments/nova-1-population/g00-p21/team.py",
+      "sha256": "b310d71c00bcb5d7b3034995bfd71ad2ba13233dc278e81b89786d38eace0272"
+    },
+    "g00-p22": {
+      "path": "experiments/nova-1-population/g00-p22/team.py",
+      "sha256": "3360fc3a8ed473c91c4822f4d0451482cfc482f6f233e6bc8cec147e07cc88f5"
+    },
+    "g00-p23": {
+      "path": "experiments/nova-1-population/g00-p23/team.py",
+      "sha256": "219e26f4eadc474e2c3810cc49c2aa72e58294cda268b23799c3e9283285cab4"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "training": true,
+  "timing": "Unmodified SDK wall timer/deadline; external thread CPU and GC-overlap observations applied equally. Every initial miss and failed repeat retained."
+}

@@ -19,5 +19,12 @@
     "framework": "r6",
     "template_sha256": "e457798247195b155bfc69ad0172cef3e3d2c03f7a0f46f8bb5cfcd07e3b4c59",
     "reason": "Development and a response-model regression exposed beam starvation: three similar cheap-ranked actions could prevent any shot/retention family from reaching detailed opponent evaluation. Preserve family diversity inside the same three-plan budget. No heldout outcomes used."
+  },
+  "generation_3_onward": {
+    "framework": "r7-pass",
+    "template_sha256": "77bcb167e723a55b0e91ffa44648bbe6a5bf63a58b22e67b491b8f19ae4c9d9b",
+    "reason": "Native development points and matchup robustness; no heldout or qualification feedback.",
+    "independent_experiment": "release-independent-protocol.json",
+    "combined_test_run": false
   }
 }

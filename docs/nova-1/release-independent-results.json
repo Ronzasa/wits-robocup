@@ -1,0 +1,92 @@
+{
+  "r6": {
+    "objective": -1.24375,
+    "paired_ppm": -0.84375,
+    "worst_style_ppm": -1.0,
+    "style_deltas": {
+      "v9.1": -1.0,
+      "v10": -1.0,
+      "v10-compact": -0.375,
+      "v10-counter": -1.0
+    },
+    "points": 6,
+    "baseline_points": 33,
+    "goal_difference": -47,
+    "policy_errors": 0,
+    "raw_deadlines": 0,
+    "mean_ms": 0.3147432772481314,
+    "intake_ok": true,
+    "relative_to_r6": {
+      "ppm_delta": 0.0,
+      "style_deltas": {
+        "v10": 0.0,
+        "v9.1": 0.0,
+        "v10-compact": 0.0,
+        "v10-counter": 0.0
+      },
+      "worst_style_delta": 0.0,
+      "objective": 0.0
+    },
+    "eligible": false
+  },
+  "r7-pass": {
+    "objective": -1.18125,
+    "paired_ppm": -0.78125,
+    "worst_style_ppm": -1.0,
+    "style_deltas": {
+      "v9.1": -1.0,
+      "v10": -0.875,
+      "v10-compact": -0.25,
+      "v10-counter": -1.0
+    },
+    "points": 8,
+    "baseline_points": 33,
+    "goal_difference": -42,
+    "policy_errors": 0,
+    "raw_deadlines": 1,
+    "mean_ms": 0.30819707587321926,
+    "intake_ok": true,
+    "relative_to_r6": {
+      "ppm_delta": 0.0625,
+      "style_deltas": {
+        "v10": 0.125,
+        "v9.1": 0.0,
+        "v10-compact": 0.125,
+        "v10-counter": 0.0
+      },
+      "worst_style_delta": 0.0,
+      "objective": 0.0625
+    },
+    "eligible": true
+  },
+  "r7-carry": {
+    "objective": -1.334375,
+    "paired_ppm": -0.84375,
+    "worst_style_ppm": -1.25,
+    "style_deltas": {
+      "v9.1": -0.625,
+      "v10": -1.125,
+      "v10-compact": -0.375,
+      "v10-counter": -1.25
+    },
+    "points": 6,
+    "baseline_points": 33,
+    "goal_difference": -46,
+    "policy_errors": 0,
+    "raw_deadlines": 1,
+    "mean_ms": 0.3074818209564493,
+    "intake_ok": true,
+    "relative_to_r6": {
+      "ppm_delta": 0.0,
+      "style_deltas": {
+        "v10": -0.125,
+        "v9.1": 0.375,
+        "v10-compact": 0.0,
+        "v10-counter": -0.25
+      },
+      "worst_style_delta": -0.25,
+      "objective": -0.090625
+    },
+    "eligible": false
+  }
+}

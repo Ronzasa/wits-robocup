@@ -1,0 +1,90 @@
+{
+  "bounds": [
+    [
+      6.0,
+      20.0
+    ],
+    [
+      3.0,
+      18.0
+    ],
+    [
+      2.0,
+      22.0
+    ],
+    [
+      1.0,
+      6.0
+    ],
+    [
+      1.6,
+      4.5
+    ],
+    [
+      0.03,
+      0.18
+    ],
+    [
+      0.0,
+      1.8
+    ],
+    [
+      0.0,
+      2.5
+    ],
+    [
+      1.0,
+      12.0
+    ],
+    [
+      0.0,
+      5.0
+    ],
+    [
+      -1.0,
+      3.0
+    ],
+    [
+      0.0,
+      3.0
+    ],
+    [
+      0.0,
+      2.0
+    ],
+    [
+      -2.0,
+      1.0
+    ],
+    [
+      -3.0,
+      1.0
+    ],
+    [
+      -1.0,
+      3.0
+    ],
+    [
+      -5.0,
+      0.0
+    ],
+    [
+      -0.5,
+      2.0
+    ],
+    [
+      -4.0,
+      0.0
+    ]
+  ],
+  "dimensions": 19,
+  "population": 24,
+  "generations": 4,
+  "elite_count": 6,
+  "retained_elites": 2,
+  "seed": 9011009,
+  "objective": "paired points per match + .25 worst-style delta + .15 mean of two worst-style deltas",
+  "sigma_initial": 0.25,
+  "sigma_min": 0.06,
+  "no_unseen_styles_or_final_seeds": true
+}

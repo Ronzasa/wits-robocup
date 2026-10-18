@@ -178,6 +178,18 @@ class NovaController(TeamController):
                 'features':features,'value':value,'cover':cover,
                 'keeper_home':(self._left+self.CONFIG[4],_clip(ball[1]*self.CONFIG[4]/max(self.CONFIG[4],ball[0]-self._left),-self._mouth,self._mouth))}
 
+    def _release_step(self,carrier,ball,kick,movements,desired):
+        # Preserve the requested velocity after the carrier's first body
+        # contact. Braking is an alternative command, not an ETA adjustment.
+        best=None;error=float('inf')
+        requested=self._requested_velocity(ball[2],ball[3],kick)
+        for first in movements:
+            launch=self._carrier_contact(carrier,ball[0],ball[1],*requested,first)
+            if launch is None:continue
+            deviation=(launch[2]-desired[0])**2+(launch[3]-desired[1])**2
+            if deviation<error:best=(first,launch);error=deviation
+        return best
+
     def _proposals(self,carrier,friends,opponents,ball,targets):
         bx,by,vx,vy=ball;nodes=[]
         move=self._move(carrier,(bx+.3,by))
@@ -226,14 +238,15 @@ class NovaController(TeamController):
             ux,uy=_unit(tx-bx,ty-by)
             kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
             if kick is None:continue
-            launch=self._carrier_contact(carrier,bx,by,*self._requested_velocity(vx,vy,kick),move)
-            if launch is None:continue
+            release=self._release_step(carrier,ball,kick,launch_moves,(ux*speed,uy*speed))
+            if release is None:continue
+            first,launch=release
             path=self._pass_path(launch,(bx,by),2.2)
             race=self._collect(q,path,opponents)
             if race is None:continue
             route,margin=race
             plan=(q[0],route[2],route[1])
-            nodes.append(self._joint_node('pass',carrier,kick,move,plan,launch,path,friends,opponents,ball,targets,margin=margin,arrival=route[0]))
+            nodes.append(self._joint_node('pass',carrier,kick,first,plan,launch,path,friends,opponents,ball,targets,margin=margin,arrival=route[0]))
         # A keeper returns to its line on the next tick. A slow carry would
         # require incompatible follow-up commands; release to a verified
         # outfielder or clear instead of predicting an unexecuted dribble.
