@@ -1,0 +1,14 @@
+{
+  "source": "experiments/nova-1-population/g02-p00/team.py",
+  "sha256": "46d403e9f82514bb2c352a49d51eae381d76307e0f7e0a91f5dbad0433536041",
+  "development_seed_index": 18,
+  "sides": [
+    0,
+    1
+  ],
+  "kickoffs": [
+    true,
+    false
+  ],
+  "purpose": "Development execution diagnosis before final selection; no source tuning on qualification. Trainer parent paused outside SDK calls; its existing native child finishes normally before diagnostics."
+}

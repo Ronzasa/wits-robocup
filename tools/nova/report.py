@@ -1,5 +1,5 @@
 """Render NOVA's actual frozen native evidence; never manufacture missing runs."""
-import argparse, hashlib, json, math, sys, zipfile
+import argparse, hashlib, json, math, re, zipfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -79,6 +79,9 @@ def generate(work, archive):
     raw = gates['raw']
     reg = read(DOC / 'registration.json')
     selected = selection['selected']
+    tests = (work / 'selected-regressions.log').read_text()
+    count = re.search(r'Ran (\d+) tests?', tests)
+    intake = read(work / 'qualification/nova-validation.json')
     assert digest(ROOT / selection['candidate_path']) == selection['candidate_sha256']
     assert digest(ROOT / 'my-team/team.py') == reg['champion_sha256']
     lines = [
@@ -211,6 +214,10 @@ def generate(work, archive):
         'not proof of a sole cause and never grounds to discard a raw miss.', '',
         '```json', json.dumps(observations, indent=2), '```', '',
         '## Reproduction and evidence', '',
+        f"Final regression run: {count.group(1) if count else 'see archived log'} tests; "
+        f"official candidate intake: {intake['stats']['decisions']:,} decisions, passed={intake['ok']}. "
+        'The complete regression log and SDK intake JSON are retained. All registered population sources are rebuilt and hash-checked by a regression; '
+        'the selected-source test also verifies the measured frozen policy and actual finite five-player commands.', '',
         'Run from this branch with the official student SDK/native engine installed:', '',
         '```bash',
         'python -m unittest discover -s tests -q',
