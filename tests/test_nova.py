@@ -183,6 +183,33 @@ class NovaTests(unittest.TestCase):
         self.assertLess(old[2],0.);self.assertGreater(release[1][2],0.)
         self.assertEqual(release[0],brake);self.assertLessEqual(math.hypot(*release[0]),1.000001)
 
+    def test_physically_controlled_retention_can_issue_movement_without_a_kick(self):
+        weights=[0.,0.,0.,0.,0.,0.,0.,100.,0.,0.,0.,0.]
+        friends=[(0,-47.,0.,0.,0.),(1,-15.,9.,0.,0.),(2,-1.45,0.,0.,0.),(3,10.,0.,0.,0.),(4,20.,-12.,0.,0.)]
+        obs=observation(friends=friends,kickers=(2,),holder=0,last=2)
+        old=controller(params={'framework':'r7-pass','weights':weights})
+        new=controller(params={'framework':'r8-drive','weights':weights})
+        self.assertIsNotNone(old.act(obs).players[2].kick_direction)
+        action=new.act(obs)
+        self.assertIsNone(action.players[2].kick_direction)
+        self.assertGreater(math.hypot(*action.players[2].movement),0.)
+        self.assertIsNone(new._receive)
+        self.assertEqual(len(action.players),5)
+        self.assertLessEqual(new._plans_evaluated,3);self.assertLessEqual(new._response_steps,60)
+
+    def test_body_retention_does_not_assume_control_of_a_fast_ball_or_ignore_a_tackle(self):
+        c=controller(params={'framework':'r8-drive'})
+        for fast,enemy in [(True,False),(False,True)]:
+            o=observation(ball=(0.,0.,24. if fast else 0.,0.),
+                friends=[(0,-47.,0.,0.,0.),(1,-15.,9.,0.,0.),(2,-1.45,0.,0.,0.),(3,10.,0.,0.,0.),(4,20.,-12.,0.,0.)],kickers=(2,),holder=0,last=2)
+            friends=[(p.id,*p.position,*p.velocity) for p in o.my_players]
+            enemies=[(p.id,*p.position,*p.velocity) for p in o.opponents]
+            if enemy:enemies[1]=(6,2.,0.,0.,0.)
+            ball=(*o.ball.position,*o.ball.velocity);path=c._pass_path(ball)
+            targets,_=c._shape(friends,enemies,ball,path,friends[2],True)
+            nodes=c._proposals(friends[2],friends,enemies,ball,targets)
+            self.assertFalse(any(n['kick'] is None for n in nodes))
+
     def test_selected_source_is_the_measured_frozen_policy(self):
         path=ROOT/'docs/nova-1/selected-policy.json'
         if not path.exists():self.skipTest('Native development selection is not complete.')

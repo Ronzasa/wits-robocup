@@ -210,6 +210,26 @@ def generate(work, archive):
             for name, b in release['selection_results'].items():
                 lines.append(f"| {name} | {b['points']} | {b['relative_to_r6']['ppm_delta']:+.4f} |")
             lines.append('')
+    retention_path=DOC/'retention-results.json'
+    if retention_path.exists():
+        retention=read(retention_path)
+        lines += ['### Controlled-body retention experiment', '',
+            'The first shortlist exposed a large competitive deficit (best 83 vs v10.0 238 points). '
+            'A slow-shot goalkeeper hypothesis had no matching missed-goal case in the available development traces, so the goalkeeper was left unchanged. '
+            'A separate action-space limitation was concrete: every selected carrier plan requested a kick. '
+            'An isolated experiment adds movement-only retention when the first step produces a controllable body touch and no verified opponent '
+            'interception in the first 0.10 seconds. Otherwise the existing kicked carries remain. '
+            'The chosen drive movement continues in its short response model; act() can issue movement without a kick. '
+            'Passing verification, shooting, goalkeeper behavior and defensive roles remain unchanged. '
+            'The same three-plan × two-response × ten-step bound is retained.', '',
+            'The reference is the frozen first-shortlist winner with identical weights. Both sources and v10.0 play '
+            '64 configurations over eight known styles, two separate unused development seeds and both sides/kickoffs.', '',
+            '| Source | Points | Δ points/match vs reference |', '|---|---:|---:|',
+            f"| Existing reference | {retention['reference']['points']} | 0 |",
+            f"| Body retention | {retention['body_retention']['points']} | {retention['relative_ppm']:+.4f} |", '',
+            f"Adopted for uncreated generation 5: **{retention['adopted']}**. "
+            'The existing generation-4 population stays byte-frozen. The original promotion gates and sealed cohorts remain unchanged. '
+            'Focused regressions require an actual movement-only action for a controllable contact and reject retention of a fast ball or an imminent tackle.', '']
     lines += ['### Development selection', '', '| Stage | Selected policy | NOVA/v10 points | Paired Δ | Worst-style Δ |', '|---|---|---|---:|---:|']
     for path in sorted(DOC.glob('selection-*-results.json')):
         b = read(path)[0]

@@ -1,0 +1,22 @@
+{
+  "reference": "g03-p20",
+  "reference_sha256": "8f66bdd17b8c70ccb879c96a6ce4db530922df5f9e9bccc888b20cedfd551463",
+  "seeds": [
+    1957503637,
+    1181467699
+  ],
+  "styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links"
+  ],
+  "fixtures_per_source": 64,
+  "change": "Add a movement-only retention plan when the first step has a physically verified controllable body contact and no opponent can intercept in the first .10s; retain existing kicked carries otherwise. Same three-plan/two-response/ten-step bound. Goalkeeper/shooting/defence/pass verification unchanged.",
+  "selection": "Positive paired points vs frozen reference; no style regression >.5 PPM and v10 head style regression >.25 PPM; official intake and zero errors. Only affect uncreated generation5. If unsuccessful retain R7-pass.",
+  "registered_before_native": true
+}
