@@ -1,0 +1,90 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-x-opponents.zip",
+  "opponents_archive_sha256": "203cbd7b1c6d7fc5c7b2224403e48bd1465bc4205a5abe59901bc76c3e32a11f",
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "power": {
+      "path": "experiments/titan-x-power/team.py",
+      "sha256": "00104bc0f7535d367bb33792fa28fb88403fd538451552e0acd5a91caa6e7aa5"
+    },
+    "trap": {
+      "path": "experiments/titan-x-trap/team.py",
+      "sha256": "a73a8e465200b0842882ef77da616bb9837e947ee2fc5e6e72d70786545d70f4"
+    }
+  },
+  "seeds": {
+    "development-gk-r2": [
+      909835115,
+      121769676,
+      1652181861,
+      1912341145
+    ]
+  },
+  "opponents": [
+    "v10",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "aggressive-keeper",
+    "quick_wall"
+  ],
+  "fixture_order_seed": 10182026,
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "gates": {
+    "more_points": true,
+    "whole_seed_bootstrap_95_lower_strictly_positive": true,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "extra_raw_deadline_misses_per_1000_max": 2.0,
+    "accepted_mean_max": "v10*1.35+0.04ms",
+    "official_sdk_validation": true,
+    "legal_actions": true,
+    "fixtures_min": 768
+  },
+  "qualification_rule": "Only run qualification if points improve with strictly positive whole-seed 95% interval and safety/runtime gates pass; otherwise reject.",
+  "seed_audit": {
+    "previous_protocol_and_archived_metadata_seeds": [
+      51052033,
+      211926972,
+      285645432,
+      323700284,
+      324895653,
+      343625334,
+      410470786,
+      415742157,
+      437371257,
+      706413102,
+      784083240,
+      870551050,
+      953676901,
+      1092556230,
+      1144613387,
+      1164966803,
+      1303372442,
+      1339953594,
+      1345300419,
+      1370587122,
+      1426356639,
+      1462180457,
+      1467275440,
+      1481459767,
+      1517888952,
+      1581440374,
+      1595862619,
+      1659280265,
+      1697593208,
+      1739680390,
+      1754771140,
+      1844551422,
+      1859908722,
+      1941971150
+    ],
+    "overlap": []
+  }
+}

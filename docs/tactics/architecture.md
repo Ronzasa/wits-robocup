@@ -87,3 +87,35 @@ The frozen local opponents cannot establish improvement against the actual
 school league leaders. Promotion evidence is limited to these registered native
 fixtures. A weak, inactive or timing-unsafe tactic is retained as a documented
 failed experiment, without enabling it in the current team.
+
+## Second goalkeeper development round
+
+The second-round protocol and results are in
+[goalkeeper-r2-development-protocol.json](goalkeeper-r2-development-protocol.json)
+and [goalkeeper-r2-results.md](goalkeeper-r2-results.md). They supersede the
+initial goalkeeper entry/continuation and rush-detection descriptions above
+for the two rebuilt goalkeeper candidates only. Entry still uses the original
+late trailing window, travel/recovery budget, fastest counter-flight bound and
+mandatory cover. Continuation allows held backward recycling or a live verified
+receive plan without reapplying the entry ball-position/velocity guards. Loss
+of possession, a ball behind the keeper and the original time/score/cover
+limits trigger recovery through the original v10 keeper.
+
+A covering player becoming the nominal chaser is tolerated only while our team
+holds possession; opponent possession immediately wins priority. Keeper
+recycling needs a physically verified reception and at least ten metres of
+space. Ordinary v10 passing distributes the ball when the keeper receives.
+Trap detection includes an observed advanced keeper braking or turning; it
+requires adjacent observations and still clears when the keeper returns home.
+Trap passing tests three launch speeds and three leads for each of two
+receivers, while retaining all existing physical checks and the safe-carry
+score floor. An existing forward pass can now be challenged during an observed
+rush. The established goal-bound finish remains first priority; shot/contact
+physics and the Guardiola/Klopp controller are unchanged.
+
+The builder now rebuilds only the all-off manager and the power/trap candidates.
+The initial pinball/ambush standalones are archived unchanged and are not
+included in this round's native matches. Neither is enabled in any tested
+source. No combined goalkeeper candidate is selected without independent
+competitive improvement. Qualification is conditional on meaningful development
+improvement; no best-failure qualification is run in this round.

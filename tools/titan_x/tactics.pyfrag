@@ -10,6 +10,7 @@
         self._x_power_until = -1
         self._x_power_deadline = -1
         self._x_power_cover = None
+        self._x_transit_until = -1
         self._x_keeper_history = None
         self._x_rush = False
         self._x_reception = None
@@ -54,8 +55,16 @@
                 and vx > -4.0 and obs.ball.controlling_team != 1 and (owns or favorable))
         if state in ('advance', 'active'):
             cover = next((p for p in friends if p[0] == self._x_power_cover), None)
-            if (not safe or remaining < 4.0 or obs.tick >= self._x_power_deadline
-                    or cover is None or cover[1] > bx-6.0):
+            # Entry guards describe an advanced attack. A verified return pass
+            # deliberately violates them; retain possession through its flight.
+            receiving = (self._receive_plan is not None and
+                         obs.ball.last_touch == self._receive_plan[1] and
+                         obs.tick <= self._receive_plan[2])
+            retained = owns or (obs.ball.controlling_team is None and receiving)
+            exposed = (bx < keeper[1]-3.0 or bx < self._left+18.0)
+            if (not retained or exposed or obs.score[0] >= obs.score[1]
+                    or remaining < 4.0 or obs.tick >= self._x_power_deadline
+                    or cover is None or (cover[1] > bx-6.0 and bx > 12.0)):
                 self._x_power_state = 'recover'
                 self._x_event('power_cancel')
             elif state == 'advance' and keeper[1] > -13.0:
@@ -123,10 +132,15 @@
             old = self._x_keeper_history
             bx, by = obs.ball.position
             toward = (bx-q[1])*q[3]+(by-q[2])*q[4]
-            self._x_rush = (old is not None and obs.tick-old[0] == 1
-                and self._right-q[1] > 5.5 and bx > 12.0
-                and math.hypot(q[3],q[4]) > 1.5 and toward > 1.0
-                and q[1] < old[1]-.035 and math.hypot(q[1]-bx,q[2]-by) < 18.0)
+            # A keeper remains committed while braking or turning after a
+            # rush. Observe depth and recovery time as well as forward speed.
+            advancing = (old is not None and obs.tick-old[0] == 1
+                         and q[1] < old[1]-.035 and toward > 1.0)
+            stranded = (old is not None and obs.tick-old[0] == 1
+                        and self._right-q[1] > 10.0 and
+                        math.hypot(q[1]-bx,q[2]-by) < 26.0)
+            self._x_rush = (bx > 12.0 and self._right-q[1] > 5.5
+                            and (advancing or stranded))
             self._x_keeper_history = (obs.tick,q[1],q[2])
         if self.KEEPER_POWER_PLAY and friends:
             self._x_power_observe(obs,friends,opponents)
@@ -188,10 +202,14 @@
         receivers = sorted((q for q in friends[1:] if q[0]!=p[0] and q[1]>bx-2.0),
                            key=lambda q: abs(q[2]+keeper[2]))[:2]
         for q in receivers:
-            for lead in (3.0,7.0):
+            for lead in (0.0,3.0,7.0):
                 tx,ty = self._target(max(q[1],keeper[1]+2.0)+lead,
                                      _clip(-keeper[2]*.6+q[2]*.25,-8.0,8.0))
-                option = self._x_direct(p,bx,by,vx,vy,q,friends,opponents,tx,ty,20.0)
+                option = None
+                for speed in (14.0,20.0,26.0):
+                    candidate = self._x_direct(p,bx,by,vx,vy,q,friends,opponents,tx,ty,speed)
+                    if candidate is not None and (option is None or candidate[0] > option[0]):
+                        option = candidate
                 if option is None:
                     continue
                 point = option[3][1:]
@@ -255,7 +273,7 @@
         # A productive verified direct/endwall pass keeps priority. New
         # receivers/runs are considered when that opening does not exist.
         plan = self._bank_plan or self._pass_plan
-        if plan is not None and plan[1] >= bx+4.0:
+        if plan is not None and plan[1] >= bx+4.0 and not (self.GOALKEEPER_TRAP and self._x_rush):
             return fallback
         option = None
         name = None
@@ -263,8 +281,15 @@
             q = friends[0]
             if -16.0 < q[1] < bx-3.0 and math.hypot(q[1]-bx,q[2]-by) < 36.0:
                 option = self._x_direct(p,bx,by,vx,vy,q,friends,opponents,q[1],q[2],18.0)
-                if option is not None and option[0] < -1.0:
-                    option = None
+                if option is not None:
+                    # Recycling earns value only with room for the keeper's
+                    # next action. Collection/body/first-touch checks still apply.
+                    point = option[3][1:]
+                    space = min((math.hypot(o[1]-point[0],o[2]-point[1]) for o in opponents),default=0.0)
+                    if space < 10.0:
+                        option = None
+                    else:
+                        option = (option[0]+min(space,20.0)*.35,*option[1:])
                 name = 'power_pass'
         if option is None and self.GOALKEEPER_TRAP:
             option = self._x_trap(p,bx,by,vx,vy,friends,opponents)
@@ -374,7 +399,8 @@
                             self._x_event('tactic_receive_run')
         if self.KEEPER_POWER_PLAY and self._x_power_state in ('advance','active','recover'):
             keeper = friends[0]
-            if self._x_power_cover == self._chaser and self._x_power_state != 'recover':
+            if (self._x_power_cover == self._chaser and obs.ball.controlling_team != 0
+                    and self._x_power_state != 'recover'):
                 self._x_power_state = 'recover'
                 self._x_event('power_cancel_cover')
             if self._x_power_state == 'recover':

@@ -3,6 +3,7 @@
 The active controller remains frozen TITAN v10.0 in `my-team/team.py`.
 TITAN-X is developed only on `titan-x-special-tactics`.
 
+- [Goalkeeper second-round results](goalkeeper-r2-results.md)
 - [Actual validation results](titan-x-validation.md)
 - [Tactical Opportunity Manager and safety checks](architecture.md)
 - [Retained Goalkeeper Power Play concept](goalkeeper-power-play.md)

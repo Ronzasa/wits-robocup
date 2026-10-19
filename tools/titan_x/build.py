@@ -37,7 +37,9 @@ def build(name, enabled=()):
 
 def main():
     build('titan-x')
-    for name, flag in zip(('titan-x-power', 'titan-x-trap', 'titan-x-pinball', 'titan-x-ambush'), FLAGS):
+    # Archived pinball/ambush standalones retain their original source. This
+    # development round builds only the two authorized goalkeeper candidates.
+    for name, flag in zip(('titan-x-power', 'titan-x-trap'), FLAGS[:2]):
         build(name, (flag,))
 
 if __name__ == '__main__':
