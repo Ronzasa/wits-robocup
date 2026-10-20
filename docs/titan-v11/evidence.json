@@ -1,0 +1,7 @@
+{
+  "archive": "tests/fixtures/titan-v11-native-evidence.zip",
+  "sha256": "48b0cc0f7133e3536bd89f5c22c2c3728155e3443e8b7c19a106090f3872efcc",
+  "bytes": 1727122,
+  "files": 78,
+  "verified": "Archive CRC and every SHA-256 manifest entry."
+}

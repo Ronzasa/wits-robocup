@@ -1,0 +1,53 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-x-opponents.zip",
+  "opponents_archive_sha256": "203cbd7b1c6d7fc5c7b2224403e48bd1465bc4205a5abe59901bc76c3e32a11f",
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "gates": {
+    "more_points": true,
+    "whole_seed_bootstrap_95_lower_strictly_positive": true,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "extra_raw_deadline_misses_per_1000_max": 2.0,
+    "accepted_mean_max": "v10*1.35+0.04ms",
+    "official_sdk_validation": true,
+    "legal_actions": true,
+    "fixtures_min": 768
+  },
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "architect": {
+      "path": "experiments/titan-v11-architect/team.py",
+      "sha256": "1411d331137d9ce075f44296a4e4f74779c7d0381aee903073f041ec3174d944"
+    },
+    "firewall": {
+      "path": "experiments/titan-v11-firewall/team.py",
+      "sha256": "8c73e2bac586e32e21cdad0c16f918d27dd0f560e1b10362af46c1e8b27cd37e"
+    }
+  },
+  "seeds": {
+    "v11-development": [
+      1366928440,
+      1672111731,
+      1554601060,
+      967408017,
+      1157556321,
+      393382957,
+      1780904399,
+      913724520
+    ]
+  },
+  "opponents": [
+    "v10-press",
+    "v10-compact",
+    "v10-counter"
+  ],
+  "fixture_order_seed": 20261020,
+  "registration": "docs/titan-v11/registration.json",
+  "runner_sha256": "0883a18d0a540b00f153db119b5b5cdd13a9caadc83de35ffeb9cc68e50f9554"
+}

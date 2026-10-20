@@ -1,0 +1,13 @@
+{
+  "decision": "RETAIN_V10_REJECT_BOTH",
+  "combined_source_built": false,
+  "qualification_run": false,
+  "promotion": false,
+  "source_hashes_reproduced": true,
+  "controller_tests_before_native": 133,
+  "total_tests_after_analysis": 137,
+  "completed_final_cohort_matches": 288,
+  "completed_interrupted_matches_excluded": 73,
+  "active_champion_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "reason": "Neither standalone passes registered significance or per-style preservation. Firewall also increases concessions. Full failures and native metrics are in results.json."
+}
