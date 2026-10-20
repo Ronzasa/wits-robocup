@@ -1,0 +1,7 @@
+{
+  "archive": "tests/fixtures/original-architect-evaluation-evidence.zip",
+  "sha256": "25425626412f033612be8918ea9ca4afd45c1f59d99f6ca4acc47dfbb1b4dbc1",
+  "files": 87,
+  "bytes": 3277335,
+  "verified": "Archive CRC and all per-file SHA-256 entries."
+}

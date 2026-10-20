@@ -124,8 +124,8 @@ def main():
     lines+=['','Compact points must not fall below either comparator; compact concessions must not exceed v10. The original per-style preservation, total concessions, turnovers, completion-rate, SDK, legality, exception, timing and reproducibility checks also apply. Qualification retains the original 768-pair minimum and all original promotion gates; development does not waive them.','',
         '| Opponent | v10 points | Original points | Adaptive points | v10 GF–GA | Original GF–GA | Adaptive GF–GA |','|---|---:|---:|---:|---|---|---|']
     for style,v in styles.items():
-        b,o,a=(v[n] for n in ('v10','architect','adaptive'))
-        lines.append(f"| {style} | {b['points']} | {o['points']} | {a['points']} | {b['goals_for']}–{b['goals_against']} | {o['goals_for']}–{o['goals_against']} | {a['goals_for']}–{a['goals_against']} |")
+        style_base,style_original,style_adaptive=(v[n] for n in ('v10','architect','adaptive'))
+        lines.append(f"| {style} | {style_base['points']} | {style_original['points']} | {style_adaptive['points']} | {style_base['goals_for']}–{style_base['goals_against']} | {style_original['goals_for']}–{style_original['goals_against']} | {style_adaptive['goals_for']}–{style_adaptive['goals_against']} |")
     lines+=['','## Actual executions, rejected opportunities and completions','']
     for name,t in tel.items():
         lines += [f'### {name}','', 'Accepted diagnostic/command counts: `'+json.dumps(t['ticks'],sort_keys=True)+'`.','',

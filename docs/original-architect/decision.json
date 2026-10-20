@@ -1,0 +1,30 @@
+{
+  "decision": "RETAIN_V10",
+  "development_passed": false,
+  "qualification_run": false,
+  "qualification_reserved_seeds_used": false,
+  "promotion": false,
+  "policies_changed": false,
+  "reporting_bug_fixed": true,
+  "tests_passed": 155,
+  "development_pairs": 384,
+  "development_original_full_matches": 768,
+  "development_exact_repeat_matches": 22,
+  "forensic_full_matches": 20,
+  "public_harness_check_full_matches": 8,
+  "failed_development_gates": [
+    "raw_more_points",
+    "raw_positive_seed_lower",
+    "raw_exact_significance",
+    "accepted_more_points",
+    "accepted_positive_seed_lower",
+    "accepted_exact_significance",
+    "no_candidate_timeout_on_first_exact_repeat",
+    "all_exact_repeats_resolved",
+    "raw_deadline_allowance",
+    "no_style_points_regression",
+    "no_extra_turnovers"
+  ],
+  "summary": "Original Architect failed the independently preregistered broader development evaluation: fewer points, more concessions/turnovers, per-style regressions and native timing failures. No qualification or promotion.",
+  "deadline_audit": "Historical original misses were CPU-charged with no recorded GC; 18 new timed forensic matches did not reproduce them. Root cause remains unproven. New evaluation distinguishes fixture recurrence from identical public inputs, and preserves every miss."
+}

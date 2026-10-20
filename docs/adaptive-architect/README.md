@@ -46,3 +46,10 @@ both sides and kickoffs. Qualification requires statistically supported gains
 over both baselines, no compact regression, preservation of v10 metrics and all
 original runtime/safety gates. A failed development experiment receives no fresh
 qualification, integration or promotion.
+
+## Reporting correction
+
+The live performance report now fixes a narrative subtotal-shadowing error.
+The original native tables, statistics, gates and immutable evidence archive
+are unchanged. Its embedded historical report is superseded by the live
+correction; see [the audit](../original-architect/deadline-and-reporting-audit.md).

@@ -78,7 +78,7 @@ Native completed-pass increments observed: 4069. Supported-receiver plan complet
 
 ## Interpretation
 
-Adaptive gained 152 points over v10, completed 2758 more passes, conceded -159 fewer goals and recorded -756 fewer turnovers. These aggregate improvements do not establish a supported points advantage: the paired interval includes zero and the exact p-value versus v10 is 0.339310. It also trails original Architect by 39 points.
+Adaptive gained 6 points over v10, completed 110 more passes, conceded 13 fewer goals and recorded 24 fewer turnovers. These aggregate improvements do not establish a supported points advantage: the paired interval includes zero and the exact p-value versus v10 is 0.339310. It also trails original Architect by 39 points.
 
 Compact opposition remained a failure: 61 points versus 66 for v10 and 84 for original Architect. The detector blocked stationary compact situations but still issued 117 support commands against the compact style, compared with 87 against pressing. Dynamic compact-opponent situations therefore still passed the pressure gate. This classifier did not deliver the required compact preservation.
 

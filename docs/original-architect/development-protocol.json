@@ -1,0 +1,63 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-x-opponents.zip",
+  "opponents_archive_sha256": "203cbd7b1c6d7fc5c7b2224403e48bd1465bc4205a5abe59901bc76c3e32a11f",
+  "ticks": 2400,
+  "deadline_ms": 20.0,
+  "gates": {
+    "more_points": true,
+    "whole_seed_bootstrap_95_lower_strictly_positive": true,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "extra_raw_deadline_misses_per_1000_max": 2.0,
+    "accepted_mean_max": "v10*1.35+0.04ms",
+    "official_sdk_validation": true,
+    "legal_actions": true,
+    "fixtures_min": 768
+  },
+  "stage": "development",
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "architect": {
+      "path": "experiments/titan-v11-architect/team.py",
+      "sha256": "1411d331137d9ce075f44296a4e4f74779c7d0381aee903073f041ec3174d944"
+    }
+  },
+  "seeds": {
+    "development": [
+      94340735,
+      444084460,
+      346574233,
+      581970016,
+      1032957493,
+      1312143427,
+      279290375,
+      1323331623,
+      1528295992,
+      625619788,
+      633217548,
+      825775864
+    ]
+  },
+  "opponents": [
+    "v10",
+    "v10-press",
+    "v10-compact",
+    "v10-counter",
+    "v10-long",
+    "v9.1",
+    "tight_links",
+    "wide_switch"
+  ],
+  "fixture_order_seed": 202610202115,
+  "runner_hashes": {
+    "tools/original_architect/run.py": "90607aa93c43d297bbec6c6e1bcaf8eb1e1fe96a8fba0df81c6de65d3a621ef7",
+    "tools/original_architect/timing.py": "913b84b44c703f1c59c24994ad26810d07a5def3adb009776ce3e1a4bf1715c7",
+    "tools/original_architect/paired_statistics.py": "9a633087d42340455fa3c26c3cede1e7910c0a4ba3f8ce9219c3debf7764713b"
+  },
+  "registration": "docs/original-architect/registration.json"
+}
