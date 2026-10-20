@@ -1,0 +1,7 @@
+{
+  "archive": "tests/fixtures/adaptive-architect-native-evidence.zip",
+  "sha256": "4162eed9302285d522fad7a1b356fc9345f0f240a24951738a6400d253afb07b",
+  "bytes": 2016924,
+  "files": 73,
+  "verified": "Archive CRC and every SHA-256 entry."
+}

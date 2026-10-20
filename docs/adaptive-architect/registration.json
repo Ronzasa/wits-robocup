@@ -1,0 +1,404 @@
+{
+  "project": "Adaptive Passing Lane Architect",
+  "base_commit": "906f7b9bb790707700c8e69e960d1e13f1b95911",
+  "created_utc": "2026-10-20T00:39:27.476791+00:00",
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "architect": {
+      "path": "experiments/titan-v11-architect/team.py",
+      "sha256": "1411d331137d9ce075f44296a4e4f74779c7d0381aee903073f041ec3174d944"
+    },
+    "adaptive": {
+      "path": "experiments/titan-adaptive-architect/team.py",
+      "sha256": "b35b539820c64c4002533130f53a8f09f6025af1451d99b3e6264e8b4c036176"
+    }
+  },
+  "development": [
+    1010963236,
+    1471592995,
+    1866751028,
+    801048194,
+    1460931547,
+    320988105,
+    180975351,
+    418968474,
+    618229755,
+    1992763458,
+    915178521,
+    474246682,
+    838033848,
+    1361092955,
+    647366063,
+    1275523763
+  ],
+  "qualification_reserved": [
+    1151498355,
+    293564884,
+    873978146,
+    1313956760,
+    1481709080,
+    1558138856,
+    1980823384,
+    541177817,
+    902208917,
+    405713815,
+    924283841,
+    489361885,
+    407815541,
+    1902299693,
+    933545542,
+    306624954
+  ],
+  "styles": [
+    "v10-press",
+    "v10-compact",
+    "v10-counter"
+  ],
+  "qualification_styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v10-long",
+    "long_shooter",
+    "tight_links",
+    "quick_wall",
+    "aggressive-keeper",
+    "relay_legacy",
+    "wide_switch"
+  ],
+  "excluded_values_sha256": "432c05b38dc157f9881ab1a3c90f2f88dffa879522c9981150dc34d95d4e57e7",
+  "excluded_sources": [
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/development-protocol.json",
+      "sha256": "c11479d8460353930ae57fc84419e1c9e6a6305a6f73fb192827f77f71d1aa62"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/qualification-protocol.json",
+      "sha256": "91a6d5dc501ff973aaad3184642d9bb1b765a28dc0eeb4a475612c9c74a73d9d"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/registration.json",
+      "sha256": "2b36c9e8856488b24e0c2f01a4dd4bb0f06a00db0f59797c9a649d3192c9674c"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/targeted-ambush-protocol.json",
+      "sha256": "9934540236b0fe1350b9d75d694d3e51a8fdf52f9df5d935e4f5479dc2432cb3"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/targeted-pinball-protocol.json",
+      "sha256": "9882274066689e2d2c1d6ff607243dfdafb67157d3f937cc1878c214e603b1e1"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/targeted-power-protocol.json",
+      "sha256": "4ba2df029f9f92d9b4361f0ecec68c345f137bb4d97804cc3e9b3a97bc8562d2"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/tactics/targeted-trap-protocol.json",
+      "sha256": "7a4b4e6b33de5f944c54c6f6e341dff3d19f91433a634f10c9e3161717ada6e2"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/titan-10b-r-protocol.json",
+      "sha256": "27a7831f05da9eb03fdcbe8de1d6ef17aa81ec4989222d14ae3a0b1c03135d56"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/titan-v11/development-protocol.json",
+      "sha256": "fafa7b08302d0074cb19f1e879d6415314ed43272bb14a025d8c11ab0a13fcb6"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/titan-v11/interrupted-development-protocol.json",
+      "sha256": "ad0b6906cd71b8e977d5ef4ff35ec7c3261078d92577351d700bfbe2736d98a9"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/titan-v11/interrupted-registration.json",
+      "sha256": "215b25996248b3db2ec3220c6b2698b87fa6f7f731ef4600e0f0806ad2bc4794"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/docs/titan-v11/registration.json",
+      "sha256": "3defe90d8760cb6d8d849db08fbba855b656fb1dc5c401a2a1a46174dda9b378"
+    },
+    {
+      "path": "/workspace/work/titan-adaptive-architect/work/diagnostic-probe-protocol.json",
+      "sha256": "6e5d8556fad6342c5581631595b32374038b862733251c02dd2d0f6d7c153a67"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/development-protocol.json",
+      "sha256": "c11479d8460353930ae57fc84419e1c9e6a6305a6f73fb192827f77f71d1aa62"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/qualification-protocol.json",
+      "sha256": "91a6d5dc501ff973aaad3184642d9bb1b765a28dc0eeb4a475612c9c74a73d9d"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/registration.json",
+      "sha256": "2b36c9e8856488b24e0c2f01a4dd4bb0f06a00db0f59797c9a649d3192c9674c"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/targeted-ambush-protocol.json",
+      "sha256": "9934540236b0fe1350b9d75d694d3e51a8fdf52f9df5d935e4f5479dc2432cb3"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/targeted-pinball-protocol.json",
+      "sha256": "9882274066689e2d2c1d6ff607243dfdafb67157d3f937cc1878c214e603b1e1"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/targeted-power-protocol.json",
+      "sha256": "4ba2df029f9f92d9b4361f0ecec68c345f137bb4d97804cc3e9b3a97bc8562d2"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/tactics/targeted-trap-protocol.json",
+      "sha256": "7a4b4e6b33de5f944c54c6f6e341dff3d19f91433a634f10c9e3161717ada6e2"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/titan-10b-r-protocol.json",
+      "sha256": "27a7831f05da9eb03fdcbe8de1d6ef17aa81ec4989222d14ae3a0b1c03135d56"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/titan-v11/development-protocol.json",
+      "sha256": "fafa7b08302d0074cb19f1e879d6415314ed43272bb14a025d8c11ab0a13fcb6"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/titan-v11/interrupted-development-protocol.json",
+      "sha256": "ad0b6906cd71b8e977d5ef4ff35ec7c3261078d92577351d700bfbe2736d98a9"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/titan-v11/interrupted-registration.json",
+      "sha256": "215b25996248b3db2ec3220c6b2698b87fa6f7f731ef4600e0f0806ad2bc4794"
+    },
+    {
+      "path": "/workspace/work/titan-v11-tactics/docs/titan-v11/registration.json",
+      "sha256": "3defe90d8760cb6d8d849db08fbba855b656fb1dc5c401a2a1a46174dda9b378"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/development-protocol.json",
+      "sha256": "c11479d8460353930ae57fc84419e1c9e6a6305a6f73fb192827f77f71d1aa62"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/goalkeeper-r2-development-protocol.json",
+      "sha256": "161fbe082e982a3c893525113ae7193d7c9c8cf1f93c203e3798be3fbc1cb732"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/goalkeeper-r2-interrupted-protocol.json",
+      "sha256": "73cd16b2114c283c5cc6d1960b07916307295a241494e897110da93f0bd9360c"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/qualification-protocol.json",
+      "sha256": "91a6d5dc501ff973aaad3184642d9bb1b765a28dc0eeb4a475612c9c74a73d9d"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/registration.json",
+      "sha256": "2b36c9e8856488b24e0c2f01a4dd4bb0f06a00db0f59797c9a649d3192c9674c"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/targeted-ambush-protocol.json",
+      "sha256": "9934540236b0fe1350b9d75d694d3e51a8fdf52f9df5d935e4f5479dc2432cb3"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/targeted-pinball-protocol.json",
+      "sha256": "9882274066689e2d2c1d6ff607243dfdafb67157d3f937cc1878c214e603b1e1"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/targeted-power-protocol.json",
+      "sha256": "4ba2df029f9f92d9b4361f0ecec68c345f137bb4d97804cc3e9b3a97bc8562d2"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/tactics/targeted-trap-protocol.json",
+      "sha256": "7a4b4e6b33de5f944c54c6f6e341dff3d19f91433a634f10c9e3161717ada6e2"
+    },
+    {
+      "path": "/workspace/work/titan-x-gk/docs/titan-10b-r-protocol.json",
+      "sha256": "27a7831f05da9eb03fdcbe8de1d6ef17aa81ec4989222d14ae3a0b1c03135d56"
+    },
+    {
+      "path": "/workspace/titan/protocol.json",
+      "sha256": "9d041e67587bf6052ba9682d9c58bb26903cccc7a982c1e396a26f547d4d1cf2"
+    },
+    {
+      "path": "/workspace/titan/research4/expanded-protocol.json",
+      "sha256": "8487d6ad6a252ac5881ed6bcc9cd0fc1b296e299d940711958c7132ce52635f1"
+    },
+    {
+      "path": "/workspace/titan/research4/fresh-protocol.json",
+      "sha256": "fe1599c118f87da1366ae800ce958a12c1e79a00c3fbb809fc25b720e8b83746"
+    },
+    {
+      "path": "/workspace/titan/research4/fresh-registration.json",
+      "sha256": "fe06363761752015fb35fe9eb508db73f8098c86e32c76aa7cfc5a115290e3ec"
+    },
+    {
+      "path": "/workspace/titan/research4/package/fresh-registration.json",
+      "sha256": "fe06363761752015fb35fe9eb508db73f8098c86e32c76aa7cfc5a115290e3ec"
+    },
+    {
+      "path": "/workspace/titan/research4/screen-protocol.json",
+      "sha256": "7ecd1d35d5496e7e874ab69c7dc14a3189c3712dedcb5855298eea628d626823"
+    },
+    {
+      "path": "/workspace/titan/research5/fresh-protocol.json",
+      "sha256": "4e124425f9f4e28fa29f557bc62f60bcf85a2da7ff4f5b0e498fa12de3f70e36"
+    },
+    {
+      "path": "/workspace/titan/research5/fresh-registration.json",
+      "sha256": "9bbeb058b04336916f1dc549047de03b9694347975e86df304d30b14c5ccd465"
+    },
+    {
+      "path": "/workspace/titan/research5/league-seed-protocol.json",
+      "sha256": "5f073cf7ca2805a39d2a006c0be1b145fccf0b5e5180512ca53a4c1a97fc37d5"
+    },
+    {
+      "path": "/workspace/titan/research5/screen-protocol.json",
+      "sha256": "7ecd1d35d5496e7e874ab69c7dc14a3189c3712dedcb5855298eea628d626823"
+    },
+    {
+      "path": "/workspace/titan/research6/confirmation-protocol.json",
+      "sha256": "947bdee39803ec2c739c1f502876cf8fe72e8e49cff7fea51ef4762f74e4115a"
+    },
+    {
+      "path": "/workspace/titan/research6/confirmation-registration.json",
+      "sha256": "0daac9289047684cead56f6636a304848a1a8e973fb7fe3d5e42d6d046574aae"
+    },
+    {
+      "path": "/workspace/titan/research6/expanded-protocol.json",
+      "sha256": "5a97c529852c52d081de875b4a092822709625ea62a56fbea09f426d4914a387"
+    },
+    {
+      "path": "/workspace/titan/research6/fresh-protocol.json",
+      "sha256": "25c9cfcaec0c610c529c501d1f7cc68ac54147056de8d5f90ec93fbc5a18cb4f"
+    },
+    {
+      "path": "/workspace/titan/research6/fresh-registration.json",
+      "sha256": "2a386a0def538d46db7edb72088f02f78ef68c743e8ef982598cd76ca553047f"
+    },
+    {
+      "path": "/workspace/titan/research6/screen-protocol.json",
+      "sha256": "70c92dfcfe6cb8ddfdcac402e36edb3a8cfa6d7687e599df321859930ce38953"
+    },
+    {
+      "path": "/workspace/titan/research7/amended-screen-source-registration.json",
+      "sha256": "b346e7c8b7ca7df2c9e97ff8f6859137ab94205a877164ad6ec3c71c374b3d0f"
+    },
+    {
+      "path": "/workspace/titan/research7/attack-source-registration.json",
+      "sha256": "6f88134f45a6c0c691d15e28de68e40edffbd1ff73850361a6aaf7572ef9c983"
+    },
+    {
+      "path": "/workspace/titan/research7/expanded-protocol.json",
+      "sha256": "d73952da0e51e52667e3f9fc818698a8017f7bd12e5b74a4db16a3c1c85889ad"
+    },
+    {
+      "path": "/workspace/titan/research7/fresh-protocol.json",
+      "sha256": "2fd870ef5d576e53c9cd0fbe87169b7136229329f08410d07beec663685a0587"
+    },
+    {
+      "path": "/workspace/titan/research7/fresh-registration.json",
+      "sha256": "deec80d6d4a41a46ea65fe654521a66698fc37e547eec23c0fcecff2cbb7e2d8"
+    },
+    {
+      "path": "/workspace/titan/research7/pre-attack-fresh-registration.json",
+      "sha256": "e4dcd220b1b7ac096c6d5da545a97ae32a344d79a07bbd1dcb06a714e974a62f"
+    },
+    {
+      "path": "/workspace/titan/research7/screen-protocol.json",
+      "sha256": "fc3513e04fa99a07f9f97b45dfb5f1730ff722e95e9ede6e02db66a710708f26"
+    },
+    {
+      "path": "/workspace/titan/research7/screen-source-registration.json",
+      "sha256": "45ca0a149f69b41f44faab1960637e34117229afd822143e7c4acff550721598"
+    },
+    {
+      "path": "/workspace/titan/research7/selection-registration.json",
+      "sha256": "4d44db79e0bd7fcb5de099ef8bb6148880ff448a976d262a35f90c137ed4cfd1"
+    },
+    {
+      "path": "/workspace/titan/research8/expanded-protocol.json",
+      "sha256": "4673cf23cd5154c13d7625953f19026c699fce6401982735bd15b228bc50dbaf"
+    },
+    {
+      "path": "/workspace/titan/research8/fresh-protocol.json",
+      "sha256": "33e674da35f704b6ac9903b07b391c0c140a5411603add094a630453181bf382"
+    },
+    {
+      "path": "/workspace/titan/research8/refined-fresh-protocol.json",
+      "sha256": "237b4f0e14bfee3896b65d4747f48647619ed8689047217f781bc643acecfe2e"
+    },
+    {
+      "path": "/workspace/titan/research8/refinement-registration.json",
+      "sha256": "3f644297abf35ec1d07aa214d4ca0fe33e78267cc9bba9187f5fc4467faaf1c1"
+    },
+    {
+      "path": "/workspace/titan/research8/registration.json",
+      "sha256": "a2602b1297cf061db8e27bffe51fbb9b8a6068f03c40cd684576731f75988880"
+    },
+    {
+      "path": "/workspace/titan/research8/screen-protocol.json",
+      "sha256": "2ee289082684eb7524182850370be1403c0eef7653f31d4b129cff5287b6914a"
+    },
+    {
+      "path": "/workspace/titan/v2/archetype-protocol.json",
+      "sha256": "15d2966665cadf005c2dc8b90a6a58ff8c35612d54d8e0452516930f21f059d1"
+    },
+    {
+      "path": "/workspace/titan/v2/fresh-final-protocol.json",
+      "sha256": "358d17666d4ab055e981477fc33b0081042943db76b242e8e97edad7f551c789"
+    },
+    {
+      "path": "/workspace/titan/v2/remaining-development-protocol.json",
+      "sha256": "01f585a4ab72b4a8d2e67799aff0ce3855cfc462b45e37324044f2aa069bf4d6"
+    },
+    {
+      "path": "/workspace/titan/v2/tuning-protocol.json",
+      "sha256": "079d861a71d62ef6dc2258e1836d73d3c6655a36b22dcc643a4abf3724d15bc7"
+    },
+    {
+      "path": "/workspace/titan/v3/expanded-native-protocol.json",
+      "sha256": "6cc7365300490b55b488ac81d7873c1f56ab727b3cbf7807351b65b5ac911899"
+    },
+    {
+      "path": "/workspace/titan/v3/expanded-protocol.json",
+      "sha256": "c715e129263d966fd1f381df3852d2a7e48f4d10bc19e4c2fb71bde472fd92ca"
+    },
+    {
+      "path": "/workspace/titan/v3/fresh-protocol.json",
+      "sha256": "e27398a061459c4917219562424a640df1822dcfe53b34c9adbb8727c93d5722"
+    },
+    {
+      "path": "/workspace/titan/v3/fresh-registration.json",
+      "sha256": "d91ba8d6a077e37aa96842fd105cf768fffffbc5c2b523d09d4a48d417923054"
+    },
+    {
+      "path": "/workspace/titan/v3/screen-protocol.json",
+      "sha256": "95396f19ec6a3cba78f2c856e1a84a7d40fc333dc7fe9a7a66f48f1e09cfb49c"
+    }
+  ],
+  "rules": {
+    "development": "16 unused whole-seed blocks x3 frozen strong styles xboth sides xboth kickoffs =192 matched configurations; three separate sources =576 full native matches. No source/threshold tuning or cohort extension from these outcomes.",
+    "statistics": "Adaptive must beat BOTH v10 and original Architect on raw AND accepted points, with positive 97.5% whole-seed bootstrap lower bound (10000 resamples, RNG719331) and exact one-sided whole-seed sign-flip p<=0.025 for each comparator. This preserves the previous two-comparison conservative significance threshold.",
+    "compact": "No raw points regression against compact relative to either comparator; no extra compact goals conceded versus frozen v10.",
+    "preservation": "No raw points regression against any style relative to v10. Adaptive raw overall goals conceded and turnovers <=v10, pass completion rate >=v10, with >=5 actual adaptive-support episodes.",
+    "safety": "All original official-SDK, legal-action, zero-exception, no-reproducible-candidate-timeout gates. Extra raw deadline misses/1000 <=2; accepted mean <=v10*1.35+.04ms. Stock 20ms deadline,2400 ticks,one worker; preserve every original raw row and exact timeout repeat. No GC/affinity/physics/configuration controls.",
+    "qualification": "Only if every development gate passes. Freeze candidate and run reserved16 unused qualification blocks x12 frozen styles xboth sides xboth kickoffs=768 pairs against v10. Preserve every original qualification gate. Never change main or active champion or promote without explicit approval.",
+    "telemetry": "Accepted matching final movement commands identify executions. Pressure/rejection labels are diagnostics, not executions. Live native passes_completed counters identify actual completions; plan/recent-support links are associations, never causal goals/passes created. Telemetry does not affect policy decisions."
+  },
+  "original_promotion_gates": {
+    "more_points": true,
+    "whole_seed_bootstrap_95_lower_strictly_positive": true,
+    "zero_policy_exceptions": true,
+    "no_reproducible_deadline_failure": true,
+    "extra_raw_deadline_misses_per_1000_max": 2.0,
+    "accepted_mean_max": "v10*1.35+0.04ms",
+    "official_sdk_validation": true,
+    "legal_actions": true,
+    "fixtures_min": 768
+  },
+  "disabled": [
+    "COUNTERATTACK_FIREWALL",
+    "KEEPER_POWER_PLAY",
+    "GOALKEEPER_TRAP",
+    "PINBALL_SLINGSHOT",
+    "COOLDOWN_AMBUSH"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "decision": "RETAIN_V10_REJECT_ADAPTIVE",
+  "qualification_run": false,
+  "promotion": false,
+  "frozen_sources_reproduced": true,
+  "original_cohort_full_matches": 576,
+  "development_timing_repeat_full_matches": 33,
+  "public_diagnostic_probe_full_matches": 8,
+  "public_probe_timing_repeat_full_matches": 0,
+  "tests_passed": 152,
+  "adaptive_executed_support_commands": 295,
+  "native_completions_after_supported_receiver_plan": 51,
+  "interpretation": "Compact regression, inconclusive gain over v10, worse than original Architect and two reproduced native deadline failures. Reject; keep frozen v10.",
+  "failed_gates": [
+    "raw_positive_97_5_seed_lower_vs_v10",
+    "raw_exact_sign_flip_p_vs_v10",
+    "accepted_positive_97_5_seed_lower_vs_v10",
+    "accepted_exact_sign_flip_p_vs_v10",
+    "raw_more_points_than_architect",
+    "raw_positive_97_5_seed_lower_vs_architect",
+    "raw_exact_sign_flip_p_vs_architect",
+    "accepted_more_points_than_architect",
+    "accepted_positive_97_5_seed_lower_vs_architect",
+    "accepted_exact_sign_flip_p_vs_architect",
+    "compact_points_at_least_both",
+    "no_style_points_regression_vs_v10",
+    "no_reproduced_candidate_deadline_failure"
+  ]
+}
