@@ -1,0 +1,54 @@
+{
+  "sources": {
+    "active": {
+      "path": "my-team/team.py",
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+    },
+    "integrated": {
+      "path": "experiments/keeper-width-attack-r3/team.py",
+      "sha256": "6d9ee05c2423e03fea67bfde818249db9d5f638c7a8cd2ae9aad22e65d51d9fc"
+    }
+  },
+  "seeds": [
+    1267261789,
+    1248978038,
+    466304107,
+    19001514,
+    980630558,
+    1500775241,
+    638922816,
+    750811855,
+    522569677,
+    349212431,
+    1110670612,
+    277724882,
+    1016040135,
+    1381568487,
+    1852510766,
+    1112380372,
+    458355020,
+    673517248,
+    141990093,
+    1178745168,
+    1206677737,
+    733924854,
+    597275261,
+    1818224389,
+    780116339,
+    1539821575,
+    1726234610,
+    293728979,
+    284331788,
+    934961153,
+    528850938,
+    937273753
+  ],
+  "fixture_order_seed": 231025201,
+  "config_hash": "372990895c7eca2a",
+  "engine_version": "0.1.0",
+  "condition": "Run only if no integrated generation qualifies for the original league-pool hold-out. This tests the observed direct matchup advantage of R3 independently; do not reinterpret it as a league promotion gate.",
+  "hypothesis": "The single integrated R3 including backpass, width and time phases outperforms the active champion in fresh direct games.",
+  "primary": "Raw own-versus-opponent league points in each actual fixture; 20,000 whole-seed bootstrap paired 95% lower bound >0; original 20ms deadline and raw reliability measures retained.",
+  "selection": "R3 selected before these games based on earlier direct 5W2D1L,18\u20139 over8 development games. Thirty-two new seeds and both field/kickoff assignments give128 fixtures. No further policy changes allowed.",
+  "original_league_validation_seeds": "Remain untouched; a direct result cannot authorize league promotion."
+}
