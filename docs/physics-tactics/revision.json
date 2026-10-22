@@ -1,0 +1,23 @@
+{
+  "revision": "R1",
+  "scope": "One combined development revision per isolated tactic; no qualification data used.",
+  "previous_source_hashes": {
+    "ambush": "2afb73fa3267dee234676b1659554600bd4c9f2f4675367d8ab0d4cd4705c247",
+    "wall-brake": "60d61f8210286eb9390e648524377d4d7c6952629055cf74d21d9ca5d8eb5041",
+    "rebound-shot": "b3646dcddd7fd8ca233eeb47f7086e0c7585d0e1dc1164810277919ca71ec126"
+  },
+  "final_source_hashes": {
+    "v10": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "active": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+    "ambush": "a0c2c8cb3dd5f8d86f5384d088bbd0fa480e9a1d6f21d5bf371b1ba854f462cb",
+    "wall-brake": "3030800b1ed5a739ab2c3e9f05df6b3af6a754dcc7b0d47a51bea721820b4eb2",
+    "rebound-shot": "ee748af258fd43b6ababe1a5dee8c4e26d4d17fa4bf15a3636018527806d1d13"
+  },
+  "development_review": "development-review.md",
+  "regressions": 112,
+  "native_flights": "tests/fixtures/physics-native-flights.json",
+  "native_development_cases": [
+    "tests/fixtures/physics-development-executions.json",
+    "tests/fixtures/physics-development-diagnostics.json"
+  ]
+}

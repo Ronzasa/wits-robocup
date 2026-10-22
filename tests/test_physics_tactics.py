@@ -112,7 +112,7 @@ class PhysicsTacticsTests(unittest.TestCase):
         c,row,f,e,o=setup('wall-brake');p=next(p for p in f if p[0]==3)
         option=c._physics_wall_brake(p,*row['ball'],f,e);rid=option[3][0]
         c._physics_pending={'kind':'wall-brake','phase':'launch','player':3,'recipient':rid,
-            'aim':option[4],'bounce_in':option[5],'arrival_in':option[6],'speed':option[7]}
+            'aim':option[4],'bounce_in':option[5],'arrival_in':option[6],'speed':option[7],'depart':option[8]}
         o.can_kick=lambda pid:pid==3
         a=TeamAction();a.set(3,PlayerAction(movement=option[2],kick_direction=option[1][0],kick_power=option[1][1]))
         c._physics_follow(o,a,f,e)
@@ -131,6 +131,53 @@ class PhysicsTacticsTests(unittest.TestCase):
         blocker=(6,*o.ball.position,0.,0.)
         self.assertIsNone(c._physics_rebound_shot(p,*row['ball'],[p],[blocker]))
 
+    def test_a_goal_forecast_is_not_a_physically_safe_shot(self):
+        c=load('rebound-shot');launch=(35.,0.,22.,0.)
+        self.assertIsNotNone(c._goal_path(launch))
+        self.assertIsNone(c._physics_safe_shot(launch,34.,0.,[(5,36.,0.,0.,0.)]))
+
+    def test_exact_native_bounce_tick_keeps_the_ambush_plan(self):
+        data=json.loads((ROOT/'tests/fixtures/physics-development-diagnostics.json').read_text())
+        frames=data['proofs']['ambush']['attempts'][-1]['window']
+        f=next(f for f in frames if f['old_ambush'] and f['tick']==f['old_ambush'][4])
+        c=load('ambush');c._physics_ambush=tuple(f['old_ambush'])
+        c._shape_cover_id=f['shape_cover'];c._chaser=f['chaser'];c._receive_plan=f['receive_plan']
+        c._physics_targets={int(k):v for k,v in f['targets'].items()}
+        c._friend_cooldowns={int(k):v for k,v in f['friend_cooldowns'].items()}
+        c._enemy_cooldowns={int(k):v for k,v in f['enemy_cooldowns'].items()}
+        o=S(tick=f['tick'],events=[],can_kick=lambda pid:pid in f['can_kick'],
+            ball=S(position=f['ball'][:2],velocity=f['ball'][2:],last_touch=f['last_touch'],height=0.,vertical_velocity=0.))
+        a=TeamAction();c._physics_ambush_move(o,a,[tuple(p) for p in f['friends']],[tuple(p) for p in f['opponents']])
+        self.assertTrue(c._physics_events)
+        self.assertEqual(c._physics_events[0]['bounce_in'],0.)
+        self.assertEqual(c._physics_ambush[0],f['old_ambush'][0])
+
+    def test_ambush_does_not_duplicate_an_already_safe_ordinary_chase(self):
+        c,row,f,e,o=setup('ambush');a=TeamAction()
+        c._physics_ambush_move(o,a,f,e);event=c._physics_events[0];pid=event['player']
+        c._physics_targets[pid]=event['aim'];c._physics_ambush=None;c._physics_events=[]
+        before=TeamAction();before.set(pid,a.players[pid])
+        c._physics_ambush_move(o,before,f,e)
+        self.assertFalse(any(x['player']==pid for x in c._physics_events))
+
+    def test_carrier_state_capture_does_not_change_existing_contact_physics(self):
+        a,b=load('v10'),load('wall-brake')
+        for velocity in ((0.,0.),(8.,0.),(-6.,4.)):
+            p=(3,-1.7,0.,*velocity);move=b._move(p,(.3,0.));moved=[]
+            old=a._carrier_contact(p,0.,0.,-5.,16.,move)
+            self.assertEqual(old,b._carrier_contact(p,0.,0.,-5.,16.,move,moved))
+            self.assertEqual(len(moved),1)
+        old=ast.parse((ROOT/'champions/v10.0/team.py').read_text())
+        new=ast.parse((ROOT/'experiments/physics-wall-brake/team.py').read_text())
+        def method(tree):
+            cls=next(n for n in tree.body if isinstance(n,ast.ClassDef))
+            return next(n for n in cls.body if isinstance(n,ast.FunctionDef) and n.name=='_carrier_contact')
+        first,second=method(old),method(new)
+        second.args.args.pop();second.args.defaults.pop()
+        second.body=[n for n in second.body if not (isinstance(n,ast.If) and isinstance(n.test,ast.Compare)
+                     and isinstance(n.test.left,ast.Name) and n.test.left.id=='moved')]
+        self.assertEqual(ast.dump(first,include_attributes=False),ast.dump(second,include_attributes=False))
+
     def test_existing_physics_and_other_tactics_are_not_duplicated_or_changed(self):
         def methods(path):
             cls=next(n for n in ast.parse(path.read_text()).body if isinstance(n,ast.ClassDef))
@@ -139,7 +186,7 @@ class PhysicsTacticsTests(unittest.TestCase):
         for name in ('ambush','wall-brake','rebound-shot'):
             new=methods(ROOT/'experiments'/('physics-'+name)/'team.py')
             for method in ('_trajectory','_move','_receiver_rollout','_verified_intercept','_pass_race',
-                           '_carrier_contact','_shot_option','_bank_release','_endwall_link','_goal_path',
+                           '_shot_option','_bank_release','_endwall_link','_goal_path',
                            '_keeper_reaches','_cover_shape'):
                 self.assertEqual(old[method],new[method],(name,method))
 

@@ -22,7 +22,9 @@ def main():
     protocol=DOC/(stage+'-protocol.json');save(protocol,proto)
     subprocess.run(['git','add','tools/physics_tactics','tools/benchmarks/run_physics_tactics.py',
       'experiments/physics-ambush','experiments/physics-wall-brake','experiments/physics-rebound-shot','experiments/physics-off',
-      'tests/test_physics_tactics.py','tests/fixtures/physics-synthetic-cases.json','tests/fixtures/physics-tactics-opponents.zip','docs/physics-tactics'],cwd=ROOT,check=True)
+      'tests/test_physics_tactics.py','tests/fixtures/physics-synthetic-cases.json','tests/fixtures/physics-tactics-opponents.zip',
+      'tests/fixtures/physics-development-executions.json','tests/fixtures/physics-development-diagnostics.json',
+      'tests/fixtures/physics-native-flights.json','docs/physics-tactics'],cwd=ROOT,check=True)
     subprocess.run(['git','commit','-m','Freeze independent physics tactics before '+stage+' native cohort'],cwd=ROOT,check=True)
     folder=args.work.resolve()/stage
     subprocess.run([sys.executable,'tools/benchmarks/run_physics_tactics.py','--protocol',str(protocol),'--out',str(folder)],cwd=ROOT,check=True)

@@ -1,0 +1,65 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/physics-tactics-opponents.zip",
+  "opponents_archive_sha256": "4a2f625dbda64eeb8faf76fe59da3c03c5d997175b7293c1b8263cf21e552fb8",
+  "sources": {
+    "v10": {
+      "path": "champions/v10.0/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "active": {
+      "path": "my-team/team.py",
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+    },
+    "ambush": {
+      "path": "experiments/physics-ambush/team.py",
+      "sha256": "a0c2c8cb3dd5f8d86f5384d088bbd0fa480e9a1d6f21d5bf371b1ba854f462cb"
+    },
+    "wall-brake": {
+      "path": "experiments/physics-wall-brake/team.py",
+      "sha256": "3030800b1ed5a739ab2c3e9f05df6b3af6a754dcc7b0d47a51bea721820b4eb2"
+    },
+    "rebound-shot": {
+      "path": "experiments/physics-rebound-shot/team.py",
+      "sha256": "ee748af258fd43b6ababe1a5dee8c4e26d4d17fa4bf15a3636018527806d1d13"
+    }
+  },
+  "seeds": {
+    "qualification": [
+      656249563,
+      1818823238,
+      988325657,
+      1286764469,
+      1334728769,
+      1849622830,
+      1463709432,
+      417856122,
+      269127949,
+      1104863170,
+      1432210343,
+      1563849382,
+      1591641198,
+      225418309,
+      1374681872,
+      1240434637
+    ]
+  },
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "tight_links",
+    "wide_switch",
+    "long_shooter",
+    "aggressive-keeper",
+    "depth14-proxy",
+    "elite-cutback"
+  ],
+  "fixture_order_seed": 10229391,
+  "deadline_ms": 20.0,
+  "ticks": 2400
+}

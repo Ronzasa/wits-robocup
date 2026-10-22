@@ -997,7 +997,7 @@ class Guardiola2011(TeamController):
             sy *= self._ball_cap / speed
         return sx, sy
 
-    def _carrier_contact(self, p, bx, by, sx, sy, movement):
+    def _carrier_contact(self, p, bx, by, sx, sy, movement, moved=None):
         # One free movement step, then just the carrier's first ball contact.
         pvx = p[3] * self._damping + movement[0] * self._acc
         pvy = p[4] * self._damping + movement[1] * self._acc
@@ -1006,6 +1006,8 @@ class Guardiola2011(TeamController):
             pvx *= self._speed / speed
             pvy *= self._speed / speed
         px, py = p[1] + pvx * self._dt, p[2] + pvy * self._dt
+        if moved is not None:
+            moved.append((p[0],px,py,pvx,pvy))
         if math.hypot(px - bx, py - by) >= self._range - 0.18:
             return None
         x, y = bx + sx * self._dt, by + sy * self._dt
@@ -2213,7 +2215,7 @@ class Guardiola2011(TeamController):
             return
         wall=self._physics_wall((bx,by,vx,vy))
         continuing=(old is not None and old[3]==obs.ball.last_touch
-                    and old[4]<obs.tick<=old[6]
+                    and old[4]<=obs.tick<=old[6]
                     and not any(e.get('kind')=='kick' and e.get('team')==1
                                 for e in getattr(obs,'events',())))
         if not continuing and (wall is None or wall[0]>.8 or math.hypot(vx,vy)<5.):
@@ -2244,6 +2246,17 @@ class Guardiola2011(TeamController):
             incoming=old[5] if continuing else math.hypot(vx,vy)
             if speed>min(12.,incoming*.90):
                 continue
+            # A safe existing collection does not need another interception
+            # tactic. Only improve a failed/slower executable chase.
+            baseline=actions.players.get(p[0])
+            if old is None and baseline is not None:
+                target=self._physics_targets.get(p[0],p[1:3])
+                ordinary=self._receiver_rollout(p,path,target,
+                    self._friend_cooldowns.get(p[0],0),after,1.8,baseline.movement)
+                if (ordinary is not None and ordinary[0]<=route[0]+.10
+                        and enemy-ordinary[0]>=.15-1e-9
+                        and self._first_touch_safe(ordinary,path,opponents,self._friend_cooldowns.get(p[0],0))):
+                    continue
             if not self._physics_body_clear(p,path,friends,route[0]):
                 continue
             value=route[0]-(.08 if fixed is not None else 0.)
@@ -2264,7 +2277,7 @@ class Guardiola2011(TeamController):
     def _physics_wall_brake(self,p,bx,by,vx,vy,friends,opponents):
         # Existing bank passes already cover advancing receivers. This
         # adds ONLY slow, lateral/backward retention near a side wall.
-        if p[0]==0 or not -30.<bx<30. or abs(by)<17.:
+        if p[0] in (0,self._shape_cover_id) or not -30.<bx<30. or abs(by)<17.:
             return None
         if min((math.hypot(q[1]-bx,q[2]-by) for q in opponents),default=100.)>6.:
             return None
@@ -2283,7 +2296,8 @@ class Guardiola2011(TeamController):
                 kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
                 if kick is None:
                     continue
-                launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),move)
+                moved=[]
+                launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),move,moved)
                 if launch is None:
                     continue
                 bounce=self._physics_wall(launch,True)
@@ -2297,12 +2311,43 @@ class Guardiola2011(TeamController):
                 received_speed=math.hypot(*self._last_pass_motion[1][route[5]])
                 if received_speed>9. or not self._physics_body_clear(p,path,[x for x in friends if x[0]!=q[0]],route[0]):
                     continue
+                # _carrier_contact exposes its already computed post-kick
+                # player state. Follow that state through the SAME flight,
+                # after the known first contact; a boomerang to the passer
+                # is not a completed pass to the named receiver.
+                shifted=[(t-self._dt,x,y) for t,x,y in path[1:]]
+                depart=self._target(moved[0][1]+3.,moved[0][2]-(2. if by>0. else -2.))
+                recatch=self._receiver_rollout(moved[0],shifted,depart,4,
+                    self._dt,max(self._dt,route[0]-self._dt))
+                if recatch is not None:
+                    continue
                 progress=math.hypot(self._right-bx,by)-math.hypot(self._right-route[1][0],route[1][1])
                 score=.9+progress*.15+min(enemy-route[0],.8)*3.-route[0]*.7
-                candidate=(score,kick,move,(q[0],*route[1]),route[2],bounce[0],route[0],received_speed)
+                candidate=(score,kick,move,(q[0],*route[1]),route[2],bounce[0],route[0],received_speed,depart)
                 if best is None or score>best[0]:
                     best=candidate
         return best
+
+    def _physics_safe_shot(self,launch,bx,by,opponents):
+        goal=self._goal_path(launch)
+        if goal is None:
+            return None
+        until=goal[1][0]
+        path=self._pass_path(launch,(bx,by),min(3.,until+self._dt),capture_motion=True)
+        steps=self._pass_steps(path)
+        goal_tick=int(math.ceil(until*self._hz))
+        for q in opponents:
+            contact=self._runtime_intercept(q,path,self._enemy_cooldowns.get(q[0],0),until=until,steps=steps)
+            if contact is not None:
+                return None
+            # _pass_path stops at a goal exit. Players still move before
+            # that final ball step and can kick its pre-step position.
+            if (self._enemy_cooldowns.get(q[0],0)<=goal_tick
+                    and self._pass_reachable(q,*path[-1][1:],goal_tick,self._range)):
+                return None
+            if self._pass_reachable(q,self._right-self._ball_radius,goal[1][1],goal_tick,self._contact):
+                return None
+        return goal,path
 
     def _physics_rebound_shot(self,p,bx,by,vx,vy,friends,opponents):
         if p[0]==0 or bx<12. or abs(by)<12.:
@@ -2317,20 +2362,15 @@ class Guardiola2011(TeamController):
             if option is None:
                 continue
             launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,option[1]),option[2])
-            goal=self._goal_path(launch) if launch else None
+            safe=self._physics_safe_shot(launch,bx,by,opponents) if launch else None
             bounce=self._physics_wall(launch,True) if launch else None
-            if goal is None or bounce is None or bounce[1]!='y' or bounce[0]>=goal[1][0] or goal[1][2]<8.:
+            if safe is None:
+                continue
+            goal,path=safe
+            if bounce is None or bounce[1]!='y' or bounce[0]>=goal[1][0] or goal[1][2]<8.:
                 continue
             until=goal[1][0]
-            path=self._pass_path(launch,(bx,by),min(3.,until+self._dt),capture_motion=True)
-            steps=self._pass_steps(path)
-            blocked=False
-            for q in opponents:
-                contact=self._runtime_intercept(q,path,self._enemy_cooldowns.get(q[0],0),until=until,steps=steps)
-                if contact is not None:
-                    blocked=True
-                    break
-            if blocked or not self._physics_body_clear(p,path,friends,until):
+            if not self._physics_body_clear(p,path,friends,until):
                 continue
             candidate=(*option,bounce[0],until,goal[1][2])
             if best is None or option[0]>best[0]:
@@ -2344,12 +2384,17 @@ class Guardiola2011(TeamController):
         # Preserve every existing named pass and productive goal trajectory.
         if self._pass_plan is not None or self._bank_plan is not None:
             return fallback
+        if self.PHYSICS_WALL_BRAKE and (p[0]==0 or not -30.<bx<30. or abs(by)<17.):
+            return fallback
+        if self.PHYSICS_REBOUND_SHOT and (p[0]==0 or bx<12. or abs(by)<12.):
+            return fallback
         move=self._touch_movement or self._move(p,(bx+.3,by))
         launch=None
         if fallback is not None:
             launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,fallback),move)
             if launch is not None and self._goal_path(launch) is not None:
-                return fallback
+                if not self.PHYSICS_REBOUND_SHOT or self._physics_safe_shot(launch,bx,by,opponents) is not None:
+                    return fallback
         old_score=-2.
         if fallback is not None:
             touch=self._touch_path(p,bx,by,vx,vy,fallback,move,opponents)
@@ -2363,7 +2408,7 @@ class Guardiola2011(TeamController):
                 self._bank_plan=option[3]
                 self._physics_pending={'kind':'wall-brake','phase':'launch','player':p[0],
                     'recipient':option[3][0],'aim':option[4],
-                    'bounce_in':option[5],'arrival_in':option[6],'speed':option[7]}
+                    'bounce_in':option[5],'arrival_in':option[6],'speed':option[7],'depart':option[8]}
                 return option[1]
         if self.PHYSICS_REBOUND_SHOT:
             option=self._physics_rebound_shot(p,bx,by,vx,vy,friends,opponents)
@@ -2383,11 +2428,11 @@ class Guardiola2011(TeamController):
                 if pending['kind']=='wall-brake':
                     self._physics_receive=(pending['recipient'],pending['player'],
                         obs.tick+int(2.2*self._hz),pending['aim'],
-                        obs.tick+int(round(pending['bounce_in']*self._hz)),obs.tick)
+                        obs.tick+int(round(pending['bounce_in']*self._hz)),obs.tick,pending['depart'])
         plan=self._physics_receive
         if plan is None:
             return
-        rid,pid,expiry,aim,bounce_tick,started=plan
+        rid,pid,expiry,aim,bounce_tick,started,depart=plan
         receiver=next((q for q in friends[1:] if q[0]==rid),None)
         if (receiver is None or obs.tick>expiry or
                 (obs.tick!=started and obs.ball.last_touch!=pid)
@@ -2405,6 +2450,9 @@ class Guardiola2011(TeamController):
             self._physics_receive=None
             return
         actions.set(rid,PlayerAction(movement=checked[2]))
+        passer=next((q for q in friends[1:] if q[0]==pid),None)
+        if passer is not None and passer[0]!=self._shape_cover_id:
+            actions.set(pid,PlayerAction(movement=self._move(passer,depart)))
         self._physics_events.append({'kind':'wall-brake','phase':'follow','player':rid,'aim':aim})
 
     def act(self,obs):
