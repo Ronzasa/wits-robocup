@@ -1,5 +1,7 @@
 # Keeper possession and wall counters
 
+**Development complete: no challenger advances; main and the active champion remain unchanged.** [Actual results](results.md): active 98 points, back passes 93, wall counters 98 (zero new executions), combined 93. Back passes completed 38 named-keeper collections from 45 native kicks. The fresh validation seeds remain unused.
+
 Experimental branch `keeper-possession-counters`, based on active Elite Replay Cutback commit `40b2787`. Main and `my-team/team.py` remain unchanged.
 
 - `experiments/keeper-backpass/team.py`: pressure-triggered back passes to a ready keeper close to home.

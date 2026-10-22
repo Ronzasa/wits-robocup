@@ -1,0 +1,28 @@
+{
+  "archive": "tests/fixtures/keeper-support-native-evidence.zip",
+  "sha256": "b7d9c9dd053636ed91fe708361cc6839a1fc101bd31a8fca6003af8f00e78f3f",
+  "bytes": 228653,
+  "files": 30,
+  "manifest": "manifest.json inside the ZIP; every archived byte hash and ZIP CRC verified",
+  "native_reproduction": "tests/fixtures/keeper-support-native-reproduction.json",
+  "native_reproduction_sha256": "77d5b147b080775a8bdb8e953d70ea7e0a34b75e1917b29d62e442ae348f99b5",
+  "full_native_development_matches": 192,
+  "identical_timing_fixture_repeats": 1,
+  "successful_full_reception_replays": 1,
+  "disabled_equivalence_full_matches": 1,
+  "disabled_equivalence_decisions": 2400,
+  "intake": {
+    "sources": 4,
+    "public_seeds_each": 5,
+    "decisions_each": 2000
+  },
+  "regressions": {
+    "test_count": 109,
+    "candidate_feature_sets_tested": [
+      "backpass",
+      "wall-counter",
+      "combined"
+    ]
+  },
+  "diagnostic_harness_note": "An initial replay capture stopped before completion because SDK observation wrappers are not dataclasses. Serialization was corrected; the subsequent complete replay is archived. This harness-only failure is excluded from all tournament evidence and no policy source was changed."
+}
