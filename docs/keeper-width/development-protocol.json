@@ -1,0 +1,37 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/keeper-support-opponents.zip",
+  "opponents_archive_sha256": "4a2f625dbda64eeb8faf76fe59da3c03c5d997175b7293c1b8263cf21e552fb8",
+  "sources": {
+    "active": {
+      "path": "my-team/team.py",
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+    },
+    "backpass": {
+      "path": "experiments/keeper-backpass/team.py",
+      "sha256": "2d014bba0f97e4c891c8a8d36db535127fa6ff9f7e0bbf59a942661ccb5dac7a"
+    },
+    "integrated": {
+      "path": "experiments/keeper-width-attack/team.py",
+      "sha256": "8729c896d6677898715c809d04c019fc32513c4e5dd93b94932a2f6f25a8d52b"
+    }
+  },
+  "seeds": {
+    "development": [
+      1950659128,
+      1707204044
+    ]
+  },
+  "opponents": [
+    "v10",
+    "v10-counter",
+    "v10-press",
+    "v10-compact",
+    "quick_wall",
+    "elite-cutback"
+  ],
+  "fixture_order_seed": 231025194,
+  "deadline_ms": 20.0,
+  "ticks": 2400
+}
