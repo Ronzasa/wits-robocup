@@ -53,11 +53,16 @@ def main():
         'Local native tests below evaluate observed tactical ideas against frozen, known local opponents. No result is presented as a match against the actual leaders.','',
         f'The campaign completed **{raw_count:,} scheduled full native matches**, plus **{repeat_count} identical timeout-fixture repeats**. '
         'All matches use 2,400 ticks and the official 20 ms deadline; intake validation uses the SDK public seeds. '
-        'Raw rows, repeats and first clean repeat results are retained separately. No timeout is waived.','',
+        'Points, goals and pass metrics use the first clean exact run, independent of score; raw points are also shown for qualification. '
+        'Raw rows and all repeats are retained separately. Every original deadline miss remains in the reliability gate.','',
         '## Independent screen','',
         'Five variants played 48 matched configurations each, alongside frozen Trap and v10: six styles, two seeds, both sides and both kickoffs. '
         'The keeper cap is the only difference among the three keeper variants. Outlet and cutback variants change only their selected support target.','',
         '| Variant | Trap points | v10 points | Variant points | GF–GA | Raw misses | Mean ms |','|---|---:|---:|---:|---:|---:|---:|']
+    if any('positive_ci' in failures for failures in decision.get('failed',{}).values()):
+        lines[4:4]=['The selected source improved total points, but the paired confidence intervals included zero. '
+                    'It failed the registered positive-lower-bound gate, so retain the existing controllers. '
+                    'The experiment remains available for inspection; it is not a promoted champion.','']
     for name,r in screen.items():lines.append('| '+name+' | '+' | '.join(table(r))+' |')
     lines+=['','The cap-10 keeper is excluded by its raw deadline regression. '
             'Independent results justified testing the cap-14 keeper, outlet and cutback, plus their combination, on new configurations. '
@@ -69,6 +74,14 @@ def main():
     for name,r in confirm.items():lines.append('| '+name+' | '+' | '.join(table(r))+' |')
     lines+=['',f"Selected source: `{selection['path']}`; SHA-256 `{selection['sha256']}`. "
             f"Eligible for registered qualification: `{selection['ready_for_qualification']}`.",'']
+    selected=confirm[selection['name']]
+    lines+=['### Selected-source development matchups','',
+            'These development results explain the selection; they are not the untouched qualification result.','',
+            '| Opponent | Trap points | v10 points | Selected points |','|---|---:|---:|---:|']
+    for name,r in selected['trap']['accepted']['by_opponent'].items():
+        v=selected['v10']['accepted']['by_opponent'][name]
+        lines.append(f"| {Path(name).parent.name} | {r['baseline']['points']} | {v['baseline']['points']} | {r['challenger']['points']} |")
+    lines+=['']
     if (DOC/'qualification-results.json').exists():
         qual=read(DOC/'qualification-results.json');r=qual['trap'];a=r['accepted'];c=a['challenger'];b=a['baseline'];v=qual['v10']['accepted']['baseline'];tails=timing('qualification')
         (DOC/'latency-tails.json').write_text(json.dumps(tails,indent=2)+'\n')
@@ -82,7 +95,7 @@ def main():
                           ('Passes attempted','passes_attempted'),('Passes completed','passes_completed'),('Pass completion','pass_completion'),
                           ('Uncollected passes (derived)','passes_uncollected_derived'),('Turnovers','turnovers'),('Mean decision ms','decision_mean_ms')]:
             values=[b[key],v[key],c[key]];lines.append('| '+label+' | '+' | '.join(f'{x:.6f}' if isinstance(x,float) else str(x) for x in values)+' |')
-        for label,key in [('Raw deadline misses','policy_timeouts'),('Raw exceptions','policy_errors'),('Raw max ms','decision_max_ms')]:
+        for label,key in [('Raw points','points'),('Raw deadline misses','policy_timeouts'),('Raw exceptions','policy_errors'),('Raw max ms','decision_max_ms')]:
             values=[qual['trap']['raw']['baseline'][key],qual['v10']['raw']['baseline'][key],qual['trap']['raw']['challenger'][key]]
             lines.append('| '+label+' | '+' | '.join(f'{x:.4f}' if isinstance(x,float) else str(x) for x in values)+' |')
         for label in ('p95','p99','p999'):
@@ -106,7 +119,8 @@ def main():
                 'A development gain is not a promoted controller. The unused cohort remains untouched.','']
     lines+=['## Engineering and reproducibility','',
         'Each controller is a standalone `team.py`, with one controller class, math and official soccer imports only. '
-        'Shooting, movement physics, strict reception races, first-touch model, defensive-cover function and trap behavior retain identical ASTs. '
+        'Existing shooting, movement physics, strict reception races, first-touch model, defensive-cover and trap helpers retain identical ASTs. '
+        'The [function integrity record](function-integrity.json) checks every existing controller method. '
         'The changed targets sit inside the original role/keeper decision process. '
         'Tests include all-off command equivalence, protected receivers, keeper-depth bounds, actual cooldown-aware saving paths, '
         'a real momentum-limited case where the home save must win, support-role preservation and legal actions. '

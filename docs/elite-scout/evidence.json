@@ -1,0 +1,15 @@
+{
+  "native": {
+    "path": "tests/fixtures/elite-scout-native-evidence.zip",
+    "sha256": "7e7c8d4c1be00e06d5cdf7c532e3f6762b50d773b2543c341e68933555012569",
+    "bytes": 4418578,
+    "files": 202
+  },
+  "video_analysis": {
+    "path": "tests/fixtures/elite-scout-video-analysis.zip",
+    "sha256": "be83100f4959028150e48caca8118414cf11468f92134bde0b3eef4304873a67",
+    "bytes": 3350943
+  },
+  "scheduled_full_matches": 3408,
+  "exact_full_repeats": 45
+}

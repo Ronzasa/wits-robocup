@@ -1,0 +1,119 @@
+{
+  "behavior_baseline": "experiments/elite-scout-baseline/team.py",
+  "selected": "experiments/elite-scout-cutback/team.py",
+  "method_comparison": "Python AST without location attributes",
+  "variants": {
+    "experiments/elite-scout-baseline/team.py": {
+      "sha256": "90a7dcba55da2605c59b4cd08d839d94e20a68e006bf52acf9305d01efda88bb",
+      "changed_existing_methods": [],
+      "missing_methods": [],
+      "new_methods": [],
+      "unchanged_method_count": 70
+    },
+    "experiments/elite-scout-combined/team.py": {
+      "sha256": "4bf984f47d166e417ec853bd5ded18074e5fefdfa10aa9ff8c3e4b680861325f",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-cutback/team.py": {
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-keeper10/team.py": {
+      "sha256": "e17211621570f42fd730bca6bdef0da079200f4a07c12e8a013a2eea207240ed",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-keeper14/team.py": {
+      "sha256": "d7aeb6c218959789b84dd2099f698e129509540e23436e0d492025d6795cdd7f",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-keeper6/team.py": {
+      "sha256": "5dbc07545b717385e35c0df1cfce75ef0109ea1631438584af512a1dd9a96506",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-off/team.py": {
+      "sha256": "91df0b5338185751186131177ab1c57e4d9b3555fd76b2f6b44413d4aa578851",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    },
+    "experiments/elite-scout-outlet/team.py": {
+      "sha256": "1d82a5269c5eb9b52e1c2e602049a85711173a882521919aec52e23e391130c4",
+      "changed_existing_methods": [
+        "_v10_act",
+        "reset"
+      ],
+      "missing_methods": [],
+      "new_methods": [
+        "_scout_goal_bound",
+        "_scout_keeper_limit",
+        "_scout_keeper_x",
+        "_scout_support"
+      ],
+      "unchanged_method_count": 68
+    }
+  }
+}

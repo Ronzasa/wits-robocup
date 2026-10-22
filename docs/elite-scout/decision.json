@@ -1,0 +1,18 @@
+{
+  "promoted": false,
+  "status": "RETAIN_BASELINES",
+  "selected": {
+    "name": "cutback",
+    "path": "experiments/elite-scout-cutback/team.py",
+    "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+    "ready_for_qualification": true
+  },
+  "failed": {
+    "trap": [
+      "positive_ci"
+    ],
+    "v10": [
+      "positive_ci"
+    ]
+  }
+}
