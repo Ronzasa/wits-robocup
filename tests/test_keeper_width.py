@@ -1,6 +1,8 @@
 """Spacing, clock boundaries and protected reception invariants."""
 import importlib.util
 import math
+import os
+from pathlib import Path
 from types import SimpleNamespace as S
 import unittest
 
@@ -9,7 +11,8 @@ from test_match_tactics import observation
 
 
 def controller():
-    spec=importlib.util.spec_from_file_location('keeper_width',ROOT/'experiments/keeper-width-attack/team.py')
+    path=Path(os.environ.get('ROBOCUP_WIDTH_TEAM_PATH',ROOT/'experiments/keeper-width-attack/team.py'))
+    spec=importlib.util.spec_from_file_location('keeper_width',path)
     module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
     c=module.Guardiola2011();c._setup(FIELD)
     return c
@@ -72,7 +75,11 @@ class KeeperWidthTests(unittest.TestCase):
         for pid in (3,4):
             self.assertGreaterEqual(math.hypot(*targets[pid]),7.5)
         self.assertEqual(targets[0],BASE_TARGETS[0])
-        self.assertEqual(targets[1],BASE_TARGETS[1])
+        if getattr(c,'POSSESSION_TRIANGLE',False):
+            self.assertLess(targets[1][0],-5.)
+            self.assertGreaterEqual(math.hypot(*targets[1]),7.5)
+        else:
+            self.assertEqual(targets[1],BASE_TARGETS[1])
         self.assertEqual(targets[2],BASE_TARGETS[2])
 
     def test_targets_retain_space_from_each_other(self):
@@ -106,7 +113,7 @@ class KeeperWidthTests(unittest.TestCase):
         self.assertEqual(targets,BASE_TARGETS)
 
     def test_late_counter_outlet_preserves_other_marker(self):
-        c=controller();_,targets=scenario(c,1800,holder=6,last=6)
+        c=controller();_,targets=scenario(c,1800,holder=6,last=6,ball=(8.,0.,0.,0.))
         changed=[p for p in targets if targets[p]!=BASE_TARGETS[p]]
         self.assertEqual(changed,[4])
 
@@ -141,6 +148,22 @@ class KeeperWidthTests(unittest.TestCase):
         c=controller();c.WIDE_SUPPORT=False
         _,targets=scenario(c,1199)
         self.assertEqual(targets,BASE_TARGETS)
+
+    def test_stale_team_possession_does_not_spread_during_opponent_touch(self):
+        c=controller()
+        if not getattr(c,'POSSESSION_TRIANGLE',False):self.skipTest('R2 possession refinement')
+        obs=observation(ball=(0.,0.,0.,0.),friends=FRIENDS,enemies=ENEMIES,
+                        tick=100,last=6,holder=None,kickers=())
+        obs.ball.controlling_team=0;obs.max_ticks=2400
+        c._observe_attacking_phase(obs);c._shape_cover_id=1
+        targets=dict(BASE_TARGETS)
+        c._space_support(obs,FRIENDS,ENEMIES,FRIENDS[2],{2:(1.0,(0.,0.))},.1,targets,False)
+        self.assertEqual(targets,BASE_TARGETS)
+
+    def test_possession_triangle_never_changes_a_live_pass_plan(self):
+        c=controller();c._receive_plan=(3,2,200)
+        _,targets=scenario(c)
+        self.assertEqual(targets[1],BASE_TARGETS[1])
 
 
 if __name__=='__main__':unittest.main()

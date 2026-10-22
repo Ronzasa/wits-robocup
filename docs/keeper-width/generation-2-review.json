@@ -1,0 +1,30 @@
+{
+  "generation_1": {
+    "candidate_points": 77,
+    "active_points": 89,
+    "backpass_baseline_points": 84,
+    "candidate_goals": [
+      101,
+      83
+    ],
+    "active_goals": [
+      114,
+      55
+    ],
+    "matches_per_source": 48,
+    "raw_candidate_deadline_misses": 0
+  },
+  "frozen_generation_1_sha256": "8729c896d6677898715c809d04c019fc32513c4e5dd93b94932a2f6f25a8d52b",
+  "revision_source": {
+    "path": "experiments/keeper-width-attack-r2/team.py",
+    "sha256": "d55ba89f7adaa41d867749dcba91f111a5aaeec9be09ff3e1ca8dab2f10b334e"
+  },
+  "changes": [
+    "Replace smoothed team-possession trigger with actual own controlling player or a favorable own-touch ball race.",
+    "Retain a central striker half-space, moderate the support widths and forward offsets.",
+    "During confirmed possession only, provide a goal-side supporting triangle instead of leaving the cover directly behind the carrier; protect every live reception.",
+    "Only ultra mode may keep a regain outlet without possession, and only outside our half with no urgent reverse ball."
+  ],
+  "schedule_and_keeper_backpass": "Unchanged and included in the integrated R2 controller.",
+  "selection": "Use reserved fresh development seeds; validation remains untouched. No claim of a large winning margin."
+}
