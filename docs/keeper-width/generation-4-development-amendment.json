@@ -1,0 +1,33 @@
+{
+  "reason": "R3 earned 98 points versus 98 active; direct champion matchup 5W 2D 1L and 18\u20139 goals, but pressing opponent cost 13 points relative to active. Extend development by one frozen pressure-adaptation generation rather than claiming victory from direct games alone.",
+  "phase": "development extension registered before R4 matches",
+  "prior_development_budget": 3,
+  "new_development_budget": 4,
+  "fresh_additional_seed_blocks": [
+    1298898469,
+    1757339221,
+    1991812364,
+    747382817
+  ],
+  "validation_seeds_unchanged_and_unused": true,
+  "all_original_gates_unchanged": {
+    "validation_points": "strict improvement; whole-seed paired bootstrap 95% lower bound > 0",
+    "policy_errors": 0,
+    "additional_raw_deadline_misses_per_1000_max": 2.0,
+    "own_deadline_failures_on_exact_repeats": 0,
+    "mean_ms_max": "active*1.35+0.04",
+    "public_intake": "pass",
+    "minimum_paired_validation_fixtures": 384
+  },
+  "source": {
+    "path": "experiments/keeper-width-attack-r4/team.py",
+    "sha256": "73e89807f3b0da4a981c6b6d9bde091ec726bb9e3059b44266a1d127add5d5e4"
+  },
+  "changes": [
+    "When two opponents are within nine units, or one within 3.2, one free receiver offers a short angled outlet instead of running further away.",
+    "The other receiver keeps the wider counter outlet and the requested attacking depth.",
+    "During confirmed pressured possession, the existing goal-side cover offers a shorter diagonal triangle; original defending and all existing receptions retain priority."
+  ],
+  "backpass_and_schedule": "Included without removing the original back-pass decision or changing the requested clock phases.",
+  "selection": "R4 must earn more raw development points than active and execute keeper back passes to use the original untouched 12-seed, 384-configuration validation. Prior generations remain archived."
+}
