@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-22T17:53:25.966901+00:00",
+  "source_commit": "b4c24958757b1c2e93b8857b7166367f94051223",
+  "source_path": "experiments/elite-scout-cutback/team.py",
+  "active_path": "my-team/team.py",
+  "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+  "engine": {
+    "version": "0.1.0",
+    "config_hash": "372990895c7eca2a"
+  },
+  "regressions": {
+    "command": "python -m unittest discover -s tests -q",
+    "log": "----------------------------------------------------------------------\nRan 95 tests in 0.983s\n\nOK\n",
+    "passed": true,
+    "tests": 95
+  },
+  "folder": {
+    "errors": [],
+    "warnings": [],
+    "static_review_flags": []
+  },
+  "sdk": {
+    "ok": true,
+    "public_seeds": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005
+    ],
+    "ticks_per_match": 400,
+    "deadline_ms": 20.0,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.200",
+      "slowest decision (ms)": "5.166",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    }
+  }
+}

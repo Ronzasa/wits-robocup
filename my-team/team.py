@@ -29,7 +29,7 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola + Jurgen Klopp Hybrid"
-    version = "10.0-titan10b-r"
+    version = "elite-scout-experimental"
     EXECUTE_RECEIVER = True
     ACTUAL_RECEIVE_STEP = True
     FOLLOW_RECEIVER = False
@@ -104,6 +104,8 @@ class Guardiola2011(TeamController):
         self._press_contact_owner = None
         self._press_last_ball_touch = None
         self._press_last_ball_holder = None
+        self._scout_outlet = None
+        self._x_reset()
         self._press_own_contact_tick = -100000
 
     def initial_formation(self, field):
@@ -1562,7 +1564,7 @@ class Guardiola2011(TeamController):
         targets[second[0]] = screen
         return targets
 
-    def act(self, obs):
+    def _v10_act(self, obs):
         if not self._ready:
             self._setup(obs.field)
             self._restart_until = obs.tick + int(3.0 * self._hz)
@@ -1626,7 +1628,7 @@ class Guardiola2011(TeamController):
             (min((v[0] for k,v in races.items() if k!=0),default=100.0),enemy_eta))
         attack = races[chaser[0]][0] <= enemy_eta + 0.12
 
-        keeper_x = self._left + 2.2
+        keeper_x = self._scout_keeper_x(obs,keeper) if self.SCOUT_KEEPER_CAP else self._left + 2.2
         keeper_y = by * 2.2 / max(3.0, bx - self._left)
         # Stay central while a slow approach can still be redirected. Commit
         # only after a fast, near-term shot reveals its actual goal-line path.
@@ -1635,7 +1637,8 @@ class Guardiola2011(TeamController):
             time_to_line = (keeper_x - bx) / vx
             if 0.0 < time_to_line < 1.25:
                 keeper_y = by + vy * time_to_line
-        keeper_target = (keeper_x, _clip(keeper_y, -self._mouth, self._mouth))
+        keeper_limit = self._scout_keeper_limit(obs) if self.SCOUT_KEEPER_CAP else self._mouth
+        keeper_target = (keeper_x, _clip(keeper_y, -keeper_limit, keeper_limit))
         sweep = bx < self._left+10.0 and self._eta(keeper,bx,by)<races[chaser[0]][0]*0.85
         if sweep and abs(by)>self._mouth+1.0:
             # Wide collection is useful only with a clear first arrival.
@@ -1719,7 +1722,7 @@ class Guardiola2011(TeamController):
         receive_path = None
         if self._receive_plan is not None:
             recipient, passer, expiry = self._receive_plan
-            recipient_player = next((p for p in outfield if p[0] == recipient), None)
+            recipient_player = next((p for p in friends if p[0] == recipient and (p[0] != 0 or self._x_power_state == "active")), None)
             if (recipient_player is None or obs.tick > expiry
                     or obs.ball.last_touch not in (None, passer)
                     or math.hypot(vx, vy) < 9.0):
@@ -1748,6 +1751,9 @@ class Guardiola2011(TeamController):
             self._retain_mark(obs,friends,opponents,chaser,targets)
         if self.COVER_SHAPE and not protected:
             self._cover_shape(obs, friends, opponents, chaser, races, enemy_eta, targets)
+
+        if self.SCOUT_OUTLET or self.SCOUT_CUTBACK:
+            self._scout_support(obs,friends,opponents,chaser,races,enemy_eta,targets,protected)
 
         carrier = None
         carrier_gap = None
@@ -1788,7 +1794,7 @@ class Guardiola2011(TeamController):
                         recipient = plan[0]
                         sx,sy = self._requested_velocity(vx,vy,kick)
                         launch = self._carrier_contact(p,bx,by,sx,sy,movement)
-                        receiver = next((q for q in outfield if q[0]==recipient),None)
+                        receiver = next((q for q in friends if q[0]==recipient and (q[0]!=0 or self._x_power_state=="active")),None)
                         if launch is not None and receiver is not None and math.hypot(launch[2],launch[3])>10.5:
                             # Verify the ACTUAL kick, including any own-body
                             # correction, for direct and rebound plans alike.
@@ -1803,7 +1809,7 @@ class Guardiola2011(TeamController):
                                 if self._bank_plan is not None:
                                     self._bank_receive = (recipient,p[0],receiver_race[1])
             else:
-                if (self.FOLLOW_RECEIVER and not protected and receive_target is not None
+                if ((self.FOLLOW_RECEIVER or (self._x_reception is not None and self._x_reception[0]==p[0])) and not protected and receive_target is not None
                         and receive_target[0]==p[0] and self._receive_plan is not None
                         and self._receive_plan[0]==p[0]):
                     # A live receiver follows the same movement law used by
@@ -1828,7 +1834,7 @@ class Guardiola2011(TeamController):
                                                kick_power=kick[1]))
         if launched_pass is not None:
             recipient, target = launched_pass
-            receiver = next(p for p in outfield if p[0] == recipient)
+            receiver = next(p for p in friends if p[0] == recipient)
             actions.set(recipient,PlayerAction(movement=self._move(receiver,self._target(*target))))
         return actions
 
@@ -2064,7 +2070,7 @@ class Guardiola2011(TeamController):
                     best=score,kick,movement,(q[0],point[0],point[1])
         return best
 
-    def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
+    def _v10_choose_kick(self,p,bx,by,vx,vy,friends,opponents):
         fallback=self._before_endwall(p,bx,by,vx,vy,friends,opponents)
         if fallback is None or bx<15.0 or abs(by)<8.0:
             return fallback
@@ -2132,3 +2138,504 @@ class Guardiola2011(TeamController):
             vx *= self._friction
             vy *= self._friction
         return best
+
+    # TITAN-X Tactical Opportunity Manager. Priority: recovery, protected
+    # reception, power-play safety, trap, pinball, then local cooldown ambush.
+    KEEPER_POWER_PLAY = False
+    GOALKEEPER_TRAP = True
+    PINBALL_SLINGSHOT = False
+    COOLDOWN_AMBUSH = False
+
+    def _x_reset(self):
+        self._x_power_state = 'idle'
+        self._x_power_until = -1
+        self._x_power_deadline = -1
+        self._x_power_cover = None
+        self._x_keeper_history = None
+        self._x_rush = False
+        self._x_reception = None
+        self._x_proposal = None
+        self._x_events = []
+        self._x_last_tick = -1
+        self._x_score = None
+
+    def _x_event(self, name):
+        # Bounded, public debug telemetry; no file reads or timers.
+        if len(self._x_events) < 8:
+            self._x_events.append(name)
+
+    def _x_walk_time(self, player, target, limit=140):
+        p = player
+        for n in range(limit + 1):
+            if math.hypot(p[1]-target[0], p[2]-target[1]) < 2.0:
+                return n * self._dt
+            ax, ay = self._move(p, target)
+            vx, vy = p[3]*self._damping+ax*self._acc, p[4]*self._damping+ay*self._acc
+            speed = math.hypot(vx, vy)
+            if speed > self._speed:
+                vx, vy = vx*self._speed/speed, vy*self._speed/speed
+            p = (p[0], p[1]+vx*self._dt, p[2]+vy*self._dt, vx, vy)
+        return math.inf
+
+    def _x_power_observe(self, obs, friends, opponents):
+        state = self._x_power_state
+        bx, by = obs.ball.position
+        vx, vy = obs.ball.velocity
+        keeper = friends[0]
+        remaining = (obs.max_ticks-obs.tick)*self._dt
+        protected = self._receive_plan[0] if self._receive_plan else None
+        owns = obs.ball.controlling_team == 0
+        # A strong, witnessed interception can substitute for held possession.
+        favorable = False
+        if not owns and bx > 12.0 and obs.ball.controlling_team is None and vx >= -1.0:
+            path = self._pass_path((bx,by,vx,vy), until=0.8)
+            for p in sorted(friends[1:], key=lambda p: math.hypot(p[1]-bx,p[2]-by))[:1]:
+                favorable = self._pass_race(p,path,opponents,.25,until=.8) is not None
+        safe = (obs.score[0] < obs.score[1] and bx > 12.0 and abs(by) < self._half_height-4.0
+                and vx > -4.0 and obs.ball.controlling_team != 1 and (owns or favorable))
+        if state in ('advance', 'active'):
+            cover = next((p for p in friends if p[0] == self._x_power_cover), None)
+            if (not safe or remaining < 4.0 or obs.tick >= self._x_power_deadline
+                    or cover is None or cover[1] > bx-6.0):
+                self._x_power_state = 'recover'
+                self._x_event('power_cancel')
+            elif state == 'advance' and keeper[1] > -13.0:
+                self._x_power_state = 'active'
+                self._x_event('power_active')
+            return
+        if state == 'recover':
+            if keeper[1] < self._left+5.0 and abs(keeper[2]) < self._mouth:
+                self._x_power_state = 'cooldown'
+                self._x_power_until = obs.tick+int(6.0*self._hz)
+                self._x_event('power_home')
+            return
+        if state == 'cooldown':
+            if obs.tick >= self._x_power_until:
+                self._x_power_state = 'idle'
+            return
+        if not safe or not 15.0 <= remaining <= 35.0 or obs.tick % 4:
+            return
+        free = [p for p in friends[1:] if p[0] != protected and p[1] < bx-8.0]
+        if not free:
+            return
+        cover = min(free, key=lambda p: p[1]+abs(p[2])*.25)
+        target = (-10.0, _clip(by*.35,-9.0,9.0))
+        advance = self._x_walk_time(keeper,target)
+        recovery = self._x_walk_time((0,*target,0.0,0.0),(self._left+2.2,0.0))
+        # Quantify empty-net exposure: compare real keeper recovery with the
+        # fastest empty-net ball flight from the current attack. A temporary
+        # central covering player is compulsory when recovery is slower.
+        steps = self._crossing_ticks(bx,-self._ball_cap,self._left+self._ball_radius)
+        counter_flight = steps*self._dt
+        cover_time = self._x_walk_time(cover,(self._left+32.0,0.0))
+        if (advance > min(7.0,remaining*.30) or recovery > remaining-advance
+                or (recovery > counter_flight and cover_time > advance)
+                or abs(cover[2]) > 16.0):
+            return
+        self._x_power_state = 'advance'
+        self._x_power_cover = cover[0]
+        self._x_power_deadline = obs.tick+int(min(remaining-4.0,14.0)*self._hz)
+        self._x_event('power_start')
+
+    def _x_prepare(self, obs):
+        if not hasattr(self,'_x_last_tick') or obs.tick <= self._x_last_tick:
+            self._x_reset()
+        self._x_last_tick = obs.tick
+        self._x_events = []
+        self._x_proposal = None
+        self._x_obs = obs
+        if not self._ready:
+            self._setup(obs.field)
+            # Preserve the first-call restart setup normally done by v10 act.
+            self._restart_until = obs.tick+int(3.0*self._hz)
+            self._restart_owner = obs.ball.controlling_team
+        self._enemy_cooldowns = {p.id:p.kick_cooldown_ticks for p in obs.opponents}
+        self._friend_cooldowns = {p.id:p.kick_cooldown_ticks for p in obs.my_players}
+        friends = [(p.id,*p.position,*p.velocity) for p in obs.my_players]
+        opponents = [(p.id,*p.position,*p.velocity) for p in obs.opponents]
+        if self._x_score is not None and obs.score != self._x_score:
+            self._x_reception = None
+            if self._x_power_state in ('advance','active'):
+                self._x_power_state = 'recover'
+        self._x_score = obs.score
+        self._x_rush = False
+        if self.GOALKEEPER_TRAP and opponents:
+            q = opponents[0]
+            old = self._x_keeper_history
+            bx, by = obs.ball.position
+            toward = (bx-q[1])*q[3]+(by-q[2])*q[4]
+            self._x_rush = (old is not None and obs.tick-old[0] == 1
+                and self._right-q[1] > 5.5 and bx > 12.0
+                and math.hypot(q[3],q[4]) > 1.5 and toward > 1.0
+                and q[1] < old[1]-.035 and math.hypot(q[1]-bx,q[2]-by) < 18.0)
+            self._x_keeper_history = (obs.tick,q[1],q[2])
+        if self.KEEPER_POWER_PLAY and friends:
+            self._x_power_observe(obs,friends,opponents)
+        return friends, opponents
+
+    def _x_collect(self, p, launch, origin, receiver, friends, opponents, after, until=2.4):
+        # First-touch quality is local to the new opportunity; v10's flags
+        # and its ordinary reception behavior are restored exactly.
+        old = self.FIRST_TOUCH
+        self.FIRST_TOUCH = True
+        try:
+            path = self._pass_path(launch,origin,until)
+            race = self._pass_race(receiver,path,opponents,.15,after,until)
+            if race is None:
+                return None
+            (arrival,point),enemy = race
+            aim = self._next_receive_aim or point
+            if self._early_body_margin(path,opponents,arrival) < -.02:
+                return None
+            # Exclude possible teammate body collisions on either leg. The
+            # carrier's first tick was already resolved by _carrier_contact.
+            for other in friends:
+                if other[0] == receiver[0]:
+                    continue
+                start = .30 if other[0] == p[0] else self._dt
+                body = [(t,x,y) for t,x,y in path if start <= t < arrival-.10]
+                for t,x,y in body:
+                    n = int(round(t*self._hz))
+                    if self._pass_reachable(other,x,y,n,self._contact):
+                        return None
+            progress = math.hypot(self._right-origin[0],origin[1])-math.hypot(self._right-point[0],point[1])
+            score = progress*.15+min(enemy-arrival,.8)*3.0-arrival*.7
+            if point[0] > self._right-25.0 and abs(point[1]) < 11.0:
+                score += 1.0
+            return score,point,aim,arrival
+        finally:
+            self.FIRST_TOUCH = old
+
+    def _x_direct(self, p, bx, by, vx, vy, q, friends, opponents, tx, ty, speed):
+        ux,uy = _unit(tx-bx,ty-by)
+        kick = self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+        movement = self._move(p,(bx+.3,by))
+        if kick is None:
+            return None
+        launch = self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),movement)
+        if launch is None:
+            return None
+        collect = self._x_collect(p,launch,(bx,by),q,friends,opponents,self._dt,1.8)
+        if collect is None:
+            return None
+        score,point,aim,arrival = collect
+        return score,kick,movement,(q[0],*point),aim
+
+    def _x_trap(self, p, bx, by, vx, vy, friends, opponents):
+        if not self._x_rush or p[0] == 0 or bx < 16.0:
+            return None
+        keeper = opponents[0]
+        best = None
+        receivers = sorted((q for q in friends[1:] if q[0]!=p[0] and q[1]>bx-2.0),
+                           key=lambda q: abs(q[2]+keeper[2]))[:2]
+        for q in receivers:
+            for lead in (3.0,7.0):
+                tx,ty = self._target(max(q[1],keeper[1]+2.0)+lead,
+                                     _clip(-keeper[2]*.6+q[2]*.25,-8.0,8.0))
+                option = self._x_direct(p,bx,by,vx,vy,q,friends,opponents,tx,ty,20.0)
+                if option is None:
+                    continue
+                point = option[3][1:]
+                # The square/reverse pass must move beyond the keeper's
+                # rushing line and create a central finishing angle.
+                if point[0] < keeper[1]+1.0 or abs(point[1]) > 12.0:
+                    continue
+                if best is None or option[0]>best[0]:
+                    best = option
+        return best
+
+    def _x_pinball(self, p, bx, by, vx, vy, friends, opponents):
+        # v10's bank release stops at x=18. This search targets the advanced
+        # central cutback after a side-wall rebound, rather than the end wall.
+        if p[0] == 0 or bx < 10.0 or bx > self._right-8.0 or abs(by) < 8.0:
+            return None
+        side = 1.0 if by > 0.0 else -1.0
+        wall = side*(self._half_height-self._ball_radius)
+        receivers = sorted((q for q in friends[1:] if q[0]!=p[0] and q[1]>bx+1.0),
+                           key=lambda q: abs(q[2])+abs(q[1]-bx-8.0)*.2)[:2]
+        best = None
+        movement = self._move(p,(bx+.3,by))
+        for q in receivers:
+            for lead in (0.0,6.0):
+                tx,ty = self._target(q[1]+lead,q[2]*.5)
+                virtual = wall+(wall-ty)/self._wall
+                ux,uy = _unit(tx-bx,virtual-by)
+                for speed in (20.0,28.0):
+                    kick = self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+                    if kick is None:
+                        continue
+                    launch = self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),movement)
+                    if launch is None or launch[3]*side <= 0.0:
+                        continue
+                    # Find the actual bounce tick under drag/restitution.
+                    sparse,bounce = self._bank_path(*launch)
+                    if bounce is None or bounce > 1.25:
+                        continue
+                    collect = self._x_collect(p,launch,(bx,by),q,friends,opponents,bounce+self._dt)
+                    if collect is None:
+                        continue
+                    score,point,aim,arrival = collect
+                    if point[0] < bx+4.0 or abs(point[1]) > 13.0:
+                        continue
+                    option = score,kick,movement,(q[0],*point),aim
+                    if best is None or score > best[0]:
+                        best = option
+        return best
+
+    def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
+        fallback = self._v10_choose_kick(p,bx,by,vx,vy,friends,opponents)
+        if not (self.KEEPER_POWER_PLAY or self.GOALKEEPER_TRAP or self.PINBALL_SLINGSHOT):
+            return fallback
+        if not hasattr(self,'_x_obs') or fallback is None:
+            return fallback
+        # Never replace a mechanically safe v10 finish.
+        motion = self._touch_movement or self._move(p,(bx+.3,by))
+        launch = self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,fallback),motion)
+        if launch is not None and self._goal_path(launch) is not None:
+            return fallback
+        # A productive verified direct/endwall pass keeps priority. New
+        # receivers/runs are considered when that opening does not exist.
+        plan = self._bank_plan or self._pass_plan
+        if plan is not None and plan[1] >= bx+4.0:
+            return fallback
+        option = None
+        name = None
+        if self.KEEPER_POWER_PLAY and self._x_power_state == 'active' and p[0] != 0:
+            q = friends[0]
+            if -16.0 < q[1] < bx-3.0 and math.hypot(q[1]-bx,q[2]-by) < 36.0:
+                option = self._x_direct(p,bx,by,vx,vy,q,friends,opponents,q[1],q[2],18.0)
+                if option is not None and option[0] < -1.0:
+                    option = None
+                name = 'power_pass'
+        if option is None and self.GOALKEEPER_TRAP:
+            option = self._x_trap(p,bx,by,vx,vy,friends,opponents)
+            name = 'trap_pass'
+        if option is None and self.PINBALL_SLINGSHOT:
+            option = self._x_pinball(p,bx,by,vx,vy,friends,opponents)
+            name = 'pinball_pass'
+        if option is None:
+            return fallback
+        # Retain a safe v10 carry unless the new route has a clear advantage.
+        floor = 1.2
+        if plan is not None:
+            floor = 2.0
+        elif launch is not None and math.hypot(launch[2],launch[3]) <= 10.5:
+            carry = self._touch_path(p,bx,by,vx,vy,fallback,motion,opponents)
+            if carry is not None:
+                floor = max(floor,carry[0]*.55+.8)
+        if option[0] <= floor:
+            return fallback
+        self._touch_movement = option[2]
+        self._pass_plan = option[3]
+        self._bank_plan = option[3] if name == 'pinball_pass' else None
+        self._x_proposal = (name,option[3][0],option[4],p[0])
+        return option[1]
+
+    def _x_ambush(self, obs, friends, opponents, actions, protected):
+        bx,by = obs.ball.position
+        vx,vy = obs.ball.velocity
+        if (obs.ball.controlling_team == 0 or bx < self._left+18.0 or vx < -10.0
+                or self._receive_plan is not None or self._x_proposal is not None):
+            return
+        kicker = next((p for p in obs.opponents if p.id == obs.ball.last_touch
+                       and p.kick_cooldown_ticks >= 2),None)
+        if kicker is None:
+            return
+        horizon = min(.25,kicker.kick_cooldown_ticks*self._dt)
+        if math.hypot(bx-kicker.position[0],by-kicker.position[1]) > 6.0:
+            return
+        # Require actual executable collection BEFORE cooldown expiry. The
+        # opponent race still includes the kicker's body and every teammate.
+        old = self.FIRST_TOUCH
+        self.FIRST_TOUCH = True
+        try:
+            path = self._pass_path((bx,by,vx,vy),until=horizon)
+            candidates = sorted((p for p in friends[1:] if p[0] != protected
+                and p[0] != self._shape_cover_id),key=lambda p: math.hypot(p[1]-bx,p[2]-by))[:2]
+            best = None
+            for p in candidates:
+                race = self._pass_race(p,path,opponents,.05,self._dt,horizon)
+                if race is None or race[0][0] >= horizon-1e-9:
+                    continue
+                aim = self._next_receive_aim or race[0][1]
+                move = self._move(p,self._target(*aim))
+                route = self._receiver_rollout(p,path,aim,self._friend_cooldowns.get(p[0],0),
+                                              self._dt,horizon,move,self._pass_steps(path))
+                if route is None or not self._first_touch_safe(route,path,opponents,self._friend_cooldowns.get(p[0],0)):
+                    continue
+                if best is None or route[0] < best[0]:
+                    best = route[0],p,move
+            if best is None:
+                return
+            _,p,move = best
+            if actions.players[p[0]].kick_direction is not None:
+                return
+            actions.set(p[0],PlayerAction(movement=move))
+            self._x_event('ambush_challenge')
+        finally:
+            self.FIRST_TOUCH = old
+
+    def act(self, obs):
+        enabled = self.KEEPER_POWER_PLAY or self.GOALKEEPER_TRAP or self.PINBALL_SLINGSHOT or self.COOLDOWN_AMBUSH
+        if not enabled:
+            return self._v10_act(obs)
+        friends,opponents = self._x_prepare(obs)
+        actions = self._v10_act(obs)
+        if not friends:
+            return actions
+        protected = self._receive_plan[0] if self._receive_plan is not None else None
+        bx,by = obs.ball.position
+        # New reception plans own their movement only while the same v10
+        # physical race remains live. No unrelated verified plan is replaced.
+        if self._x_proposal is not None:
+            name,rid,aim,pid = self._x_proposal
+            if protected == rid and self._receive_plan[1] == pid:
+                self._x_reception = (rid,pid,obs.tick+int(2.6*self._hz),aim)
+                receiver = next((p for p in friends if p[0] == rid),None)
+                if receiver is not None:
+                    actions.set(rid,PlayerAction(movement=self._move(receiver,self._target(*aim))))
+                self._x_event(name)
+        elif self._x_reception is not None:
+            rid,pid,expiry,aim = self._x_reception
+            if protected != rid or obs.tick > expiry or obs.ball.last_touch not in (None,pid):
+                self._x_reception = None
+            else:
+                receiver = next((p for p in friends if p[0] == rid),None)
+                if receiver is not None and actions.players[rid].kick_direction is None:
+                    path = self._pass_path((*obs.ball.position,*obs.ball.velocity))
+                    move = self._move(receiver,self._target(*aim))
+                    race = self._pass_race(receiver,path,opponents,first_move=move)
+                    if race is not None:
+                        aim = self._next_receive_aim or race[0][1]
+                        # Check exactly the new command before issuing it.
+                        move = self._move(receiver,self._target(*aim))
+                        if self._pass_race(receiver,path,opponents,first_move=move) is not None:
+                            actions.set(rid,PlayerAction(movement=move))
+                            self._x_reception = (rid,pid,expiry,aim)
+                            self._x_event('tactic_receive_run')
+        if self.KEEPER_POWER_PLAY and self._x_power_state in ('advance','active','recover'):
+            keeper = friends[0]
+            if self._x_power_cover == self._chaser and self._x_power_state != 'recover':
+                self._x_power_state = 'recover'
+                self._x_event('power_cancel_cover')
+            if self._x_power_state == 'recover':
+                # Ordinary goalkeeper safeguards decide the recovery command.
+                # No power-play reception may keep it stranded upfield.
+                if self._receive_plan is not None and self._receive_plan[0] == 0:
+                    self._receive_plan = self._receive_aim = self._bank_receive = None
+                    self._x_reception = None
+                self._x_event('power_recovery_tick')
+            elif protected != 0 and actions.players[0].kick_direction is None:
+                target = self._target(min(-8.0,bx-25.0),_clip(by*.35,-9.0,9.0))
+                actions.set(0,PlayerAction(movement=self._move(keeper,target)))
+                self._x_event('power_advance_tick')
+            cover = next((p for p in friends if p[0] == self._x_power_cover),None)
+            if (cover is not None and cover[0] != protected and cover[0] != self._chaser
+                    and actions.players[cover[0]].kick_direction is None):
+                actions.set(cover[0],PlayerAction(movement=self._move(cover,(self._left+32.0,_clip(by*.2,-5.0,5.0)))))
+        # A rushing keeper creates a run, not a speculative sacrifice of the
+        # ball. Leave carrier, goalkeeper, cover and existing recipient alone.
+        if self.GOALKEEPER_TRAP and self._x_rush and protected is None and obs.ball.controlling_team == 0:
+            eligible = [p for p in friends[1:] if p[0] not in (self._chaser,self._shape_cover_id)
+                        and actions.players[p[0]].kick_direction is None and p[1] > bx-5.0]
+            if eligible:
+                q = max(eligible,key=lambda p:p[1])
+                keeper = opponents[0]
+                target = self._target(max(q[1],keeper[1])+3.0,_clip(-keeper[2]*.6,-7.0,7.0))
+                actions.set(q[0],PlayerAction(movement=self._move(q,target)))
+                self._x_event('trap_run')
+        if self.COOLDOWN_AMBUSH and not (self.KEEPER_POWER_PLAY and self._x_power_state != 'idle'):
+            self._x_ambush(obs,friends,opponents,actions,protected)
+        if self._x_events:
+            actions.debug['titan_x'] = tuple(self._x_events)
+        return actions
+
+    # Independent hypotheses from the supplied top-two recordings. They do
+    # not claim knowledge of either opponent's controller or hidden actions.
+    SCOUT_KEEPER_CAP = 0.0
+    SCOUT_OUTLET = False
+    SCOUT_CUTBACK = True
+
+    def _scout_goal_bound(self, obs):
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        if vx>=-8.0 or math.hypot(vx,vy)<12.0:
+            return False
+        n=self._crossing_ticks(bx,vx,-self._left-self._ball_radius)
+        if n>26:
+            return False
+        gy=by+vy*(self._left+self._ball_radius-bx)/vx
+        return abs(gy)<=self._mouth+.6
+
+    def _scout_keeper_limit(self, obs):
+        # Once a real shot reveals its line, the advanced keeper can cover
+        # an interception outside the goalmouth's y range. Slow possession
+        # retains the existing central goalkeeper safeguard.
+        return self._half_height-2.0 if self._scout_goal_bound(obs) and not self._scout_home_priority else self._mouth
+
+    def _scout_keeper_x(self, obs, keeper):
+        self._scout_home_priority=False
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        depth=_clip((bx-self._left)*.22,2.2,self.SCOUT_KEEPER_CAP)
+        x=self._left+depth
+        if depth>2.21:
+            self._x_event('scout_keeper_advanced')
+        if self._scout_goal_bound(obs):
+            # Compare executable saving paths, including momentum and
+            # cooldown. Never discard an available ordinary line save.
+            home_x=self._left+2.2
+            home_y=_clip(by+vy*(home_x-bx)/vx,-self._mouth,self._mouth)
+            line_y=_clip(by+vy*(x-bx)/vx,-self._half_height+2.0,self._half_height-2.0)
+            cooldown=obs.my_players[0].kick_cooldown_ticks
+            home=self._keeper_reaches(keeper,bx,by,vx,vy,(home_x,home_y),False,cooldown)
+            line=self._keeper_reaches(keeper,bx,by,vx,vy,(x,line_y),False,cooldown)
+            if home and not line:
+                self._scout_home_priority=True
+                return home_x
+        return x
+
+    def _scout_support(self, obs, friends, opponents, chaser, races, enemy_eta, targets, protected):
+        if protected:
+            return
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        recipient=self._receive_plan[0] if self._receive_plan is not None else None
+        free=[p for p in friends[1:] if p[0] not in (chaser[0],self._shape_cover_id,recipient)
+              and not obs.can_kick(p[0])]
+        # Keep a full role for cover, a ball chaser, goalkeeper and the other
+        # supporting/marking outfielder. Neither proposal changes a receiver.
+        if len(free)<2:
+            self._scout_outlet=None
+            return
+        if self.SCOUT_CUTBACK and bx>22.0 and abs(by)>12.0:
+            secure=(obs.ball.controlling_team==0 or races[chaser[0]][0]+.15<enemy_eta)
+            if secure:
+                # Behind a wide attack, provide an angle for a verified
+                # cutback and collect end-wall/clearance second balls.
+                tx=min(bx-6.0,self._right-18.0)
+                target=self._target(tx,by*.12)
+                q=min(free,key=lambda p:self._eta(p,*target))
+                targets[q[0]]=target
+                self._x_event('scout_cutback')
+                return
+        if not self.SCOUT_OUTLET:
+            return
+        if (not -25.0<bx<10.0 or vx<-8.0 or obs.ball.controlling_team==0
+                or sum(q[1]<self._left+24.0 and abs(q[2])<14.0 for q in opponents[1:])>1):
+            self._scout_outlet=None
+            return
+        # Do not free the player responsible for an immediate central runner.
+        eligible=[p for p in free if not (targets[p[0]][0]<-15.0 and abs(targets[p[0]][1])<12.0)]
+        if not eligible:
+            self._scout_outlet=None
+            return
+        old=self._scout_outlet
+        q=next((p for p in eligible if old is not None and p[0]==old[0] and obs.tick<=old[2]),None)
+        if q is None:
+            q=max(eligible,key=lambda p:p[1]+(2.0 if p[0]==4 else 0.0))
+            side=-1.0 if by>0.0 else 1.0
+            self._scout_outlet=(q[0],side,obs.tick+int(2.0*self._hz))
+        side=self._scout_outlet[1]
+        targets[q[0]]=self._target(max(bx+22.0,-3.0),side*17.0)
+        self._x_event('scout_outlet')

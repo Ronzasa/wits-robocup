@@ -1,7 +1,10 @@
 # Soccer agent platform — student edition
 
-Recommended competition controller: **[team.py — v10.0 (TITAN-10B-R)](my-team/team.py)** on the
-`main` branch. [Read its local validation results](docs/titan-10b-r-validation.md).
+Active champion: **[team.py — Elite Replay Cutback](my-team/team.py)** on the
+`main` branch, selected by the project owner after the replay-led evaluation.
+[Read the activation record](docs/elite-cutback-promotion.md) and
+[the full paired results](https://github.com/Ronzasa/wits-robocup/blob/b4c24958757b1c2e93b8857b7166367f94051223/docs/elite-scout/validation.md).
+The exact previous [v10.0 champion](champions/v10.0/team.py) is preserved.
 Upload only `team.py` through the course submission system; a GitHub push does
 not update the league entry.
 
@@ -12,11 +15,12 @@ to 33, failing the registered timing gate; v9.1 was retained at that stage.
 [Read all metrics and limitations](docs/titan-10b-validation.md).
 The unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
 
-[TITAN-10B-R](experiments/titan-10b-r/team.py) is now the active **v10.0**
-controller on `main`. It preserves TITAN-10B decisions while reducing runtime
+[TITAN-10B-R](experiments/titan-10b-r/team.py) was the **v10.0** champion.
+It preserves TITAN-10B decisions while reducing runtime
 and earned **1922 versus v9.1's 1864 points** across 720 fresh paired fixtures.
-It passed every original promotion gate. `my-team/team.py` contains the exact
-tested build; the unchanged [v9.1 champion](champions/v9.1/team.py) is preserved.
+It passed every original promotion gate. Its exact tested build is now archived at
+[`champions/v10.0/team.py`](champions/v10.0/team.py); the unchanged
+[v9.1 champion](champions/v9.1/team.py) is preserved.
 [Read the full runtime and promotion evidence](docs/titan-10b-r-validation.md).
 
 The [strict interception build](experiments/strict-interceptions/team.py) requires
