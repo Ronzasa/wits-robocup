@@ -1,0 +1,72 @@
+[
+  {
+    "game": 1,
+    "ticks_per_video_second": 79.99837104072397,
+    "start_tick": 364.7654600301656,
+    "clock_samples": 51,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 2,
+    "ticks_per_video_second": 79.99710407239819,
+    "start_tick": 351.9185520361989,
+    "clock_samples": 51,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 3,
+    "ticks_per_video_second": 79.94533936651584,
+    "start_tick": 342.4283559577676,
+    "clock_samples": 51,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 4,
+    "ticks_per_video_second": 79.97703406471439,
+    "start_tick": 312.73512336719887,
+    "clock_samples": 52,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 5,
+    "ticks_per_video_second": 79.92325791855204,
+    "start_tick": 367.331825037707,
+    "clock_samples": 51,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 6,
+    "ticks_per_video_second": 80.06280542986426,
+    "start_tick": 365.13650075414773,
+    "clock_samples": 51,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 7,
+    "ticks_per_video_second": 79.99897959183674,
+    "start_tick": 426.13469387755083,
+    "clock_samples": 49,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 8,
+    "ticks_per_video_second": 79.97331808652561,
+    "start_tick": 237.8720538720537,
+    "clock_samples": 54,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 9,
+    "ticks_per_video_second": 79.99021950541818,
+    "start_tick": 4.277595628415703,
+    "clock_samples": 60,
+    "rejected_clock_ocr": 0
+  },
+  {
+    "game": 10,
+    "ticks_per_video_second": 79.9996788937891,
+    "start_tick": 129.85899423514016,
+    "clock_samples": 56,
+    "rejected_clock_ocr": 1
+  }
+]

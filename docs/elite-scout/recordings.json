@@ -1,0 +1,182 @@
+[
+  {
+    "game": 1,
+    "fileName": "game1.mp4",
+    "sha256": "a49411536a9df1309c73954b8489043da4dabb28da6d477b4c1e9b03d79338a7",
+    "duration_s": 28.757313,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1048,
+        "height": 500,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 2,
+    "fileName": "game2.mp4",
+    "sha256": "12736f913aa9d8088e415c6dd431b4d694efe15a9ea51a18284662549519870c",
+    "duration_s": 26.901313,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1044,
+        "height": 564,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 3,
+    "fileName": "game3.mp4",
+    "sha256": "bbefd3b6de93b2883efd2076ee043fc081584960130c9dbe36ca1180fc369ae4",
+    "duration_s": 28.501313,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1042,
+        "height": 462,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 4,
+    "fileName": "game4.mp4",
+    "sha256": "b5220ab30be99e2cbfb0107a040374e57ed7f6e4b7b03d04cc1c2fe68ee72a42",
+    "duration_s": 28.607979,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1052,
+        "height": 422,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 5,
+    "fileName": "game5.mp4",
+    "sha256": "fd04efe1945c1ba9de8c6facdc661885c08453c595239c47d583ab84aedf1c22",
+    "duration_s": 26.495979,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1060,
+        "height": 520,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 6,
+    "fileName": "game6.mp4",
+    "sha256": "e0534a7e0507d67e60c36556d8609180fd2350583ab399f5c61b6e8563205314",
+    "duration_s": 28.693313,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1054,
+        "height": 506,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 7,
+    "fileName": "game7.mp4",
+    "sha256": "7ff6c7b4d3e87b7afefb2663234fe195ea69b8dbd6d64c0c3dc79f9360405c3d",
+    "duration_s": 26.261313,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1060,
+        "height": 492,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 8,
+    "fileName": "game8.mp4",
+    "sha256": "a8599ad99879a0733869f38d7c458e5a7647029875728854dc2491bdb0a88e8e",
+    "duration_s": 27.242646,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1058,
+        "height": 520,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 9,
+    "fileName": "game9.mp4",
+    "sha256": "4022c8da8382cfd2b3414b1b70f9d44b7bf2d9789a71c99271d02652b0bd07d7",
+    "duration_s": 31.850646,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1066,
+        "height": 522,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  },
+  {
+    "game": 10,
+    "fileName": "game10.mp4",
+    "sha256": "74aba7452122739c9ecea0a584c3c1e4dbb19d8963691928da2d038d9f46595b",
+    "duration_s": 45.631979,
+    "streams": [
+      {
+        "codec_type": "video",
+        "width": 1062,
+        "height": 524,
+        "r_frame_rate": "30/1"
+      },
+      {
+        "codec_type": "audio",
+        "r_frame_rate": "0/0"
+      }
+    ]
+  }
+]

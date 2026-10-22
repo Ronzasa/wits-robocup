@@ -1,5 +1,6 @@
 """Safety and execution regressions for independently observed hypotheses."""
 import importlib.util
+import ast
 import math
 from pathlib import Path
 from types import SimpleNamespace as S
@@ -106,5 +107,28 @@ class EliteScoutTests(unittest.TestCase):
                     self.assertTrue(all(math.isfinite(v) for v in p.movement))
                     self.assertLessEqual(math.hypot(*p.movement),1.00000001)
                     self.assertTrue(0<=p.kick_power<=1)
+
+    def test_a_real_momentum_limited_home_save_survives_combined_features(self):
+        ball=(-24.602636323714773,7.043898925039507,-23.41075139054272,-2.8897900961030905)
+        keeper=(0,-46.75726239231401,-4.583257051107208,-2.5515341840610963,-1.753567427573496)
+        c=load('keeper14');c.SCOUT_OUTLET=True;c.SCOUT_CUTBACK=True
+        o=obs(ball);o.my_players[0].position=keeper[1:3];o.my_players[0].velocity=keeper[3:]
+        home=(-47.8,4.180449107084878);advanced=(-44.41257999121725,4.598587449994977)
+        self.assertTrue(c._keeper_reaches(keeper,*ball,home,False,0))
+        self.assertFalse(c._keeper_reaches(keeper,*ball,advanced,False,0))
+        self.assertEqual(c._scout_keeper_x(o,keeper),-47.8)
+        self.assertEqual(c.act(o).players[0],load('baseline').act(o).players[0])
+
+    def test_shooting_pass_races_cover_and_contact_functions_are_unchanged(self):
+        def functions(name):
+            tree=ast.parse((ROOT/'experiments'/('elite-scout-'+name)/'team.py').read_text())
+            cls=next(n for n in tree.body if isinstance(n,ast.ClassDef))
+            return {n.name:ast.dump(n,include_attributes=False) for n in cls.body if isinstance(n,ast.FunctionDef)}
+        old=functions('baseline')
+        for name in ('keeper14','outlet','cutback'):
+            new=functions(name)
+            for method in ('_move','_verified_intercept','_pass_race','_receiver_rollout','_shot_option',
+                           '_keeper_reaches','_cover_shape','_carrier_contact','_choose_kick'):
+                self.assertEqual(old[method],new[method],(name,method))
 
 if __name__=='__main__':unittest.main()

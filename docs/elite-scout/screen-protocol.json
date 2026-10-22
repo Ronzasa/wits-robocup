@@ -1,0 +1,53 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/elite-scout-opponents.zip",
+  "opponents_archive_sha256": "7e67d6ceae880ea2942063c712be64dff00d96d959424bf6d80895fe81018352",
+  "sources": {
+    "trap": {
+      "path": "experiments/elite-scout-baseline/team.py",
+      "sha256": "90a7dcba55da2605c59b4cd08d839d94e20a68e006bf52acf9305d01efda88bb"
+    },
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "keeper6": {
+      "path": "experiments/elite-scout-keeper6/team.py",
+      "sha256": "5dbc07545b717385e35c0df1cfce75ef0109ea1631438584af512a1dd9a96506"
+    },
+    "keeper10": {
+      "path": "experiments/elite-scout-keeper10/team.py",
+      "sha256": "e17211621570f42fd730bca6bdef0da079200f4a07c12e8a013a2eea207240ed"
+    },
+    "keeper14": {
+      "path": "experiments/elite-scout-keeper14/team.py",
+      "sha256": "d7aeb6c218959789b84dd2099f698e129509540e23436e0d492025d6795cdd7f"
+    },
+    "outlet": {
+      "path": "experiments/elite-scout-outlet/team.py",
+      "sha256": "1d82a5269c5eb9b52e1c2e602049a85711173a882521919aec52e23e391130c4"
+    },
+    "cutback": {
+      "path": "experiments/elite-scout-cutback/team.py",
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+    }
+  },
+  "seeds": {
+    "screen": [
+      1948186389,
+      1818936253
+    ]
+  },
+  "opponents": [
+    "v10",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "depth14-proxy"
+  ],
+  "fixture_order_seed": 10222026,
+  "deadline_ms": 20.0,
+  "ticks": 2400
+}

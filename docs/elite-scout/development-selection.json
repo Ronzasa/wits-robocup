@@ -1,0 +1,17 @@
+{
+  "independently_promising": [
+    "keeper14",
+    "outlet",
+    "cutback"
+  ],
+  "confirm": [
+    "keeper14",
+    "outlet",
+    "cutback"
+  ],
+  "combined_settings": [
+    14.0,
+    true,
+    true
+  ]
+}

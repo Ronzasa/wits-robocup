@@ -1,0 +1,235 @@
+{
+  "method": "Pixel geometry mapped onto 100x60 pitch; deepest detected team player is a goalkeeper proxy. Only samples with five detections; terminal pauses removed by scoreboard clock. Position estimates, not source-code or action inference. Game4 cropped at bottom.",
+  "games": [
+    {
+      "game": 1,
+      "start_match_s": 18.238273001508283,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 254,
+      "Gabriel": {
+        "complete_five_player_samples": 245,
+        "deepest_player_depth_p10_median_p90": [
+          5.75,
+          13.39,
+          14.11
+        ]
+      },
+      "Zamokuhle": {
+        "complete_five_player_samples": 209,
+        "deepest_player_depth_p10_median_p90": [
+          1.61,
+          1.96,
+          5.18
+        ]
+      }
+    },
+    {
+      "game": 2,
+      "start_match_s": 17.595927601809944,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 256,
+      "Zamokuhle": {
+        "complete_five_player_samples": 249,
+        "deepest_player_depth_p10_median_p90": [
+          1.96,
+          1.96,
+          4.11
+        ]
+      },
+      "Gabriel": {
+        "complete_five_player_samples": 201,
+        "deepest_player_depth_p10_median_p90": [
+          2.32,
+          11.25,
+          13.84
+        ]
+      }
+    },
+    {
+      "game": 3,
+      "start_match_s": 17.12141779788838,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 257,
+      "Gabriel": {
+        "complete_five_player_samples": 243,
+        "deepest_player_depth_p10_median_p90": [
+          5.71,
+          13.39,
+          14.11
+        ]
+      },
+      "Zamokuhle": {
+        "complete_five_player_samples": 210,
+        "deepest_player_depth_p10_median_p90": [
+          1.61,
+          1.61,
+          5.54
+        ]
+      }
+    },
+    {
+      "game": 4,
+      "start_match_s": 15.636756168359943,
+      "video_complete": true,
+      "missing_bottom_court": true,
+      "frames_used": 261,
+      "Zamokuhle": {
+        "complete_five_player_samples": 247,
+        "deepest_player_depth_p10_median_p90": [
+          1.96,
+          1.96,
+          4.46
+        ]
+      },
+      "Gabriel": {
+        "complete_five_player_samples": 212,
+        "deepest_player_depth_p10_median_p90": [
+          4.18,
+          12.32,
+          14.11
+        ]
+      }
+    },
+    {
+      "game": 5,
+      "start_match_s": 18.36659125188535,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 254,
+      "Gabriel": {
+        "complete_five_player_samples": 241,
+        "deepest_player_depth_p10_median_p90": [
+          4.82,
+          10.71,
+          14.11
+        ]
+      },
+      "Zamokuhle": {
+        "complete_five_player_samples": 216,
+        "deepest_player_depth_p10_median_p90": [
+          1.61,
+          1.61,
+          4.46
+        ]
+      }
+    },
+    {
+      "game": 6,
+      "start_match_s": 18.256825037707387,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 254,
+      "Zamokuhle": {
+        "complete_five_player_samples": 245,
+        "deepest_player_depth_p10_median_p90": [
+          1.96,
+          1.96,
+          5.54
+        ]
+      },
+      "Gabriel": {
+        "complete_five_player_samples": 199,
+        "deepest_player_depth_p10_median_p90": [
+          2.64,
+          11.61,
+          13.93
+        ]
+      }
+    },
+    {
+      "game": 7,
+      "start_match_s": 21.30673469387754,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 247,
+      "Gabriel": {
+        "complete_five_player_samples": 236,
+        "deepest_player_depth_p10_median_p90": [
+          6.52,
+          10.98,
+          13.97
+        ]
+      },
+      "Zamokuhle": {
+        "complete_five_player_samples": 211,
+        "deepest_player_depth_p10_median_p90": [
+          1.61,
+          1.61,
+          3.04
+        ]
+      }
+    },
+    {
+      "game": 8,
+      "start_match_s": 11.893602693602684,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 270,
+      "Zamokuhle": {
+        "complete_five_player_samples": 260,
+        "deepest_player_depth_p10_median_p90": [
+          1.96,
+          1.96,
+          4.46
+        ]
+      },
+      "Gabriel": {
+        "complete_five_player_samples": 213,
+        "deepest_player_depth_p10_median_p90": [
+          3.75,
+          11.61,
+          13.75
+        ]
+      }
+    },
+    {
+      "game": 9,
+      "start_match_s": 0.21387978142078518,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 299,
+      "Gabriel": {
+        "complete_five_player_samples": 277,
+        "deepest_player_depth_p10_median_p90": [
+          3.57,
+          9.46,
+          14.11
+        ]
+      },
+      "Zamokuhle": {
+        "complete_five_player_samples": 229,
+        "deepest_player_depth_p10_median_p90": [
+          1.61,
+          1.61,
+          4.11
+        ]
+      }
+    },
+    {
+      "game": 10,
+      "start_match_s": 6.492949711757008,
+      "video_complete": true,
+      "missing_bottom_court": false,
+      "frames_used": 284,
+      "Zamokuhle": {
+        "complete_five_player_samples": 267,
+        "deepest_player_depth_p10_median_p90": [
+          1.96,
+          1.96,
+          5.54
+        ]
+      },
+      "Gabriel": {
+        "complete_five_player_samples": 227,
+        "deepest_player_depth_p10_median_p90": [
+          3.04,
+          10.62,
+          13.84
+        ]
+      }
+    }
+  ]
+}
