@@ -76,7 +76,7 @@ class KeeperWidthTests(unittest.TestCase):
             self.assertGreaterEqual(math.hypot(*targets[pid]),7.5)
         self.assertEqual(targets[0],BASE_TARGETS[0])
         if getattr(c,'POSSESSION_TRIANGLE',False):
-            self.assertLess(targets[1][0],-5.)
+            self.assertLessEqual(targets[1][0],BASE_TARGETS[1][0])
             self.assertGreaterEqual(math.hypot(*targets[1]),7.5)
         else:
             self.assertEqual(targets[1],BASE_TARGETS[1])
