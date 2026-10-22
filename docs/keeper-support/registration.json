@@ -1,0 +1,75 @@
+{
+  "base_commit": "40b2787fc1bc447e9ab90aa78c3bb15aaf5c87ca",
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/keeper-support-opponents.zip",
+  "opponents_archive_sha256": "4a2f625dbda64eeb8faf76fe59da3c03c5d997175b7293c1b8263cf21e552fb8",
+  "sources": {
+    "active": {
+      "path": "my-team/team.py",
+      "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+    },
+    "backpass": {
+      "path": "experiments/keeper-backpass/team.py",
+      "sha256": "2d014bba0f97e4c891c8a8d36db535127fa6ff9f7e0bbf59a942661ccb5dac7a"
+    },
+    "wall-counter": {
+      "path": "experiments/keeper-wall-counter/team.py",
+      "sha256": "301cda15f4c3514942b6651646a67392c64a2d5c2cbb7d84742d01c229fea9bd"
+    },
+    "combined": {
+      "path": "experiments/keeper-support/team.py",
+      "sha256": "2b65f1b9ff4c211ee05ed14cd41e9cd3d871c8b403cb489e9678a6e5dd0647e7"
+    }
+  },
+  "development_seeds": [
+    232533649,
+    357134893
+  ],
+  "validation_seeds": [
+    1192624242,
+    623611685,
+    1754830165,
+    192448230,
+    1570647779,
+    345143537,
+    155868734,
+    1589570452,
+    1014905125,
+    1248805742,
+    1402269067,
+    1920734419
+  ],
+  "known_prior_seeds_excluded": 88,
+  "development_opponents": [
+    "v10",
+    "v10-counter",
+    "v10-press",
+    "v10-compact",
+    "quick_wall",
+    "elite-cutback"
+  ],
+  "validation_opponents": [
+    "v10",
+    "v9.1",
+    "v10-counter",
+    "v10-press",
+    "v10-compact",
+    "quick_wall",
+    "elite-cutback",
+    "aggressive-keeper"
+  ],
+  "selection": "Freeze all sources before development. Advance only the highest-points challenger with strictly more raw development points than active and at least one actual new native receiver contact; tie: backpass, wall-counter, combined. Never modify a policy after seeing development. No advancement if none qualifies.",
+  "gates": {
+    "validation_points": "more than active, paired whole-seed 95% confidence lower bound > 0",
+    "errors": 0,
+    "additional_raw_deadline_misses_per_1000_max": 2.0,
+    "own_deadline_failures_on_exact_repeats": 0,
+    "mean_ms_max": "active*1.35+0.04",
+    "official_intake": "pass",
+    "actual_new_receiver_contact_min": 1,
+    "minimum_paired_validation_fixtures": 384
+  },
+  "promotion": "No automatic promotion. Keep main and active unchanged; report experimental results for owner review.",
+  "runner_provenance": "Adapted serial diagnostic harness and passive native telemetry from physics-tactics commit 31f609e. Timed SDK calls untouched; raw outcomes govern all selection and gates."
+}
