@@ -1,0 +1,34 @@
+{
+  "main_modified": false,
+  "active_champion_modified": false,
+  "promoted": false,
+  "primary_baseline": "v10",
+  "decisions": {
+    "ambush": {
+      "qualified": false,
+      "failed": [
+        "positive_paired95_lower",
+        "positive_familywise_lower",
+        "raw_deadlines"
+      ]
+    },
+    "wall-brake": {
+      "qualified": false,
+      "failed": [
+        "more_raw_points",
+        "positive_paired95_lower",
+        "positive_familywise_lower"
+      ]
+    },
+    "rebound-shot": {
+      "qualified": false,
+      "failed": [
+        "more_raw_points",
+        "positive_paired95_lower",
+        "positive_familywise_lower",
+        "no_reproduced_deadline",
+        "raw_deadlines"
+      ]
+    }
+  }
+}

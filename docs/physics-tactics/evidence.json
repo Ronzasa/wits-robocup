@@ -1,0 +1,37 @@
+{
+  "native": {
+    "path": "tests/fixtures/physics-tactics-native-evidence.zip",
+    "sha256": "c93664b3513b5ca295b65e6b57119fd453442f7d087fdb09090d7ce8dfc8d8fd",
+    "bytes": 3228176,
+    "files": 110
+  },
+  "scheduled_full_matches": 4160,
+  "exact_timeout_fixture_repeats": 57,
+  "physics_and_execution_fixtures": [
+    {
+      "path": "tests/fixtures/physics-development-diagnostics.json",
+      "sha256": "a6d2c62fbf7e62c8f8845a6edcb270e80b5bb921afe20b52d48583e858d04fc5",
+      "bytes": 673046
+    },
+    {
+      "path": "tests/fixtures/physics-development-executions.json",
+      "sha256": "a30e89ec0387a5902097c4f3a7915458b6ee8813e7bc2950d87e8fe7de2654c2",
+      "bytes": 333735
+    },
+    {
+      "path": "tests/fixtures/physics-native-flights.json",
+      "sha256": "83d0129b0ada351bd99e6186abd305135396305a9456e84392cdb689685c7cd6",
+      "bytes": 125224
+    },
+    {
+      "path": "tests/fixtures/physics-qualification-executions.json",
+      "sha256": "3ca0a3467e3c24ad699245a13a5d6f711a36a50bc3eac99361e8791e98f0d1af",
+      "bytes": 1027268
+    },
+    {
+      "path": "tests/fixtures/physics-synthetic-cases.json",
+      "sha256": "a34aae99267faa39104c5433a20360e2cd7b57a0eaed21fff611653ca80f469e",
+      "bytes": 3597
+    }
+  ]
+}
