@@ -1,0 +1,24 @@
+{
+  "archive": "tests/fixtures/keeper-width-native-evidence.zip",
+  "sha256": "2fc2b17eb9f0c37a915e333e127ccbc274212c5964e7b2ee1b6454c70d916f1a",
+  "bytes": 3693345,
+  "files": 150,
+  "per_file_sha256_manifest": "manifest.json in ZIP; all hashes and CRC verified",
+  "full_scheduled_native_matches": 656,
+  "development_full_matches": 528,
+  "fresh_direct_full_matches": 128,
+  "additional_identical_timing_repeats": {
+    "generation-1": 1,
+    "generation-2": 1,
+    "generation-3": 1,
+    "generation-4": 4,
+    "direct-validation": 1
+  },
+  "additional_complete_diagnostic_replays": 1,
+  "regressions": 131,
+  "delivered_sha256": "6d9ee05c2423e03fea67bfde818249db9d5f638c7a8cd2ae9aad22e65d51d9fc",
+  "source_identity": "Identical frozen R3; original keeper back-pass and collection methods checked for AST equality.",
+  "original_12_seed_league_holdout_used": false,
+  "promoted": false,
+  "active_unchanged_sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+}

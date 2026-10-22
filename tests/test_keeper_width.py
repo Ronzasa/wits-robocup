@@ -132,6 +132,14 @@ class KeeperWidthTests(unittest.TestCase):
         c=controller();_,a=scenario(c,100);_,b=scenario(c,101)
         self.assertEqual(a,b)
 
+    def test_held_support_tracks_a_moving_carrier(self):
+        c=controller();_,a=scenario(c,100)
+        if not c._spacing_targets or len(next(iter(c._spacing_targets.values())))<5:
+            self.skipTest('Carrier-relative support introduced in R3')
+        _,b=scenario(c,101,ball=(1.,0.,0.,0.))
+        self.assertAlmostEqual(b[3][0]-a[3][0],1.)
+        self.assertAlmostEqual(b[3][1],a[3][1])
+
     def test_phase_change_discards_old_support_hold(self):
         c=controller();scenario(c,1199)
         self.assertTrue(c._spacing_targets)

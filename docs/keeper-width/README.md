@@ -1,9 +1,9 @@
-# Integrated keeper back pass, width and attacking phases
+# Integrated back pass, width and attacking phases
 
-Experimental branch `keeper-width-attacking-phases`. The single requested candidate is `experiments/keeper-width-attack/team.py`; it includes the existing keeper back pass. Main and the active Elite Replay Cutback champion stay unchanged.
+**One integrated file:** [`experiments/keeper-width/team.py`](../../experiments/keeper-width/team.py). It includes the existing keeper back pass and all requested spacing and clock phases. It is the byte-identical frozen R3 prototype.
 
-The standard match uses normal play for 0–60 seconds, moderate attack for 60–90 seconds, and ultra attack for 90–120 seconds. Scheduling uses actual match ticks and simulation rate, with no score exception. First-half normal means normal attacking intent with the requested wider support and back passes. The final phase advances free receivers and preserves a late counter outlet; the keeper, ball chaser and defensive cover retain their jobs.
+**Not promoted.** The native sandbox completed 656 full scheduled matches. The strongest pool-development version tied champion points; fresh direct testing finished 53W–27D–48L, goals 192–173, points 186–171. Its confidence interval includes zero and its extra raw deadline miss fails the original reliability allowance. Main and the active champion remain unchanged.
 
-Off-ball targets favor open passing lanes, more lateral width, at least 7.5 units from the ball and 6 units from other assigned targets. A short 0.4-second hold limits unnecessary switching, and urgent pressure can invalidate it. Existing pass plans, keeper saves, cover, restart restrictions, counterpress duties and the successful central cutback retain priority. Width is applied to available support players; nobody can be guaranteed to be unmarked on every tick. Actual passes still require the inherited executable receiver and opponent races.
+[Actual results, code provenance and reproduction](results.md) · [Decision](decision.json) · [Fresh direct results](fresh-head-to-head-results.json)
 
-`registration.json` freezes sources, fresh seeds and reliability gates before native development. The sandbox compares the integrated source with active and the older back-pass-only controller; those are baselines, not alternative deliverables. No large winning margin is claimed without measured results.
+For the normal 120-second match, the integrated controller plays normal attacking intent for 0–60 seconds, moderate attack for 60–90, and ultra attack for 90–120, regardless of score. Free receivers provide wider open lanes, a central striker half-space and support targets that move with the carrier. Verified receptions, goalkeeper safety, urgent recovery and restart restrictions retain priority.
