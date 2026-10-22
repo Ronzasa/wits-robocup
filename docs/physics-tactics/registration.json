@@ -1,0 +1,99 @@
+{
+  "base_commit": "40b2787fc1bc447e9ab90aa78c3bb15aaf5c87ca",
+  "registered_utc": "2026-10-22T18:23:43.133746+00:00",
+  "baseline": {
+    "path": "champions/v10.0/team.py",
+    "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+  },
+  "active": {
+    "path": "my-team/team.py",
+    "sha256": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+  },
+  "opponents_archive": "tests/fixtures/physics-tactics-opponents.zip",
+  "opponents_archive_sha256": "4a2f625dbda64eeb8faf76fe59da3c03c5d997175b7293c1b8263cf21e552fb8",
+  "development_seeds": [
+    646162769,
+    529694850
+  ],
+  "qualification_seeds": [
+    656249563,
+    1818823238,
+    988325657,
+    1286764469,
+    1334728769,
+    1849622830,
+    1463709432,
+    417856122,
+    269127949,
+    1104863170,
+    1432210343,
+    1563849382,
+    1591641198,
+    225418309,
+    1374681872,
+    1240434637
+  ],
+  "development_styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "aggressive-keeper",
+    "depth14-proxy"
+  ],
+  "qualification_styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "tight_links",
+    "wide_switch",
+    "long_shooter",
+    "aggressive-keeper",
+    "depth14-proxy",
+    "elite-cutback"
+  ],
+  "sources": {
+    "v10": "champions/v10.0/team.py",
+    "active": "my-team/team.py",
+    "ambush": "experiments/physics-ambush/team.py",
+    "wall-brake": "experiments/physics-wall-brake/team.py",
+    "rebound-shot": "experiments/physics-rebound-shot/team.py"
+  },
+  "initial_hashes": {
+    "ambush": "2afb73fa3267dee234676b1659554600bd4c9f2f4675367d8ab0d4cd4705c247",
+    "wall-brake": "60d61f8210286eb9390e648524377d4d7c6952629055cf74d21d9ca5d8eb5041",
+    "rebound-shot": "b3646dcddd7fd8ca233eeb47f7086e0c7585d0e1dc1164810277919ca71ec126"
+  },
+  "physics": {
+    "engine_version": "0.1.0",
+    "config_hash": "372990895c7eca2a",
+    "ground_friction": 0.985,
+    "wall_restitution": 0.75,
+    "player_restitution": 0.25,
+    "aerial": false
+  },
+  "development": "64 matched configurations/source. Inspect execution failures and public-physics witnesses; at most one documented revision per tactic after this development cohort. Never use qualification outcomes to modify/select/extend a tactic. All three isolated final variants receive the same fixed qualification even if development is weak. No combinations.",
+  "qualification": "768 configurations/source:12styles*16unused seed blocks*2sides*2kickoffs. Serial native worker,2400ticks,20ms,rotating source order. Freeze sources and protocol in git before opening this cohort.",
+  "gates": {
+    "primary": "Raw native outcomes against frozen v10; clean exact repeats are diagnostic only.",
+    "more_raw_points": true,
+    "paired_95_lower_positive": true,
+    "familywise_lower_positive": "3 registered v10 comparisons, 20,000 whole-seed bootstrap resamples, 98.333333% two-sided Bonferroni interval (quantiles .05/6 and 1-.05/6), lower>0.",
+    "zero_policy_exceptions": true,
+    "zero_reproduced_own_deadline_failures": true,
+    "additional_raw_misses_per_1000_max": 2.0,
+    "mean_runtime_max": "v10_raw_mean*1.35+.04ms",
+    "sdk_intake_pass": true,
+    "legal_actions": true,
+    "fixtures_per_source": 768,
+    "native_execution": "At least one confirmed postwall contact for ambush, collected wall-brake reception, or uninterrupted rebound-shot goal. Report plans, native executions and successes separately."
+  },
+  "telemetry": "Native kicks require matching events. Native bounces require reflected positions and velocities without an intervening body touch. Receptions require observed recipient contact after the confirmed wall. Shot goals require a native goal event on an uninterrupted confirmed rebound flight. Goal associations following an ambush are descriptive, not causal.",
+  "preservation": "No changes to main, active my-team, any champion, SDK, engine or config. Even a passing tactic remains experimental until explicit approval.",
+  "excluded_seed_values_sha256": "5f8fc193f725b8dcc5dad6793f3e27eb65a0cdf98a328b8d334262bb99f9a3fe"
+}

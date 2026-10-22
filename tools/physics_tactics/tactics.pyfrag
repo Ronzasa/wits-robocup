@@ -1,0 +1,281 @@
+    # Independent ground-ball extensions. All forecasts and collection
+    # witnesses use v10's unchanged discrete physics and movement helpers.
+    PHYSICS_AMBUSH = False
+    PHYSICS_WALL_BRAKE = False
+    PHYSICS_REBOUND_SHOT = False
+
+    def _physics_wall(self, launch, carrier=False):
+        x,y,vx,vy=launch
+        xb,yb=self._right-self._ball_radius,self._half_height-self._ball_radius
+        nx=0 if abs(x)>xb else self._crossing_ticks(x,vx,xb)
+        ny=0 if abs(y)>yb else self._crossing_ticks(y,vy,yb)
+        n=min(nx,ny)
+        if n>32:
+            return None
+        if nx<=ny:
+            # An open goal is an exit, not a braking surface.
+            gy=y+vy*self._roll[n]
+            if abs(gy)<=self._mouth+.6:
+                return None
+        return (n+(1 if carrier else 0))*self._dt, 'x' if nx<=ny else 'y'
+
+    def _physics_collect(self, p, path, opponents, after, until, aim=None):
+        # The ordinary strict pass race supplies a nominal executable aim.
+        # Recheck the EXACT command we will issue, then first-touch physics.
+        if aim is None:
+            race=self._pass_race(p,path,opponents,.15,after,until)
+            if race is None:
+                return None
+            aim=self._next_receive_aim or race[0][1]
+        aim=self._target(*aim)
+        steps=self._pass_steps(path)
+        cooldown=self._friend_cooldowns.get(p[0],0)
+        movement=self._move(p,aim)
+        route=self._receiver_rollout(p,path,aim,cooldown,after,until,movement,steps)
+        if route is None or not self._first_touch_safe(route,path,opponents,cooldown):
+            return None
+        enemy=math.inf
+        for q in opponents:
+            contact=self._runtime_intercept(q,path,self._enemy_cooldowns.get(q[0],0),
+                until=min(until,route[0]+.25),steps=steps)
+            if contact is not None:
+                enemy=min(enemy,contact[0])
+                if contact[0]<=route[0]+.15-1e-9:
+                    return None
+        return route,enemy,movement
+
+    def _physics_body_clear(self, p, path, friends, until):
+        # Other teammates continue their current role targets. Use the
+        # existing rollout rather than inventing another player integrator.
+        for q in friends:
+            if q[0]==p[0]:
+                continue
+            target=self._physics_targets.get(q[0],q[1:3])
+            first=self._move(q,target,friends if q[0] not in (0,self._chaser) else ())
+            route=self._receiver_rollout(q,path,target,80,0.,until,first)
+            if route is not None:
+                return False
+        return True
+
+    def _physics_ambush_move(self, obs, actions, friends, opponents):
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        old=self._physics_ambush
+        self._physics_ambush=None
+        if (obs.ball.last_touch is None or obs.ball.last_touch<5
+                or getattr(obs.ball,'height',0.)>.05
+                or abs(getattr(obs.ball,'vertical_velocity',0.))>.05
+                or any(obs.can_kick(p[0]) for p in friends)
+                or (obs.tick<self._restart_until and self._restart_owner==1)):
+            return
+        wall=self._physics_wall((bx,by,vx,vy))
+        continuing=(old is not None and old[3]==obs.ball.last_touch
+                    and old[4]<obs.tick<=old[6]
+                    and not any(e.get('kind')=='kick' and e.get('team')==1
+                                for e in getattr(obs,'events',())))
+        if not continuing and (wall is None or wall[0]>.8 or math.hypot(vx,vy)<5.):
+            return
+        path=self._pass_path((bx,by,vx,vy),until=1.8,capture_motion=True)
+        after=0. if continuing else wall[0]+self._dt
+        post=next((s for s in path if s[0]>=after-1e-9),None)
+        if post is None or post[1]<self._left+10.:
+            return
+        recipient=self._receive_plan[0] if self._receive_plan else None
+        candidates=[p for p in friends[1:] if p[0] not in (self._shape_cover_id,recipient)]
+        candidates.sort(key=lambda p:self._eta(p,*post[1:]))
+        if old is not None:
+            candidates.sort(key=lambda p:p[0]!=old[0])
+        # At most two receivers share this one dense forecast and its cache.
+        candidates=candidates[:2]
+        best=None
+        for p in candidates:
+            fixed=old[1] if old and old[0]==p[0] and old[3]==obs.ball.last_touch else None
+            checked=self._physics_collect(p,path,opponents,after,1.8,fixed)
+            if checked is None and fixed is not None:
+                checked=self._physics_collect(p,path,opponents,after,1.8)
+            if checked is None:
+                continue
+            route,enemy,movement=checked
+            motion=self._last_pass_motion
+            speed=math.hypot(*motion[1][route[5]])
+            incoming=old[5] if continuing else math.hypot(vx,vy)
+            if speed>min(12.,incoming*.90):
+                continue
+            if not self._physics_body_clear(p,path,friends,route[0]):
+                continue
+            value=route[0]-(.08 if fixed is not None else 0.)
+            if best is None or value<best[0]:
+                best=value,p,route,enemy,movement,speed
+        if best is None:
+            return
+        _,p,route,enemy,movement,speed=best
+        actions.set(p[0],PlayerAction(movement=movement))
+        bounce_tick=old[4] if continuing else obs.tick+int(round(wall[0]*self._hz))
+        incoming=old[5] if continuing else math.hypot(vx,vy)
+        expiry=old[6] if continuing else obs.tick+int(2.2*self._hz)
+        self._physics_ambush=(p[0],route[2],obs.tick,obs.ball.last_touch,bounce_tick,incoming,expiry)
+        self._physics_events.append({'kind':'ambush','phase':'move','player':p[0],
+            'aim':route[2],'bounce_in':0. if continuing else wall[0],'arrival_in':route[0],
+            'speed':speed,'margin':min(.8,enemy-route[0])})
+
+    def _physics_wall_brake(self,p,bx,by,vx,vy,friends,opponents):
+        # Existing bank passes already cover advancing receivers. This
+        # adds ONLY slow, lateral/backward retention near a side wall.
+        if p[0]==0 or not -30.<bx<30. or abs(by)<17.:
+            return None
+        if min((math.hypot(q[1]-bx,q[2]-by) for q in opponents),default=100.)>6.:
+            return None
+        choices=[q for q in friends[1:] if q[0]!=p[0]
+                 and bx-10.<q[1]<bx+4. and abs(q[2])<24.
+                 and 5.<math.hypot(q[1]-bx,q[2]-by)<27.]
+        choices.sort(key=lambda q:math.hypot(q[1]-bx,q[2]-by))
+        wall=(self._half_height-self._ball_radius)*(1. if by>=0. else -1.)
+        move=self._move(p,(bx+.3,by))
+        best=None
+        for q in choices[:2]:
+            tx,ty=self._target(q[1]+q[3]*.45,q[2]+q[4]*.45)
+            virtual=wall+(wall-ty)/self._wall
+            ux,uy=_unit(tx-bx,virtual-by)
+            for speed in (12.,16.):
+                kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+                if kick is None:
+                    continue
+                launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,kick),move)
+                if launch is None:
+                    continue
+                bounce=self._physics_wall(launch,True)
+                if bounce is None or bounce[1]!='y' or bounce[0]>1.:
+                    continue
+                path=self._pass_path(launch,(bx,by),2.2,capture_motion=True)
+                checked=self._physics_collect(q,path,opponents,bounce[0]+self._dt,2.2)
+                if checked is None:
+                    continue
+                route,enemy,_=checked
+                received_speed=math.hypot(*self._last_pass_motion[1][route[5]])
+                if received_speed>9. or not self._physics_body_clear(p,path,[x for x in friends if x[0]!=q[0]],route[0]):
+                    continue
+                progress=math.hypot(self._right-bx,by)-math.hypot(self._right-route[1][0],route[1][1])
+                score=.9+progress*.15+min(enemy-route[0],.8)*3.-route[0]*.7
+                candidate=(score,kick,move,(q[0],*route[1]),route[2],bounce[0],route[0],received_speed)
+                if best is None or score>best[0]:
+                    best=candidate
+        return best
+
+    def _physics_rebound_shot(self,p,bx,by,vx,vy,friends,opponents):
+        if p[0]==0 or bx<12. or abs(by)<12.:
+            return None
+        keeper=opponents[0] if opponents else None
+        aims=sorted((-5.7,0.,5.7),key=lambda y:-abs(y-(keeper[2] if keeper else 0.)))
+        best=None
+        for gy in aims:
+            # v10 already contains the restitution-aware bank-shot formula.
+            # Activate it; dense verified races strengthen its acceptance.
+            option=self._shot_option(p,bx,by,vx,vy,opponents,gy,bank=True)
+            if option is None:
+                continue
+            launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,option[1]),option[2])
+            goal=self._goal_path(launch) if launch else None
+            bounce=self._physics_wall(launch,True) if launch else None
+            if goal is None or bounce is None or bounce[1]!='y' or bounce[0]>=goal[1][0] or goal[1][2]<8.:
+                continue
+            until=goal[1][0]
+            path=self._pass_path(launch,(bx,by),min(3.,until+self._dt),capture_motion=True)
+            steps=self._pass_steps(path)
+            blocked=False
+            for q in opponents:
+                contact=self._runtime_intercept(q,path,self._enemy_cooldowns.get(q[0],0),until=until,steps=steps)
+                if contact is not None:
+                    blocked=True
+                    break
+            if blocked or not self._physics_body_clear(p,path,friends,until):
+                continue
+            candidate=(*option,bounce[0],until,goal[1][2])
+            if best is None or option[0]>best[0]:
+                best=candidate
+        return best
+
+    def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
+        fallback=self._physics_v10_kick(p,bx,by,vx,vy,friends,opponents)
+        if not (self.PHYSICS_WALL_BRAKE or self.PHYSICS_REBOUND_SHOT):
+            return fallback
+        # Preserve every existing named pass and productive goal trajectory.
+        if self._pass_plan is not None or self._bank_plan is not None:
+            return fallback
+        move=self._touch_movement or self._move(p,(bx+.3,by))
+        launch=None
+        if fallback is not None:
+            launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,fallback),move)
+            if launch is not None and self._goal_path(launch) is not None:
+                return fallback
+        old_score=-2.
+        if fallback is not None:
+            touch=self._touch_path(p,bx,by,vx,vy,fallback,move,opponents)
+            if touch is not None:
+                old_score=touch[0]*.55
+        if self.PHYSICS_WALL_BRAKE:
+            option=self._physics_wall_brake(p,bx,by,vx,vy,friends,opponents)
+            if option is not None and option[0]>old_score+.2:
+                self._touch_movement=option[2]
+                self._pass_plan=option[3]
+                self._bank_plan=option[3]
+                self._physics_pending={'kind':'wall-brake','phase':'launch','player':p[0],
+                    'recipient':option[3][0],'aim':option[4],
+                    'bounce_in':option[5],'arrival_in':option[6],'speed':option[7]}
+                return option[1]
+        if self.PHYSICS_REBOUND_SHOT:
+            option=self._physics_rebound_shot(p,bx,by,vx,vy,friends,opponents)
+            if option is not None and option[0]>old_score+.2:
+                self._touch_movement=option[2]
+                self._physics_pending={'kind':'rebound-shot','phase':'launch','player':p[0],
+                    'bounce_in':option[4],'arrival_in':option[5],'speed':option[6]}
+                return option[1]
+        return fallback
+
+    def _physics_follow(self,obs,actions,friends,opponents):
+        pending=self._physics_pending
+        if pending is not None:
+            a=actions.players.get(pending['player'])
+            if a is not None and a.kick_direction is not None and a.kick_power>0.:
+                self._physics_events.append(pending)
+                if pending['kind']=='wall-brake':
+                    self._physics_receive=(pending['recipient'],pending['player'],
+                        obs.tick+int(2.2*self._hz),pending['aim'],
+                        obs.tick+int(round(pending['bounce_in']*self._hz)),obs.tick)
+        plan=self._physics_receive
+        if plan is None:
+            return
+        rid,pid,expiry,aim,bounce_tick,started=plan
+        receiver=next((q for q in friends[1:] if q[0]==rid),None)
+        if (receiver is None or obs.tick>expiry or
+                (obs.tick!=started and obs.ball.last_touch!=pid)
+                or (obs.tick!=started and any(obs.can_kick(q[0]) for q in friends))):
+            self._physics_receive=None
+            return
+        if obs.tick==started:
+            actions.set(rid,PlayerAction(movement=self._move(receiver,aim)))
+            return
+        bx,by=obs.ball.position;vx,vy=obs.ball.velocity
+        path=self._pass_path((bx,by,vx,vy),until=2.2,capture_motion=True)
+        after=max(0.,(bounce_tick-obs.tick+1)*self._dt)
+        checked=self._physics_collect(receiver,path,opponents,after,2.2,aim)
+        if checked is None:
+            self._physics_receive=None
+            return
+        actions.set(rid,PlayerAction(movement=checked[2]))
+        self._physics_events.append({'kind':'wall-brake','phase':'follow','player':rid,'aim':aim})
+
+    def act(self,obs):
+        self._physics_events=[]
+        self._physics_pending=None
+        self._physics_tick=obs.tick
+        actions=self._physics_v10_act(obs)
+        if self.PHYSICS_AMBUSH or self.PHYSICS_WALL_BRAKE or self.PHYSICS_REBOUND_SHOT:
+            friends=[(p.id,*p.position,*p.velocity) for p in obs.my_players]
+            opponents=[(p.id,*p.position,*p.velocity) for p in obs.opponents]
+            if self.PHYSICS_WALL_BRAKE or self.PHYSICS_REBOUND_SHOT:
+                self._physics_follow(obs,actions,friends,opponents)
+            if self.PHYSICS_AMBUSH:
+                self._physics_ambush_move(obs,actions,friends,opponents)
+            if self._physics_events:
+                actions.debug['physics_tactics']=self._physics_events
+        return actions
