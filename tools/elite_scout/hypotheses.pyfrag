@@ -1,0 +1,89 @@
+    # Independent hypotheses from the supplied top-two recordings. They do
+    # not claim knowledge of either opponent's controller or hidden actions.
+    SCOUT_KEEPER_CAP = 0.0
+    SCOUT_OUTLET = False
+    SCOUT_CUTBACK = False
+
+    def _scout_goal_bound(self, obs):
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        if vx>=-8.0 or math.hypot(vx,vy)<12.0:
+            return False
+        n=self._crossing_ticks(bx,vx,-self._left-self._ball_radius)
+        if n>26:
+            return False
+        gy=by+vy*(self._left+self._ball_radius-bx)/vx
+        return abs(gy)<=self._mouth+.6
+
+    def _scout_keeper_limit(self, obs):
+        # Once a real shot reveals its line, the advanced keeper can cover
+        # an interception outside the goalmouth's y range. Slow possession
+        # retains the existing central goalkeeper safeguard.
+        return self._half_height-2.0 if self._scout_goal_bound(obs) and not self._scout_home_priority else self._mouth
+
+    def _scout_keeper_x(self, obs, keeper):
+        self._scout_home_priority=False
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        depth=_clip((bx-self._left)*.22,2.2,self.SCOUT_KEEPER_CAP)
+        x=self._left+depth
+        if depth>2.21:
+            self._x_event('scout_keeper_advanced')
+        if self._scout_goal_bound(obs):
+            # Compare executable saving paths, including momentum and
+            # cooldown. Never discard an available ordinary line save.
+            home_x=self._left+2.2
+            home_y=_clip(by+vy*(home_x-bx)/vx,-self._mouth,self._mouth)
+            line_y=_clip(by+vy*(x-bx)/vx,-self._half_height+2.0,self._half_height-2.0)
+            cooldown=obs.my_players[0].kick_cooldown_ticks
+            home=self._keeper_reaches(keeper,bx,by,vx,vy,(home_x,home_y),False,cooldown)
+            line=self._keeper_reaches(keeper,bx,by,vx,vy,(x,line_y),False,cooldown)
+            if home and not line:
+                self._scout_home_priority=True
+                return home_x
+        return x
+
+    def _scout_support(self, obs, friends, opponents, chaser, races, enemy_eta, targets, protected):
+        if protected:
+            return
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        recipient=self._receive_plan[0] if self._receive_plan is not None else None
+        free=[p for p in friends[1:] if p[0] not in (chaser[0],self._shape_cover_id,recipient)
+              and not obs.can_kick(p[0])]
+        # Keep a full role for cover, a ball chaser, goalkeeper and the other
+        # supporting/marking outfielder. Neither proposal changes a receiver.
+        if len(free)<2:
+            self._scout_outlet=None
+            return
+        if self.SCOUT_CUTBACK and bx>22.0 and abs(by)>12.0:
+            secure=(obs.ball.controlling_team==0 or races[chaser[0]][0]+.15<enemy_eta)
+            if secure:
+                # Behind a wide attack, provide an angle for a verified
+                # cutback and collect end-wall/clearance second balls.
+                tx=min(bx-6.0,self._right-18.0)
+                target=self._target(tx,by*.12)
+                q=min(free,key=lambda p:self._eta(p,*target))
+                targets[q[0]]=target
+                self._x_event('scout_cutback')
+                return
+        if not self.SCOUT_OUTLET:
+            return
+        if (not -25.0<bx<10.0 or vx<-8.0 or obs.ball.controlling_team==0
+                or sum(q[1]<self._left+24.0 and abs(q[2])<14.0 for q in opponents[1:])>1):
+            self._scout_outlet=None
+            return
+        # Do not free the player responsible for an immediate central runner.
+        eligible=[p for p in free if not (targets[p[0]][0]<-15.0 and abs(targets[p[0]][1])<12.0)]
+        if not eligible:
+            self._scout_outlet=None
+            return
+        old=self._scout_outlet
+        q=next((p for p in eligible if old is not None and p[0]==old[0] and obs.tick<=old[2]),None)
+        if q is None:
+            q=max(eligible,key=lambda p:p[1]+(2.0 if p[0]==4 else 0.0))
+            side=-1.0 if by>0.0 else 1.0
+            self._scout_outlet=(q[0],side,obs.tick+int(2.0*self._hz))
+        side=self._scout_outlet[1]
+        targets[q[0]]=self._target(max(bx+22.0,-3.0),side*17.0)
+        self._x_event('scout_outlet')

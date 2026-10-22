@@ -1,0 +1,119 @@
+{
+  "base_commit": "0a7a3aeba3950eb1b2ed0deeb7a06f2f9b3563e5",
+  "started_utc": "2026-10-22T16:40:49.787633+00:00",
+  "baseline": "experiments/elite-scout-baseline/team.py",
+  "baseline_sha256": "90a7dcba55da2605c59b4cd08d839d94e20a68e006bf52acf9305d01efda88bb",
+  "champion": "my-team/team.py",
+  "champion_sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+  "archive": "tests/fixtures/elite-scout-opponents.zip",
+  "archive_sha256": "7e67d6ceae880ea2942063c712be64dff00d96d959424bf6d80895fe81018352",
+  "screen_seeds": [
+    1948186389,
+    1818936253
+  ],
+  "confirmation_seeds": [
+    1689214734,
+    736628569,
+    952776080,
+    1272086753
+  ],
+  "qualification_seeds": [
+    987971096,
+    1504150052,
+    414416526,
+    689764705,
+    71396177,
+    547456063,
+    1410993415,
+    813416395,
+    352783007,
+    530884290,
+    1796414036,
+    1351874953,
+    1781698646,
+    1855178335,
+    1148404295,
+    874590133
+  ],
+  "screen_styles": [
+    "v10",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "depth14-proxy"
+  ],
+  "confirmation_styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "tight_links",
+    "depth14-proxy"
+  ],
+  "qualification_styles": [
+    "v10",
+    "v9.1",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "quick_wall",
+    "tight_links",
+    "wide_switch",
+    "long_shooter",
+    "aggressive-keeper",
+    "titan-x-trap",
+    "depth14-proxy"
+  ],
+  "hypotheses": {
+    "keeper6": [
+      6.0,
+      false,
+      false
+    ],
+    "keeper10": [
+      10.0,
+      false,
+      false
+    ],
+    "keeper14": [
+      14.0,
+      false,
+      false
+    ],
+    "outlet": [
+      0.0,
+      true,
+      false
+    ],
+    "cutback": [
+      0.0,
+      false,
+      true
+    ]
+  },
+  "source_hashes": {
+    "keeper6": "5dbc07545b717385e35c0df1cfce75ef0109ea1631438584af512a1dd9a96506",
+    "keeper10": "e17211621570f42fd730bca6bdef0da079200f4a07c12e8a013a2eea207240ed",
+    "keeper14": "d7aeb6c218959789b84dd2099f698e129509540e23436e0d492025d6795cdd7f",
+    "outlet": "1d82a5269c5eb9b52e1c2e602049a85711173a882521919aec52e23e391130c4",
+    "cutback": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e"
+  },
+  "selection": "Five isolated variants on identical48 configurations. Promising means more points than both frozen Trap and v10, no exceptions or reproduced deadlines, acceptable mean, <=2 additional raw misses/1000 relative to Trap. Choose best keeper cap by points, then goal difference, then smaller cap. Combine only promising independent feature families. Confirm promising singletons and justified combination on128 unused configurations. If none promising, confirm the highest-points failed singleton for diagnosis only. Choose confirmation winner by points then goal difference then fewer features. Qualification only if winner beats both baselines in points and passes reliability gates in confirmation. No changes or selection from qualification outcomes.",
+  "gates": {
+    "paired_points_more_than_both_baselines": true,
+    "strict_whole_seed_bootstrap95_lower_gt_zero_both": true,
+    "zero_policy_exceptions": true,
+    "no_reproduced_deadline_failure": true,
+    "extra_raw_misses_per_1000_max": 2.0,
+    "mean_limit": "baseline*1.35+.04ms",
+    "official_sdk": true,
+    "valid_actions": true,
+    "qualification_pairs": 768
+  },
+  "native": "20ms,2400ticks,stock engine/config;serial worker;rotating source order;both sides and kickoffs. Preserve all raw rows. Exact timeout repeats at most3, first clean independent of score. No clock/GC/affinity/deadline changes inside controller.",
+  "limitations": "The supplied videos contain no user-team match and reveal no source code/cooldowns. depth14-proxy copies one observed goalkeeper-position idea into known local code; it is not Gabriel Behane or Zamokuhle Maziya. Scores against proxies are not scores against the actual leaders.",
+  "excluded_values_sha256": "a68fe968a1922d3e6ac8d94459242f1d9de680226a5ec812e5f97fd119d5c356"
+}
