@@ -1,0 +1,13 @@
+{
+  "identical_decisions_and_reception_states": 9600,
+  "eta_calls": {
+    "original": 1117152,
+    "runtime": 658959
+  },
+  "eta_calls_avoided": 458193,
+  "sources": {
+    "experiments/titan-11/team.py": "485e8dea6a7ea13fc3d881bf735662d4aabecc177681d98971193056419bac35",
+    "experiments/titan-11-r-runtime/team.py": "020b58f1a0bb606f59b7b25afaa13c18caf9c23ba6e8786beb8291e36e914234"
+  },
+  "scope": "Exact shared public observations. Timing and on-policy match qualification are separate."
+}

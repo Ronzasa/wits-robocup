@@ -1,0 +1,2 @@
+# Offline fitting only; team.py has no dependency on numpy.
+numpy>=1.24

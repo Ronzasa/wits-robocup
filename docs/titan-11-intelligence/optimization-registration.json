@@ -1,0 +1,82 @@
+{
+  "features": [
+    "predictive",
+    "playbooks",
+    "learning"
+  ],
+  "designs": [
+    {
+      "risk": 0.8,
+      "width": 10.0,
+      "through_lead": 0.8,
+      "shoot_bias": -0.25,
+      "shot_scale": 0.9,
+      "pressure": 0.9,
+      "transition_aggression": 0.85,
+      "rest_gap": 3.0,
+      "space_gain": 0.08,
+      "open_width": 0.15,
+      "switch": 0.25,
+      "value_scale": 0.35
+    },
+    {
+      "risk": 1.2,
+      "width": 14.0,
+      "through_lead": 1.2,
+      "shoot_bias": 0.25,
+      "shot_scale": 1.1,
+      "pressure": 1.1,
+      "transition_aggression": 1.15,
+      "rest_gap": 5.0,
+      "space_gain": 0.05,
+      "open_width": 0.23,
+      "switch": 0.12,
+      "value_scale": 0.6
+    },
+    {
+      "risk": 0.8,
+      "width": 14.0,
+      "through_lead": 1.2,
+      "shoot_bias": -0.25,
+      "shot_scale": 1.1,
+      "pressure": 0.9,
+      "transition_aggression": 1.15,
+      "rest_gap": 5.0,
+      "space_gain": 0.08,
+      "open_width": 0.23,
+      "switch": 0.12,
+      "value_scale": 0.35
+    },
+    {
+      "risk": 1.2,
+      "width": 10.0,
+      "through_lead": 0.8,
+      "shoot_bias": 0.25,
+      "shot_scale": 0.9,
+      "pressure": 1.1,
+      "transition_aggression": 0.85,
+      "rest_gap": 3.0,
+      "space_gain": 0.05,
+      "open_width": 0.15,
+      "switch": 0.25,
+      "value_scale": 0.6
+    }
+  ],
+  "training_opponents": [
+    "v10",
+    "v9.1",
+    "v10-press",
+    "v10-counter",
+    "titan11-self",
+    "wall-specialist",
+    "generated-press",
+    "generated-possession"
+  ],
+  "seeds": [
+    483341721,
+    1267476391
+  ],
+  "objective": "points; tie goal difference; tie lower mean runtime; only reliable candidate eligible",
+  "fixed_budget": 4,
+  "training_league_sha256": "be1fe9c1f4fdc8076a0715f116c3adbb8f9f7408ba54c7bbcc0b9ffbea50bdb7"
+}

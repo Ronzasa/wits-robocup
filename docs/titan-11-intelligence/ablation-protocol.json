@@ -1,0 +1,60 @@
+{
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "opponents_archive": "tests/fixtures/titan-11-intelligence-opponents.zip",
+  "opponents_archive_sha256": "457a258417a6deac6cd446f95e54d30661dffbc93419a58d8747337e0a7f0b8d",
+  "opponents": [
+    "v10",
+    "v9.1",
+    "v9.0",
+    "v10-press",
+    "v10-counter",
+    "v10-compact",
+    "v10-long",
+    "tight_links"
+  ],
+  "seeds": {
+    "development": [
+      442797613,
+      1480416298
+    ]
+  },
+  "fixture_order_seed": 110108,
+  "sources": {
+    "v10": {
+      "path": "my-team/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "runtime": {
+      "path": "experiments/titan-11-runtime-control/team.py",
+      "sha256": "82f9a1c96327012ca6a4c847ccefbb2bd7a0e8cbb74b71ac925f2f8149168549"
+    },
+    "predictive": {
+      "path": "experiments/titan-11-predictive/team.py",
+      "sha256": "73ae6aeb30ceca913f7de7c57209864c7f3d126356e10368a7c54c640b80d5f5"
+    },
+    "coordinated": {
+      "path": "experiments/titan-11-coordinated/team.py",
+      "sha256": "1cf7d1e58cb4cd473be92a6f61e61a6259abb4a4d91f063a7662b98b155b6dea"
+    },
+    "finishing": {
+      "path": "experiments/titan-11-elite-finishing/team.py",
+      "sha256": "732b1d71c228cc06418f0df562ef0d85d4dc78c80f34d81c2b036c165154485a"
+    },
+    "defence": {
+      "path": "experiments/titan-11-threat-defence/team.py",
+      "sha256": "f6ac309300faeefeeac11b854176fe6a6f8bf3a4dcec09dd46e86ee155b4f189"
+    },
+    "playbooks": {
+      "path": "experiments/titan-11-playbooks/team.py",
+      "sha256": "175b45e0193006c7c106fe91379a3f8d15492055c14f1a7f1613ca8a2401e012"
+    },
+    "learning": {
+      "path": "experiments/titan-11-learned-value/team.py",
+      "sha256": "07d56b6bbf0ea704af5dbd56f9de0a5ccbef3edade7c4d0c5b518647aa8b895e"
+    }
+  },
+  "deadline_ms": 20.0,
+  "ticks": 2400,
+  "scope": "Both pitch sides and kickoff arrangements. All raw timeouts kept; first clean exact repeats stored separately."
+}

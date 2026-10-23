@@ -1,3 +1,10 @@
+> TITAN-11-R's reception/runtime repair remains experimental; v10.0 stays active.
+> Fresh 1,152-pair qualification: 2,144 versus 2,084 points, but confidence and raw-deadline gates failed.
+> [Repairs, regression checks and complete native evidence](docs/titan-11-repair-validation.md).
+
+> TITAN-11 tactical intelligence is an unpromoted experiment. v10.0 remains active.
+> [Code, all six feature ablations, 768-pair fresh validation and full evidence](docs/titan-11-validation.md).
+
 # Soccer agent platform — student edition
 
 Active champion: **[team.py — Elite Replay Cutback](my-team/team.py)** on the

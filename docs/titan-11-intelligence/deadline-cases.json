@@ -1,0 +1,938 @@
+[
+  {
+    "stage": "ablations",
+    "source": "v10",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v10-compact/team.py-1480416298-side1-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 4.150368999944476,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v10-compact/team.py-1480416298-side1-kick1",
+      "wall_s": 1.254370210000161,
+      "cpu_s": 1.254283684000029,
+      "cgroup_delta": {
+        "usage_usec": 1270064,
+        "user_usec": 1256362,
+        "system_usec": 13702,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "ablations",
+    "source": "runtime",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v10-press/team.py-442797613-side1-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 52.557231000719185,
+    "environment": {
+      "source": "runtime",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v10-press/team.py-442797613-side1-kick1",
+      "wall_s": 1.0539904190000016,
+      "cpu_s": 1.053940052999991,
+      "cgroup_delta": {
+        "usage_usec": 1061616,
+        "user_usec": 1052161,
+        "system_usec": 9456,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "ablations",
+    "source": "runtime",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v9.0/team.py-1480416298-side1-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 41.13970799971867,
+    "environment": {
+      "source": "runtime",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v9.0/team.py-1480416298-side1-kick1",
+      "wall_s": 1.0049972400001934,
+      "cpu_s": 1.0049572249999983,
+      "cgroup_delta": {
+        "usage_usec": 1033879,
+        "user_usec": 1020815,
+        "system_usec": 13064,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "ablations",
+    "source": "coordinated",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v9.0/team.py-442797613-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 28.917767999701027,
+    "environment": {
+      "source": "coordinated",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/ablations/opponents/v9.0/team.py-442797613-side1-kick0",
+      "wall_s": 1.09443470899987,
+      "cpu_s": 1.0943791310000108,
+      "cgroup_delta": {
+        "usage_usec": 1111918,
+        "user_usec": 1100925,
+        "system_usec": 10993,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "finishing-power",
+    "source": "v10",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/finishing-power/opponents/v10-long/team.py-442797613-side1-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 27.211505000195757,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/finishing-power/opponents/v10-long/team.py-442797613-side1-kick1",
+      "wall_s": 1.196565962999557,
+      "cpu_s": 1.1965081689999977,
+      "cgroup_delta": {
+        "usage_usec": 1208194,
+        "user_usec": 1202854,
+        "system_usec": 5340,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "finishing-power",
+    "source": "finishing",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/finishing-power/opponents/v10-press/team.py-442797613-side0-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 2,
+    "candidate_raw_max_ms": 3.738152000551054,
+    "environment": {
+      "source": "finishing",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/finishing-power/opponents/v10-press/team.py-442797613-side0-kick0",
+      "wall_s": 1.0044995609996477,
+      "cpu_s": 1.0044408710000141,
+      "cgroup_delta": {
+        "usage_usec": 1024667,
+        "user_usec": 997851,
+        "system_usec": 26816,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "all-minus-predictive",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 22.618512999542872,
+    "environment": {
+      "source": "all-minus-predictive",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+      "wall_s": 1.1658044119994884,
+      "cpu_s": 1.1656383860000687,
+      "cgroup_delta": {
+        "usage_usec": 1185316,
+        "user_usec": 1181179,
+        "system_usec": 4138,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "all-minus-coordinated",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-press/team.py-442797613-side0-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 67.18148100026156,
+    "environment": {
+      "source": "all-minus-coordinated",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-press/team.py-442797613-side0-kick0",
+      "wall_s": 1.3073171530004402,
+      "cpu_s": 1.3072721040000488,
+      "cgroup_delta": {
+        "usage_usec": 1317641,
+        "user_usec": 1308691,
+        "system_usec": 8950,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "all-minus-coordinated",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v9.1/team.py-442797613-side1-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 4.392212000311702,
+    "environment": {
+      "source": "all-minus-coordinated",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v9.1/team.py-442797613-side1-kick1",
+      "wall_s": 1.05489471600049,
+      "cpu_s": 1.0547555829999737,
+      "cgroup_delta": {
+        "usage_usec": 1055360,
+        "user_usec": 1055274,
+        "system_usec": 86,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "all-minus-finishing",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 28.19627099961508,
+    "environment": {
+      "source": "all-minus-finishing",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+      "wall_s": 1.2698068740000963,
+      "cpu_s": 1.2698003340000241,
+      "cgroup_delta": {
+        "usage_usec": 1293159,
+        "user_usec": 1264239,
+        "system_usec": 28921,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "all-minus-playbooks",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-press/team.py-442797613-side1-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 2,
+    "candidate_raw_max_ms": 4.356679000011354,
+    "environment": {
+      "source": "all-minus-playbooks",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-press/team.py-442797613-side1-kick1",
+      "wall_s": 1.3000262000005023,
+      "cpu_s": 1.2999196719999873,
+      "cgroup_delta": {
+        "usage_usec": 1299155,
+        "user_usec": 1294567,
+        "system_usec": 4587,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "selected-minus-predictive",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 7.055562999994436,
+    "environment": {
+      "source": "selected-minus-predictive",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-1480416298-side0-kick0",
+      "wall_s": 1.3456864769996173,
+      "cpu_s": 1.3456313189999491,
+      "cgroup_delta": {
+        "usage_usec": 1354261,
+        "user_usec": 1349021,
+        "system_usec": 5240,
+        "nice_usec": 0,
+        "nr_periods": 14,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "selected-minus-playbooks",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v9.1/team.py-442797613-side0-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 22.358506000273337,
+    "environment": {
+      "source": "selected-minus-playbooks",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v9.1/team.py-442797613-side0-kick1",
+      "wall_s": 1.2812684310001714,
+      "cpu_s": 1.2811327629999596,
+      "cgroup_delta": {
+        "usage_usec": 1293753,
+        "user_usec": 1286337,
+        "system_usec": 7415,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-0",
+    "source": "selected-minus-playbooks",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-442797613-side1-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 35.599297999397095,
+    "environment": {
+      "source": "selected-minus-playbooks",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-0/opponents/v10-long/team.py-442797613-side1-kick1",
+      "wall_s": 1.1581147500000952,
+      "cpu_s": 1.1580733399999872,
+      "cgroup_delta": {
+        "usage_usec": 1163933,
+        "user_usec": 1163549,
+        "system_usec": 385,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-1",
+    "source": "v10",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-1/opponents/v10/team.py-1480416298-side1-kick0",
+    "candidate_raw_misses": 2,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 27.84369399978459,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-1/opponents/v10/team.py-1480416298-side1-kick0",
+      "wall_s": 1.0647646859997622,
+      "cpu_s": 1.0646857620000034,
+      "cgroup_delta": {
+        "usage_usec": 1098352,
+        "user_usec": 1092499,
+        "system_usec": 5852,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "integration-1",
+    "source": "selected-minus-learning",
+    "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-1/opponents/v10-counter/team.py-442797613-side0-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 24.424322000413667,
+    "environment": {
+      "source": "selected-minus-learning",
+      "fixture_id": "development-/workspace/work/titan-11-intelligence/integration-1/opponents/v10-counter/team.py-442797613-side0-kick1",
+      "wall_s": 1.047586118000254,
+      "cpu_s": 1.047524862000003,
+      "cgroup_delta": {
+        "usage_usec": 1059679,
+        "user_usec": 1055362,
+        "system_usec": 4318,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "optimization",
+    "source": "parent",
+    "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/titan11-self/team.py-483341721-side0-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 80.04523599993263,
+    "environment": {
+      "source": "parent",
+      "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/titan11-self/team.py-483341721-side0-kick1",
+      "wall_s": 1.0789414729997588,
+      "cpu_s": 1.078843758000005,
+      "cgroup_delta": {
+        "usage_usec": 1096333,
+        "user_usec": 1091024,
+        "system_usec": 5309,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "optimization",
+    "source": "parent",
+    "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/v10/team.py-483341721-side0-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 2,
+    "candidate_raw_max_ms": 3.1332369999290677,
+    "environment": {
+      "source": "parent",
+      "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/v10/team.py-483341721-side0-kick1",
+      "wall_s": 1.1642537549996632,
+      "cpu_s": 1.164212722000002,
+      "cgroup_delta": {
+        "usage_usec": 1178074,
+        "user_usec": 1164529,
+        "system_usec": 13544,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "optimization",
+    "source": "search-3",
+    "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/titan11-self/team.py-1267476391-side1-kick0",
+    "candidate_raw_misses": 2,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 48.97321199950966,
+    "environment": {
+      "source": "search-3",
+      "fixture_id": "optimization-/workspace/work/titan-11-intelligence/optimization/opponents/titan11-self/team.py-1267476391-side1-kick0",
+      "wall_s": 1.0784004769993771,
+      "cpu_s": 1.0782829159999991,
+      "cgroup_delta": {
+        "usage_usec": 1097580,
+        "user_usec": 1084808,
+        "system_usec": 12772,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10/team.py-279909459-side1-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 11.480985000162036,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10/team.py-279909459-side1-kick0",
+      "wall_s": 1.0244615549991067,
+      "cpu_s": 1.0244203660000153,
+      "cgroup_delta": {
+        "usage_usec": 1044960,
+        "user_usec": 1036120,
+        "system_usec": 8840,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1341842690-side1-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 2,
+    "candidate_raw_max_ms": 5.94418000036967,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1341842690-side1-kick1",
+      "wall_s": 1.185198551999747,
+      "cpu_s": 1.1851487550000002,
+      "cgroup_delta": {
+        "usage_usec": 1196139,
+        "user_usec": 1182523,
+        "system_usec": 13617,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1515945063-side0-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 31.69483900001069,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1515945063-side0-kick0",
+      "wall_s": 0.977752727000734,
+      "cpu_s": 0.9777243339999586,
+      "cgroup_delta": {
+        "usage_usec": 983017,
+        "user_usec": 974725,
+        "system_usec": 8292,
+        "nice_usec": 0,
+        "nr_periods": 9,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.1/team.py-192991786-side0-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 29.980596999848785,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.1/team.py-192991786-side0-kick1",
+      "wall_s": 1.0214337479992537,
+      "cpu_s": 1.021352709000098,
+      "cgroup_delta": {
+        "usage_usec": 1019811,
+        "user_usec": 1019332,
+        "system_usec": 479,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1980880103-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 69.38277900007961,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-1980880103-side1-kick0",
+      "wall_s": 1.2007240299999467,
+      "cpu_s": 1.2006133889999546,
+      "cgroup_delta": {
+        "usage_usec": 1221656,
+        "user_usec": 1212085,
+        "system_usec": 9572,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-press/team.py-502174036-side1-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 2.5434999997742125,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-press/team.py-502174036-side1-kick0",
+      "wall_s": 1.3074021410002388,
+      "cpu_s": 1.307348859000058,
+      "cgroup_delta": {
+        "usage_usec": 1317439,
+        "user_usec": 1317169,
+        "system_usec": 270,
+        "nice_usec": 0,
+        "nr_periods": 13,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-compact/team.py-1870467619-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 21.282422000695078,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-compact/team.py-1870467619-side1-kick0",
+      "wall_s": 1.0539846989995567,
+      "cpu_s": 1.053929799000116,
+      "cgroup_delta": {
+        "usage_usec": 1065377,
+        "user_usec": 1056572,
+        "system_usec": 8806,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10/team.py-1733917404-side1-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 4.221235999466444,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10/team.py-1733917404-side1-kick0",
+      "wall_s": 1.1871824429999833,
+      "cpu_s": 1.187123462000045,
+      "cgroup_delta": {
+        "usage_usec": 1199593,
+        "user_usec": 1190239,
+        "system_usec": 9354,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "v10",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/wide_switch/team.py-1099308760-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 24.13954300027399,
+    "environment": {
+      "source": "v10",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/wide_switch/team.py-1099308760-side1-kick0",
+      "wall_s": 0.8195112710000103,
+      "cpu_s": 0.8194727519999105,
+      "cgroup_delta": {
+        "usage_usec": 841909,
+        "user_usec": 832546,
+        "system_usec": 9362,
+        "nice_usec": 0,
+        "nr_periods": 8,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/wide_switch/team.py-1733917404-side0-kick0",
+    "candidate_raw_misses": 2,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 23.889243000667193,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/wide_switch/team.py-1733917404-side0-kick0",
+      "wall_s": 0.6493582439998136,
+      "cpu_s": 0.649330458999998,
+      "cgroup_delta": {
+        "usage_usec": 661133,
+        "user_usec": 652644,
+        "system_usec": 8489,
+        "nice_usec": 0,
+        "nr_periods": 6,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.0/team.py-453404953-side1-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 29.456401999595982,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.0/team.py-453404953-side1-kick1",
+      "wall_s": 1.0098532679994605,
+      "cpu_s": 1.009807586000079,
+      "cgroup_delta": {
+        "usage_usec": 1011747,
+        "user_usec": 1011135,
+        "system_usec": 612,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-338896828-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 25.044712000635627,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-mark/team.py-338896828-side1-kick0",
+      "wall_s": 1.0377352420000534,
+      "cpu_s": 1.0376807720000443,
+      "cgroup_delta": {
+        "usage_usec": 1056884,
+        "user_usec": 1039626,
+        "system_usec": 17257,
+        "nice_usec": 0,
+        "nr_periods": 10,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-279909459-side1-kick1",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 10.483373000170104,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-279909459-side1-kick1",
+      "wall_s": 1.1517713820003337,
+      "cpu_s": 1.1517170079999914,
+      "cgroup_delta": {
+        "usage_usec": 1226728,
+        "user_usec": 1196181,
+        "system_usec": 30547,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-linekeeper/team.py-1981314315-side0-kick1",
+    "candidate_raw_misses": 2,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 29.964102000121784,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-linekeeper/team.py-1981314315-side0-kick1",
+      "wall_s": 1.2147508960006235,
+      "cpu_s": 1.2146921080000084,
+      "cgroup_delta": {
+        "usage_usec": 1230435,
+        "user_usec": 1213799,
+        "system_usec": 16636,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.1/team.py-1413237916-side0-kick1",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 20.987589000469598,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v9.1/team.py-1413237916-side0-kick1",
+      "wall_s": 1.157409147999715,
+      "cpu_s": 1.1573657470000853,
+      "cgroup_delta": {
+        "usage_usec": 1205929,
+        "user_usec": 1175494,
+        "system_usec": 30436,
+        "nice_usec": 0,
+        "nr_periods": 11,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-192991786-side1-kick0",
+    "candidate_raw_misses": 1,
+    "opponent_raw_misses": 0,
+    "candidate_raw_max_ms": 127.91292099973361,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-192991786-side1-kick0",
+      "wall_s": 1.7743756510008097,
+      "cpu_s": 1.7743060329999025,
+      "cgroup_delta": {
+        "usage_usec": 1794817,
+        "user_usec": 1782350,
+        "system_usec": 12467,
+        "nice_usec": 0,
+        "nr_periods": 17,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  },
+  {
+    "stage": "validation",
+    "source": "titan11",
+    "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-1733917404-side1-kick0",
+    "candidate_raw_misses": 0,
+    "opponent_raw_misses": 1,
+    "candidate_raw_max_ms": 5.238476000158698,
+    "environment": {
+      "source": "titan11",
+      "fixture_id": "validation-/workspace/work/titan-11-intelligence/validation/opponents/v10-long/team.py-1733917404-side1-kick0",
+      "wall_s": 1.1970033739999053,
+      "cpu_s": 1.196946908999962,
+      "cgroup_delta": {
+        "usage_usec": 1206886,
+        "user_usec": 1205991,
+        "system_usec": 895,
+        "nice_usec": 0,
+        "nr_periods": 12,
+        "nr_throttled": 0,
+        "throttled_usec": 0,
+        "nr_bursts": 0,
+        "burst_usec": 0
+      }
+    },
+    "cause": "Original per-call CPU/GC trace unavailable; do not attribute this wall-time event to the controller or environment from fixture totals alone."
+  }
+]

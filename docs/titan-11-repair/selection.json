@@ -1,0 +1,53 @@
+{
+  "selected": "combined",
+  "runtime_native_football_identical": true,
+  "combined_matches_handoff_football": true,
+  "runtime_mean_improved": true,
+  "handoff_points_improved_over_frozen_titan11": true,
+  "development_summary": {
+    "titan11": {
+      "points": 217,
+      "goals_for": 234,
+      "goals_against": 170,
+      "mean_ms": 0.2168298706137861,
+      "raw_misses": 1,
+      "failed": [
+        "positive_paired_95_lower",
+        "raw_deadlines"
+      ]
+    },
+    "runtime": {
+      "points": 217,
+      "goals_for": 234,
+      "goals_against": 170,
+      "mean_ms": 0.1895270445687558,
+      "raw_misses": 0,
+      "failed": [
+        "positive_paired_95_lower"
+      ]
+    },
+    "handoff": {
+      "points": 220,
+      "goals_for": 226,
+      "goals_against": 163,
+      "mean_ms": 0.21343121509604637,
+      "raw_misses": 0,
+      "failed": [
+        "positive_paired_95_lower"
+      ]
+    },
+    "combined": {
+      "points": 220,
+      "goals_for": 226,
+      "goals_against": 163,
+      "mean_ms": 0.18646802262958082,
+      "raw_misses": 0,
+      "failed": [
+        "positive_paired_95_lower"
+      ]
+    }
+  },
+  "scope": "Registered development selection only, not independent promotion evidence.",
+  "candidate_path": "experiments/titan-11-r/team.py",
+  "candidate_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011"
+}

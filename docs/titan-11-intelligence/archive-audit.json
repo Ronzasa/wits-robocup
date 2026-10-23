@@ -1,0 +1,9 @@
+{
+  "archive": "docs/titan-11-intelligence/native-evidence.zip",
+  "sha256": "51c4fe030644094066acd3fee6a85d8d97d5a40c11484d4d325a893193d1c6dd",
+  "bytes": 30148872,
+  "files": 391,
+  "all_manifest_digests_verified": true,
+  "testzip_ok": true,
+  "all_baseline_raw_records_present": true
+}

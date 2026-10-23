@@ -1,0 +1,24 @@
+{
+  "status": "RETAIN_V10_0",
+  "promoted": false,
+  "active_source": "my-team/team.py",
+  "candidate_sha256": "75239fcc4b80f1fa4e12a7e6a6ac9b142ff309286fc662bef814e8a800777011",
+  "flags": {
+    "higher_fresh_points": true,
+    "positive_paired_95_lower": false,
+    "zero_policy_exceptions": true,
+    "no_repeated_deadline_failure": true,
+    "mean_runtime": true,
+    "raw_deadlines": false,
+    "official_intake": true,
+    "legal_actions": true,
+    "source_frozen": true
+  },
+  "points_delta": 60,
+  "paired_95_interval": [
+    -0.07552083333333333,
+    0.1675347222222222
+  ],
+  "extra_raw_misses_per_1000": 2.6041666666666665,
+  "created_utc": "2026-10-18T11:56:50.878736+00:00"
+}

@@ -1,0 +1,15 @@
+{
+  "reason": "Specification completion: explicit reduced-power trials, independently tested. Frozen original finishing source preserved. Registered before its tournament result.",
+  "source": "experiments/titan-11-finishing-power/team.py",
+  "sha256": "ebf4cc31dce9d3bce7336fbf3558bbce4651cf93a9e29fea4ed27e5d8f49de18",
+  "fixed_work": "two cheap legal launches; shared top-two challenger evaluation; at most two detailed shot responses",
+  "powers": [
+    0.8,
+    0.92
+  ],
+  "targets": [
+    -4.5,
+    4.5
+  ],
+  "selection": "Use this complete finishing ablation for integration only if it passes the same development gates. Do not pool its cohort with original finishing."
+}
