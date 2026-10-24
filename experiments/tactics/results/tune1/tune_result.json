@@ -1,0 +1,430 @@
+{
+ "final": {
+  "CONTAIN_ON": 0,
+  "CONTAIN_DIST": 3.5,
+  "CONTAIN_X": 25.0,
+  "CONTAIN_MARK": 0,
+  "HPRESS_N": 0,
+  "HPRESS_X": 5.0,
+  "TRANSITION_SECONDS": 2.5,
+  "TRANSITION_GAIN": 4.0,
+  "SHOOT_RANGE": 28.0
+ },
+ "best": 0.15750000000000003,
+ "log": [
+  {
+   "round": 0,
+   "change": {
+    "CONTAIN_ON": 1
+   },
+   "params": {
+    "CONTAIN_ON": 1,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": -0.2,
+   "dGD": -0.23,
+   "score": -0.2575,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 55
+  },
+  {
+   "round": 0,
+   "change": {
+    "HPRESS_N": 1
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 1,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": -0.23,
+   "dGD": -0.22,
+   "score": -0.28500000000000003,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 56
+  },
+  {
+   "round": 0,
+   "change": {
+    "HPRESS_N": 2
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 2,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": -0.1,
+   "dGD": -0.13,
+   "score": -0.1325,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 55
+  },
+  {
+   "round": 0,
+   "change": {
+    "TRANSITION_SECONDS": 1.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.0,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": -0.14,
+   "dGD": -0.12,
+   "score": -0.17,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 59
+  },
+  {
+   "round": 0,
+   "change": {
+    "TRANSITION_SECONDS": 2.5
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": 0.06,
+   "dGD": 0.03,
+   "score": 0.0675,
+   "errors_fouls": 0,
+   "to": 2,
+   "secs": 55
+  },
+  {
+   "round": 0,
+   "change": {
+    "TRANSITION_GAIN": 2.5
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 2.5,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": 0.02,
+   "dGD": 0.01,
+   "score": 0.0225,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 57
+  },
+  {
+   "round": 0,
+   "change": {
+    "TRANSITION_GAIN": 6.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 6.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": 0.06,
+   "dGD": 0.03,
+   "score": 0.0675,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 55
+  },
+  {
+   "round": 0,
+   "change": {
+    "SHOOT_RANGE": 28.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": 0.14,
+   "dGD": 0.07,
+   "score": 0.15750000000000003,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 59
+  },
+  {
+   "round": 0,
+   "change": {
+    "SHOOT_RANGE": 40.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 40.0
+   },
+   "dPts": -0.01,
+   "dGD": -0.04,
+   "score": -0.02,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 57
+  },
+  {
+   "round": 1,
+   "change": {
+    "CONTAIN_ON": 1
+   },
+   "params": {
+    "CONTAIN_ON": 1,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": -0.12,
+   "dGD": -0.15,
+   "score": -0.1575,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 59
+  },
+  {
+   "round": 1,
+   "change": {
+    "HPRESS_N": 1
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 1,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": -0.15,
+   "dGD": -0.13,
+   "score": -0.1825,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 56
+  },
+  {
+   "round": 1,
+   "change": {
+    "HPRESS_N": 2
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 2,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": -0.13,
+   "dGD": -0.13,
+   "score": -0.1625,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 57
+  },
+  {
+   "round": 1,
+   "change": {
+    "TRANSITION_SECONDS": 1.5
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": 0.06,
+   "dGD": 0.05,
+   "score": 0.0725,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 56
+  },
+  {
+   "round": 1,
+   "change": {
+    "TRANSITION_SECONDS": 1.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 1.0,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": 0.03,
+   "dGD": 0.01,
+   "score": 0.0325,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 56
+  },
+  {
+   "round": 1,
+   "change": {
+    "TRANSITION_GAIN": 2.5
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 2.5,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": 0.1,
+   "dGD": 0.05,
+   "score": 0.1125,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 57
+  },
+  {
+   "round": 1,
+   "change": {
+    "TRANSITION_GAIN": 6.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 6.0,
+    "SHOOT_RANGE": 28.0
+   },
+   "dPts": 0.14,
+   "dGD": 0.07,
+   "score": 0.15750000000000003,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 56
+  },
+  {
+   "round": 1,
+   "change": {
+    "SHOOT_RANGE": 34.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 34.0
+   },
+   "dPts": 0.06,
+   "dGD": 0.03,
+   "score": 0.0675,
+   "errors_fouls": 0,
+   "to": 0,
+   "secs": 55
+  },
+  {
+   "round": 1,
+   "change": {
+    "SHOOT_RANGE": 40.0
+   },
+   "params": {
+    "CONTAIN_ON": 0,
+    "CONTAIN_DIST": 3.5,
+    "CONTAIN_X": 25.0,
+    "CONTAIN_MARK": 0,
+    "HPRESS_N": 0,
+    "HPRESS_X": 5.0,
+    "TRANSITION_SECONDS": 2.5,
+    "TRANSITION_GAIN": 4.0,
+    "SHOOT_RANGE": 40.0
+   },
+   "dPts": -0.01,
+   "dGD": -0.04,
+   "score": -0.02,
+   "errors_fouls": 0,
+   "to": 1,
+   "secs": 54
+  }
+ ]
+}

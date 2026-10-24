@@ -96,3 +96,16 @@ the deepest outfielder are never used so no gap opens. Dev seeds 30000..30014 x 
 * v1 (layer + marker): dPts -0.133 [-0.304,+0.037], GF 1.05->0.96, GA 0.50->0.55
 * contain_nomark (layer only): dPts -0.027 [-0.197,+0.143], GF 1.05->1.07, GA 0.50->0.58
 Conceded goals rose in both. Overriding the baseline's tuned marking does not help locally. Not promoted.
+
+---
+# Lab and tuner (user request: one framework that brings each experiment to its best)
+* `lab/team.py`: baseline + switches for the press (`HPRESS_*`) and the carrier containment (`CONTAIN_*`), all OFF by
+  default. Verified identical to the baseline on 18 matches (scores and kick/shot/pass/control stats).
+* `harness/tune.py`: coordinate descent over 9 settings, 55 s per trial on 100 paired units (5 opponents x 10 seeds x 2 sides,
+  seeds 30020..30029), baseline results cached, objective dPts + 0.25 dGD, rejects any trial with errors or fouls.
+* Result of tuning round 1 (`results/tune1`): the press and containment switches were never accepted (all negative, as in
+  the manual tests). It accepted TRANSITION_SECONDS 2.5 and SHOOT_RANGE 28 (+0.14 points on the tuning units).
+* Validation on fresh development seeds 30100..30119 (200 paired units): dPts +0.005 [-0.113, +0.123], GF 0.99->0.97,
+  GA 0.42->0.43. The tuning gain was selection noise; nothing is promoted.
+* Lesson: with ~100 units a tuner finds spurious +0.14 gains among ~15 trials; any accepted setting must pass a separate
+  validation set, which is now part of the procedure. Reliable detection of ~0.1 point effects needs ~600+ paired units.
