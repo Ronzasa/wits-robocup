@@ -87,3 +87,12 @@ Running file = frozen baseline minus `TRAIL_WALL` (7-line diff; sha256 41e938a4.
   so fallback is instant. Dev seeds 30000..30014 x both sides, 5 opponents (150 paired units), points/match vs baseline:
   press line x>=5: -0.060 [-0.235,+0.115] (GF 1.05->0.99); x>=20: -0.067 [-0.257,+0.124]; 3 pressers: identical to v1 (cap).
   No gain, slight negative, 0 errors, 0 fouls. Not promoted; confirmation seeds unused.
+
+---
+# Tighter ball-carrier marking without gaps (user suggestion)
+`candidates/contain_v1.py`: when an opponent holds the ball in our half (x <= 25) the second-nearest defender stands on the
+carrier->goal line 3.5 behind the carrier and (v1) a third drops goal-side of the opponent closest to our goal; the keeper and
+the deepest outfielder are never used so no gap opens. Dev seeds 30000..30014 x both sides, 5 opponents, 150 paired units:
+* v1 (layer + marker): dPts -0.133 [-0.304,+0.037], GF 1.05->0.96, GA 0.50->0.55
+* contain_nomark (layer only): dPts -0.027 [-0.197,+0.143], GF 1.05->1.07, GA 0.50->0.58
+Conceded goals rose in both. Overriding the baseline's tuned marking does not help locally. Not promoted.
