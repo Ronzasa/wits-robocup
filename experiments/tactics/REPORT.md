@@ -32,3 +32,34 @@ Raw data: `results/*.json`. Scripts: `probes/`.
 ## Next (needs your go-ahead)
 Stage 1 for wedging only: candidate in `candidates/`, tuned on seeds 30000..30199, then one untouched
 confirmation on 40000..40149 with the paired harness and the gates in PROTOCOL.md.
+
+---
+# Stage 1 (development, seeds 30000..30019 x both sides = 40 paired units vs bus_wall)
+
+Finding 0: the frozen baseline already contains idea 2 (`_wall_break`: legal pushes on defenders plus a
+shot through the widest gap). So "wedging" here means improving that code, not adding a new mechanism.
+
+Diagnosis (`probes/diag_wallbreak.py`, `probes/trace_shots.py`): vs the sealed wall the baseline is in wall-break
+state ~1700+ ticks per match; a >=1.15 gap exists ~65% of those ticks, but a kicker is in range in only ~100 ticks and
+~35 shots per match yield ~0.47 goals/match. Trace of a shot: the ball is deflected back within 3 ticks. The wall
+defenders kick it away when it enters their 2.2 kick range, so a lane free of bodies is not a *verified* lane:
+it also needs every nearby defender to be on kick cooldown while the ball is in their range.
+
+Candidates (single-file copies of the baseline, `candidates/`), paired vs baseline, points per match:
+
+| Candidate | Change | dPts vs baseline (95% CI) | goals for | timeouts/match |
+|---|---|---|---|---|
+| wedge_v1 | lane check also treats our own bodies as obstacles; tries every gap | -0.050 [-0.482, +0.382] | 0.47 -> 0.45 | 0.000 -> 0.025 (sporadic, sandbox load) |
+| wedge_v2 | v1 + shoot only if every defender whose kick range the ball crosses is on cooldown (public `kick_cooldown_ticks`) | -0.100 [-0.543, +0.343] | 0.47 -> 0.42 | 0.000 -> 0.000 |
+
+Both are statistically indistinguishable from zero and point slightly negative. Bus defenders kick whenever
+they can, so the cooldown gate almost never opens. No candidate meets gate 1 (95% lower bound > 0).
+
+Decision: do not spend the untouched confirmation seeds (40000..40149) on a candidate that shows no
+development-seed benefit; the confirmation set stays unused. Nothing is promoted; baseline sha256 unchanged.
+
+# Overall outcome
+All three ideas fail the promotion gates: (1) bait fires only on opponents already beaten, (2) wedging is already
+in the baseline and the two refinements show no gain, (3) own goal not reproducible. Raw data in `results/`.
+Possible follow-up if you want it: a larger dev run (n>=400 units) to detect a ~0.2 point effect, or a different
+approach to making a wall give up the ball (not one of the three assigned ideas).
