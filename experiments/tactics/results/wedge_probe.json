@@ -1,0 +1,83 @@
+{
+ "engine_sha256": "dd432e53196f0a5190b1c4e3533c5b94b9823896ec1e0892b2a3cc07b2c82974",
+ "lane_min_width": 1.15,
+ "ticks": 900,
+ "seeds": [
+  100,
+  129
+ ],
+ "rows": [
+  {
+   "pushers": 0,
+   "target": "mid",
+   "seeds": 30,
+   "lane_opened_after_settle": 0,
+   "p_open": 0.0,
+   "median_seconds_to_open": null,
+   "mean_fraction_ticks_open": 0.0,
+   "mean_best_gap": 0.805034669462475,
+   "mean_final_gap": 0.8000003022846537,
+   "mean_wall_x_shift": 0.14083206176757745
+  },
+  {
+   "pushers": 2,
+   "target": "mid",
+   "seeds": 30,
+   "lane_opened_after_settle": 30,
+   "p_open": 1.0,
+   "median_seconds_to_open": 3.225,
+   "mean_fraction_ticks_open": 0.9195,
+   "mean_best_gap": 2.0076668625076612,
+   "mean_final_gap": 1.7416944009562334,
+   "mean_wall_x_shift": 0.22478009541829375
+  },
+  {
+   "pushers": 3,
+   "target": "mid",
+   "seeds": 30,
+   "lane_opened_after_settle": 30,
+   "p_open": 1.0,
+   "median_seconds_to_open": 2.6,
+   "mean_fraction_ticks_open": 0.9215,
+   "mean_best_gap": 2.3412167261044186,
+   "mean_final_gap": 1.6314665536085764,
+   "mean_wall_x_shift": 0.2607814788818352
+  },
+  {
+   "pushers": 4,
+   "target": "mid",
+   "seeds": 30,
+   "lane_opened_after_settle": 30,
+   "p_open": 1.0,
+   "median_seconds_to_open": 2.6,
+   "mean_fraction_ticks_open": 0.93525,
+   "mean_best_gap": 2.0516531482338904,
+   "mean_final_gap": 1.8409205198287963,
+   "mean_wall_x_shift": 0.3074503580729162
+  },
+  {
+   "pushers": 3,
+   "target": "flank",
+   "seeds": 30,
+   "lane_opened_after_settle": 30,
+   "p_open": 1.0,
+   "median_seconds_to_open": 2.575,
+   "mean_fraction_ticks_open": 0.8988333333333334,
+   "mean_best_gap": 2.471458637241732,
+   "mean_final_gap": 1.8850487684049393,
+   "mean_wall_x_shift": 0.11817509969075436
+  },
+  {
+   "pushers": 4,
+   "target": "flank",
+   "seeds": 30,
+   "lane_opened_after_settle": 30,
+   "p_open": 1.0,
+   "median_seconds_to_open": 2.4,
+   "mean_fraction_ticks_open": 0.8563333333333334,
+   "mean_best_gap": 2.380371614297231,
+   "mean_final_gap": 1.443431073743462,
+   "mean_wall_x_shift": 0.3000111643473299
+  }
+ ]
+}
