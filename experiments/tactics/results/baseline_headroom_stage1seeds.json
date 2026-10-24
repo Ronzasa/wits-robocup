@@ -1,0 +1,26 @@
+{
+ "bus_wall": {
+  "matches": 40,
+  "pts": 1.95,
+  "gf": 0.475,
+  "ga": 0.0
+ },
+ "champion_original": {
+  "matches": 40,
+  "pts": 1.925,
+  "gf": 1.05,
+  "ga": 0.875
+ },
+ "lock_no_breaker": {
+  "matches": 40,
+  "pts": 2.025,
+  "gf": 0.95,
+  "ga": 0.575
+ },
+ "press_formation": {
+  "matches": 40,
+  "pts": 1.575,
+  "gf": 1.025,
+  "ga": 1.175
+ }
+}

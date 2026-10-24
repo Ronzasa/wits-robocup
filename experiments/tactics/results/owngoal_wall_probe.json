@@ -1,0 +1,2071 @@
+{
+ "engine_sha256": "dd432e53196f0a5190b1c4e3533c5b94b9823896ec1e0892b2a3cc07b2c82974",
+ "rows": [
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    27,
+    0
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    14,
+    1
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    0
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -16,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -8,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    12,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": -4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    10
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 0,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    8
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    9
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 8,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 16,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    0
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 1.0,
+   "ty": 28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    50,
+    1
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    19,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    18,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -16,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    20,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -8,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    30,
+    5
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": -4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    25,
+    5
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 0,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    34,
+    14
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    19,
+    6
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 8,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    27,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    20,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 16,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    18,
+    1
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    20,
+    2
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    20,
+    3
+   ]
+  },
+  {
+   "opp": "bus_wall",
+   "power": 0.6,
+   "ty": 28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    36,
+    0
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -28,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    10,
+    66
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -24,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    16,
+    85
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -20,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    54
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -16,
+   "score": [
+    0,
+    4
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    7,
+    62
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -12,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    86
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -8,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    60
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": -4,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    80
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 0,
+   "score": [
+    0,
+    4
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    63
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 4,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    68
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 8,
+   "score": [
+    0,
+    4
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    62
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 12,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    64
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 16,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    81
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 20,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    66
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 24,
+   "score": [
+    0,
+    3
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    55
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 1.0,
+   "ty": 28,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    7,
+    77
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -28,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    67
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -24,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    84
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -20,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    16,
+    44
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -16,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    47
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -12,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    9,
+    43
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -8,
+   "score": [
+    0,
+    4
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    44,
+    73
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": -4,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    67
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 0,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    19,
+    56
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 4,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    18,
+    67
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 8,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    58
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 12,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    10,
+    60
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 16,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    17,
+    41
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 20,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    14,
+    44
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 24,
+   "score": [
+    0,
+    5
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    55
+   ]
+  },
+  {
+   "opp": "champion_original",
+   "power": 0.6,
+   "ty": 28,
+   "score": [
+    0,
+    6
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    18,
+    59
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -28,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    20
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    6,
+    19
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -20,
+   "score": [
+    0,
+    3
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    21
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -16,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    18
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    19
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -8,
+   "score": [
+    2,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    7,
+    10
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": -4,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    14,
+    19
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 0,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    25
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 4,
+   "score": [
+    1,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    4,
+    14
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 8,
+   "score": [
+    1,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    5,
+    26
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 12,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    9,
+    10
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 16,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    14
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    18
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 24,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    17
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 1.0,
+   "ty": 28,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    21
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -28,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    21,
+    29
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -24,
+   "score": [
+    1,
+    1
+   ],
+   "own_goals": [
+    1,
+    1
+   ],
+   "kicks": [
+    8,
+    28
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -20,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    26,
+    32
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -16,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    10,
+    21
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -12,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    10,
+    13
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -8,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    26
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": -4,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    28
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 0,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    28
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 4,
+   "score": [
+    1,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    20
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 8,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    14,
+    21
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    10
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 16,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    17,
+    24
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 20,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    14,
+    27
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 24,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    14
+   ]
+  },
+  {
+   "opp": "tactical",
+   "power": 0.6,
+   "ty": 28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    19
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    9
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    14
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    8,
+    15
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -16,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    7,
+    18
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -12,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    10,
+    15
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -8,
+   "score": [
+    1,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    7,
+    10
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": -4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    10
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 0,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    9
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 4,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    7
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 8,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    9
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 12,
+   "score": [
+    1,
+    2
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    10,
+    17
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 16,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    21
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    9,
+    9
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 24,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    12,
+    8
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 1.0,
+   "ty": 28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    18
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -28,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    20,
+    12
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -24,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    17,
+    15
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -20,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    14
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -16,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    16,
+    17
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -12,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    36,
+    28
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -8,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    14,
+    21
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": -4,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    23,
+    21
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 0,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    10,
+    17
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 4,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    7,
+    15
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 8,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    11,
+    18
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 12,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    15,
+    13
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 16,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    15,
+    14
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 20,
+   "score": [
+    0,
+    2
+   ],
+   "own_goals": [
+    1,
+    0
+   ],
+   "kicks": [
+    12,
+    18
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 24,
+   "score": [
+    0,
+    0
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    13,
+    15
+   ]
+  },
+  {
+   "opp": "balanced",
+   "power": 0.6,
+   "ty": 28,
+   "score": [
+    0,
+    1
+   ],
+   "own_goals": [
+    0,
+    0
+   ],
+   "kicks": [
+    22,
+    16
+   ]
+  }
+ ],
+ "totals": {
+  "champion_original": [
+   0,
+   157,
+   4,
+   30
+  ],
+  "bus_wall": [
+   0,
+   1,
+   1,
+   30
+  ],
+  "tactical": [
+   6,
+   33,
+   9,
+   30
+  ],
+  "balanced": [
+   2,
+   17,
+   7,
+   30
+  ]
+ }
+}
