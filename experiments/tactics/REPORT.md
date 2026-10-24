@@ -77,3 +77,13 @@ Running file = frozen baseline minus `TRAIL_WALL` (7-line diff; sha256 41e938a4.
 * Conclusion: no new controller change proven. Recommendation is to submit the delivered file (TRAIL_WALL=3), which is
   expected to cap blowouts (about 3 goals saved per top-team loss in the 4 replays IF the wall holds at the stand-in rate); this affects goal
   difference, not points, and is unverified against the real top teams.
+
+---
+# High press with instant fallback (user suggestion)
+* The baseline already has a counterpress (`COUNTERPRESS_SECONDS = 1.0`). Raising it to 2.0 or 3.0 changed nothing
+  (identical goals in all 150 paired units): that knob is inert.
+* New candidate `candidates/hpress_v1.py`: when an opponent holds the ball in their half (ball x >= HPRESS_X) free
+  outfielders (one stays as cover) stand goal-side of the carrier's nearest passing options; re-evaluated every tick,
+  so fallback is instant. Dev seeds 30000..30014 x both sides, 5 opponents (150 paired units), points/match vs baseline:
+  press line x>=5: -0.060 [-0.235,+0.115] (GF 1.05->0.99); x>=20: -0.067 [-0.257,+0.124]; 3 pressers: identical to v1 (cap).
+  No gain, slight negative, 0 errors, 0 fouls. Not promoted; confirmation seeds unused.
