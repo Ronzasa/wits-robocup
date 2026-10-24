@@ -63,3 +63,17 @@ All three ideas fail the promotion gates: (1) bait fires only on opponents alrea
 in the baseline and the two refinements show no gain, (3) own goal not reproducible. Raw data in `results/`.
 Possible follow-up if you want it: a larger dev run (n>=400 units) to detect a ~0.2 point effect, or a different
 approach to making a wall give up the ball (not one of the three assigned ideas).
+
+---
+# Defending investigation (after the user confirmed the running file)
+Running file = frozen baseline minus `TRAIL_WALL` (7-line diff; sha256 41e938a4...).
+* Pure 5-man goal wall (`bus_wall`) vs strong stand-in attackers (10 seeds x both sides): concedes 0.10-0.20 goals/match,
+  0.80-0.90 league points/match, i.e. mostly 0-0 draws, despite 37-40 shots against (`results` in this section: probes/profile.py output).
+* Trailing-wall thresholds, paired vs baseline on dev seeds (5 opponents x 20 units): TRAIL_WALL=2 dPts 0.000 (never triggers
+  vs stand-ins); TRAIL_WALL=1 dPts -0.27 [-0.43,-0.12] (harmful: it removes comebacks). Stand-ins never lead by 3, so TRAIL_WALL=3
+  (the delivered file) cannot be tested locally; it only matters against teams like the real top two.
+* Replay tracking (`probes/video_goals.py`, 24 goals in 4 videos): ~3.7 attackers beyond +10 six frames before a goal, ~1.5 of ours
+  defending the final third; ball was detected in only ~20% of frames so ball-path conclusions are not reliable.
+* Conclusion: no new controller change proven. Recommendation is to submit the delivered file (TRAIL_WALL=3), which is
+  expected to cap blowouts (about 3 goals saved per top-team loss in the 4 replays IF the wall holds at the stand-in rate); this affects goal
+  difference, not points, and is unverified against the real top teams.
