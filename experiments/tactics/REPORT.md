@@ -109,3 +109,19 @@ Conceded goals rose in both. Overriding the baseline's tuned marking does not he
   GA 0.42->0.43. The tuning gain was selection noise; nothing is promoted.
 * Lesson: with ~100 units a tuner finds spurious +0.14 gains among ~15 trials; any accepted setting must pass a separate
   validation set, which is now part of the procedure. Reliable detection of ~0.1 point effects needs ~600+ paired units.
+
+---
+# Website replay (format v4) as an opponent source
+Replay supplied by the user: `128211-raquel-defranca` vs `373722-zamokuhle-maziya`, seed 1000, final 0-5 (website
+match r00-...-0000001000-home). It holds per-tick positions, velocities, cooldowns and every player's *action* for both teams,
+so behaviour can be extracted (public data, no code). Raw file (21 MB) is not committed; `harness/extract_replay.py` makes the
+compact team-relative dataset `replays/zamokuhle_maziya_vs_raquel_seed1000.json.gz` (team 1 rotated 180 deg to the obs frame).
+
+How Zamokuhle played (one match, 5-0): possession 55%; keeper fixed at x=-48.2; two midfielders around x -5..-2 and two forwards
+at x 30-45 with |y| ~ 9-14 when attacking (outfield spread +15.7 / +9.7), dropping to x -17/-9 when defending; kicks alternate
+tap (power 0.1-0.6) then full-power drive (mean power 0.44, 19% full); ALL five goals ended at the ball |y| ~ 6.6-6.8, i.e. shots into
+the corners next to the posts (goal half-width 7), taken after wide-forward cut-backs while Raquel's defenders were stretched.
+
+`opponents/clone_zamokuhle.py` (k-NN behaviour clone from this single match): FAILS as a stand-in. It scores 0 goals against
+balanced, tactical, press_formation and the baseline (and concedes 5-10 per match), so one match of data is not enough for an
+interactive clone; it is not used as evidence. More replays (especially top teams vs our team) are needed.
