@@ -135,3 +135,13 @@ Dev seeds 30040..30054 x both sides x 5 opponents = 150 paired units, points/mat
 * clear_b (x<=-30, r<=5): +0.060 [-0.130,+0.250], GF 1.00->0.94, GA 0.53->0.45
 Neither is distinguishable from zero; clear_b's lower conceded goals are an observation to validate on separate seeds (n>=600), not a result.
 Cooldown awareness (suggestion 3) is already provided by `obs.can_kick`; the controller never sends a kick on cooldown.
+
+---
+# Replay 2: Morare Bokgoshi 3 - 1 Zamokuhle Maziya (seed 1003; `harness/replay_report.py`)
+* Zamokuhle LOST this match, so "Zamokuhle = long-ball powerhouse" is not supported: his kick power median is 0.24 (13% full power, 71% below 0.5),
+  38% of kicks aimed at a teammate, 1 rejection (out of range). In the first replay: median 0.34, 19% full, 34% aimed at a teammate. Same signature in both matches.
+* Morare ("spammer" claim): 46 rejected kicks, 44 `on_cooldown` of 176 kicks (26% wasted), median power 0.21, 14% full, 44% aimed at a teammate.
+  The spam claim is true; being rejected has no cost beyond the kick not happening. Morare defended deep (outfield mean x -16, -19, -5, -11) and won 3-1.
+* Morare's goals: ticks 210, 1144, 2017 with the ball at |y| 6.9, 6.9, 5.5; Zamokuhle's goal at |y| 5.6. All 4 goals in this match went in near the posts, as did all
+  5 in replay 1: 9 of 9 goals at 5.5 <= |y| <= 6.9 (goal half-width 7).
+Datasets: replays/morare_bokgoshi_vs_zamokuhle_seed1003.json.gz, replays/zamokuhle_maziya_vs_morare_seed1003.json.gz.
