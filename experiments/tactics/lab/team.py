@@ -58,6 +58,7 @@ class Guardiola2011(TeamController):
     CONTAIN_ON = 0
     CLEAR_ON = 0
     GUARD_N = 0
+    CORNER_BONUS = 0.0
     GUARD_X = -25.0
     GUARD_Y = 6.0
     CLEAR_X = -15.0
@@ -2034,6 +2035,8 @@ class Guardiola2011(TeamController):
         if bx>self._right-40.0:
             for y in (-5.7,-3.0,0.0,3.0,5.7):
                 option=self._shot_option(p,bx,by,vx,vy,opponents,y)
+                if option is not None and abs(y)>5.0 and self.CORNER_BONUS:
+                    option=(option[0]+self.CORNER_BONUS,)+tuple(option[1:])
                 if option is not None and (best is None or option[0]>best[0]):
                     best=option
         link=self._search_links(p,bx,by,vx,vy,friends,opponents)

@@ -198,3 +198,10 @@ Lab switch `GUARD_N/GUARD_X/GUARD_Y` (`lab/team.py`), stand-ins `opponents/tap_d
 * Full-game paired tests (150 units: 5 opponents, seeds 30070..30084, both sides): guard2 (x<=-25) dPts -0.187 [-0.358,-0.015], GF 0.99->0.90, GA 0.33->0.39;
   guard2_x15 dPts -0.240 [-0.413,-0.067], GF 0.99->0.85. Both significantly worse than baseline: pulling defenders back takes away the chaser support and the outlet.
 Decision: rejected. The mechanism works in the handicapped probe but the cost in normal play outweighs it; nothing promoted.
+
+---
+# Our own shot placement (4 replays vs Zamokuhle) and a corner-shot preference
+Our attempts toward goal from <=30 units across the four matches: 20 attempts, 1 goal; aimed y at the goal line: 11 within |y|<=3.5 (central), 6 near the
+post corners 5-7, 3 wide (|y| 8.7-9.0 or -7.8: misses). Winners' goals: all at 5.5-6.9. The baseline (`_before_endwall`) rates five targets (-5.7,-3,0,3,5.7) by opponent-ETA margin and flight time.
+Lab switch `CORNER_BONUS` adds a score bonus to the |y|=5.7 targets. Dev seeds 30090..30104, 150 paired units: bonus 0.6 and bonus 2.0 gave identical results,
+dPts -0.033 [-0.080,+0.014], GF 1.03->1.01: shot selection is not the bottleneck in these matches. Not promoted.
