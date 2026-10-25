@@ -175,3 +175,14 @@ Correction to an earlier note: shooter distances in replay 3 were measured from 
   Ethan_Ikopit beat Zamokuhle_Maziya (GF 4.22 per match) 1-0 in 3 of 4 matches; Abed won 1-0 once, lost 0-1 once, so a deep block holds against the best attacker in the league.
 * We score as many goals per match as those teams (0.91 vs ~0.95) but concede 1.33 vs 0.15-0.4: the gap is conceded goals (our blowout losses and no early lock), not scoring.
 * Zamokuhle in the two new replays: seed 1001 we lost 1-2 (our goal at his keeper's expense; his goals 1, 4... he kicks median 0.26, 63% possession), seed 1003 we lost 0-5 with the same 4-5 deep 'corner' goals.
+
+---
+# Bunker-team replays (Ethan_Ikopit 1-0 and Muhammed_Abed 1-0 over Zamokuhle_Maziya)
+Matches: m-f25d50c2f1ce7db8 (Ikopit, seed 1000, kickoff Ikopit), m-c8aed6a617083e9a (Ikopit, seed 1001), m-9862c4f0fb79e872 (Abed, seed 1002).
+* Phase 1 (until their first goal): normal play. Phase 2: lock. Ikopit seed 1000: possession 19%, 46 kicks; Abed: possession 18%, 24 kicks (!); outfield at x -47.8 .. -48.4
+  (Ikopit y -5.5, -1.9, 1.7, 5.4 with keeper at x -46; Abed y -5.9, -2.9, 2.9, 5.9 with keeper at y 0, spacing 2.9 = body gap equal to the ball diameter), std of y ~1.
+  Zamokuhle had 81-82% possession, 178-247 kicks and scored 0. This is the same structure as our `_lock_wall`; their keepers sit at the goal line (-46 / -48.5).
+* How they scored the single goal: all three goals (ticks 384, 564, 1536) were a striker moving up the pitch with micro-taps (power 0.03-0.18) and then ONE full-power
+  kick into the corner next to the post from 16-20 units out: ball |y| 6.2 / 6.9 / 5.9. Zamokuhle's defenders were off-line (his outfield at x +11..+28 attack-relative) and his keeper did not stop it.
+* So across 4 replays all 16 goals (11 Zamokuhle vs us, 5 others) are corner shots at 5.5 <= |y| <= 6.9 from <=22 units, and every top team uses taps-then-drive.
+  The wall (players at |y| ~ 3 and ~ 6 plus keeper) is exactly what covers those corners; the keeper alone cannot (see keeper feasibility above).
