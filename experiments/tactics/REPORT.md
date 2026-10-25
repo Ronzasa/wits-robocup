@@ -291,10 +291,33 @@ Not promoted: nothing here modifies main or the champion.
 
 ## User's team 12 (replay finishing + cooldown handoffs) vs the stiff-wall challenger
 
-File: `candidates/user_team12.py` (sha256 prefix 27b3ef88dded, 4735 lines, header says it was written without running matches).
-`start.sh check`: PASSED. Imports: `math` and the SDK only. Same lock wall as the candidate (`LOCK_RAMP` equivalent 1.5).
+File: `candidates/user_team12.py` (sha256 prefix 27b3ef88dded, 4735 lines). `start.sh check`: PASSED. Imports: `math` and the SDK only.
+CORRECTION (written after reading the file properly): an earlier version of this section said the file's header described it as untested
+and as "the same family with new finishing play". That header belongs to the candidate file, not to team 12. Team 12 is the wrapper
+`AdaptiveChampion` ("TITAN Adaptive Counter"): it plays the candidate-family policy until it sees the opponent's exact five-slot goal-line
+wall for 6 ticks, then switches for the rest of the match to a second policy ("TITAN Counter Lab", clearance counters / tie bait / siege shots).
+Most of its +0.525 over my challenger therefore comes from that specialist, which only fires against that exact lock wall.
 
 Head-to-head vs `challenger_stiff_wall.py`, seeds 35000-35099, both sides and kickoffs, 200 matches, paired against challenger-vs-itself:
 team 12 scored 2.025 pts/match (challenger-vs-itself 1.50), GD +0.61, paired diff +0.525, 95% CI [+0.32, +0.73]. 0 fouls, 0 errors, raw timeouts 5 vs 3.
 
 Adding the stiff wall to team 12 (`sandbox_h2h/team12_stiff.py`) vs team 12, seeds 36000-36099, 200 matches: +0.005 [-0.005, +0.015]. No effect: team 12 rarely reaches a pushed lock.
+
+## Team 12 cleaned, plus one tweak (looser wall trigger)
+
+Files: `candidates/team12_clean_final.py` (cleanup only, 3231 lines from 4735) and `candidates/team12_clean_broadwall.py` (cleanup + tweak).
+Scripts and raw results in `sandbox_h2h/` (`clean12.py`, `transform12.py`, `digest_run.py`, `dg_big_*.json`, `digest_*.json`, `team12_broad.py`, `bunker_kc.py`).
+
+Cleanup, proven behaviour-preserving: 50 methods (1,248 lines) were pasted identically into both policies and now live once in `_Core`;
+unused methods/constants and the switched-off features (keeper power play, pinball, cooldown ambush, siege-press flag, follow-receiver, scout outlet)
+were removed by an automatic transform. Check: every action (movement, kick direction, power) on every tick hashed; original vs cleaned identical on
+34 matches (both sides, 10 opponents incl. wall builders; the specialist took over in 10 of them). The original is deterministic (two runs identical).
+
+Tweak: the original specialist trigger needs the opponent's five-slot lock formation including its keeper in a fixed slot. Ladder bunker teams
+(keeper central, outfield at about y +-2.9/+-5.9) never match it. New trigger: 4 or more opponents on the goal line (|x - (goal-1.2)| < 1.5, |y| < 7.5) for 6 ticks.
+- Opponent `bunker_kc.py` = stiff-wall challenger with slots y = 0, -2.9, 2.9, -5.9, 5.9 (my model of a ladder bunker, not a real team):
+  screening seeds 37000-37059 (120 matches) +0.158 [-0.017, +0.333]; fresh seeds 38000-38099 (200 matches) 1.370 -> 1.565 pts/match, GD -0.05 -> +0.115, paired +0.195 [+0.066, +0.324].
+- Standard lock wall (stiff-wall challenger), seeds 39000-39079 (160 matches): 2.031 -> 2.025, paired -0.006 [-0.018, +0.006] (no change).
+- Non-wall opponents (pressing, dribbler, marking, balanced, ball_chaser, structured_attack): action fingerprints identical, so no false triggers in those matches.
+- `start.sh check` PASSED; 0 fouls, 0 errors in all runs.
+Caveat: bunker_kc is my own stand-in; the real ladder bunkers also have strikers and may behave differently. Not promoted.
