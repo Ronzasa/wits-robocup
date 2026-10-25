@@ -1,0 +1,6 @@
+champion_original  n= 30 dPts=+0.233 CI[-0.074,+0.540] boot[-0.033,+0.567] GF 0.93->0.97 GA 0.73->0.60 TO/match 0.0000->0.0000 err 0 fouls 0 ms 0.18 max 16.5
+press_formation    n= 30 dPts=+0.267 CI[-0.084,+0.617] boot[-0.067,+0.633] GF 1.00->1.20 GA 1.00->0.83 TO/match 0.0333->0.0333 err 0 fouls 0 ms 0.20 max 23.3
+lock_no_breaker    n= 30 dPts=-0.100 CI[-0.417,+0.217] boot[-0.400,+0.233] GF 0.80->0.67 GA 0.47->0.43 TO/match 0.0000->0.0333 err 0 fouls 0 ms 0.27 max 20.1
+possession         n= 30 dPts=+0.000 CI[+0.000,+0.000] boot[+0.000,+0.000] GF 1.00->1.00 GA 0.00->0.00 TO/match 0.0333->0.0000 err 0 fouls 0 ms 0.06 max 9.0
+balanced           n= 30 dPts=+0.000 CI[+0.000,+0.000] boot[+0.000,+0.000] GF 1.07->1.07 GA 0.03->0.03 TO/match 0.0000->0.0000 err 0 fouls 0 ms 0.07 max 11.2
+ALL                n=150 dPts=+0.080 CI[-0.034,+0.194] boot[-0.033,+0.207] GF 0.96->0.98 GA 0.45->0.38 TO/match 0.0133->0.0133 err 0 fouls 0 ms 0.15 max 23.3

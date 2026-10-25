@@ -205,3 +205,10 @@ Our attempts toward goal from <=30 units across the four matches: 20 attempts, 1
 post corners 5-7, 3 wide (|y| 8.7-9.0 or -7.8: misses). Winners' goals: all at 5.5-6.9. The baseline (`_before_endwall`) rates five targets (-5.7,-3,0,3,5.7) by opponent-ETA margin and flight time.
 Lab switch `CORNER_BONUS` adds a score bonus to the |y|=5.7 targets. Dev seeds 30090..30104, 150 paired units: bonus 0.6 and bonus 2.0 gave identical results,
 dPts -0.033 [-0.080,+0.014], GF 1.03->1.01: shot selection is not the bottleneck in these matches. Not promoted.
+
+---
+# User's current file (team (11).py, sha256 c1973559...; "replay finishing and cooldown handoffs")
+Differs from the baseline lineage: adds near-post aim lanes and relay handoffs, but sets `LOCK_LEAD = 0`, has no trailing wall and no wall breaker. check/validate: PASSED (slowest 8.1 ms, 0 exceptions).
+Dev seeds 30110..30124, 150 paired units vs the frozen baseline: dPts -0.293 [-0.472,-0.115] (GF 0.96 -> 3.97 because it keeps attacking after leading, GA 0.45 -> 0.74;
+lock_no_breaker -0.90). The same file with `LOCK_LEAD = 1` (candidates/user11_lock.py): +0.080 [-0.034,+0.194] on those seeds, and on fresh seeds 30130..30159
+(300 units) +0.013 [-0.077,+0.104] (GF 0.98 -> 0.96, GA 0.45 -> 0.42), i.e. equal to the baseline within noise. Conclusion: the lock is what protects points; the new attacking features are neutral.
