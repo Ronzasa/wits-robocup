@@ -1,0 +1,7 @@
+{
+  "command": "PYTHONPATH=/workspace/work/exploit-lab/student-sdk python -m unittest discover -s tests -p test_candidate_wall_arbitration.py -v",
+  "passed": 6,
+  "failed": 0,
+  "elapsed_seconds": 0.097,
+  "scope": "Synthetic public-input action-arbitration reproductions; native field dimensions. Separate from native competitive results."
+}

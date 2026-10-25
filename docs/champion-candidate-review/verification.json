@@ -1,0 +1,20 @@
+{
+  "full_native_matches_verified": 240,
+  "reviewed_controller_errors": 0,
+  "reviewed_controller_raw_misses": 0,
+  "reviewed_controller_action_validation_errors": 0,
+  "opponent_raw_misses_by_reviewed_source": {
+    "uploaded": 1,
+    "no-trailing-wall": 2,
+    "guarded-wall-break": 1
+  },
+  "opponent_rejected_kicks": 6,
+  "all_sides_policy_errors": 0,
+  "protected_controller_hashes": {
+    "experiments/replay-finishing-handoffs/team.py": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a",
+    "my-team/team.py": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+    "champions/v10.0/team.py": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "champions/v9.1/team.py": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6"
+  },
+  "promotion": false
+}

@@ -1,0 +1,56 @@
+{
+  "sources": {
+    "uploaded": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-candidate-review/uploaded/team.py",
+      "sha256": "7708f5d3b10202092f1fce73abfc61a5d7a61d91326d95d69cec872d4c7ba758"
+    },
+    "no-trailing-wall": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-candidate-review/no-trailing-wall/team.py",
+      "sha256": "fcff88949ee75386f6c5d54a74a79174e5c5de8ba29f54c7fdd36595edbfc0c6"
+    },
+    "guarded-wall-break": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-candidate-review/guarded-wall-break/team.py",
+      "sha256": "2f79c2cd3717f6c2b3678c2efc25881b5761e05cce6d41ed2ea1047ee9e72d07"
+    }
+  },
+  "opponents": {
+    "team8": {
+      "path": "/workspace/work/replay-isolation-20261025/opponents/team8/team.py",
+      "sha256": "5b4a2c6638d6a92fe09c580f55b148cf91d592276a166254a7ab51a4fc90b957"
+    },
+    "v10-counter": {
+      "path": "/workspace/work/replay-isolation-20261025/opponents/v10-counter/team.py",
+      "sha256": "592b516e846776db1fc192d807a0506d6ae5d531c739cbc7d22f253bb8587894"
+    },
+    "v10-press": {
+      "path": "/workspace/work/replay-isolation-20261025/opponents/v10-press/team.py",
+      "sha256": "696bfc073e0159cdbb3ffcd15c6f9733d1ed922c7c114869ac37454c965c78e3"
+    },
+    "v10-compact": {
+      "path": "/workspace/work/replay-isolation-20261025/opponents/v10-compact/team.py",
+      "sha256": "a5374bd5577d7a3431f5b0da26ab7d32dabb2cd9350103f87135deda26a95179"
+    },
+    "v9.1": {
+      "path": "/workspace/work/replay-isolation-20261025/opponents/v9.1/team.py",
+      "sha256": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6"
+    }
+  },
+  "seeds": [
+    3104278101,
+    3104278102,
+    3104278103,
+    3104278104
+  ],
+  "config_path": "/workspace/work/replay-finishing-handoffs/configs/default.toml",
+  "config_hash": "372990895c7eca2a",
+  "engine_version": "0.1.0",
+  "max_ticks": 2400,
+  "deadline_ms": 20.0,
+  "workers": 1,
+  "formation": "Public native defaults; captured replay roster regression verified",
+  "purpose": "Development-only review of the new upload. Do not select or promote a champion using this cohort.",
+  "schedule": "Each of three independent sources against five fixed common opponents, all four side/kickoff combinations, four unused seeds: 240 matches.",
+  "order_seed": 3104278105,
+  "bootstrap_seed": 3104278106,
+  "promotion": false
+}
