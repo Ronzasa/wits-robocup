@@ -234,3 +234,23 @@ Built in `/home/claude/sandbox` from the user's team (11): `LOCK_LEAD = 1`, trai
 check PASSED; validate 0 exceptions, 0 over deadline. Paired, 5 opponents (champion_original, press_formation, lock_no_breaker, possession, balanced), both sides:
 * vs the user's file as run (seeds 30200..30214, 150 units): dPts +0.247 [+0.089,+0.404] (GF 4.15 -> 0.95, GA 0.73 -> 0.37). Points gain is significant; the file as run scores 8 goals a match against the built-ins because it never locks, which the candidate gives up (goal difference).
 * vs the frozen baseline: seeds 30200..30214 (150 units) +0.113 [-0.016,+0.243], GA 0.48 -> 0.37; fresh seeds 30220..30249 (300 units) +0.063 [-0.045,+0.172], GA 0.54 -> 0.46. Positive trend, not significant (promotion gate 1 is NOT met against the baseline).
+
+## Head-to-head vs champion_candidate.py (treated as a top team)
+
+Setup: seeds 30500..30559, both sides (120 matches per row), paired against the candidate playing itself.
+Scripts and results are in `sandbox_h2h/`.
+
+| Challenger | pts/match | GD/match | paired diff vs reference | 95% CI |
+|---|---|---|---|---|
+| candidate vs itself (reference) | 1.183 | -0.158 | - | - |
+| late all-in, last 30% when not leading | 0.883 | -0.408 | -0.300 | [-0.468, -0.132] (worse) |
+| late all-in, last 15% | 1.067 | -0.275 | -0.117 | [-0.248, +0.015] |
+| lock only after >=2 opponent shots at us | 1.167 | -0.033 | -0.017 | [-0.189, +0.155] |
+| lock only after >=5 opponent shots at us | 1.158 | +0.017 | -0.025 | [-0.199, +0.149] |
+
+Also: coordinate descent over 11 numeric constants head-to-head (`results/h2h1`) accepted nothing
+(all trials inside noise 1.30-1.42 vs reference 1.35; TRAIL_WALL=1 and SHOOT_RANGE=46 clearly worse).
+
+Conclusion: no challenger beat the candidate with a positive 95% lower bound. The threat-gated lock moves
+goal difference up slightly (-0.158 -> -0.03/+0.02) at no measurable cost in points, but the gain is inside noise,
+so it is NOT promoted. Nothing here modifies main or the champion.

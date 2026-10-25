@@ -1,0 +1,5 @@
+champion_candidate.py n 120 pts 1.183 GD -0.158 fouls 0 timeouts 0
+gate2.py n 120 pts 1.167 GD -0.033 fouls 0 timeouts 11
+   paired vs first file: d -0.017 95% CI -0.189 0.155
+gate5.py n 120 pts 1.158 GD 0.017 fouls 0 timeouts 1
+   paired vs first file: d -0.025 95% CI -0.199 0.149
