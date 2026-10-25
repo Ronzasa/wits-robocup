@@ -1,0 +1,31 @@
+{
+  "version": "replay-recovery-safety-v2",
+  "file": "experiments/replay-finishing-handoffs/team.py",
+  "base_commit": "8cc79367bcfe7a05009eaf66fdd37d9d1275a395",
+  "source_bytes": 161650,
+  "sha256": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a",
+  "review": "Source text comparison only; no controller import, execution, compilation, tests, native probes or matches.",
+  "unchanged_methods": {
+    "_move": true,
+    "_intercept": true,
+    "_goal_path": true,
+    "_shot_option": true,
+    "_keeper_reaches": true,
+    "_cover_shape": true,
+    "_original_choose_kick": true,
+    "_scout_keeper_x": true,
+    "_scout_keeper_limit": true,
+    "_scout_goal_bound": true,
+    "initial_formation": true,
+    "_lock_wall": true
+  },
+  "lock_lead": 0,
+  "tests_run": false,
+  "controller_executed": false,
+  "runtime_measured": false,
+  "promotion": false,
+  "text_comparison_note": "Method bodies compared as text with trailing separator whitespace removed.",
+  "competition_deadline_ms": 20,
+  "deadline_compliance": "unmeasured",
+  "recorded_site_code_limit_kb": 256
+}

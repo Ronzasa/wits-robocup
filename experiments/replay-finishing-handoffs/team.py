@@ -1,10 +1,9 @@
-"""Replay finishing and cooldown handoffs, based on the uploaded team (8).
+"""Replay-guided recovery, clearance safety and short-touch retention.
 
-Normal play distinguishes the scoring plane from the solid end wall, offers
-two additional near-post lanes, and considers short, verified handoffs to a
-ready teammate. The uploaded five-player lead-protection wall is retained.
-Only math and the official SDK are used. Implemented without running tests
-or matches at the owner's request; this file has not been promoted.
+Keeps the finishing and receiver coordination from replay-finishing-handoffs.
+The goal-wall lead lock is disabled. Uses only math and the official SDK.
+Implemented without running tests or matches at the owner's request;
+runtime compliance and match performance remain unmeasured.
 """
 import math
 
@@ -24,7 +23,7 @@ def _unit(x, y):
 
 class Guardiola2011(TeamController):
     name = "Pep Guardiola + Jurgen Klopp Hybrid"
-    version = "replay-finishing-handoffs-v1"
+    version = "replay-recovery-safety-v2"
     EXECUTE_RECEIVER = True
     ACTUAL_RECEIVE_STEP = True
     FOLLOW_RECEIVER = False
@@ -38,6 +37,17 @@ class Guardiola2011(TeamController):
     RELAY_MAX_TICKS = 4
     RELAY_LOOKAHEAD_TICKS = 8
     RELAY_RECEIVER_LIMIT = 2
+    PASS_RACE_LIMIT = 24
+    PASS_SAMPLE_LIMIT = 3200
+    RECEIVER_STEP_LIMIT = 1200
+    WITNESS_STEP_LIMIT = 800
+    TOUCH_PATH_LIMIT = 24
+    RECOVERY_ENTRY_X = 12.0
+    RECOVERY_EXIT_X = 18.0
+    RECOVERY_DEPTH = 8.0
+    KEEPER_CLEAR_TICKS = 12
+    RETENTION_MARGIN = 0.06
+    RETENTION_PRESSURE = 6.5
     # Lock the lead: once ahead by LOCK_LEAD goals with at most LOCK_TIME of the
     # match left, all players stand across the goal mouth. A player is 2 wide,
     # the ball 0.9 wide, so players spaced LOCK_SPACING apart leave no gap the
@@ -88,6 +98,18 @@ class Guardiola2011(TeamController):
         self._runtime_path = None
         self._runtime_steps = None
         self._runtime_queries = {}
+        self._runtime_rollouts = {}
+        self._path_cache = {}
+        self._touch_cache = {}
+        self._work = None
+        self._work_mode = 0
+        self._work_unknown = False
+        self._touch_left = self.TOUCH_PATH_LIMIT
+        self._recovery_guard = None
+        self._recovery_tick = -1
+        self._recovery_score = None
+        self._carry_plan = None
+        self._retention_proposal = None
         self._mark_assignments = {}
         self._bank_plan = None
         self._bank_receive = None
@@ -168,7 +190,47 @@ class Guardiola2011(TeamController):
         self._runtime_path = None
         self._runtime_steps = None
         self._runtime_queries = {}
+        self._runtime_rollouts = {}
         self._ready = True
+
+    def _begin_work(self):
+        # Candidate searches cannot consume the budget reserved for checking
+        # an actual selected launch or a live receiver's actual movement.
+        self._work = [
+            [self.PASS_RACE_LIMIT, self.PASS_SAMPLE_LIMIT,
+             self.RECEIVER_STEP_LIMIT, self.WITNESS_STEP_LIMIT],
+            [6, 2400, 900, 600],
+            [4, 400, 160, 120],
+        ]
+        self._work_mode = 0
+        self._work_unknown = False
+        self._touch_left = self.TOUCH_PATH_LIMIT
+        self._path_cache = {}
+        self._touch_cache = {}
+        self._runtime_path = None
+        self._runtime_steps = None
+        self._runtime_queries = {}
+        self._runtime_rollouts = {}
+
+    def _take_work(self, slot, amount=1):
+        if self._work is None:
+            return True
+        remaining = self._work[self._work_mode]
+        if remaining[slot] < amount:
+            self._work_unknown = True
+            return False
+        remaining[slot] -= amount
+        return True
+
+    def _selected_race(self, receiver, path, opponents, margin=0.0,
+                       after=0.0, until=4.0, first_move=None):
+        old = self._work_mode
+        self._work_mode = 1
+        try:
+            return self._pass_race(receiver, path, opponents, margin,
+                                   after, until, first_move)
+        finally:
+            self._work_mode = old
 
     def _target(self, x, y):
         return (_clip(x, self._left + 2.0, self._right - 2.0),
@@ -318,6 +380,12 @@ class Guardiola2011(TeamController):
         ball too: players move and can kick before that tick's ball step.
         General movement deliberately retains the sparse _trajectory.
         """
+        key = (tuple(launch), None if origin is None else tuple(origin),
+               until, bool(self.FIRST_TOUCH))
+        cached = self._path_cache.get(key)
+        if cached is not None:
+            samples, self._last_pass_motion = cached
+            return samples
         x, y, vx, vy = launch
         samples = [] if origin is None else [(0.0, *origin)]
         motion = ([] if origin is None else [(vx,vy)]) if self.FIRST_TOUCH else None
@@ -345,6 +413,8 @@ class Guardiola2011(TeamController):
             if motion is not None:
                 motion.append((vx,vy))
         self._last_pass_motion = (samples,motion) if motion is not None else None
+        if len(self._path_cache) < 12:
+            self._path_cache[key] = (samples, self._last_pass_motion)
         return samples
 
     def _pass_reachable(self, p, x, y, n, radius):
@@ -383,6 +453,8 @@ class Guardiola2011(TeamController):
             return True
         # Saturation can make the disk bound optimistic. Verify the actual
         # acceleration and speed cap rather than accepting that bound.
+        if not self._take_work(3, n):
+            return False
         px, py, vx, vy = p[1:]
         tx, ty = self._target(x, y)
         for _ in range(n):
@@ -420,6 +492,7 @@ class Guardiola2011(TeamController):
         self._runtime_path=path
         self._runtime_steps=steps
         self._runtime_queries={}
+        self._runtime_rollouts={}
         return steps
 
     def _runtime_intercept(self, p, path, cooldown=0, after=0.0, until=4.0, steps=None):
@@ -432,6 +505,8 @@ class Guardiola2011(TeamController):
         if cached is not False:
             return cached
         answer=self._verified_intercept(p,path,cooldown,after,until,steps)
+        if self._work_unknown:
+            return None
         # A public flight has at most ten current players. Cap the cache
         # explicitly even when helpers are invoked outside ordinary act().
         if len(self._runtime_queries)>=32:
@@ -454,6 +529,8 @@ class Guardiola2011(TeamController):
                 break
             if t+1e-9<after:
                 continue
+            if not self._take_work(1):
+                return None
             # Cheap necessary bounds avoid a movement-witness call for most
             # distant players. These never turn an estimate into acceptance.
             coast,reach=self._reach_table[n]
@@ -472,6 +549,9 @@ class Guardiola2011(TeamController):
 
     def _pass_race(self, receiver, path, opponents, margin=0.0, after=0.0, until=4.0, first_move=None):
         self._next_receive_aim=None
+        self._work_unknown=False
+        if not self._take_work(0):
+            return None
         steps=self._pass_steps(path)
         route=None
         if self.EXECUTE_RECEIVER or (self.HOLD_RECEPTION and after<=0.0 and self._receive_aim is not None):
@@ -480,7 +560,7 @@ class Guardiola2011(TeamController):
         else:
             own=self._runtime_intercept(receiver,path,
                                          self._friend_cooldowns.get(receiver[0],0),after,until,steps)
-        if own is None:
+        if own is None or self._work_unknown:
             return None
         enemy = math.inf
         # The pass has ended at reception. Score margins are capped at .8s;
@@ -490,6 +570,10 @@ class Guardiola2011(TeamController):
         for q in opponents:
             race = self._runtime_intercept(q, path, self._enemy_cooldowns.get(q[0], 0),
                                            until=contest_until, steps=steps)
+            # An unfinished opponent query is unknown, not an absent
+            # interception. Budget limits must never make a pass look safe.
+            if self._work_unknown:
+                return None
             if race is not None:
                 if race[0]<=own[0]+1e-9 or race[0]-own[0]<margin-1e-9:
                     return None
@@ -500,6 +584,18 @@ class Guardiola2011(TeamController):
         return own, enemy
 
     def _receiver_rollout(self, p, path, aim, cooldown=0, after=0.0, until=4.0, first_move=None, steps=None):
+        if steps is None:
+            steps=self._pass_steps(path)
+        key=(tuple(p),tuple(aim),cooldown,after,until,
+             None if first_move is None else tuple(first_move))
+        if key in self._runtime_rollouts:
+            return self._runtime_rollouts[key]
+        route=self._receiver_rollout_steps(p,path,aim,cooldown,after,until,first_move,steps)
+        if not self._work_unknown and len(self._runtime_rollouts)<24:
+            self._runtime_rollouts[key]=route
+        return route
+
+    def _receiver_rollout_steps(self, p, path, aim, cooldown=0, after=0.0, until=4.0, first_move=None, steps=None):
         """First touch under the commands used by a named receiver.
 
         A kick needs act()'s BEFORE-movement can_kick gate and its conservative
@@ -523,6 +619,8 @@ class Guardiola2011(TeamController):
             n=steps[index][1] if steps is not None else int(round(t*hz))
             if t>until+1e-9:
                 break
+            if not self._take_work(2):
+                return None
             if abs(t-previous[0]-dt)>1e-8:
                 return None
             prex,prey=previous[1:]
@@ -607,7 +705,7 @@ class Guardiola2011(TeamController):
             radius=self._range if self._enemy_cooldowns.get(q[0],0)<=n+1 else self._contact
             if self._pass_reachable(q,x,y,n+1,radius):
                 return False
-        return True
+        return not self._work_unknown
 
     def _receiver_route(self, receiver, path, opponents, after, until, first_move=None, steps=None):
         cooldown=self._friend_cooldowns.get(receiver[0],0)
@@ -1062,6 +1160,118 @@ class Guardiola2011(TeamController):
                 sy += impulse * ny
         return x, y, sx, sy
 
+    def _keeper_clearance(self, p, bx, by, vx, vy, kick, movement, opponents):
+        """Keep a safe existing clearance; repair a modeled return toward goal.
+
+        Every candidate uses the actual impulse cap and first carrier-body
+        contact. The short continuation includes drag and solid-wall returns.
+        Future player contacts are not claimed to be known.
+        """
+        if bx > self._left + 12.0:
+            return kick
+
+        def rate(candidate, move):
+            sx, sy = (self._requested_velocity(vx, vy, candidate)
+                      if candidate is not None else (vx, vy))
+            launch = self._carrier_contact(p, bx, by, sx, sy, move)
+            if launch is None:
+                return None
+            x, y, sx, sy = launch
+            danger = False
+            wall = self._half_height - self._ball_radius
+            end = self._right - self._ball_radius
+            for tick in range(self.KEEPER_CLEAR_TICKS):
+                if tick:
+                    x += sx * self._dt
+                    y += sy * self._dt
+                if abs(y) > wall:
+                    side = 1.0 if y > 0.0 else -1.0
+                    y = side * 2.0 * wall - y
+                    sy = -side * abs(sy) * self._wall
+                if x < self._left and abs(y) <= self._goal_half:
+                    danger = True
+                    break
+                if abs(x) > end and abs(y) > self._goal_half:
+                    side = 1.0 if x > 0.0 else -1.0
+                    x = side * 2.0 * end - x
+                    sx = -side * abs(sx) * self._wall
+                if tick:
+                    sx *= self._friction
+                    sy *= self._friction
+            # Reject a slow goalward return even if the short horizon ends
+            # just before it reaches the opening.
+            danger = danger or (sx < -0.5 and x < self._left + 6.0
+                                and abs(y) < self._goal_half + 0.5)
+            room = min((math.hypot(x-q[1]-q[3]*0.3, y-q[2]-q[4]*0.3)
+                        for q in opponents), default=12.0)
+            score = ((x-self._left)*0.5 + _clip(sx,-15.0,15.0)*0.35
+                     + min(abs(y),self._goal_half+3.0)*0.12
+                     + min(room,8.0)*0.08)
+            return not danger, score, candidate, move
+
+        baseline = rate(kick, movement)
+        if baseline is not None and baseline[0]:
+            return kick
+        best = baseline
+        brake_x, brake_y = -p[3]*self._damping/self._acc, -p[4]*self._damping/self._acc
+        brake_norm = math.hypot(brake_x, brake_y)
+        if brake_norm > 1.0:
+            brake_x, brake_y = brake_x/brake_norm, brake_y/brake_norm
+        candidates = [(kick,(brake_x,brake_y)),
+                      (kick,_unit(p[1]-bx,p[2]-by)), (None,movement),
+                      (None,(brake_x,brake_y)),
+                      (None,_unit(p[1]-bx,p[2]-by))]
+        passive = baseline if kick is None else None
+        for dx,dy in ((1.0,0.0),(1.0,.65),(1.0,-.65),(.2,1.0),(.2,-1.0)):
+            direction = _unit(dx,dy)
+            for power in (1.0,.65):
+                candidates.append(((direction,power),movement))
+        # At most sixteen outcomes including the original; no pass search
+        # or opponent movement rollout is added to the keeper's hot path.
+        for candidate,move in candidates:
+            outcome = rate(candidate,move)
+            if (candidate is None and outcome is not None
+                    and (passive is None or outcome[:2] > passive[:2])):
+                passive = outcome
+            if outcome is not None and (best is None or outcome[:2] > best[:2]):
+                best = outcome
+        if best is None:
+            self._pass_plan = None
+            self._bank_plan = None
+            self._x_proposal = None
+            return None
+        if not best[0] and passive is not None:
+            # If every modeled kick returns toward goal, do not issue one.
+            # Retain the least dangerous modeled body-blocking movement.
+            best = passive
+        self._touch_movement = best[3]
+        self._pass_plan = None
+        self._bank_plan = None
+        self._x_proposal = None
+        return best[2]
+
+    def _unassigned_release(self,p,bx,by,vx,vy,opponents):
+        # Use an ordinary carry/clearance when a proposed pass cannot be
+        # reverified. Do not retain the rejected recipient or tactic tag.
+        self._pass_plan=None
+        self._bank_plan=None
+        self._x_proposal=None
+        self._relay_proposal=None
+        self._carry_plan=None
+        self._retention_proposal=None
+        movement=self._move(p,(bx+0.3,by))
+        pressure=min((math.hypot(q[1]-bx,q[2]-by) for q in opponents),default=100.0)
+        cx,cy,_,_,_=self._carry_velocity(p,bx,by,pressure,opponents)
+        if p[0]==0:
+            ux,uy=_unit(1.0,-.6 if by>0.0 else .6)
+            cx,cy=ux*22.0,uy*22.0
+        kick=self._kick_to_velocity(vx,vy,cx,cy)
+        self._touch_movement=movement
+        if p[0]==0:
+            kick=self._keeper_clearance(p,bx,by,vx,vy,kick,movement,opponents)
+            movement=self._touch_movement or movement
+        return kick,movement
+
     def _legacy_choose_kick(self, p, bx, by, vx, vy, friends, opponents):
         self._touch_movement = None
         kick = self._original_choose_kick(p, bx, by, vx, vy, friends, opponents)
@@ -1219,7 +1429,19 @@ class Guardiola2011(TeamController):
             return planned[1]
         return kick
 
-    def _touch_path(self, p, bx, by, vx, vy, kick, movement, opponents):
+    def _touch_path(self, p, bx, by, vx, vy, kick, movement, opponents, strict=False):
+        key=(tuple(p),bx,by,vx,vy,(tuple(kick[0]),kick[1]),tuple(movement),
+             tuple(opponents),tuple(sorted(self._enemy_cooldowns.items())),strict)
+        if key in self._touch_cache:
+            return self._touch_cache[key]
+        if self._touch_left <= 0:
+            return None
+        self._touch_left -= 1
+        result=self._touch_path_steps(p,bx,by,vx,vy,kick,movement,opponents,strict)
+        self._touch_cache[key]=result
+        return result
+
+    def _touch_path_steps(self, p, bx, by, vx, vy, kick, movement, opponents, strict=False):
         sx,sy = self._requested_velocity(vx,vy,kick)
         contact = self._carrier_contact(p,bx,by,sx,sy,movement)
         if contact is None:
@@ -1247,17 +1469,34 @@ class Guardiola2011(TeamController):
             reach=(self._dt*self._acc/(1.0-self._damping)
                    *(steps-self._damping*(1.0-self._damping**steps)/(1.0-self._damping)))
             for enemy in opponents:
-                if cooldowns.get(enemy[0],0)>tick:
+                cooling=cooldowns.get(enemy[0],0)>tick
+                if cooling and not strict:
                     continue
                 cx=enemy[1]+enemy[3]*coast
                 cy=enemy[2]+enemy[4]*coast
                 # Any legal acceleration sequence lies inside this reachable
                 # disc. This includes immediate short tackles without the
                 # generic ETA estimator's artificial startup delay.
-                remaining=math.hypot(x-cx,y-cy)-reach-self._range
+                radius=self._contact if cooling else self._range
+                remaining=math.hypot(x-cx,y-cy)-reach-radius
                 margin=min(margin,remaining/self._speed)
             gap=math.hypot(x-px,y-py)
-            if tick>=5 and gap<self._range-0.15:
+            if strict:
+                if margin < self.RETENTION_MARGIN:
+                    return None
+                if tick>=5 and gap<=self._range:
+                    # act() gates a kick before movement, then checks the
+                    # moved player's distance from that same pre-step ball.
+                    move=self._move((p[0],px,py,pvx,pvy),(x+0.3,y))
+                    nx=pvx*self._damping+move[0]*self._acc
+                    ny=pvy*self._damping+move[1]*self._acc
+                    speed=math.hypot(nx,ny)
+                    if speed>self._speed:
+                        nx*=self._speed/speed;ny*=self._speed/speed
+                    if math.hypot(px+nx*self._dt-x,py+ny*self._dt-y)<self._range-0.18:
+                        recapture=(tick+1)*self._dt
+                        break
+            elif tick>=5 and gap<self._range-0.15:
                 recapture=elapsed
                 break
             if tick==11:
@@ -1289,6 +1528,8 @@ class Guardiola2011(TeamController):
                     sx-=1.25*closing*nx
                     sy-=1.25*closing*ny
         if recapture is None:
+            if strict:
+                return None
             recapture=0.55+self._eta((p[0],px,py,pvx,pvy),x,y)
         progress=initial_distance-math.hypot(self._right-x,y)
         clearance=min((math.hypot(x-q[1]-q[3]*0.25,y-q[2]-q[4]*0.25)
@@ -1296,6 +1537,55 @@ class Guardiola2011(TeamController):
         score=(progress*0.85+min(clearance,8.0)*0.25
                +_clip(margin,-0.6,0.6)*8.0-max(0.0,recapture-0.25)*8.0)
         return score,margin,recapture
+
+    def _retain_touch(self,p,bx,by,vx,vy,fallback,movement,opponents,pressure):
+        """A short self-collection backed by the commanded chase, not an ETA."""
+        if (fallback is None or not 2.2 <= pressure <= self.RETENTION_PRESSURE
+                or bx < self._left+12.0 or bx > self._right-5.0):
+            return fallback
+        launch=self._carrier_contact(p,bx,by,*self._requested_velocity(vx,vy,fallback),movement)
+        if launch is None or math.hypot(launch[2],launch[3])>10.5:
+            return fallback
+        original=self._touch_path(p,bx,by,vx,vy,fallback,movement,opponents,strict=True)
+        best=(original[0],fallback,movement,original[2]) if original is not None else None
+        # Keep an already safe short touch; its following movement was the
+        # missing part. A failed witness permits only six small alternatives.
+        if original is None:
+            angle=math.atan2(-by,self._right-bx)
+            for offset in (0.0,-0.6,0.6):
+                ux,uy=math.cos(angle+offset),math.sin(angle+offset)
+                move=self._move(p,self._target(bx+ux*3.0,by+uy*3.0))
+                for speed in (4.5,6.5):
+                    kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
+                    if kick is None:
+                        continue
+                    route=self._touch_path(p,bx,by,vx,vy,kick,move,opponents,strict=True)
+                    if route is None or route[2]>.45 or route[0]<-.5:
+                        continue
+                    if best is None or route[0]>best[0]:
+                        best=route[0],kick,move,route[2]
+        if best is None:
+            return fallback
+        self._touch_movement=best[2]
+        self._retention_proposal=(p[0],max(6,int(math.ceil(best[3]*self._hz)))+1)
+        return best[1]
+
+    def _carry_target(self,obs,friends,protected):
+        plan=self._carry_plan
+        if plan is None:
+            return None
+        player=next((p for p in friends if p[0]==plan[0]),None)
+        bx,by=obs.ball.position
+        vx,vy=obs.ball.velocity
+        if (protected or self._receive_plan is not None or player is None
+                or obs.tick>plan[1] or obs.ball.last_touch!=plan[0]
+                or obs.can_kick(plan[0])
+                or math.hypot(player[1]-bx,player[2]-by)>7.0):
+            self._carry_plan=None
+            return None
+        # The same receding target used by strict _touch_path. Friend
+        # avoidance and role targets must not replace this short witness.
+        return plan[0],self._target(bx+vx*.15,by+vy*.15)
 
     def _controlled_touch(self,p,bx,by,vx,vy,opponents):
         original=self._endpoint_controlled_touch(p,bx,by,vx,vy,opponents)
@@ -1397,6 +1687,61 @@ class Guardiola2011(TeamController):
         fraction=_clip((old[0]-self._left)/max(3.0,bx-self._left),0.0,1.0)
         targets[guard_id]=self._target(old[0],by*fraction)
 
+    def _recover_cover(self, obs, friends, opponents, chaser, races,
+                       enemy_eta, targets, protected):
+        """One temporary goal-side recovery assignment during a real threat."""
+        score = tuple(obs.score)
+        if obs.tick <= self._recovery_tick or score != self._recovery_score:
+            self._recovery_guard = None
+        self._recovery_tick, self._recovery_score = obs.tick, score
+        bx,by = obs.ball.position
+        vx,vy = obs.ball.velocity
+        ours = {p[0] for p in friends}
+        secure = (obs.ball.controlling_player in ours
+                  or (obs.ball.last_touch in ours
+                      and races[chaser[0]][0]+0.15 < enemy_eta))
+        if protected or secure or not opponents:
+            self._recovery_guard = None
+            return
+        enemy = min(opponents,key=lambda q: math.hypot(q[1]-bx,q[2]-by))
+        enemy_ids = {q[0] for q in opponents}
+        held = (obs.ball.controlling_player in enemy_ids
+                or (obs.ball.last_touch in enemy_ids
+                    and math.hypot(enemy[1]-bx,enemy[2]-by) < 4.5))
+        incoming = vx < -8.0 and bx+vx*0.65 < self.RECOVERY_ENTRY_X
+        threshold = self.RECOVERY_EXIT_X if self._recovery_guard is not None else self.RECOVERY_ENTRY_X
+        if not (incoming or (held and bx < threshold)):
+            self._recovery_guard = None
+            return
+        receive_id = self._receive_plan[0] if self._receive_plan is not None else None
+        carry_id = self._carry_plan[0] if self._carry_plan is not None else None
+        available = [p for p in friends if p[0] not in (0,chaser[0],receive_id,carry_id)
+                     and not obs.can_kick(p[0])]
+        if not available:
+            self._recovery_guard = None
+            return
+        # Look for an advanced receiver only in a plausible forward lane;
+        # no offside assumption or expensive pass-rollout search is needed.
+        runners = [q for q in opponents[1:]
+                   if q[1] < bx-4.0 and q[1] < 8.0
+                   and abs(q[2]) < 22.0 and abs(q[2]-by) < 24.0]
+        threat = min(runners,key=lambda q: q[1]+abs(q[2])*0.35) if runners else enemy
+        threat_x = threat[1]+min(0.0,threat[3])*0.35
+        projected_x = bx+min(0.0,vx)*0.45
+        anchor_x = min(threat_x,projected_x)
+        anchor_y = threat[2]+threat[4]*0.25 if runners else by+vy*0.20
+        depth = self.RECOVERY_DEPTH+min(4.0,max(0.0,-vx)*0.2)
+        tx = max(self._left+6.0,anchor_x-depth)
+        fraction = _clip((tx-self._left)/max(3.0,anchor_x-self._left),0.0,1.0)
+        target = self._target(tx,_clip(anchor_y*fraction,-self._mouth-1.0,self._mouth+1.0))
+        old = self._recovery_guard
+        guard = min(available,key=lambda p:
+                    self._eta(p,*target)-(0.18 if p[0]==old else 0.0)
+                    -(0.06 if p[0]==self._shape_cover_id else 0.0))
+        self._recovery_guard = guard[0]
+        self._shape_cover_id = guard[0]
+        targets[guard[0]] = target
+
 
     def _bank_path(self, bx, by, vx, vy):
         # Dense, bounded public-physics forecast. Timing includes the first
@@ -1426,6 +1771,8 @@ class Guardiola2011(TeamController):
         # A blocked direct link may have a safe route through the side wall.
         # Preserve finishing and direct passes; never bank blindly into space.
         if bx > 18.0 or bx < self._left + 10.0 or abs(by) < 9.0:
+            return None
+        if self._work is not None and self._work[0][0]<=0:
             return None
         wall = (self._half_height - self._ball_radius) * (1.0 if by >= 0.0 else -1.0)
         normal_move = self._move(p, (bx + 0.3, by))
@@ -1622,6 +1969,9 @@ class Guardiola2011(TeamController):
             self._relay_proposal = None
             self._relay_receive = None
             self._relay_fallback = None
+            self._carry_plan = None
+            self._retention_proposal = None
+            self._recovery_guard = None
             self._bank_receive = None
             self._receive_aim = None
             self._cover_id = None
@@ -1663,6 +2013,11 @@ class Guardiola2011(TeamController):
                 previous = p
         if previous is not None and races[previous[0]][0] < races[chaser[0]][0] + 0.12:
             chaser = previous
+        carry_target = self._carry_target(obs,friends,protected)
+        if carry_target is not None:
+            carrier = next((p for p in outfield if p[0]==carry_target[0]),None)
+            if carrier is not None:
+                chaser = carrier
         self._chaser = chaser[0]
         enemy_eta = None
         for o in opponents:
@@ -1786,7 +2141,7 @@ class Guardiola2011(TeamController):
                         obs.tick,recipient_player,(bx,by,vx,vy),opponents)
                 else:
                     path = self._pass_path((bx,by,vx,vy))
-                    verified = self._pass_race(recipient_player,path,opponents)
+                    verified = self._selected_race(recipient_player,path,opponents)
                 receive_path = path
                 if verified is None:
                     self._receive_plan = None
@@ -1810,6 +2165,10 @@ class Guardiola2011(TeamController):
 
         if self.SCOUT_OUTLET or self.SCOUT_CUTBACK:
             self._scout_support(obs,friends,opponents,chaser,races,enemy_eta,targets,protected)
+
+        self._recover_cover(obs,friends,opponents,chaser,races,enemy_eta,targets,protected)
+        if carry_target is not None and self._carry_plan is not None:
+            targets[carry_target[0]] = carry_target[1]
 
         carrier = None
         carrier_gap = None
@@ -1842,6 +2201,10 @@ class Guardiola2011(TeamController):
                     kick = self._choose_kick(p, bx, by, vx, vy, friends, opponents)
                     if self._touch_movement is not None:
                         movement = self._touch_movement
+                    self._carry_plan = None
+                    if kick is not None and self._retention_proposal is not None:
+                        rid,steps = self._retention_proposal
+                        self._carry_plan = (rid,obs.tick+steps)
                     self._receive_plan = None
                     self._bank_receive = None
                     self._receive_aim = None
@@ -1857,7 +2220,7 @@ class Guardiola2011(TeamController):
                         if relay:
                             horizon=self.RELAY_LOOKAHEAD_TICKS*self._dt
                             collect=(self._x_collect(p,launch,(bx,by),receiver,
-                                                     friends,opponents,self._dt,horizon)
+                                                     friends,opponents,self._dt,horizon,selected=True)
                                      if launch is not None and receiver is not None else None)
                             if collect is not None and collect[3]<=self.RELAY_MAX_TICKS*self._dt+1e-9:
                                 _,point,aim,arrival=collect
@@ -1878,7 +2241,7 @@ class Guardiola2011(TeamController):
                             # Verify the ACTUAL kick, including any own-body
                             # correction, for direct and rebound plans alike.
                             path = self._pass_path(launch,(bx,by),2.6)
-                            verified = self._pass_race(receiver,path,opponents,after=self._dt,until=2.6)
+                            verified = self._selected_race(receiver,path,opponents,after=self._dt,until=2.6)
                             if verified is not None:
                                 receiver_race,_ = verified
                                 aim=self._next_receive_aim or receiver_race[1]
@@ -1887,6 +2250,14 @@ class Guardiola2011(TeamController):
                                 self._receive_plan = (recipient,p[0],obs.tick+int(2.6*self._hz))
                                 if self._bank_plan is not None:
                                     self._bank_receive = (recipient,p[0],receiver_race[1])
+                            else:
+                                # A selected pass cannot be sent without a
+                                # collection plan when the final check is
+                                # unknown or infeasible. Use the established
+                                # cheap carry/clearance direction instead.
+                                kick,movement=self._unassigned_release(p,bx,by,vx,vy,opponents)
+                        else:
+                            kick,movement=self._unassigned_release(p,bx,by,vx,vy,opponents)
             else:
                 if ((self.FOLLOW_RECEIVER or (self._x_reception is not None and self._x_reception[0]==p[0])
                         or (self._relay_receive is not None and self._relay_receive==self._receive_plan))
@@ -1896,8 +2267,11 @@ class Guardiola2011(TeamController):
                     # A live receiver follows the same movement law used by
                     # its rollout, after ordinary role/cover targets settle.
                     movement=self._move(p,self._target(*receive_target[1]))
+                elif (carry_target is not None and self._carry_plan is not None
+                      and carry_target[0]==p[0] and self._carry_plan[0]==p[0]):
+                    movement=self._move(p,carry_target[1])
                 else:
-                    movement = self._move(p, target, friends if p[0] != chaser[0] and p[0] != 0 else ())
+                    movement = self._move(p, target, friends if p[0] not in (chaser[0],0,self._recovery_guard) else ())
             if (p[0]!=0 and launched_pass is None and receive_path is not None and self._receive_plan is not None
                     and self._receive_plan[0]==p[0] and (carrier is None or carrier[0]!=p[0])):
                 # Verify the command that survived role/cover/avoidance
@@ -1906,7 +2280,7 @@ class Guardiola2011(TeamController):
                     _,check=self._relay_live_race(
                         obs.tick,p,(bx,by,vx,vy),opponents,first_move=movement)
                 else:
-                    check=self._pass_race(p,receive_path,opponents,first_move=movement)
+                    check=self._selected_race(p,receive_path,opponents,first_move=movement)
                 if check is None:
                     self._receive_plan=None
                     self._bank_receive=None
@@ -1944,6 +2318,8 @@ class Guardiola2011(TeamController):
         return margin
 
     def _link_option(self,p,bx,by,vx,vy,receiver,opponents,tx,ty,speed):
+        if self._work is not None and self._work[self._work_mode][0]<=0:
+            return None
         ux,uy=_unit(tx-bx,ty-by)
         kick=self._kick_to_velocity(vx,vy,ux*speed,uy*speed)
         if kick is None:
@@ -1983,6 +2359,8 @@ class Guardiola2011(TeamController):
             # Different powers let a nearby receiver collect the pass rather
             # than treating every link as a 24-unit/s clearance.
             for speed in (14.0,20.0,26.0):
+                if self._work is not None and self._work[0][0]<=0:
+                    return best
                 lead=min(.9,self._flight(gap,speed))
                 tx,ty=self._target(q[1]+q[3]*lead*.8,q[2]+q[4]*lead*.8)
                 option=self._link_option(p,bx,by,vx,vy,q,opponents,tx,ty,speed)
@@ -2125,6 +2503,8 @@ class Guardiola2011(TeamController):
 
     def _endwall_link(self,p,bx,by,vx,vy,friends,opponents):
         if bx<15.0 or abs(by)<8.0 or p[0]==0:
+            return None
+        if self._work is not None and self._work[0][0]<=0:
             return None
         wall=self._right-self._ball_radius
         movement=self._move(p,(bx+.3,by))
@@ -2370,10 +2750,13 @@ class Guardiola2011(TeamController):
             self._x_power_observe(obs,friends,opponents)
         return friends, opponents
 
-    def _x_collect(self, p, launch, origin, receiver, friends, opponents, after, until=2.4):
+    def _x_collect(self, p, launch, origin, receiver, friends, opponents, after, until=2.4, selected=False):
         # First-touch quality is local to the new opportunity; v10's flags
         # and its ordinary reception behavior are restored exactly.
         old = self.FIRST_TOUCH
+        old_mode = self._work_mode
+        if selected:
+            self._work_mode = 1
         self.FIRST_TOUCH = True
         try:
             path = self._pass_path(launch,origin,until)
@@ -2395,6 +2778,8 @@ class Guardiola2011(TeamController):
                     n = int(round(t*self._hz))
                     if self._pass_reachable(other,x,y,n,self._contact):
                         return None
+            if self._work_unknown:
+                return None
             progress = math.hypot(self._right-origin[0],origin[1])-math.hypot(self._right-point[0],point[1])
             score = progress*.15+min(enemy-arrival,.8)*3.0-arrival*.7
             if point[0] > self._right-25.0 and abs(point[1]) < 11.0:
@@ -2402,6 +2787,7 @@ class Guardiola2011(TeamController):
             return score,point,aim,arrival
         finally:
             self.FIRST_TOUCH = old
+            self._work_mode = old_mode
 
     def _x_direct(self, p, bx, by, vx, vy, q, friends, opponents, tx, ty, speed):
         ux,uy = _unit(tx-bx,ty-by)
@@ -2539,6 +2925,8 @@ class Guardiola2011(TeamController):
             return None,None
         until=min(self.RELAY_LOOKAHEAD_TICKS*self._dt,(plan[2]-tick)*self._dt)
         old_touch,old_hold=self.FIRST_TOUCH,self.HOLD_RECEPTION
+        old_mode=self._work_mode
+        self._work_mode=1
         self.FIRST_TOUCH=True
         self.HOLD_RECEPTION=True
         try:
@@ -2549,8 +2937,19 @@ class Guardiola2011(TeamController):
         finally:
             self.FIRST_TOUCH=old_touch
             self.HOLD_RECEPTION=old_hold
+            self._work_mode=old_mode
 
     def _cooldown_handoff(self,p,bx,by,vx,vy,friends,opponents,pressure):
+        # These four short candidates have their own small allowance so a
+        # speculative bank/link search cannot consume all retention work.
+        old=self._work_mode
+        self._work_mode=2
+        try:
+            return self._handoff_candidates(p,bx,by,vx,vy,friends,opponents,pressure)
+        finally:
+            self._work_mode=old
+
+    def _handoff_candidates(self,p,bx,by,vx,vy,friends,opponents,pressure):
         """At most two ready receivers and two momentum-aware touch speeds.
 
         A handoff must collect before the original kicker's next ready
@@ -2601,6 +3000,8 @@ class Guardiola2011(TeamController):
                 if any(self._pass_reachable(p,x,y,int(round(t*self._hz)),self._contact)
                        for t,x,y in path if self._dt<t<arrival-1e-9):
                     continue
+                if self._work_unknown:
+                    continue
                 receiver_move=self._move(q,self._target(*aim))
                 projected=[]
                 for player,move in ((p,movement),(q,receiver_move)):
@@ -2621,9 +3022,13 @@ class Guardiola2011(TeamController):
     def _choose_kick(self,p,bx,by,vx,vy,friends,opponents):
         self._relay_proposal=None
         self._relay_fallback=None
+        self._retention_proposal=None
         fallback=self._base_choose_kick(p,bx,by,vx,vy,friends,opponents)
         pressure=min((math.hypot(o[1]-bx,o[2]-by) for o in opponents),default=100.0)
-        if (p[0]==0 or pressure>self.RELAY_PRESSURE
+        if p[0]==0:
+            motion=self._touch_movement or self._move(p,(bx+.3,by))
+            return self._keeper_clearance(p,bx,by,vx,vy,fallback,motion,opponents)
+        if (pressure>self.RETENTION_PRESSURE
                 or self._bank_plan is not None or self._pass_plan is not None
                 or (self._receive_plan is not None and self._receive_plan[0]!=p[0])):
             return fallback
@@ -2635,14 +3040,14 @@ class Guardiola2011(TeamController):
                 return fallback
         option=self._cooldown_handoff(p,bx,by,vx,vy,friends,opponents,pressure)
         if option is None:
-            return fallback
+            return self._retain_touch(p,bx,by,vx,vy,fallback,motion,opponents,pressure)
         floor=.75
         if launch is not None and math.hypot(launch[2],launch[3])<=10.5:
             carry=self._touch_path(p,bx,by,vx,vy,fallback,motion,opponents)
             if carry is not None:
                 floor=max(floor,carry[0]*.55+.25)
         if option[0]<=floor:
-            return fallback
+            return self._retain_touch(p,bx,by,vx,vy,fallback,motion,opponents,pressure)
         self._touch_movement=option[2]
         self._pass_plan=option[3]
         self._bank_plan=None
@@ -2699,6 +3104,7 @@ class Guardiola2011(TeamController):
             self.FIRST_TOUCH = old
 
     def act(self, obs):
+        self._begin_work()
         lead = obs.score[0] - obs.score[1]
         if (self.LOCK_LEAD > 0 and self.LOCK_LEAD <= lead <= self.LOCK_MAX
                 and obs.time_remaining <= self.LOCK_TIME):
@@ -2753,12 +3159,12 @@ class Guardiola2011(TeamController):
                 if receiver is not None and actions.players[rid].kick_direction is None:
                     path = self._pass_path((*obs.ball.position,*obs.ball.velocity))
                     move = self._move(receiver,self._target(*aim))
-                    race = self._pass_race(receiver,path,opponents,first_move=move)
+                    race = self._selected_race(receiver,path,opponents,first_move=move)
                     if race is not None:
                         aim = self._next_receive_aim or race[0][1]
                         # Check exactly the new command before issuing it.
                         move = self._move(receiver,self._target(*aim))
-                        if self._pass_race(receiver,path,opponents,first_move=move) is not None:
+                        if self._selected_race(receiver,path,opponents,first_move=move) is not None:
                             actions.set(rid,PlayerAction(movement=move))
                             self._x_reception = (rid,pid,expiry,aim)
                             self._x_event('tactic_receive_run')
