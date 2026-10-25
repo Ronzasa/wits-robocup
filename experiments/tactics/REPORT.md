@@ -125,3 +125,13 @@ the corners next to the posts (goal half-width 7), taken after wide-forward cut-
 `opponents/clone_zamokuhle.py` (k-NN behaviour clone from this single match): FAILS as a stand-in. It scores 0 goals against
 balanced, tactical, press_formation and the baseline (and concedes 5-10 per match), so one match of data is not enough for an
 interactive clone; it is not used as evidence. More replays (especially top teams vs our team) are needed.
+
+---
+# Forward clearance ("stop passing sideways in defence", from an outside analysis of a Nkqubela replay)
+Lab switch `CLEAR_ON` (`lab/team.py`): when the ball is in our half (x <= CLEAR_X) and an opponent is within CLEAR_R of it,
+whoever can kick drives it at full power toward the far end, aimed at the flank away from the nearest opponent.
+Dev seeds 30040..30054 x both sides x 5 opponents = 150 paired units, points/match vs baseline:
+* clear_a (x<=-15, r<=8): -0.020 [-0.231,+0.191], GF 1.00->0.94, GA 0.53->0.55
+* clear_b (x<=-30, r<=5): +0.060 [-0.130,+0.250], GF 1.00->0.94, GA 0.53->0.45
+Neither is distinguishable from zero; clear_b's lower conceded goals are an observation to validate on separate seeds (n>=600), not a result.
+Cooldown awareness (suggestion 3) is already provided by `obs.can_kick`; the controller never sends a kick on cooldown.

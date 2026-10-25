@@ -56,6 +56,9 @@ class Guardiola2011(TeamController):
     HPRESS_N = 0
     HPRESS_X = 5.0
     CONTAIN_ON = 0
+    CLEAR_ON = 0
+    CLEAR_X = -15.0
+    CLEAR_R = 8.0
     CONTAIN_X = 25.0
     CONTAIN_DIST = 3.5
     CONTAIN_MARK = 0
@@ -2541,6 +2544,8 @@ class Guardiola2011(TeamController):
             self._high_press(obs, actions)
         if self.CONTAIN_ON:
             self._contain(obs, actions)
+        if self.CLEAR_ON:
+            self._clear(obs, actions)
         return actions
 
     def _high_press(self, obs, actions):
@@ -2757,6 +2762,24 @@ class Guardiola2011(TeamController):
             d = math.hypot(dx, dy)
             if d > 1e-6:
                 actions.set(p.id, PlayerAction(movement=(dx / d, dy / d)))
+
+    def _clear(self, obs, actions):
+        """Own half and an opponent within CLEAR_R of the ball: whoever can kick, drives it at full power
+        toward the far end (aimed at the flank away from the nearest opponent) instead of passing/dribbling."""
+        bx, by = obs.ball.position
+        if bx > self.CLEAR_X or not obs.opponents:
+            return
+        near = min(obs.opponents, key=lambda q: math.hypot(q.position[0] - bx, q.position[1] - by))
+        if math.hypot(near.position[0] - bx, near.position[1] - by) > self.CLEAR_R:
+            return
+        for p in sorted(obs.my_players, key=lambda q: q.id):
+            if obs.can_kick(p.id):
+                ty = 18.0 if near.position[1] < by else -18.0
+                dx, dy = obs.opponent_goal[0] - bx, ty - by
+                n = math.hypot(dx, dy) or 1.0
+                old = actions.players[p.id]
+                actions.set(p.id, PlayerAction(movement=old.movement, kick_direction=(dx / n, dy / n), kick_power=1.0))
+                return
 
     def _lock_wall(self, obs):
         """Stand every player across our goal mouth and clear anything in range."""
