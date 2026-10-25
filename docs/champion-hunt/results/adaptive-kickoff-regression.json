@@ -1,0 +1,210 @@
+{
+  "v2": {
+    "source_sha256": "37a6ff602a1882a6a7a3fb7c27c8fe9827f89722cc275dee2f9a8fac91763b9f",
+    "activation": {
+      "active": true,
+      "last_score": null,
+      "restart_owner": null,
+      "restart_until": 365
+    },
+    "equalizer": {
+      "active": true,
+      "last_score": [
+        1,
+        1
+      ],
+      "restart_owner": null,
+      "restart_until": 365,
+      "actions": {
+        "0": {
+          "movement": [
+            -0.7071067811865469,
+            -0.7071067811865481
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "1": {
+          "movement": [
+            -0.9968981486534685,
+            0.07870248542001068
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "2": {
+          "movement": [
+            -0.9974885725461801,
+            0.07082759095002461
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "3": {
+          "movement": [
+            -0.9814639579949792,
+            -0.19164680836588352
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "4": {
+          "movement": [
+            1.0,
+            0.0
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        }
+      }
+    }
+  },
+  "v3": {
+    "source_sha256": "36024c0458babd2f543ae495ef9ab433eef5625340bb0fb0df5444beca4e79ca",
+    "activation": {
+      "active": true,
+      "last_score": [
+        0,
+        1
+      ],
+      "restart_owner": null,
+      "restart_until": 365
+    },
+    "equalizer": {
+      "active": true,
+      "last_score": [
+        1,
+        1
+      ],
+      "restart_owner": 1,
+      "restart_until": 560,
+      "actions": {
+        "0": {
+          "movement": [
+            -0.7071067811865469,
+            -0.7071067811865481
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "1": {
+          "movement": [
+            -0.9968981486534685,
+            0.07870248542001068
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "2": {
+          "movement": [
+            -0.9974885725461801,
+            0.07082759095002461
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "3": {
+          "movement": [
+            -0.9814639579949792,
+            -0.19164680836588352
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        },
+        "4": {
+          "movement": [
+            -1.0,
+            0.0
+          ],
+          "kick_direction": null,
+          "kick_power": 0.0
+        }
+      }
+    }
+  },
+  "behavior_diff": "single public obs.score assignment to specialist._last_score before first act",
+  "frozen_helpers_and_other_wrapper_logic_exact": true,
+  "uses_native_match_loop": false,
+  "immediate_equalizer_regression_passed": true,
+  "multi_goal_wall_history_with_kickoff_observations": {
+    "sequence": [
+      {
+        "tick": 400,
+        "score": [
+          0,
+          2
+        ],
+        "active": true,
+        "last_score": [
+          0,
+          2
+        ],
+        "restart_owner": 0,
+        "restart_until": 460
+      },
+      {
+        "tick": 420,
+        "score": [
+          0,
+          2
+        ],
+        "active": true,
+        "last_score": [
+          0,
+          2
+        ],
+        "restart_owner": 0,
+        "restart_until": 460
+      },
+      {
+        "tick": 450,
+        "score": [
+          1,
+          2
+        ],
+        "active": true,
+        "last_score": [
+          1,
+          2
+        ],
+        "restart_owner": 1,
+        "restart_until": 510
+      },
+      {
+        "tick": 470,
+        "score": [
+          1,
+          2
+        ],
+        "active": true,
+        "last_score": [
+          1,
+          2
+        ],
+        "restart_owner": 1,
+        "restart_until": 510
+      },
+      {
+        "tick": 500,
+        "score": [
+          2,
+          2
+        ],
+        "active": true,
+        "last_score": [
+          2,
+          2
+        ],
+        "restart_owner": 1,
+        "restart_until": 560
+      }
+    ],
+    "restart_owners_at_goals": [
+      0,
+      1,
+      1
+    ],
+    "passed": true
+  },
+  "scope_note": "Goals reset formations to kickoff. A counterexample that keeps a wall through intervening goals omits these observations and does not establish native reachability."
+}

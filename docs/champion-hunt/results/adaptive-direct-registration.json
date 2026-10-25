@@ -1,0 +1,57 @@
+{
+  "config_path": "/workspace/work/replay-finishing-handoffs/configs/default.toml",
+  "config_hash": "372990895c7eca2a",
+  "engine_version": "0.1.0",
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "formation": "replay-matched native defaults",
+  "promotion": false,
+  "opponent": {
+    "path": "/workspace/work/champion-hunt-20261025/opponent/team.py",
+    "sha256": "7708f5d3b10202092f1fce73abfc61a5d7a61d91326d95d69cec872d4c7ba758"
+  },
+  "candidates": {
+    "adaptive-finalist": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-hunt-adaptive/team.py",
+      "sha256": "27b3ef88ddede6267fd0583278b821c2abcd27de38772dfe9051307778e880ce"
+    }
+  },
+  "seeds": [
+    3249067101,
+    3249067102,
+    3249067103,
+    3249067104,
+    3249067105,
+    3249067106,
+    3249067107,
+    3249067108,
+    3249067109,
+    3249067110,
+    3249067111,
+    3249067112,
+    3249067113,
+    3249067114,
+    3249067115,
+    3249067116,
+    3249067117,
+    3249067118,
+    3249067119,
+    3249067120,
+    3249067121,
+    3249067122,
+    3249067123,
+    3249067124,
+    3249067125,
+    3249067126,
+    3249067127,
+    3249067128,
+    3249067129,
+    3249067130,
+    3249067131,
+    3249067132
+  ],
+  "order_seed": 3249067001,
+  "split": "generation2 untouched direct qualification",
+  "no_tuning_or_reselection": true
+}

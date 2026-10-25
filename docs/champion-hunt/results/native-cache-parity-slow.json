@@ -1,0 +1,41 @@
+{
+  "scope": "One exact previously slow fixture, untimed shared-input native parity; no decision timings recorded. Does not replace scheduled outcomes or raw misses.",
+  "sources": {
+    "frozen-slow": {
+      "path": "/workspace/work/champion-hunt-20261025/final-development-sources/bait-slow/team.py",
+      "sha256": "9d40fad4bc049e205f3131b591b5a14f4e99d6d2f02ebe6f8a754ea83e3b7fdd"
+    },
+    "wall-cache": {
+      "path": "/workspace/work/champion-hunt-20261025/agent-cache/cache-only/team.py",
+      "sha256": "d1f23e6257da11fd860f51fb2093fdb47547a3cab1f966603b45976ca38b4b5d"
+    },
+    "touch-table": {
+      "path": "/workspace/work/champion-hunt-20261025/agent-cache/touch-table-only/team.py",
+      "sha256": "fa6918d968acd2e4eedb615fc089cfadd95ecc690896057b9f3e0e931086a7a0"
+    },
+    "combined": {
+      "path": "/workspace/work/champion-hunt-20261025/agent-cache/cache-all/team.py",
+      "sha256": "f38a215b331f242366a597e4fa816c78b3d2c3a269b368bb4efc9e2626a7bca4"
+    }
+  },
+  "fixtures": [
+    {
+      "seed": 3249061103,
+      "candidate_side": 1,
+      "candidate_takes_kickoff": false,
+      "comparisons": {
+        "wall-cache": 2400,
+        "touch-table": 2400,
+        "combined": 2400
+      },
+      "first_difference": null,
+      "ticks": 2400,
+      "score": [
+        0,
+        1
+      ]
+    }
+  ],
+  "all_equal": true,
+  "original_raw_miss_ms": 22.3811920004664
+}

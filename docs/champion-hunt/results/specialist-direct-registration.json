@@ -1,0 +1,68 @@
+{
+  "opponent": {
+    "path": "/workspace/work/champion-hunt-20261025/opponent/team.py",
+    "sha256": "7708f5d3b10202092f1fce73abfc61a5d7a61d91326d95d69cec872d4c7ba758"
+  },
+  "config_path": "/workspace/work/replay-finishing-handoffs/configs/default.toml",
+  "config_hash": "372990895c7eca2a",
+  "engine_version": "0.1.0",
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "formation": "replay-matched native defaults",
+  "promotion": false,
+  "split": "untouched target-specific qualification",
+  "candidates": {
+    "finalist": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-hunt/team.py",
+      "sha256": "05d9ce27b4e6f54db44a3e5c8b6a929e0dbce0dcf00b5a0b69f9e6ebf6681196"
+    }
+  },
+  "seeds": [
+    3249063101,
+    3249063102,
+    3249063103,
+    3249063104,
+    3249063105,
+    3249063106,
+    3249063107,
+    3249063108,
+    3249063109,
+    3249063110,
+    3249063111,
+    3249063112,
+    3249063113,
+    3249063114,
+    3249063115,
+    3249063116,
+    3249063117,
+    3249063118,
+    3249063119,
+    3249063120,
+    3249063121,
+    3249063122,
+    3249063123,
+    3249063124,
+    3249063125,
+    3249063126,
+    3249063127,
+    3249063128,
+    3249063129,
+    3249063130,
+    3249063131,
+    3249063132
+  ],
+  "order_seed": 3249063001,
+  "strong_claim_gates": {
+    "win_fraction_at_least": 0.75,
+    "mean_goal_difference_at_least": 1.5,
+    "positive_seed_block_95_lower_for_points": true,
+    "positive_seed_block_95_lower_for_gd": true,
+    "zero_policy_errors": true,
+    "additional_raw_misses_per1000_at_most": 2.0,
+    "official_intake": true
+  },
+  "fixture_context": "Same persistent one-worker native driver as development; normal20ms failurepolicy, no warmup, GC controls, timer removal, or result replacement.",
+  "frozen_before_first_fixture": true,
+  "no_tuning_or_reselection_using_results": true
+}

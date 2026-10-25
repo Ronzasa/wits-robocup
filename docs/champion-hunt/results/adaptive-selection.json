@@ -1,0 +1,28 @@
+{
+  "generation": 2,
+  "selected_before_qualification": true,
+  "source": {
+    "path": "/workspace/work/replay-finishing-handoffs/experiments/champion-hunt-adaptive/team.py",
+    "sha256": "27b3ef88ddede6267fd0583278b821c2abcd27de38772dfe9051307778e880ce"
+  },
+  "development": {
+    "matches": 32,
+    "wins": 19,
+    "draws": 11,
+    "losses": 2,
+    "points": 68,
+    "opponent_points": 17,
+    "goals_for": 64,
+    "goals_against": 39,
+    "fouls": 0,
+    "policy_errors": 0,
+    "raw_misses": 0,
+    "max_ms": 5.693220009561628
+  },
+  "behavior_parent": "/workspace/work/champion-hunt-20261025/agent-adaptive/v3/team.py",
+  "behavior_parent_sha256": "36024c0458babd2f543ae495ef9ab433eef5625340bb0fb0df5444beca4e79ca",
+  "all_function_asts_equal": true,
+  "changes_after_development": "Only wrapper display name/version; helpers/methods unchanged.",
+  "reason": "Preserve frozen fallback for ordinary opponents and use observed-wall counter only after stable signature. V2 stale-score bug fixed before any generation2 validation.",
+  "promotion": false
+}

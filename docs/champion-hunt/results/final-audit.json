@@ -1,0 +1,147 @@
+{
+  "direct": {
+    "matches": 128,
+    "wins": 79,
+    "draws": 46,
+    "losses": 3,
+    "points": 283,
+    "goals_for": 203,
+    "goals_against": 121,
+    "exceptions": 0,
+    "raw_misses": 0,
+    "fouls": 0,
+    "rejected_kicks": 13,
+    "decisions": 307200,
+    "mean_ms": 0.1152403085386311,
+    "max_ms": 8.6828700004844,
+    "opponent_exceptions": 0,
+    "opponent_raw_misses": 0
+  },
+  "field": {
+    "adaptive-finalist": {
+      "matches": 160,
+      "wins": 91,
+      "draws": 30,
+      "losses": 39,
+      "points": 303,
+      "goals_for": 177,
+      "goals_against": 148,
+      "exceptions": 0,
+      "raw_misses": 0,
+      "fouls": 0,
+      "rejected_kicks": 1,
+      "decisions": 384000,
+      "mean_ms": 0.1019536363789939,
+      "max_ms": 16.55241999833379,
+      "opponent_exceptions": 0,
+      "opponent_raw_misses": 1
+    },
+    "frozen-upload": {
+      "matches": 160,
+      "wins": 84,
+      "draws": 23,
+      "losses": 53,
+      "points": 275,
+      "goals_for": 147,
+      "goals_against": 139,
+      "exceptions": 0,
+      "raw_misses": 0,
+      "fouls": 0,
+      "rejected_kicks": 1,
+      "decisions": 384000,
+      "mean_ms": 0.10068988728797497,
+      "max_ms": 10.121885992703028,
+      "opponent_exceptions": 0,
+      "opponent_raw_misses": 0
+    }
+  },
+  "all_final_registered_sources_match_hashes": true,
+  "sha256": {
+    "adaptive": "27b3ef88ddede6267fd0583278b821c2abcd27de38772dfe9051307778e880ce",
+    "specialist": "05d9ce27b4e6f54db44a3e5c8b6a929e0dbce0dcf00b5a0b69f9e6ebf6681196",
+    "upload": "7708f5d3b10202092f1fce73abfc61a5d7a61d91326d95d69cec872d4c7ba758",
+    "active_champion": "553bcd85a537d57a43c16e4498fab402fbbabb940e15cb8c5aa110d4c6fa9a5e",
+    "v10": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6",
+    "v91": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6"
+  },
+  "complete_unique_balanced_final_fixtures": true,
+  "field_difference": {
+    "points_per_fixture": 0.175,
+    "seed_block_95": [
+      0.09375,
+      0.25
+    ],
+    "seed_block_975": [
+      0.08125,
+      0.25625
+    ],
+    "points_by_style": {
+      "frozen-upload": {
+        "adaptive-finalist": 75,
+        "frozen-upload": 47
+      },
+      "v10-compact": {
+        "adaptive-finalist": 55,
+        "frozen-upload": 55
+      },
+      "v10-counter": {
+        "adaptive-finalist": 60,
+        "frozen-upload": 60
+      },
+      "v10-press": {
+        "adaptive-finalist": 59,
+        "frozen-upload": 59
+      },
+      "v9.1": {
+        "adaptive-finalist": 54,
+        "frozen-upload": 54
+      }
+    }
+  },
+  "activations": {
+    "frozen-upload": 18,
+    "v10-compact": 0,
+    "v10-counter": 0,
+    "v10-press": 0,
+    "v9.1": 0
+  },
+  "direct_activations": 65,
+  "original_strong_score_gates": {
+    "win_fraction": 0.6171875,
+    "win_fraction_at_least_075": false,
+    "mean_gd": 0.640625,
+    "mean_gd_at_least_15": false
+  },
+  "intake": {
+    "ok": true,
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 2000,
+      "mean decision (ms)": "0.114",
+      "slowest decision (ms)": "7.002",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    }
+  },
+  "native_inventory": {
+    "jsonl_full_or_early_native_results": 1577,
+    "recovered_aborted_native_result": 1,
+    "timed_diagnostic_repeats": 4,
+    "untimed_parity_matches": 5,
+    "official_intake_matches_per_final_source": 5,
+    "timed_native_attempts": 1582
+  },
+  "provenance_notes": [
+    "adaptive-plan.json points at V2 before development; V3 public-score initialization bug fix is documented before untouched qualification by adaptive-selection.json and both final registrations. Do not change original preregistration retroactively.",
+    "One opposing-side raw deadline miss is present in paired field validation; adaptive/source baseline roles each have zero.",
+    "Strong-score gates both fail. Positive paired points evidence is not proof of live-league dominance.",
+    "Final candidate has 13 rejected kick requests direct and 1 field; these are separate from zero policy exceptions.",
+    "Parent runtime stalls remain unresolved and counted; clean reproductions do not erase original misses."
+  ]
+}

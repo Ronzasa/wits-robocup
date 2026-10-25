@@ -1,0 +1,68 @@
+{
+  "summaries": {
+    "finalist": {
+      "matches": 128,
+      "independent_seed_blocks": 32,
+      "wins": 89,
+      "draws": 36,
+      "losses": 3,
+      "points": 303,
+      "points_per_match": 2.3671875,
+      "points_per_match_seed_bootstrap_95": [
+        2.2109375,
+        2.5234375
+      ],
+      "goals_for": 356,
+      "goals_against": 124,
+      "goal_difference": 232,
+      "goal_difference_per_match": 1.8125,
+      "shots": 668,
+      "shots_blocked": 552,
+      "passes_attempted": 2839,
+      "passes_completed": 975,
+      "passes_intercepted": 1069,
+      "passes_uncollected_derived": 795,
+      "pass_completion": 0.34343078548784783,
+      "possession_fraction": 0.38660807291666666,
+      "control_fraction": 0.09997395833333333,
+      "dribbles": 6128,
+      "dribble_distance": 17128.507149,
+      "tackles_attempted": 458,
+      "tackles_won": 74,
+      "turnovers": 636,
+      "fouls": 0,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "decisions": 307200,
+      "decision_mean_ms": 0.17904442546371988,
+      "decision_max_ms": 13.571493997005746,
+      "validation": {
+        "clamped_values": 0,
+        "dropped_debug_payloads": 0,
+        "invalid_player_ids": 0,
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "rejected_kicks": 8
+      },
+      "shot_quality": "not available",
+      "goalkeeper_saves": "not available",
+      "incomplete_fixtures": 0,
+      "paired_direct_points_difference_per_fixture": 2.015625,
+      "paired_points_seed_bootstrap_95": [
+        1.7578125,
+        2.25
+      ],
+      "paired_gd_seed_bootstrap_95": [
+        1.40625,
+        2.2421875
+      ],
+      "opponent_points": 45,
+      "opponent_errors": 0,
+      "opponent_raw_misses": 1,
+      "additional_raw_misses_per1000": -7.8125
+    }
+  },
+  "split": "untouched target-specific qualification",
+  "promotion": false,
+  "finished": "2026-10-25T17:01:39.346344+00:00"
+}

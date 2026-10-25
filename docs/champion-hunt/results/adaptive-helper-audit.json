@@ -1,0 +1,48 @@
+{
+  "source_sha256": "36024c0458babd2f543ae495ef9ab433eef5625340bb0fb0df5444beca4e79ca",
+  "source_bytes": 238151,
+  "policies": {
+    "_FallbackPolicy": {
+      "ast_matches": true,
+      "inherited_calls": [],
+      "source_sha256": "7708f5d3b10202092f1fce73abfc61a5d7a61d91326d95d69cec872d4c7ba758"
+    },
+    "_SpecialistPolicy": {
+      "ast_matches": true,
+      "inherited_calls": [],
+      "source_sha256": "05d9ce27b4e6f54db44a3e5c8b6a929e0dbce0dcf00b5a0b69f9e6ebf6681196"
+    }
+  },
+  "imports": [
+    "import math",
+    "from soccer import PlayerAction, TeamAction, TeamController"
+  ],
+  "one_sdk_wrapper": true,
+  "synthetic_checks": "exact fallback object, six ticks, consecutive reset, latch, reset, selected kick passed",
+  "frozen_wall_preserves_expired_plans": true,
+  "expired_field_activation": {
+    "_receive_plan": {
+      "confirmed": true,
+      "active": true,
+      "expired_at_tick": 3,
+      "checked_through_tick": 111
+    },
+    "_relay_receive": {
+      "confirmed": true,
+      "active": true,
+      "expired_at_tick": 3,
+      "checked_through_tick": 111
+    },
+    "_x_reception": {
+      "confirmed": true,
+      "active": true,
+      "expired_at_tick": 3,
+      "checked_through_tick": 111
+    }
+  },
+  "live_contract_checks": {
+    "_receive_plan": "same-score expiry boundary defers; expiry+1 activates; old-score unexpired activates",
+    "_relay_receive": "same-score expiry boundary defers; expiry+1 activates; old-score unexpired activates",
+    "_x_reception": "same-score expiry boundary defers; expiry+1 activates; old-score unexpired activates"
+  }
+}

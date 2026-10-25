@@ -1,0 +1,24 @@
+{
+  "selected_before_qualification": true,
+  "selected": "/workspace/work/replay-finishing-handoffs/experiments/champion-hunt/team.py",
+  "sha256": "05d9ce27b4e6f54db44a3e5c8b6a929e0dbce0dcf00b5a0b69f9e6ebf6681196",
+  "behavior_parent": "/workspace/work/champion-hunt-20261025/agent-cache/cache-all/team.py",
+  "behavior_parent_sha256": "f38a215b331f242366a597e4fa816c78b3d2c3a269b368bb4efc9e2626a7bca4",
+  "metadata_only_functions_ast_equal": true,
+  "development": {
+    "matches": 32,
+    "wins": 24,
+    "draws": 8,
+    "losses": 0,
+    "points": 80,
+    "opponent_points": 8,
+    "goals_for": 88,
+    "goals_against": 28,
+    "policy_errors": 0,
+    "raw_misses": 0,
+    "decision_max_ms": 12.158458004705608
+  },
+  "selection_rule": "Highest complete 32-game development points among sources passing zero-exception/+2raw-misses-per1000 reliability. Equal tactical behavior checked independently; no qualification outcomes used.",
+  "qualification_tuning_forbidden": true,
+  "promotion": false
+}
