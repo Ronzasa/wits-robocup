@@ -212,3 +212,10 @@ Differs from the baseline lineage: adds near-post aim lanes and relay handoffs, 
 Dev seeds 30110..30124, 150 paired units vs the frozen baseline: dPts -0.293 [-0.472,-0.115] (GF 0.96 -> 3.97 because it keeps attacking after leading, GA 0.45 -> 0.74;
 lock_no_breaker -0.90). The same file with `LOCK_LEAD = 1` (candidates/user11_lock.py): +0.080 [-0.034,+0.194] on those seeds, and on fresh seeds 30130..30159
 (300 units) +0.013 [-0.077,+0.104] (GF 0.98 -> 0.96, GA 0.45 -> 0.42), i.e. equal to the baseline within noise. Conclusion: the lock is what protects points; the new attacking features are neutral.
+
+---
+# From-scratch agent "Bunker-Striker" (`agents/bunker_striker.py`, ~110 lines)
+Goal-line wall (keeper + 4 at y 0, +-2.9, +-5.9), one striker that tap-dribbles and drives a full-power corner shot, everyone in the wall when leading or 2+ behind.
+check PASSED, decision time 0.02 ms. Paired vs the frozen baseline (dev seeds 30170..30179, 6 opponents, 120 units): v1 dPts -1.500 [-1.741,-1.259] (GF 1.09 -> 0.13);
+v2 (better ball chasing, waits outside the centre circle) dPts -1.550 [-1.779,-1.321] (GF 0.17, 2 fouls from centre-circle encroachment).
+A single striker cannot win or keep the ball against these opponents; the baseline's interception forecasting and passing machinery is what scores. Not promoted, not recommended for submission.
