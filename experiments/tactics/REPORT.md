@@ -288,3 +288,13 @@ strong opponents +0.05 [+0.001, +0.099], weak opponents -0.013 [-0.037, +0.012] 
 Caveats: the local pool cannot reproduce the real top teams, so this is evidence against a copy of the candidate, not against the live ladder.
 The effect on the third set alone was small; the pooled estimate (about +0.2) is the honest size, not the first +0.25.
 Not promoted: nothing here modifies main or the champion.
+
+## User's team 12 (replay finishing + cooldown handoffs) vs the stiff-wall challenger
+
+File: `candidates/user_team12.py` (sha256 prefix 27b3ef88dded, 4735 lines, header says it was written without running matches).
+`start.sh check`: PASSED. Imports: `math` and the SDK only. Same lock wall as the candidate (`LOCK_RAMP` equivalent 1.5).
+
+Head-to-head vs `challenger_stiff_wall.py`, seeds 35000-35099, both sides and kickoffs, 200 matches, paired against challenger-vs-itself:
+team 12 scored 2.025 pts/match (challenger-vs-itself 1.50), GD +0.61, paired diff +0.525, 95% CI [+0.32, +0.73]. 0 fouls, 0 errors, raw timeouts 5 vs 3.
+
+Adding the stiff wall to team 12 (`sandbox_h2h/team12_stiff.py`) vs team 12, seeds 36000-36099, 200 matches: +0.005 [-0.005, +0.015]. No effect: team 12 rarely reaches a pushed lock.
