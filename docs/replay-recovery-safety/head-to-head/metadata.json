@@ -1,0 +1,29 @@
+{
+  "started_utc": "2026-10-25T03:02:29.763992+00:00",
+  "registration_sha256": "fc08c99a8946695c55a5d28c63f132984c63e851b4075f749e24f07dabb4657e",
+  "runner_sha256": "f85a82faa191d6a47ae547538cb37f1e764fd0b3c19c254f4f8c8dbea37f8d12",
+  "cpu_start": {
+    "usage_usec": "156435576",
+    "user_usec": "87538726",
+    "system_usec": "68896850",
+    "nice_usec": "0",
+    "nr_periods": "75205",
+    "nr_throttled": "7",
+    "throttled_usec": "153346",
+    "nr_bursts": "0",
+    "burst_usec": "0"
+  },
+  "decision_observer": "Records the official returned elapsed time outside the timed act() call. Actions and native timing records are unchanged.",
+  "finished_utc": "2026-10-25T03:03:24.821543+00:00",
+  "cpu_finish": {
+    "usage_usec": "212132715",
+    "user_usec": "143235865",
+    "system_usec": "68896850",
+    "nice_usec": "0",
+    "nr_periods": "75756",
+    "nr_throttled": "7",
+    "throttled_usec": "153346",
+    "nr_bursts": "0",
+    "burst_usec": "0"
+  }
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "original_fixture_id": "v2-vs-team8-2938064102-side1-kick1",
+    "scope": "Diagnostic only; original match, score and raw deadline miss stay counted.",
+    "repeated_match": {
+      "fixture_id": "diagnostic-repeat-only-/workspace/work/replay-v2-vs-team8-20261025/sources/team8/team.py-2938064102-side1-kick1",
+      "split": "diagnostic-repeat-only",
+      "opponent": "/workspace/work/replay-v2-vs-team8-20261025/sources/team8/team.py",
+      "seed": 2938064102,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true,
+      "result": {
+        "match_id": "diagnostic-repeat-only-/workspace/work/replay-v2-vs-team8-20261025/sources/team8/team.py-2938064102-side1-kick1",
+        "engine_version": "0.1.0",
+        "config_hash": "372990895c7eca2a",
+        "team_ids": [
+          "Pep Guardiola + Jurgen Klopp Hybrid",
+          "Pep Guardiola + Jurgen Klopp Hybrid"
+        ],
+        "team_versions": [
+          "1",
+          "1"
+        ],
+        "seed": 2938064102,
+        "sides_swapped": false,
+        "kickoff_team": 1,
+        "score": [
+          1,
+          0
+        ],
+        "outcome": "team_a_win",
+        "goal_difference": 1,
+        "terminal_reason": "time_limit",
+        "ticks": 2400,
+        "wall_time_ms": 851.5859099999999,
+        "stats": [
+          {
+            "possession_ticks": 543,
+            "controlled_ticks": 48,
+            "territory_ticks": 400,
+            "kicks": 16,
+            "shots": 1,
+            "shots_blocked": 0,
+            "passes_attempted": 7,
+            "passes_completed": 1,
+            "passes_intercepted": 0,
+            "pass_distance": 17.957518,
+            "dribbles": 8,
+            "dribble_distance": 21.271975,
+            "tackles_attempted": 1,
+            "tackles_won": 0,
+            "turnovers": 1,
+            "fouls": 0,
+            "goals": 1,
+            "own_goals": 0,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 0,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "decision_time_ms": {
+              "count": 2400,
+              "total_ms": 96.05195809854195,
+              "max_ms": 1.7236769999726675,
+              "bucket_counts": [
+                1703,
+                597,
+                79,
+                4,
+                5,
+                12,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "possession_ticks": 1857,
+            "controlled_ticks": 551,
+            "territory_ticks": 1951,
+            "kicks": 244,
+            "shots": 33,
+            "shots_blocked": 0,
+            "passes_attempted": 88,
+            "passes_completed": 84,
+            "passes_intercepted": 3,
+            "pass_distance": 599.33704,
+            "dribbles": 111,
+            "dribble_distance": 171.78868,
+            "tackles_attempted": 2,
+            "tackles_won": 0,
+            "turnovers": 2,
+            "fouls": 0,
+            "goals": 0,
+            "own_goals": 0,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 0,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "decision_time_ms": {
+              "count": 2400,
+              "total_ms": 696.6817877546418,
+              "max_ms": 5.178710998734459,
+              "bucket_counts": [
+                0,
+                1333,
+                664,
+                153,
+                24,
+                167,
+                55,
+                4,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "replay_path": null,
+        "platform_error": null
+      }
+    },
+    "timing": [
+      {
+        "team": "new",
+        "tick": 1255,
+        "wall_ms": 1.4180239959387109,
+        "thread_cpu_ms": 1.418679,
+        "error": null
+      }
+    ]
+  }
+]

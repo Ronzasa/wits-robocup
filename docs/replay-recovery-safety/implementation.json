@@ -4,7 +4,7 @@
   "base_commit": "8cc79367bcfe7a05009eaf66fdd37d9d1275a395",
   "source_bytes": 161650,
   "sha256": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a",
-  "review": "Source text comparison only; no controller import, execution, compilation, tests, native probes or matches.",
+  "review": "Initial source-only review followed by an owner-authorised frozen 64-match native head-to-head comparison; see head-to-head/results.md.",
   "unchanged_methods": {
     "_move": true,
     "_intercept": true,
@@ -20,12 +20,28 @@
     "_lock_wall": true
   },
   "lock_lead": 0,
-  "tests_run": false,
-  "controller_executed": false,
-  "runtime_measured": false,
+  "tests_run": true,
+  "controller_executed": true,
+  "runtime_measured": true,
   "promotion": false,
   "text_comparison_note": "Method bodies compared as text with trailing separator whitespace removed.",
   "competition_deadline_ms": 20,
-  "deadline_compliance": "unmeasured",
-  "recorded_site_code_limit_kb": 256
+  "deadline_compliance": "One raw decision exceeded 20 ms in the 64 scheduled full matches; not qualified.",
+  "recorded_site_code_limit_kb": 256,
+  "head_to_head": {
+    "results": "head-to-head/results.md",
+    "candidate_source_commit": "3bf534fcc72c58fa698ac5140ef1cdb1e373d886",
+    "matches": 64,
+    "wins": 31,
+    "draws": 7,
+    "losses": 26,
+    "new_points": 100,
+    "team8_points": 85,
+    "new_raw_misses": 1,
+    "team8_raw_misses": 0,
+    "paired_seed_bootstrap_95": [
+      -0.421875,
+      0.9375
+    ]
+  }
 }

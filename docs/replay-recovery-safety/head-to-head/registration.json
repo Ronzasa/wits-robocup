@@ -1,0 +1,370 @@
+{
+  "scope": "Direct native head-to-head comparison only; not multi-opponent league qualification or promotion.",
+  "candidate_commit": "3bf534fcc72c58fa698ac5140ef1cdb1e373d886",
+  "sources": {
+    "new": {
+      "path": "/workspace/work/replay-v2-vs-team8-20261025/sources/new/team.py",
+      "sha256": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a"
+    },
+    "team8": {
+      "path": "/workspace/work/replay-v2-vs-team8-20261025/sources/team8/team.py",
+      "sha256": "5b4a2c6638d6a92fe09c580f55b148cf91d592276a166254a7ab51a4fc90b957"
+    }
+  },
+  "seeds": [
+    2938064101,
+    2938064102,
+    2938064103,
+    2938064104,
+    2938064105,
+    2938064106,
+    2938064107,
+    2938064108,
+    2938064109,
+    2938064110,
+    2938064111,
+    2938064112,
+    2938064113,
+    2938064114,
+    2938064115,
+    2938064116
+  ],
+  "seed_note": "New fixed seeds checked against existing registration/protocol files before execution; no selection by results.",
+  "fixtures": [
+    {
+      "seed": 2938064106,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064103,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064107,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064107,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064113,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064113,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064114,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064102,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064116,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064103,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064110,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064114,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064108,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064105,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064111,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064111,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064111,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064101,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064110,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064101,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064114,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064107,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064109,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064115,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064112,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064116,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064109,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064116,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064115,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064105,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064115,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064102,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064108,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064106,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064102,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064110,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064104,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064104,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064105,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064109,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064116,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064108,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064104,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064104,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064107,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064106,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064112,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064112,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064101,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064114,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064111,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064108,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064101,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064103,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064112,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064110,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064102,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064103,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": false
+    },
+    {
+      "seed": 2938064113,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064113,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064115,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064105,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064106,
+      "candidate_slot": 1,
+      "candidate_takes_kickoff": true
+    },
+    {
+      "seed": 2938064109,
+      "candidate_slot": 0,
+      "candidate_takes_kickoff": true
+    }
+  ],
+  "expected_fixtures": 64,
+  "workers": 1,
+  "ticks": 2400,
+  "deadline_ms": 20.0,
+  "engine_version": "0.1.0",
+  "config_hash": "372990895c7eca2a",
+  "config_path": "/workspace/work/exploit-lab/configs/default.toml",
+  "raw_results": "All scheduled fixtures count; no timing-based result replacement, no tuning or stopping for match outcomes.",
+  "statistics": {
+    "method": "Paired difference in league points per fixture, averaged within each four-fixture seed block; percentile bootstrap over 16 seed blocks.",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 641008,
+    "win_evidence": "More points and paired 95% confidence lower bound above zero."
+  },
+  "promotion": false
+}

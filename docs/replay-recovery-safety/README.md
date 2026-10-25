@@ -4,11 +4,13 @@ Submission file: [team.py](../../experiments/replay-finishing-handoffs/team.py).
 Version: `replay-recovery-safety-v2`. Base: feature-branch commit
 `8cc79367bcfe7a05009eaf66fdd37d9d1275a395`.
 
-Implemented at the owner's request **without executing the controller**.
-No imports of the controller, compilation, tests, intake checks, native probes,
-timing benchmarks or matches were run. Source-text comparison and file hashes
-are the only implementation review performed. There is no measured performance
-or reliability improvement and no claim of compliance with the 20 ms deadline.
+Initially implemented at the owner's request without executing the controller.
+The owner subsequently authorised matches. The frozen version has now played
+**64 full native head-to-head matches against uploaded team (8).py**:
+31 wins, 7 draws, 26 losses; 100–85 points and 95–55 goals. Both passed official
+intake, but the candidate recorded one raw deadline miss versus none for team
+(8), and the seed-block 95% interval for its points advantage includes zero.
+**It remains unqualified.** See the [complete results](head-to-head/results.md).
 
 ## Evidence guiding the changes
 
@@ -112,11 +114,12 @@ Unmodeled teammate/player collisions can still invalidate a forecast.
 - Near-post targeting, shooting physics and goalkeeper save/sweep routines are
   retained. The goal-plane fix and named short handoffs from v1 remain present.
 - `main`, active `my-team/team.py` and archived champions are not modified.
-- This feature-branch version is **unqualified**. The four changes have not
-  been tested independently or in combination; no promotion is justified by
-  the historical replay findings alone.
+- This feature-branch version is **unqualified**. The four changes have been
+  tested together only in the documented head-to-head run, not independently
+  or against a qualification opponent field. No promotion is justified.
 
 The work caps can reject useful passes, conservative short-touch envelopes can
 reject executable carries, and the recovery target can reduce attacking support
-while active. These tradeoffs and actual runtime require measurement before
-claiming this version is stronger or reliable enough for competition.
+while active. The measured head-to-head advantage is uncertain and the raw
+deadline miss requires further investigation before claiming this version is
+stronger or reliable enough for competition.
