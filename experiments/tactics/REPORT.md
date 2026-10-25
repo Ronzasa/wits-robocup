@@ -227,3 +227,10 @@ A single striker cannot win or keep the ball against these opponents; the baseli
   Per opponent: champion 0.31, press_formation 0.31, lock_no_breaker 0.38, possession 1.88, balanced 1.06, tactical 1.19 points per match.
 * Reading: removing fouls fixed one self-inflicted problem but the agent still cannot win or keep the ball against strong teams, so the striker rarely reaches a shooting position (GF 0.0-0.06 vs the three strongest).
   Files: `agents/bunker_striker.py` (v1), `_v2.py`, `_v3.py`, scorer `harness/quick_abs.py`.
+
+---
+# Sandbox campaign: "champion candidate" (`candidates/champion_candidate.py`) vs the user's file as run and vs the frozen baseline
+Built in `/home/claude/sandbox` from the user's team (11): `LOCK_LEAD = 1`, trailing wall at 2 goals behind, and the baseline's wall breaker ported into `act()`; nothing else changed.
+check PASSED; validate 0 exceptions, 0 over deadline. Paired, 5 opponents (champion_original, press_formation, lock_no_breaker, possession, balanced), both sides:
+* vs the user's file as run (seeds 30200..30214, 150 units): dPts +0.247 [+0.089,+0.404] (GF 4.15 -> 0.95, GA 0.73 -> 0.37). Points gain is significant; the file as run scores 8 goals a match against the built-ins because it never locks, which the candidate gives up (goal difference).
+* vs the frozen baseline: seeds 30200..30214 (150 units) +0.113 [-0.016,+0.243], GA 0.48 -> 0.37; fresh seeds 30220..30249 (300 units) +0.063 [-0.045,+0.172], GA 0.54 -> 0.46. Positive trend, not significant (promotion gate 1 is NOT met against the baseline).

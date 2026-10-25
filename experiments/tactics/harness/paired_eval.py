@@ -3,7 +3,7 @@ Usage: paired_eval.py CAND OPP[,OPP..] SEED0 SEED1 [out.json]. Records goals, po
 import json, math, os, random, statistics, sys, time
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import common; from common import soccer
-BASE = os.path.join(common.TACTICS, "baseline", "team.py")
+BASE = os.environ.get("REF", os.path.join(common.TACTICS, "baseline", "team.py"))
 def play(team, opp, seed, side):
     a, b = (team, common.spec(opp)) if side == 0 else (common.spec(opp), team)
     m = soccer.play_match(a, b, seed=seed, kickoff_team=side, max_ticks=2400)
