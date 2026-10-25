@@ -1,0 +1,276 @@
+{
+  "scope": "Functional diagnostic on an exposed development fixture. Shadow calculations and state copies occur outside the official timed call. This is not a performance benchmark, qualification fixture or replacement result.",
+  "seed": 2938064108,
+  "candidate_slot": 1,
+  "candidate_takes_kickoff": true,
+  "first_different_command": {
+    "tick": 1612,
+    "ball_position": [
+      18.49874496459961,
+      15.44832992553711
+    ],
+    "ball_velocity": [
+      7.493740081787109,
+      -0.9173253774642944
+    ],
+    "score": [
+      0,
+      0
+    ],
+    "full_v2": {
+      "0": {
+        "movement": [
+          -2.288819982254611e-06,
+          -0.007539709700130071
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "1": {
+        "movement": [
+          0.9906646662235211,
+          -0.13632138165467428
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "2": {
+        "movement": [
+          0.9997281932763065,
+          0.023313935070936504
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "3": {
+        "movement": [
+          -0.07819349765777228,
+          0.9716222286224356
+        ],
+        "kick_direction": [
+          -0.1333147577779854,
+          0.9910737486981467
+        ],
+        "kick_power": 0.23653525391199776
+      },
+      "4": {
+        "movement": [
+          0.8292473519900752,
+          -0.5588817667605989
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      }
+    },
+    "without_caps": {
+      "0": {
+        "movement": [
+          -2.288819982254611e-06,
+          -0.007539709700130071
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "1": {
+        "movement": [
+          0.9906646662235211,
+          -0.13632138165467428
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "2": {
+        "movement": [
+          -0.9897208531943145,
+          -0.1430127013671097
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "3": {
+        "movement": [
+          -0.07819349765777228,
+          0.9716222286224356
+        ],
+        "kick_direction": [
+          0.008445761456354752,
+          -0.9999643339206765
+        ],
+        "kick_power": 1.0
+      },
+      "4": {
+        "movement": [
+          0.8292473519900752,
+          -0.5588817667605989
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      }
+    },
+    "remaining_budgets": [
+      [
+        15,
+        2477,
+        913,
+        435
+      ],
+      [
+        5,
+        2204,
+        763,
+        40
+      ],
+      [
+        4,
+        400,
+        160,
+        120
+      ]
+    ],
+    "full_unknown": true,
+    "touch_evaluations_left": 23,
+    "full_pass_plan": null,
+    "uncapped_pass_plan": [
+      2,
+      13.83780391371332,
+      -8.579123594550357
+    ],
+    "full_carry_plan": null,
+    "uncapped_carry_plan": null
+  },
+  "result": {
+    "match_id": "limits-mechanism-diagnostic",
+    "engine_version": "0.1.0",
+    "config_hash": "372990895c7eca2a",
+    "team_ids": [
+      "Pep Guardiola + Jurgen Klopp Hybrid",
+      "Pep Guardiola + Jurgen Klopp Hybrid"
+    ],
+    "team_versions": [
+      "1",
+      "1"
+    ],
+    "seed": 2938064108,
+    "sides_swapped": false,
+    "kickoff_team": 1,
+    "score": [
+      0,
+      0
+    ],
+    "outcome": "draw",
+    "goal_difference": 0,
+    "terminal_reason": "time_limit",
+    "ticks": 2400,
+    "wall_time_ms": 1440.551649,
+    "stats": [
+      {
+        "possession_ticks": 867,
+        "controlled_ticks": 151,
+        "territory_ticks": 775,
+        "kicks": 75,
+        "shots": 4,
+        "shots_blocked": 1,
+        "passes_attempted": 34,
+        "passes_completed": 22,
+        "passes_intercepted": 7,
+        "pass_distance": 135.6691,
+        "dribbles": 32,
+        "dribble_distance": 69.237915,
+        "tackles_attempted": 4,
+        "tackles_won": 0,
+        "turnovers": 6,
+        "fouls": 0,
+        "goals": 0,
+        "own_goals": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 0,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "decision_time_ms": {
+          "count": 2400,
+          "total_ms": 329.63507094973465,
+          "max_ms": 2.8231989999767393,
+          "bucket_counts": [
+            1,
+            1844,
+            449,
+            28,
+            25,
+            42,
+            11,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "possession_ticks": 1533,
+        "controlled_ticks": 205,
+        "territory_ticks": 1595,
+        "kicks": 82,
+        "shots": 3,
+        "shots_blocked": 2,
+        "passes_attempted": 31,
+        "passes_completed": 16,
+        "passes_intercepted": 9,
+        "pass_distance": 152.15326,
+        "dribbles": 36,
+        "dribble_distance": 46.831364,
+        "tackles_attempted": 3,
+        "tackles_won": 0,
+        "turnovers": 7,
+        "fouls": 0,
+        "goals": 0,
+        "own_goals": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 0,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "decision_time_ms": {
+          "count": 2400,
+          "total_ms": 403.65050703985617,
+          "max_ms": 4.110036003112327,
+          "bucket_counts": [
+            0,
+            1610,
+            649,
+            60,
+            5,
+            46,
+            29,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "replay_path": null,
+    "platform_error": null
+  }
+}

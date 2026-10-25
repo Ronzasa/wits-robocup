@@ -4,6 +4,14 @@ Submission file: [team.py](../../experiments/replay-finishing-handoffs/team.py).
 Version: `replay-recovery-safety-v2`. Base: feature-branch commit
 `8cc79367bcfe7a05009eaf66fdd37d9d1275a395`.
 
+**Evaluation correction:** the 64-match run below used the SDK's custom
+formation hooks, whereas the captured course replays start with native default
+rosters. A subsequent 1,408-match investigation corrected this setup and tested
+isolated variants. No challenger qualified; the final held-out variant scored
+287 points versus team (8)'s 286, with an inconclusive confidence interval.
+See the [audit and corrected results](../replay-evaluation-audit/results.md).
+Those results belong to the documented variants, not unchanged full-v2.
+
 Initially implemented at the owner's request without executing the controller.
 The owner subsequently authorised matches. The frozen version has now played
 **64 full native head-to-head matches against uploaded team (8).py**:
@@ -115,8 +123,9 @@ Unmodeled teammate/player collisions can still invalidate a forecast.
   retained. The goal-plane fix and named short handoffs from v1 remain present.
 - `main`, active `my-team/team.py` and archived champions are not modified.
 - This feature-branch version is **unqualified**. The four changes have been
-  tested together only in the documented head-to-head run, not independently
-  or against a qualification opponent field. No promotion is justified.
+  tested together in the original head-to-head run and subsequently isolated
+  in the linked audit. No variant established a qualification points advantage.
+  No promotion is justified.
 
 The work caps can reject useful passes, conservative short-touch envelopes can
 reject executable carries, and the recovery target can reduce attacking support

@@ -1,0 +1,13 @@
+{
+  "same_physical_result": true,
+  "checks": {
+    "score": true,
+    "ticks": true,
+    "terminal_reason": true,
+    "config_hash": true,
+    "kickoff_team": true,
+    "physical_stats_side_0": true,
+    "physical_stats_side_1": true
+  },
+  "source": "Portable driver reproduces an already scheduled fixture; timing diagnostic only, not a replacement result."
+}

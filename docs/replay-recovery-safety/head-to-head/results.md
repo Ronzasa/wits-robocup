@@ -1,5 +1,12 @@
 # Native head-to-head: v2 vs uploaded team (8).py
 
+**Setup correction:** these 64 results remain valid SDK games using custom
+formation hooks, but their starting rosters differ from the captured course
+replays. They do not establish improvement in that course setup. The
+[subsequent audit](../../replay-evaluation-audit/results.md) corrects the driver,
+tests isolated variants and records their failed qualification results. The
+original scores and raw deadline miss below remain counted.
+
 The new controller wins more games and points in this sample, but the points advantage is not statistically established and it records one additional raw deadline miss. **Do not treat it as a qualified replacement.**
 
 ## Fixed protocol

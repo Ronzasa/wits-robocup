@@ -1,0 +1,363 @@
+{
+  "scope": "Exposed development fixture, two policy states receiving identical native observations. Their movement/kick commands agree until the recorded first difference. Shadow computation occurs outside native timed calls. This diagnostic is not a validation fixture or timing benchmark.",
+  "seed": 2938064106,
+  "candidate_slot": 1,
+  "candidate_takes_kickoff": false,
+  "first_divergence": {
+    "tick": 577,
+    "score": [
+      0,
+      0
+    ],
+    "ball_position": [
+      -36.876304626464844,
+      -28.311033248901367
+    ],
+    "ball_velocity": [
+      5.619160175323486,
+      1.83115816116333
+    ],
+    "history": [
+      {
+        "tick": 572,
+        "same_commands": true,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": null,
+        "without_plan_carry": null
+      },
+      {
+        "tick": 573,
+        "same_commands": true,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": null,
+        "without_plan_carry": null
+      },
+      {
+        "tick": 574,
+        "same_commands": true,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": null,
+        "without_plan_carry": null
+      },
+      {
+        "tick": 575,
+        "same_commands": true,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": null,
+        "without_plan_carry": null
+      },
+      {
+        "tick": 576,
+        "same_commands": true,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": [
+          3,
+          584
+        ],
+        "without_plan_carry": null
+      },
+      {
+        "tick": 577,
+        "same_commands": false,
+        "full_chaser": 3,
+        "without_plan_chaser": 3,
+        "full_carry_plan": [
+          3,
+          584
+        ],
+        "without_plan_carry": null
+      }
+    ],
+    "players": [
+      {
+        "id": 0,
+        "position": [
+          -47.79999542236328,
+          -5.200965404510498
+        ],
+        "velocity": [
+          -2.2888181774760596e-05,
+          2.224365472793579
+        ],
+        "cooldown": 0,
+        "can_kick": false
+      },
+      {
+        "id": 1,
+        "position": [
+          -36.27138137817383,
+          -21.20641326904297
+        ],
+        "velocity": [
+          -1.0077002048492432,
+          -2.5587494373321533
+        ],
+        "cooldown": 0,
+        "can_kick": false
+      },
+      {
+        "id": 2,
+        "position": [
+          -36.571022033691406,
+          -9.703630447387695
+        ],
+        "velocity": [
+          5.6270647048950195,
+          -5.686488151550293
+        ],
+        "cooldown": 0,
+        "can_kick": false
+      },
+      {
+        "id": 3,
+        "position": [
+          -38.55802917480469,
+          -27.848331451416016
+        ],
+        "velocity": [
+          6.494260311126709,
+          -0.37089329957962036
+        ],
+        "cooldown": 4,
+        "can_kick": false
+      },
+      {
+        "id": 4,
+        "position": [
+          -26.015989303588867,
+          -0.809646725654602
+        ],
+        "velocity": [
+          7.963167667388916,
+          -0.7667849063873291
+        ],
+        "cooldown": 0,
+        "can_kick": false
+      }
+    ],
+    "full_commands": {
+      "0": {
+        "movement": [
+          -2.288819982254611e-06,
+          0.27319721066156344
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "1": {
+        "movement": [
+          -0.5793899553344413,
+          -0.8150504767543875
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "2": {
+        "movement": [
+          0.693125798872054,
+          -0.43656230613598535
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "3": {
+        "movement": [
+          0.9976843240464403,
+          -0.06801462748554805
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "4": {
+        "movement": [
+          0.8042930650347904,
+          0.011236856608875745
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      }
+    },
+    "without_plan_commands": {
+      "0": {
+        "movement": [
+          -2.288819982254611e-06,
+          0.27319721066156344
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "1": {
+        "movement": [
+          -0.5793899553344413,
+          -0.8150504767543875
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "2": {
+        "movement": [
+          0.693125798872054,
+          -0.43656230613598535
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "3": {
+        "movement": [
+          0.9839675442818413,
+          -0.17834761506665198
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      },
+      "4": {
+        "movement": [
+          0.8042930650347904,
+          0.011236856608875745
+        ],
+        "kick_direction": null,
+        "kick_power": 0.0
+      }
+    }
+  },
+  "native_result": {
+    "match_id": "match",
+    "engine_version": "0.1.0",
+    "config_hash": "372990895c7eca2a",
+    "team_ids": [
+      "policy_a",
+      "policy_b"
+    ],
+    "team_versions": [
+      "1",
+      "1"
+    ],
+    "seed": 2938064106,
+    "sides_swapped": false,
+    "kickoff_team": 0,
+    "score": [
+      1,
+      0
+    ],
+    "outcome": "team_a_win",
+    "goal_difference": 1,
+    "terminal_reason": "time_limit",
+    "ticks": 2400,
+    "wall_time_ms": 935.495605,
+    "stats": [
+      {
+        "possession_ticks": 408,
+        "controlled_ticks": 138,
+        "territory_ticks": 982,
+        "kicks": 62,
+        "shots": 11,
+        "shots_blocked": 0,
+        "passes_attempted": 16,
+        "passes_completed": 7,
+        "passes_intercepted": 6,
+        "pass_distance": 47.91388,
+        "dribbles": 25,
+        "dribble_distance": 40.36675,
+        "tackles_attempted": 6,
+        "tackles_won": 1,
+        "turnovers": 7,
+        "fouls": 0,
+        "goals": 1,
+        "own_goals": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 0,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "decision_time_ms": {
+          "count": 2400,
+          "total_ms": 206.90818872390082,
+          "max_ms": 3.764412998862099,
+          "bucket_counts": [
+            1311,
+            825,
+            182,
+            16,
+            18,
+            36,
+            12,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      },
+      {
+        "possession_ticks": 1992,
+        "controlled_ticks": 481,
+        "territory_ticks": 1319,
+        "kicks": 194,
+        "shots": 18,
+        "shots_blocked": 1,
+        "passes_attempted": 80,
+        "passes_completed": 56,
+        "passes_intercepted": 20,
+        "pass_distance": 399.89163,
+        "dribbles": 93,
+        "dribble_distance": 211.88539,
+        "tackles_attempted": 4,
+        "tackles_won": 2,
+        "turnovers": 7,
+        "fouls": 0,
+        "goals": 0,
+        "own_goals": 0,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 0,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "decision_time_ms": {
+          "count": 2400,
+          "total_ms": 571.7282753175823,
+          "max_ms": 3.662258000986185,
+          "bucket_counts": [
+            2,
+            1517,
+            571,
+            113,
+            19,
+            137,
+            41,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    ],
+    "replay_path": null,
+    "platform_error": null
+  }
+}

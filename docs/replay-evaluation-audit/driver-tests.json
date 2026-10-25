@@ -1,0 +1,9 @@
+{
+  "command": "PYTHONPATH=/path/to/complete/student-sdk python -m unittest discover -s tests -p test_default_roster_benchmark.py -v",
+  "passed": true,
+  "test_methods": 1,
+  "external_roster_subcases": 4,
+  "fixtures": "tests/fixtures/replay-default-rosters.json",
+  "native_ticks_per_subcase": 2400,
+  "source": "Actual unittest execution passed in this environment; compiled SDK supplied from the complete course distribution."
+}

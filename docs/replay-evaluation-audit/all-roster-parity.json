@@ -1,0 +1,27 @@
+[
+  {
+    "replay": "entry-0004.json",
+    "seed": 1003,
+    "max_default_roster_error": 6.518533303295394e-07
+  },
+  {
+    "replay": "entry-0012.json",
+    "seed": 1000,
+    "max_default_roster_error": 6.314014902343885e-07
+  },
+  {
+    "replay": "entry-0019.json",
+    "seed": 1001,
+    "max_default_roster_error": 7.867391407381752e-07
+  },
+  {
+    "replay": "entry-0025.json",
+    "seed": 1002,
+    "max_default_roster_error": 1.7907719550058133e-06
+  },
+  {
+    "replay": "entry-0036.json",
+    "seed": 1003,
+    "max_default_roster_error": 6.518533303295394e-07
+  }
+]

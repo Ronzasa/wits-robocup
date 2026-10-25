@@ -4,7 +4,7 @@
   "base_commit": "8cc79367bcfe7a05009eaf66fdd37d9d1275a395",
   "source_bytes": 161650,
   "sha256": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a",
-  "review": "Initial source-only review followed by an owner-authorised frozen 64-match native head-to-head comparison; see head-to-head/results.md.",
+  "review": "Initial source-only review, owner-authorised 64-match SDK comparison, then isolated native evaluation with corrected replay-matched default rosters; no challenger qualified.",
   "unchanged_methods": {
     "_move": true,
     "_intercept": true,
@@ -42,6 +42,16 @@
     "paired_seed_bootstrap_95": [
       -0.421875,
       0.9375
-    ]
+    ],
+    "formation": "SDK custom formation hooks; differs from captured course replay default rosters"
+  },
+  "evaluation_audit": {
+    "results": "../replay-evaluation-audit/results.md",
+    "scheduled_matches": 1408,
+    "driver": "tools/benchmarks/default_roster.py",
+    "formation": "native defaults, verified against captured course replay rosters",
+    "source_unchanged": true,
+    "promotion": false,
+    "conclusion": "No tested variant established a credible points advantage. Final selected no-retention variant, distinct from full-v2, scored 287 versus 286 points with a paired 95% interval including zero."
   }
 }

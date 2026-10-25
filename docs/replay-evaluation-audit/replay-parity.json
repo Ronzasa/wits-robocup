@@ -1,0 +1,98 @@
+[
+  {
+    "replay": "entry-0004.json",
+    "seed": 1003,
+    "steps": 2400,
+    "max_ball_state_error": 1.8823242200483037e-06,
+    "max_player_state_error": 9.207503280650453e-06,
+    "first_over_tolerance": null,
+    "replayed_score": [
+      1,
+      3
+    ],
+    "captured_score": [
+      1,
+      3
+    ]
+  },
+  {
+    "replay": "entry-0012.json",
+    "seed": 1000,
+    "steps": 2400,
+    "max_ball_state_error": 63.43752459094238,
+    "max_player_state_error": 79.86061437451173,
+    "first_over_tolerance": {
+      "tick": 872,
+      "ball_error": 0.0032072527526851857,
+      "player_error": 6.665039045117283e-07
+    },
+    "replayed_score": [
+      0,
+      2
+    ],
+    "captured_score": [
+      0,
+      5
+    ]
+  },
+  {
+    "replay": "entry-0019.json",
+    "seed": 1001,
+    "steps": 2400,
+    "max_ball_state_error": 50.003897315673825,
+    "max_player_state_error": 6.08483221437378,
+    "first_over_tolerance": {
+      "tick": 1690,
+      "ball_error": 0.003740826309204248,
+      "player_error": 4.611517334041082e-05
+    },
+    "replayed_score": [
+      2,
+      1
+    ],
+    "captured_score": [
+      2,
+      1
+    ]
+  },
+  {
+    "replay": "entry-0025.json",
+    "seed": 1002,
+    "steps": 2400,
+    "max_ball_state_error": 62.91904289428711,
+    "max_player_state_error": 80.96751940893554,
+    "first_over_tolerance": {
+      "tick": 494,
+      "ball_error": 0.00039383807373027935,
+      "player_error": 0.003113869454956064
+    },
+    "replayed_score": [
+      0,
+      1
+    ],
+    "captured_score": [
+      0,
+      6
+    ]
+  },
+  {
+    "replay": "entry-0036.json",
+    "seed": 1003,
+    "steps": 2400,
+    "max_ball_state_error": 0.031809093933105714,
+    "max_player_state_error": 4.64355468920985e-06,
+    "first_over_tolerance": {
+      "tick": 2353,
+      "ball_error": 0.00811959436035159,
+      "player_error": 4.3591308518386995e-07
+    },
+    "replayed_score": [
+      5,
+      0
+    ],
+    "captured_score": [
+      5,
+      0
+    ]
+  }
+]
