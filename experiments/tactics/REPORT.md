@@ -186,3 +186,15 @@ Matches: m-f25d50c2f1ce7db8 (Ikopit, seed 1000, kickoff Ikopit), m-c8aed6a617083
   kick into the corner next to the post from 16-20 units out: ball |y| 6.2 / 6.9 / 5.9. Zamokuhle's defenders were off-line (his outfield at x +11..+28 attack-relative) and his keeper did not stop it.
 * So across 4 replays all 16 goals (11 Zamokuhle vs us, 5 others) are corner shots at 5.5 <= |y| <= 6.9 from <=22 units, and every top team uses taps-then-drive.
   The wall (players at |y| ~ 3 and ~ 6 plus keeper) is exactly what covers those corners; the keeper alone cannot (see keeper feasibility above).
+
+---
+# Post guard (two defenders to the post corners when an opponent holds the ball in our shooting zone)
+Lab switch `GUARD_N/GUARD_X/GUARD_Y` (`lab/team.py`), stand-ins `opponents/tap_drive.py` (3 attackers, taps then a full-power corner drive) and
+`opponents/corner_shooter.py` (single striker; MODE 'near' = post on the ball's side). Probe: `probes/guard_probe.py`.
+* Full-team test vs tap_drive (10 seeds x 2 sides): baseline and both guards 1.2-0.1, 3.0 pts: the stand-in cannot create chances against an intact team, so it cannot rank fixes.
+* Mechanism test (our outfield frozen except the guard; striker corner shots from 24 units, 120 matches, seeds 31000..31059): goals conceded
+  N=0: 50 (0.080 per shot), N=2 with ball x<=-25: 32 (0.043), N=2 with ball x<=-15: 45 (0.062). The x<=-25 guard removes ~36% of goals in this handicapped scenario (Poisson z ~ 2.0, one of three configurations tried).
+  The keeper alone saves ~92% of these shots (the real matches convert far more, so the stand-in shot is weaker than the real one).
+* Full-game paired tests (150 units: 5 opponents, seeds 30070..30084, both sides): guard2 (x<=-25) dPts -0.187 [-0.358,-0.015], GF 0.99->0.90, GA 0.33->0.39;
+  guard2_x15 dPts -0.240 [-0.413,-0.067], GF 0.99->0.85. Both significantly worse than baseline: pulling defenders back takes away the chaser support and the outlet.
+Decision: rejected. The mechanism works in the handicapped probe but the cost in normal play outweighs it; nothing promoted.

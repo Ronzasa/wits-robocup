@@ -57,6 +57,9 @@ class Guardiola2011(TeamController):
     HPRESS_X = 5.0
     CONTAIN_ON = 0
     CLEAR_ON = 0
+    GUARD_N = 0
+    GUARD_X = -25.0
+    GUARD_Y = 6.0
     CLEAR_X = -15.0
     CLEAR_R = 8.0
     CONTAIN_X = 25.0
@@ -2546,6 +2549,8 @@ class Guardiola2011(TeamController):
             self._contain(obs, actions)
         if self.CLEAR_ON:
             self._clear(obs, actions)
+        if self.GUARD_N:
+            self._post_guard(obs, actions)
         return actions
 
     def _high_press(self, obs, actions):
@@ -2780,6 +2785,35 @@ class Guardiola2011(TeamController):
                 old = actions.players[p.id]
                 actions.set(p.id, PlayerAction(movement=old.movement, kick_direction=(dx / n, dy / n), kick_power=1.0))
                 return
+
+    def _post_guard(self, obs, actions):
+        """Opponent has the ball inside our shooting zone (ball x <= GUARD_X): park GUARD_N free defenders on the
+        goal line at the posts-side corners (y = +/-GUARD_Y, and a third at the side the ball is on) so tap-then-drive
+        corner shots hit a body. The chaser and the keeper are never used."""
+        bx, by = obs.ball.position
+        if bx > self.GUARD_X or obs.ball.controlling_team != 1:
+            return
+        friends = sorted(obs.my_players, key=lambda q: q.id)
+        out = [p for p in friends[1:] if actions.players[p.id].kick_direction is None]
+        if len(out) < 3:
+            return
+        chaser = min(out, key=lambda q: math.hypot(q.position[0] - bx, q.position[1] - by))
+        free = [p for p in out if p.id != chaser.id]
+        gx = obs.my_goal[0] + obs.field.player_radius + 0.4
+        spots = [(gx, self.GUARD_Y), (gx, -self.GUARD_Y), (gx, 2.9 if by >= 0 else -2.9)][:self.GUARD_N]
+        free.sort(key=lambda q: q.position[1])
+        assign = []
+        pool = list(free)
+        for sx, sy in spots:
+            if not pool:
+                break
+            p = min(pool, key=lambda q: math.hypot(q.position[0] - sx, q.position[1] - sy))
+            pool.remove(p); assign.append((p, sx, sy))
+        for p, sx, sy in assign:
+            dx, dy = sx - p.position[0], sy - p.position[1]
+            d = math.hypot(dx, dy)
+            s = 1.0 if d > 1.5 else d / 1.5
+            actions.set(p.id, PlayerAction(movement=(dx / d * s, dy / d * s) if d > 1e-6 else (0.0, 0.0)))
 
     def _lock_wall(self, obs):
         """Stand every player across our goal mouth and clear anything in range."""

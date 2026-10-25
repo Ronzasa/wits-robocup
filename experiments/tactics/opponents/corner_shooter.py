@@ -4,6 +4,7 @@ import math
 from soccer import PlayerAction, TeamAction, TeamController
 SHOT_X = 18.0     # shoot when ball x >= this (attack-relative; goal at x=50)
 MODE = 'far'      # 'far' = corner away from the keeper, 'near' = post on the ball's side (as in the replays)
+MODE = 'far'      # 'far' = corner away from the keeper, 'near' = post on the ball's side (as in the replays)
 
 class CornerShooter(TeamController):
     name = "corner_shooter"; version = "1"
