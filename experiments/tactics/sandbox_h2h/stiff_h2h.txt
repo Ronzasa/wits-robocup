@@ -1,0 +1,5 @@
+champion_candidate.py n 120 pts 1.183 GD -0.158 fouls 0 timeouts 4
+stiff0.5.py n 120 pts 1.367 GD -0.033 fouls 0 timeouts 0
+   paired vs first file: d 0.183 95% CI -0.002 0.369
+stiff0.2.py n 120 pts 1.433 GD 0 fouls 0 timeouts 1
+   paired vs first file: d 0.25 95% CI 0.073 0.427

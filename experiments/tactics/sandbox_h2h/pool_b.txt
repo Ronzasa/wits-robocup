@@ -1,0 +1,5 @@
+dribbler           n= 40 dPts=+0.000 CI[+0.000,+0.000] boot[+0.000,+0.000] GF 1.05->1.07 GA 0.05->0.07 TO/match 0.0000->0.0000 err 0 fouls 0 ms 0.03 max 10.6
+structured_attack  n= 40 dPts=+0.000 CI[+0.000,+0.000] boot[+0.000,+0.000] GF 1.32->1.35 GA 0.05->0.07 TO/match 0.0000->0.0000 err 0 fouls 0 ms 0.04 max 10.2
+ball_chaser        n= 40 dPts=-0.050 CI[-0.148,+0.048] boot[-0.150,+0.000] GF 1.20->1.23 GA 0.03->0.12 TO/match 0.0250->0.0000 err 0 fouls 0 ms 0.04 max 19.0
+balanced           n= 40 dPts=+0.000 CI[+0.000,+0.000] boot[+0.000,+0.000] GF 1.05->1.02 GA 0.03->0.03 TO/match 0.0000->0.0000 err 0 fouls 0 ms 0.07 max 11.7
+ALL                n=160 dPts=-0.013 CI[-0.037,+0.012] boot[-0.037,+0.000] GF 1.16->1.17 GA 0.04->0.07 TO/match 0.0063->0.0000 err 0 fouls 0 ms 0.05 max 19.0

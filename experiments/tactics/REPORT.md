@@ -254,3 +254,37 @@ Also: coordinate descent over 11 numeric constants head-to-head (`results/h2h1`)
 Conclusion: no challenger beat the candidate with a positive 95% lower bound. The threat-gated lock moves
 goal difference up slightly (-0.158 -> -0.03/+0.02) at no measurable cost in points, but the gain is inside noise,
 so it is NOT promoted. Nothing here modifies main or the champion.
+
+## Challenger that beats the champion candidate: stiff goal-line wall
+
+Finding (from 60 recorded candidate-vs-candidate matches, `sandbox_h2h/goals_scan.py`):
+- the first scorer wins about two thirds of matches; the lock fails to hold in about 22% of them
+- 12 of 105 goals are own goals, but all are opponent shots deflected by a defender's last touch, so they are not a bug
+- equalisers against the lock happen when the wall is pushed apart (players ended 3-4.5 apart, so the ball fits through).
+  The lock moved each player at speed `distance/1.5`, so a displaced player came back slowly and attackers could walk the wall apart.
+
+Change (one line, `candidates/challenger_stiff_wall.py`, sha256 prefix cd42787b2c53): `LOCK_RAMP = 0.2` replaces the 1.5 in
+`s = 1.0 if d > LOCK_RAMP else d / LOCK_RAMP`. A displaced wall player drives back at full speed until it is within 0.2 of its slot.
+Nothing else differs from `champion_candidate.py`.
+
+Head-to-head against `champion_candidate.py` (challenger vs candidate, both sides and kickoffs, paired against candidate-vs-itself):
+
+| Set | Seeds | n | pts/match (ref -> challenger) | GD (ref -> challenger) | paired diff, 95% CI |
+|---|---|---|---|---|---|
+| dev (setting picked here; ramp 0.5 gave +0.18, 0.2 gave +0.25) | 30500-30559 | 120 | 1.183 -> 1.433 | -0.158 -> 0.000 | +0.25 [+0.07, +0.43] |
+| validation | 31000-31079 | 160 | 1.400 -> 1.650 | -0.006 -> +0.138 | +0.25 [+0.09, +0.41] |
+| confirmation 1 | 33000-33099 | 200 | 1.420 -> 1.495 | -0.005 -> +0.040 | +0.075 [-0.06, +0.21] |
+| confirmation 2 | 34000-34099 | 200 | 1.335 -> 1.610 | -0.055 -> +0.110 | +0.275 [+0.14, +0.41] |
+
+Pooled over the three sets not used to choose the setting (n=560, inverse-variance): +0.19 points per match, 95% CI [+0.11, +0.27].
+Ramp 0.05 matched ramp 0.2 on the validation set (+0.25), so the setting is not on a knife edge.
+
+Reliability: 0 fouls and 0 policy errors in every run. Raw timeouts 18 vs 12 over the 560 confirmation matches, with two jobs sharing two cores (both files show occasional timeouts; the change adds no computation).
+`start.sh check` on a folder holding the challenger as team.py: PASSED.
+
+Pool (champion_original, lock_no_breaker, press_formation, bus_wall, dribbler, structured_attack, ball_chaser, balanced; seeds 32000-32019, challenger vs candidate on the same units):
+strong opponents +0.05 [+0.001, +0.099], weak opponents -0.013 [-0.037, +0.012] (one goal against ball_chaser); no errors, 0 fouls.
+
+Caveats: the local pool cannot reproduce the real top teams, so this is evidence against a copy of the candidate, not against the live ladder.
+The effect on the third set alone was small; the pooled estimate (about +0.2) is the honest size, not the first +0.25.
+Not promoted: nothing here modifies main or the champion.

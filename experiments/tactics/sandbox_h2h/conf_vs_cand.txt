@@ -1,0 +1,3 @@
+champion_candidate.py vs champion_candidate.py n 200 pts 1.42 GD -0.005 fouls 0 timeouts 3 errors 0
+challenger_stiff_wall.py vs champion_candidate.py n 200 pts 1.495 GD 0.04 fouls 0 timeouts 9 errors 0
+   paired vs first file: d 0.075 95% CI -0.055 0.205
