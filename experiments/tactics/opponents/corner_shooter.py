@@ -3,6 +3,7 @@
 import math
 from soccer import PlayerAction, TeamAction, TeamController
 SHOT_X = 18.0     # shoot when ball x >= this (attack-relative; goal at x=50)
+MODE = 'far'      # 'far' = corner away from the keeper, 'near' = post on the ball's side (as in the replays)
 
 class CornerShooter(TeamController):
     name = "corner_shooter"; version = "1"
@@ -17,7 +18,7 @@ class CornerShooter(TeamController):
             p = mine[pid]; dx, dy = tx - p.position[0], ty - p.position[1]; d = math.hypot(dx, dy)
             a.set(pid, PlayerAction(movement=(dx / d, dy / d) if d > 1.0 else (0.0, 0.0)))
         s = mine[4]; keeper = min(obs.opponents, key=lambda q: q.position[0] if False else -q.position[0])
-        gy = -6.2 if keeper.position[1] >= 0 else 6.2
+        gy = (-6.2 if keeper.position[1] >= 0 else 6.2) if MODE == 'far' else (6.3 if by >= 0 else -6.3)
         if obs.can_kick(4):
             if bx >= SHOT_X:
                 dx, dy = 50.0 - bx, gy - by; n = math.hypot(dx, dy)

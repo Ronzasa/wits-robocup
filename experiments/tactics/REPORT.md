@@ -163,3 +163,15 @@ Reading: 3 of 5 cannot be saved by the keeper once the shot is taken; the shots 
 shooting lane, or the keeper already shaded toward the ball side). Stand-in `opponents/corner_shooter.py` (dribble with taps, full-power far-corner shot
 from x>=18) concedes only 0.083 goals per match against the baseline because our outfield contests it normally, so it does NOT reproduce the real pressure;
 more replays or a harder stand-in are required before testing a fix.
+
+---
+# Website HAR (lamp.ms.wits.ac.za): standings, match list and 5 replays (snapshot 2026-10-25, ladder running, 254 teams)
+Data: `replays/standings_snapshot_2026-10-25.csv` (compact), raw replays kept out of git. Tools: `harness/replay_report.py`, `harness/goal_geometry.py`, `harness/shot_conversion.py`.
+Correction to an earlier note: shooter distances in replay 3 were measured from the centre; the shots were taken 4-22 units from the goal line (typically 18-22), not 28-40.
+* Our row: rank 95, 1.69 pts/match, GF 0.91, GA 1.33, win 53%, division 5, decision mean 0.49 ms, **policy_timeouts 1083 in 1012 matches (~1.07 per match)**, 0 errors.
+  So the 963-ish "exceptions and missed deadlines" are raw deadline misses on the tournament machine, not exceptions. Top teams have 1-8 (but Ethan_Ikopit 716 and Tlou_Kgatla 190 are also top-10, so timeouts alone do not decide results).
+* Bunker-style teams (GF < 1.3, GA < 0.5, > 100 matches): 13 teams, 11 of them in the top 61, e.g. Muhammed_Abed (rank 4: GF 0.98, GA 0.18, territory 26%), Ethan_Ikopit (rank 8: 0.97 / 0.15 / 26%),
+  Tebogo_Mabhele, Saurav_Lall, Olwethu_Phiri... They score about one goal per match and concede ~0.15-0.4: ~2.4-2.8 points per match.
+  Ethan_Ikopit beat Zamokuhle_Maziya (GF 4.22 per match) 1-0 in 3 of 4 matches; Abed won 1-0 once, lost 0-1 once, so a deep block holds against the best attacker in the league.
+* We score as many goals per match as those teams (0.91 vs ~0.95) but concede 1.33 vs 0.15-0.4: the gap is conceded goals (our blowout losses and no early lock), not scoring.
+* Zamokuhle in the two new replays: seed 1001 we lost 1-2 (our goal at his keeper's expense; his goals 1, 4... he kicks median 0.26, 63% possession), seed 1003 we lost 0-5 with the same 4-5 deep 'corner' goals.
