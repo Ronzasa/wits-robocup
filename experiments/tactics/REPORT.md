@@ -219,3 +219,11 @@ Goal-line wall (keeper + 4 at y 0, +-2.9, +-5.9), one striker that tap-dribbles 
 check PASSED, decision time 0.02 ms. Paired vs the frozen baseline (dev seeds 30170..30179, 6 opponents, 120 units): v1 dPts -1.500 [-1.741,-1.259] (GF 1.09 -> 0.13);
 v2 (better ball chasing, waits outside the centre circle) dPts -1.550 [-1.779,-1.321] (GF 0.17, 2 fouls from centre-circle encroachment).
 A single striker cannot win or keep the ball against these opponents; the baseline's interception forecasting and passing machinery is what scores. Not promoted, not recommended for submission.
+
+---
+# Bunker-Striker v2/v3 (absolute scores, dev seeds 30170..30177 x both sides, 6 opponents; baseline gets ~2.0 vs champion/press, ~3.0 vs the built-ins)
+* v2 (2 attackers with ball-leading interception, dynamic wall with fast fallback, cover outside the circle): 0.86 pts/match, GF 0.28, GA 0.85, 14 fouls (attackers chased their kickoffs).
+* v3 (= v2 + hold shape outside the centre circle while the other side kicks off): 0.85 pts/match, GF 0.27, GA 0.83, 0 fouls, 1 timeout.
+  Per opponent: champion 0.31, press_formation 0.31, lock_no_breaker 0.38, possession 1.88, balanced 1.06, tactical 1.19 points per match.
+* Reading: removing fouls fixed one self-inflicted problem but the agent still cannot win or keep the ball against strong teams, so the striker rarely reaches a shooting position (GF 0.0-0.06 vs the three strongest).
+  Files: `agents/bunker_striker.py` (v1), `_v2.py`, `_v3.py`, scorer `harness/quick_abs.py`.
