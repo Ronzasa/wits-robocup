@@ -145,3 +145,21 @@ Cooldown awareness (suggestion 3) is already provided by `obs.can_kick`; the con
 * Morare's goals: ticks 210, 1144, 2017 with the ball at |y| 6.9, 6.9, 5.5; Zamokuhle's goal at |y| 5.6. All 4 goals in this match went in near the posts, as did all
   5 in replay 1: 9 of 9 goals at 5.5 <= |y| <= 6.9 (goal half-width 7).
 Datasets: replays/morare_bokgoshi_vs_zamokuhle_seed1003.json.gz, replays/zamokuhle_maziya_vs_morare_seed1003.json.gz.
+
+---
+# Replay 3: Nkqubela Hokwana (us) 0 - 5 Zamokuhle Maziya (seed 1000, our team = engine team 0)
+`harness/replay_report.py`: we made 87 kicks (median power 0.56, 0 rejected), Zamokuhle 201 (median 0.45); possession 38% vs 62%.
+All five goals: Zamokuhle's striker (players 7, 8, 9) FULL-POWER shot (power 1.00) taken 5 ticks after his own previous touch, from x = -27.8,
+-35.0, -38.9, -28.2, -45.7 (28-40 units from our goal for four of them), ball crossing the line at |y| = 6.1-6.8 (corner next to the post, goal half-width 7).
+Our defenders were far upfield or off to a flank at the shot (e.g. goal@218: players at x -16.7, -23.2, -16.2, -6.8; goal@1064: players around y -14..-19).
+Keeper feasibility (needed lateral = |y_line - y_keeper| - 2.2 kick range, vs max reachable from rest in the ticks between kick and goal):
+| goal | kick->goal ticks | needed | max | keeper moved | savable by keeper alone |
+| 218 | 15 | 3.8 | 4.6 | 2.6 | yes if it starts at the kick |
+| 692 | 10 | 3.3 | 2.6 | 1.5 | no |
+| 1064 | 8 | 1.9 | 1.8 | 1.4 | no (borderline) |
+| 2040 | 15 | 3.9 | 4.6 | 2.6 | yes if it starts at the kick |
+| 2375 | 2 | 4.8 | 0.2 | 0.3 | no |
+Reading: 3 of 5 cannot be saved by the keeper once the shot is taken; the shots have to be prevented (pressure on the striker, a defender in the
+shooting lane, or the keeper already shaded toward the ball side). Stand-in `opponents/corner_shooter.py` (dribble with taps, full-power far-corner shot
+from x>=18) concedes only 0.083 goals per match against the baseline because our outfield contests it normally, so it does NOT reproduce the real pressure;
+more replays or a harder stand-in are required before testing a fix.
