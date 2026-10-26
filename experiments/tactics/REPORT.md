@@ -321,3 +321,20 @@ Tweak: the original specialist trigger needs the opponent's five-slot lock forma
 - Non-wall opponents (pressing, dribbler, marking, balanced, ball_chaser, structured_attack): action fingerprints identical, so no false triggers in those matches.
 - `start.sh check` PASSED; 0 fouls, 0 errors in all runs.
 Caveat: bunker_kc is my own stand-in; the real ladder bunkers also have strikers and may behave differently. Not promoted.
+
+## Wall bullying (screenshot of Olwethu Phiri 1-0 Nkqubela Hokwana)
+
+Screenshot geometry (final frame): four outfield players on the goal line about 4 apart (y about -6.7, -2.9, +1.15, +5.2, x about 1 from the goal line)
+and the keeper off to one side (x about 2.9, y about -5.8). Gaps between neighbours are about 2.0 clear, the post gap about 0.8. Only one frame; no replay.
+Stand-ins: `bunker_shot.py` (candidate-style team that plays normally, then locks into this shape when leading), `bunker_kc.py` (keeper-centre bunker),
+static walls `wall_*.py` (note: they never take a kickoff, so team 12 collects fouls waiting in the centre circle against them; that is a flaw of the stand-in, not used for decisions).
+
+Findings (team12_clean_broadwall):
+- vs bunker_kc: the team that scores first wins about 70% (28 of 41 when they scored first; we won 28 of 38 when we scored first, but dropped points in 10 of those 38).
+- vs bunker_shot (80 matches): W38 D23 L19; when they scored first we only won 9 of 33, drew 10, lost 14. When we scored first: W29 D12 L5.
+- Shots aimed inside the mouth from x>25 (338): 21% goals, 37% cleared by a kick from a wall player, 42% stopped by a body.
+- Stiff lock wall in team 12 (`LOCK_RAMP` 0.2): vs bunker_shot +0.169 [+0.008, +0.329] (n=160); vs bunker_kc +0.092 [-0.042, +0.225] (n=120);
+  vs stiff challenger +0.071 [-0.073, +0.216] (n=140); vs champion_original -0.025 [-0.074, +0.024]; lock_no_breaker 0.000; press_formation +0.075 [-0.009, +0.159]. 0 fouls, 0 errors. `start.sh check` PASSED.
+- Rejected: adding the shove-and-gap-shot wall breaker to the anti-wall mode: vs bunker_shot +0.117 [-0.046, +0.279], vs bunker_kc -0.150 [-0.310, +0.010].
+- No method found that breaks a stiff, clearing wall by itself; the gain available is in holding our own lead and in scoring first.
+File: `candidates/team12_clean_broadwall_stiff.py` (cleaned team 12 + looser wall trigger + stiff lock wall).
