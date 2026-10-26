@@ -1,0 +1,66 @@
+[
+  {
+    "fixture": "grid10-v23-post-pressure-700000-s0-k0",
+    "score_candidate_first": [
+      1,
+      1
+    ],
+    "candidate_side": 0,
+    "candidate_kickoff": true,
+    "goal_events": [
+      {
+        "tick": 1231,
+        "kind": "goal",
+        "team": 0,
+        "scorer": 4,
+        "own_goal": false
+      },
+      {
+        "tick": 1750,
+        "kind": "goal",
+        "team": 1,
+        "scorer": 9,
+        "own_goal": false
+      }
+    ],
+    "foul_events": [
+      {
+        "tick": 19,
+        "kind": "foul",
+        "player": 9,
+        "team": 1,
+        "sent_to": {
+          "x": 0.0,
+          "y": 29.0
+        }
+      },
+      {
+        "tick": 1762,
+        "kind": "foul",
+        "player": 9,
+        "team": 1,
+        "sent_to": {
+          "x": 0.0,
+          "y": -29.0
+        }
+      }
+    ],
+    "tied_enemy_wall_ticks": 0,
+    "candidate_wall_ticks": 2387,
+    "frames": 2401
+  },
+  {
+    "fixture": "grid10-v23-post-pressure-700000-s0-k1",
+    "score_candidate_first": [
+      0,
+      0
+    ],
+    "candidate_side": 0,
+    "candidate_kickoff": false,
+    "goal_events": [],
+    "foul_events": [],
+    "tied_enemy_wall_ticks": 0,
+    "candidate_wall_ticks": 2029,
+    "frames": 2401
+  }
+]

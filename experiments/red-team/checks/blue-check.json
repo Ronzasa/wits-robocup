@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py check experiments/red-team/blue-pool/blue-c-combined",
+  "chunk_id": "88abe0",
+  "wall_time_seconds": 0.7246928,
+  "exit_code": 0,
+  "original_token_count": 36,
+  "output": "\r\n  blue-c-combined\r\n    PASSED      it loads, plays legally and is inside the deadline\r\n    hand in     blue-c-combined\\team.py, on Moodle\r\n\r\n"
+}

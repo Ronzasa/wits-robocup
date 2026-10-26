@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py validate experiments/red-team/blue-pool/blue-c-combined --against tactical --ticks 2400 --json",
+  "chunk_id": "0557eb",
+  "wall_time_seconds": 0.8594171,
+  "exit_code": 0,
+  "original_token_count": 97,
+  "output": "{\"ok\": true, \"controller\": \"TITAN blue-c-combined vblue-c-combined-0.1 (AdaptiveChampion)\", \"errors\": [], \"warnings\": [], \"stats\": {\"matches played\": 5, \"decisions\": 12000, \"mean decision (ms)\": \"0.034\", \"slowest decision (ms)\": \"5.402\", \"deadline (ms)\": \"20.0\", \"exceptions\": 0, \"over deadline\": 0, \"missing player actions\": 0, \"non-finite values\": 0, \"formation\": \"custom (5 spots)\"}}\r\n"
+}

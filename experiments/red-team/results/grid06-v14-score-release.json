@@ -1,0 +1,2393 @@
+{
+  "source_sha256": "8903e3f2f38a12eaaeca32d535160078579d49c3d37be499a680461d126e299a",
+  "source_snapshot": "candidates\\8903e3f2f38a\\team.py",
+  "opponent": "titan",
+  "opponent_sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+  "split": "train",
+  "seeds_exclusive": [
+    700000,
+    700004
+  ],
+  "summary": {
+    "matches": 16,
+    "team_a_wins": 6,
+    "team_b_wins": 8,
+    "draws": 2,
+    "goals": [
+      19,
+      30
+    ],
+    "mean_goal_difference": -0.6875,
+    "goal_difference_ci95": 0.9073824533605809,
+    "policy_errors": [
+      0,
+      0
+    ],
+    "policy_timeouts": [
+      0,
+      0
+    ],
+    "total_ticks": 38400,
+    "team_stats": [
+      {
+        "goals_per_match": 1.1875,
+        "possession_fraction": 0.31861979166666665,
+        "control_fraction": 0.13380208333333332,
+        "territory_fraction": 0.41572916666666665,
+        "shots_per_match": 7.5625,
+        "shots_blocked_per_match": 5.375,
+        "passes_attempted_per_match": 45.875,
+        "passes_completed_per_match": 0.875,
+        "passes_intercepted_per_match": 38.1875,
+        "passes_uncollected_per_match": 6.8125,
+        "pass_completion": 0.01907356948228883,
+        "mean_pass_distance": 20.492624071428573,
+        "dribbles_per_match": 34.5625,
+        "mean_dribble_distance": 2.4576612188065092,
+        "turnovers_per_match": 16.6875,
+        "fouls_per_match": 0.0,
+        "tackles_attempted_per_match": 17.25,
+        "tackles_won_per_match": 6.5625,
+        "tackle_success": 0.3804347826086957,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decision_mean_ms": 0.31657493486401717,
+        "decision_max_ms": 6.735500006470829
+      },
+      {
+        "goals_per_match": 1.875,
+        "possession_fraction": 0.6813802083333333,
+        "control_fraction": 0.30325520833333336,
+        "territory_fraction": 0.5404166666666667,
+        "shots_per_match": 12.625,
+        "shots_blocked_per_match": 5.1875,
+        "passes_attempted_per_match": 102.375,
+        "passes_completed_per_match": 23.0625,
+        "passes_intercepted_per_match": 72.0,
+        "passes_uncollected_per_match": 7.3125,
+        "pass_completion": 0.22527472527472528,
+        "mean_pass_distance": 7.5382989295392955,
+        "dribbles_per_match": 96.5,
+        "mean_dribble_distance": 1.810693700777202,
+        "turnovers_per_match": 16.0625,
+        "fouls_per_match": 1.875,
+        "tackles_attempted_per_match": 21.875,
+        "tackles_won_per_match": 8.625,
+        "tackle_success": 0.3942857142857143,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decision_mean_ms": 0.4100554166848269,
+        "decision_max_ms": 9.864700012258254
+      }
+    ],
+    "win_rate": 0.375,
+    "decisive_win_rate": 0.42857142857142855,
+    "win_rate_wilson95": [
+      0.18480982554752806,
+      0.613593529020652
+    ],
+    "independent_seeds": 4,
+    "mean_gd_seed_cluster_ci95_halfwidth": 1.1025,
+    "win_rate_seed_bootstrap95": [
+      0.25,
+      0.5
+    ],
+    "by_fixture": {
+      "side0-ownkickoff0": {
+        "matches": 4,
+        "wins": 1,
+        "draws": 0,
+        "goals": [
+          3,
+          9
+        ]
+      },
+      "side0-ownkickoff1": {
+        "matches": 4,
+        "wins": 4,
+        "draws": 0,
+        "goals": [
+          9,
+          5
+        ]
+      },
+      "side1-ownkickoff0": {
+        "matches": 4,
+        "wins": 1,
+        "draws": 1,
+        "goals": [
+          4,
+          7
+        ]
+      },
+      "side1-ownkickoff1": {
+        "matches": 4,
+        "wins": 0,
+        "draws": 1,
+        "goals": [
+          3,
+          9
+        ]
+      }
+    }
+  },
+  "wall_seconds": 30.308531299990136,
+  "results": [
+    {
+      "match_id": "grid06-v14-score-release-700000-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700000,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 841.2304,
+      "stats": [
+        {
+          "possession_ticks": 502,
+          "controlled_ticks": 396,
+          "territory_ticks": 1011,
+          "kicks": 189,
+          "shots": 0,
+          "shots_blocked": 10,
+          "passes_attempted": 68,
+          "passes_completed": 0,
+          "passes_intercepted": 61,
+          "pass_distance": 0.0,
+          "dribbles": 48,
+          "dribble_distance": 61.304943,
+          "tackles_attempted": 24,
+          "tackles_won": 8,
+          "turnovers": 17,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 286.59519999928307,
+            "max_ms": 2.3246000055223703,
+            "bucket_counts": [
+              1038,
+              1157,
+              28,
+              1,
+              121,
+              49,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1898,
+          "controlled_ticks": 1032,
+          "territory_ticks": 1336,
+          "kicks": 345,
+          "shots": 21,
+          "shots_blocked": 0,
+          "passes_attempted": 122,
+          "passes_completed": 25,
+          "passes_intercepted": 95,
+          "pass_distance": 221.2753,
+          "dribbles": 137,
+          "dribble_distance": 226.27559,
+          "tackles_attempted": 33,
+          "tackles_won": 12,
+          "turnovers": 17,
+          "fouls": 1,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 456.7513000656618,
+            "max_ms": 3.1411000090884045,
+            "bucket_counts": [
+              14,
+              1570,
+              482,
+              216,
+              12,
+              72,
+              34,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": "C:\\Users\\tech\\Documents\\Qoder\\2026-10-13\\a8ccaf5d\\wits-robocup\\experiments\\red-team\\replays\\grid06-v14-score-release-700000-s0-k0.rep",
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700000-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700000,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        0,
+        3
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": -3,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1071.9973,
+      "stats": [
+        {
+          "possession_ticks": 702,
+          "controlled_ticks": 518,
+          "territory_ticks": 1278,
+          "kicks": 238,
+          "shots": 17,
+          "shots_blocked": 3,
+          "passes_attempted": 80,
+          "passes_completed": 0,
+          "passes_intercepted": 75,
+          "pass_distance": 0.0,
+          "dribbles": 70,
+          "dribble_distance": 58.953445,
+          "tackles_attempted": 28,
+          "tackles_won": 9,
+          "turnovers": 25,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 563.4430000500288,
+            "max_ms": 2.1875000093132257,
+            "bucket_counts": [
+              887,
+              209,
+              194,
+              871,
+              180,
+              54,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1698,
+          "controlled_ticks": 894,
+          "territory_ticks": 1023,
+          "kicks": 313,
+          "shots": 5,
+          "shots_blocked": 15,
+          "passes_attempted": 159,
+          "passes_completed": 16,
+          "passes_intercepted": 134,
+          "pass_distance": 127.29748,
+          "dribbles": 79,
+          "dribble_distance": 148.80188,
+          "tackles_attempted": 41,
+          "tackles_won": 20,
+          "turnovers": 23,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 407.88019975298084,
+            "max_ms": 3.943299991078675,
+            "bucket_counts": [
+              8,
+              1258,
+              952,
+              114,
+              16,
+              35,
+              17,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": "C:\\Users\\tech\\Documents\\Qoder\\2026-10-13\\a8ccaf5d\\wits-robocup\\experiments\\red-team\\replays\\grid06-v14-score-release-700000-s0-k1.rep",
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        3
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700000-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700000,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        0,
+        4
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": -4,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1247.0663,
+      "stats": [
+        {
+          "possession_ticks": 657,
+          "controlled_ticks": 319,
+          "territory_ticks": 1159,
+          "kicks": 165,
+          "shots": 8,
+          "shots_blocked": 4,
+          "passes_attempted": 52,
+          "passes_completed": 0,
+          "passes_intercepted": 48,
+          "pass_distance": 0.0,
+          "dribbles": 22,
+          "dribble_distance": 92.28014,
+          "tackles_attempted": 13,
+          "tackles_won": 3,
+          "turnovers": 17,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 616.7833997606067,
+            "max_ms": 3.5449999995762482,
+            "bucket_counts": [
+              806,
+              249,
+              135,
+              919,
+              237,
+              45,
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1743,
+          "controlled_ticks": 783,
+          "territory_ticks": 1108,
+          "kicks": 261,
+          "shots": 11,
+          "shots_blocked": 6,
+          "passes_attempted": 112,
+          "passes_completed": 18,
+          "passes_intercepted": 85,
+          "pass_distance": 158.69907,
+          "dribbles": 92,
+          "dribble_distance": 176.57317,
+          "tackles_attempted": 25,
+          "tackles_won": 10,
+          "turnovers": 13,
+          "fouls": 3,
+          "goals": 4,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 558.276200274122,
+            "max_ms": 9.187799994833767,
+            "bucket_counts": [
+              14,
+              1130,
+              876,
+              241,
+              53,
+              46,
+              34,
+              5,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        4,
+        0
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700000-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700000,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        0,
+        3
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": -3,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1949.7088,
+      "stats": [
+        {
+          "possession_ticks": 624,
+          "controlled_ticks": 399,
+          "territory_ticks": 1232,
+          "kicks": 225,
+          "shots": 16,
+          "shots_blocked": 7,
+          "passes_attempted": 91,
+          "passes_completed": 0,
+          "passes_intercepted": 87,
+          "pass_distance": 0.0,
+          "dribbles": 21,
+          "dribble_distance": 90.24425,
+          "tackles_attempted": 22,
+          "tackles_won": 2,
+          "turnovers": 16,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1059.8156000633026,
+            "max_ms": 6.209000013768673,
+            "bucket_counts": [
+              120,
+              514,
+              790,
+              331,
+              427,
+              161,
+              39,
+              18,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1776,
+          "controlled_ticks": 851,
+          "territory_ticks": 1066,
+          "kicks": 285,
+          "shots": 14,
+          "shots_blocked": 13,
+          "passes_attempted": 153,
+          "passes_completed": 8,
+          "passes_intercepted": 137,
+          "pass_distance": 58.134354,
+          "dribbles": 67,
+          "dribble_distance": 110.97632,
+          "tackles_attempted": 34,
+          "tackles_won": 9,
+          "turnovers": 13,
+          "fouls": 3,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 743.864900447079,
+            "max_ms": 7.693399995332584,
+            "bucket_counts": [
+              3,
+              379,
+              1274,
+              425,
+              269,
+              23,
+              11,
+              16,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        0
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700001-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700001,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        2,
+        1
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1898.2901000000002,
+      "stats": [
+        {
+          "possession_ticks": 672,
+          "controlled_ticks": 249,
+          "territory_ticks": 772,
+          "kicks": 96,
+          "shots": 9,
+          "shots_blocked": 7,
+          "passes_attempted": 22,
+          "passes_completed": 3,
+          "passes_intercepted": 14,
+          "pass_distance": 77.188644,
+          "dribbles": 50,
+          "dribble_distance": 63.89304,
+          "tackles_attempted": 15,
+          "tackles_won": 5,
+          "turnovers": 14,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 450.0403003185056,
+            "max_ms": 4.470899992156774,
+            "bucket_counts": [
+              84,
+              647,
+              1533,
+              54,
+              20,
+              49,
+              12,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1728,
+          "controlled_ticks": 735,
+          "territory_ticks": 1524,
+          "kicks": 250,
+          "shots": 19,
+          "shots_blocked": 7,
+          "passes_attempted": 58,
+          "passes_completed": 35,
+          "passes_intercepted": 23,
+          "pass_distance": 273.81503,
+          "dribbles": 129,
+          "dribble_distance": 233.84346,
+          "tackles_attempted": 14,
+          "tackles_won": 11,
+          "turnovers": 14,
+          "fouls": 3,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1291.3847995077958,
+            "max_ms": 8.031999997911043,
+            "bucket_counts": [
+              4,
+              218,
+              880,
+              745,
+              354,
+              68,
+              88,
+              42,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        2,
+        1
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700001-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700001,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        0,
+        3
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": -3,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2394.8224,
+      "stats": [
+        {
+          "possession_ticks": 1263,
+          "controlled_ticks": 303,
+          "territory_ticks": 1185,
+          "kicks": 109,
+          "shots": 13,
+          "shots_blocked": 5,
+          "passes_attempted": 22,
+          "passes_completed": 4,
+          "passes_intercepted": 13,
+          "pass_distance": 8.090492,
+          "dribbles": 52,
+          "dribble_distance": 60.723274,
+          "tackles_attempted": 11,
+          "tackles_won": 3,
+          "turnovers": 15,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1224.0124000963988,
+            "max_ms": 5.332000000635162,
+            "bucket_counts": [
+              56,
+              295,
+              414,
+              678,
+              791,
+              135,
+              24,
+              7,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1137,
+          "controlled_ticks": 463,
+          "territory_ticks": 1115,
+          "kicks": 173,
+          "shots": 9,
+          "shots_blocked": 8,
+          "passes_attempted": 43,
+          "passes_completed": 15,
+          "passes_intercepted": 20,
+          "pass_distance": 138.83994,
+          "dribbles": 76,
+          "dribble_distance": 137.99376,
+          "tackles_attempted": 17,
+          "tackles_won": 10,
+          "turnovers": 14,
+          "fouls": 1,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1031.8732004088815,
+            "max_ms": 9.720100002596155,
+            "bucket_counts": [
+              2,
+              229,
+              782,
+              790,
+              500,
+              48,
+              27,
+              18,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        3
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700001-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700001,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2094.5521,
+      "stats": [
+        {
+          "possession_ticks": 532,
+          "controlled_ticks": 112,
+          "territory_ticks": 392,
+          "kicks": 47,
+          "shots": 1,
+          "shots_blocked": 1,
+          "passes_attempted": 10,
+          "passes_completed": 1,
+          "passes_intercepted": 4,
+          "pass_distance": 32.081615,
+          "dribbles": 27,
+          "dribble_distance": 106.162125,
+          "tackles_attempted": 3,
+          "tackles_won": 0,
+          "turnovers": 2,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 407.2157999034971,
+            "max_ms": 6.689000001642853,
+            "bucket_counts": [
+              63,
+              824,
+              1397,
+              70,
+              6,
+              28,
+              10,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1868,
+          "controlled_ticks": 450,
+          "territory_ticks": 1866,
+          "kicks": 180,
+          "shots": 16,
+          "shots_blocked": 1,
+          "passes_attempted": 72,
+          "passes_completed": 61,
+          "passes_intercepted": 10,
+          "pass_distance": 452.0185,
+          "dribbles": 91,
+          "dribble_distance": 219.69196,
+          "tackles_attempted": 4,
+          "tackles_won": 1,
+          "turnovers": 4,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1536.4454003283754,
+            "max_ms": 9.864700012258254,
+            "bucket_counts": [
+              0,
+              36,
+              587,
+              980,
+              553,
+              102,
+              88,
+              51,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        3
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700001-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700001,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        1,
+        1
+      ],
+      "outcome": "draw",
+      "goal_difference": 0,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2048.7126,
+      "stats": [
+        {
+          "possession_ticks": 1136,
+          "controlled_ticks": 516,
+          "territory_ticks": 1529,
+          "kicks": 260,
+          "shots": 6,
+          "shots_blocked": 8,
+          "passes_attempted": 48,
+          "passes_completed": 1,
+          "passes_intercepted": 41,
+          "pass_distance": 9.748218,
+          "dribbles": 24,
+          "dribble_distance": 113.48172,
+          "tackles_attempted": 35,
+          "tackles_won": 44,
+          "turnovers": 59,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1171.6325999877881,
+            "max_ms": 6.249199999729171,
+            "bucket_counts": [
+              201,
+              385,
+              825,
+              249,
+              504,
+              132,
+              81,
+              23,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1264,
+          "controlled_ticks": 855,
+          "territory_ticks": 793,
+          "kicks": 297,
+          "shots": 9,
+          "shots_blocked": 4,
+          "passes_attempted": 163,
+          "passes_completed": 3,
+          "passes_intercepted": 123,
+          "pass_distance": 41.218033,
+          "dribbles": 72,
+          "dribble_distance": 100.829544,
+          "tackles_attempted": 32,
+          "tackles_won": 13,
+          "turnovers": 58,
+          "fouls": 2,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 722.9201998561621,
+            "max_ms": 7.227900001453236,
+            "bucket_counts": [
+              3,
+              246,
+              1286,
+              416,
+              425,
+              10,
+              10,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        1
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700002-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700002,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        2
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1957.9415999999999,
+      "stats": [
+        {
+          "possession_ticks": 774,
+          "controlled_ticks": 138,
+          "territory_ticks": 550,
+          "kicks": 66,
+          "shots": 8,
+          "shots_blocked": 3,
+          "passes_attempted": 22,
+          "passes_completed": 1,
+          "passes_intercepted": 10,
+          "pass_distance": 37.58268,
+          "dribbles": 23,
+          "dribble_distance": 92.634544,
+          "tackles_attempted": 12,
+          "tackles_won": 4,
+          "turnovers": 7,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 419.14909963088576,
+            "max_ms": 6.208999999216758,
+            "bucket_counts": [
+              108,
+              799,
+              1375,
+              71,
+              9,
+              19,
+              10,
+              9,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1626,
+          "controlled_ticks": 420,
+          "territory_ticks": 1692,
+          "kicks": 181,
+          "shots": 10,
+          "shots_blocked": 1,
+          "passes_attempted": 72,
+          "passes_completed": 47,
+          "passes_intercepted": 19,
+          "pass_distance": 313.84793,
+          "dribbles": 78,
+          "dribble_distance": 160.07545,
+          "tackles_attempted": 7,
+          "tackles_won": 2,
+          "turnovers": 8,
+          "fouls": 4,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1388.6340997705702,
+            "max_ms": 9.036299990839325,
+            "bucket_counts": [
+              2,
+              104,
+              684,
+              959,
+              466,
+              59,
+              70,
+              54,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        2
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700002-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700002,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        3,
+        2
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1885.2347,
+      "stats": [
+        {
+          "possession_ticks": 614,
+          "controlled_ticks": 112,
+          "territory_ticks": 470,
+          "kicks": 59,
+          "shots": 7,
+          "shots_blocked": 4,
+          "passes_attempted": 21,
+          "passes_completed": 1,
+          "passes_intercepted": 7,
+          "pass_distance": 37.58268,
+          "dribbles": 24,
+          "dribble_distance": 94.72867,
+          "tackles_attempted": 10,
+          "tackles_won": 1,
+          "turnovers": 5,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 370.7853996020276,
+            "max_ms": 4.080800004885532,
+            "bucket_counts": [
+              97,
+              953,
+              1194,
+              114,
+              10,
+              26,
+              5,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1786,
+          "controlled_ticks": 422,
+          "territory_ticks": 1774,
+          "kicks": 175,
+          "shots": 11,
+          "shots_blocked": 2,
+          "passes_attempted": 63,
+          "passes_completed": 46,
+          "passes_intercepted": 13,
+          "pass_distance": 307.02094,
+          "dribbles": 84,
+          "dribble_distance": 168.74205,
+          "tackles_attempted": 5,
+          "tackles_won": 1,
+          "turnovers": 6,
+          "fouls": 2,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1366.6546997847036,
+            "max_ms": 8.638700004667044,
+            "bucket_counts": [
+              5,
+              115,
+              824,
+              819,
+              432,
+              78,
+              76,
+              46,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        2
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700002-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700002,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        1,
+        1
+      ],
+      "outcome": "draw",
+      "goal_difference": 0,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1381.4558,
+      "stats": [
+        {
+          "possession_ticks": 637,
+          "controlled_ticks": 437,
+          "territory_ticks": 1208,
+          "kicks": 236,
+          "shots": 9,
+          "shots_blocked": 16,
+          "passes_attempted": 115,
+          "passes_completed": 0,
+          "passes_intercepted": 100,
+          "pass_distance": 0.0,
+          "dribbles": 19,
+          "dribble_distance": 36.403973,
+          "tackles_attempted": 24,
+          "tackles_won": 5,
+          "turnovers": 22,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 675.6121995131252,
+            "max_ms": 6.211499989149161,
+            "bucket_counts": [
+              206,
+              716,
+              1085,
+              137,
+              109,
+              97,
+              36,
+              14,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1763,
+          "controlled_ticks": 1094,
+          "territory_ticks": 1110,
+          "kicks": 350,
+          "shots": 25,
+          "shots_blocked": 9,
+          "passes_attempted": 144,
+          "passes_completed": 10,
+          "passes_intercepted": 132,
+          "pass_distance": 87.537766,
+          "dribbles": 117,
+          "dribble_distance": 204.00388,
+          "tackles_attempted": 41,
+          "tackles_won": 17,
+          "turnovers": 23,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 564.3965001218021,
+            "max_ms": 7.245499989949167,
+            "bucket_counts": [
+              7,
+              569,
+              1387,
+              359,
+              38,
+              12,
+              20,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        1
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700002-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700002,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        3
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": -1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2089.0382,
+      "stats": [
+        {
+          "possession_ticks": 537,
+          "controlled_ticks": 159,
+          "territory_ticks": 573,
+          "kicks": 79,
+          "shots": 6,
+          "shots_blocked": 9,
+          "passes_attempted": 27,
+          "passes_completed": 1,
+          "passes_intercepted": 22,
+          "pass_distance": 36.190292,
+          "dribbles": 28,
+          "dribble_distance": 99.6613,
+          "tackles_attempted": 10,
+          "tackles_won": 2,
+          "turnovers": 6,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 601.9060997496126,
+            "max_ms": 4.996499992557801,
+            "bucket_counts": [
+              95,
+              678,
+              1255,
+              123,
+              158,
+              64,
+              19,
+              8,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1863,
+          "controlled_ticks": 858,
+          "territory_ticks": 1681,
+          "kicks": 243,
+          "shots": 20,
+          "shots_blocked": 4,
+          "passes_attempted": 43,
+          "passes_completed": 15,
+          "passes_intercepted": 23,
+          "pass_distance": 109.222565,
+          "dribbles": 175,
+          "dribble_distance": 309.84644,
+          "tackles_attempted": 7,
+          "tackles_won": 3,
+          "turnovers": 4,
+          "fouls": 6,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1337.215200488572,
+            "max_ms": 8.894800004782155,
+            "bucket_counts": [
+              5,
+              320,
+              1122,
+              497,
+              292,
+              36,
+              36,
+              91,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        2
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700003-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700003,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        2
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2117.8211,
+      "stats": [
+        {
+          "possession_ticks": 609,
+          "controlled_ticks": 96,
+          "territory_ticks": 440,
+          "kicks": 40,
+          "shots": 3,
+          "shots_blocked": 1,
+          "passes_attempted": 7,
+          "passes_completed": 1,
+          "passes_intercepted": 2,
+          "pass_distance": 43.095688,
+          "dribbles": 27,
+          "dribble_distance": 113.23606,
+          "tackles_attempted": 2,
+          "tackles_won": 0,
+          "turnovers": 3,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 358.3276001736522,
+            "max_ms": 4.593100005877204,
+            "bucket_counts": [
+              92,
+              922,
+              1303,
+              48,
+              14,
+              15,
+              4,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1791,
+          "controlled_ticks": 466,
+          "territory_ticks": 1802,
+          "kicks": 198,
+          "shots": 19,
+          "shots_blocked": 1,
+          "passes_attempted": 70,
+          "passes_completed": 63,
+          "passes_intercepted": 4,
+          "pass_distance": 425.2246,
+          "dribbles": 104,
+          "dribble_distance": 178.87018,
+          "tackles_attempted": 4,
+          "tackles_won": 2,
+          "turnovers": 3,
+          "fouls": 3,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1613.7609999859706,
+            "max_ms": 9.513700002571568,
+            "bucket_counts": [
+              0,
+              68,
+              788,
+              771,
+              481,
+              131,
+              95,
+              61,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        2
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "grid06-v14-score-release-700003-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700003,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        0,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": -1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2589.1072,
+      "stats": [
+        {
+          "possession_ticks": 1161,
+          "controlled_ticks": 418,
+          "territory_ticks": 1529,
+          "kicks": 210,
+          "shots": 15,
+          "shots_blocked": 2,
+          "passes_attempted": 68,
+          "passes_completed": 1,
+          "passes_intercepted": 64,
+          "pass_distance": 5.336428,
+          "dribbles": 64,
+          "dribble_distance": 109.3902,
+          "tackles_attempted": 21,
+          "tackles_won": 10,
+          "turnovers": 22,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1422.446899669012,
+            "max_ms": 6.391899994923733,
+            "bucket_counts": [
+              62,
+              201,
+              754,
+              364,
+              704,
+              222,
+              76,
+              17,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1239,
+          "controlled_ticks": 671,
+          "territory_ticks": 823,
+          "kicks": 237,
+          "shots": 2,
+          "shots_blocked": 12,
+          "passes_attempted": 121,
+          "passes_completed": 4,
+          "passes_intercepted": 110,
+          "pass_distance": 33.988537,
+          "dribbles": 54,
+          "dribble_distance": 83.91229,
+          "tackles_attempted": 34,
+          "tackles_won": 15,
+          "turnovers": 22,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1002.6815002784133,
+            "max_ms": 7.39169999724254,
+            "bucket_counts": [
+              0,
+              124,
+              961,
+              577,
+              663,
+              35,
+              29,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        1
+      ],
+      "candidate_side": 0,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700003-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700003,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        0,
+        1
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": -1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2200.3301,
+      "stats": [
+        {
+          "possession_ticks": 1125,
+          "controlled_ticks": 601,
+          "territory_ticks": 1370,
+          "kicks": 265,
+          "shots": 1,
+          "shots_blocked": 1,
+          "passes_attempted": 34,
+          "passes_completed": 0,
+          "passes_intercepted": 28,
+          "pass_distance": 0.0,
+          "dribbles": 25,
+          "dribble_distance": 73.89772,
+          "tackles_attempted": 29,
+          "tackles_won": 6,
+          "turnovers": 17,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1263.7851004255936,
+            "max_ms": 6.735500006470829,
+            "bucket_counts": [
+              111,
+              376,
+              813,
+              332,
+              466,
+              219,
+              54,
+              29,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1275,
+          "controlled_ticks": 938,
+          "territory_ticks": 975,
+          "kicks": 320,
+          "shots": 3,
+          "shots_blocked": 0,
+          "passes_attempted": 179,
+          "passes_completed": 0,
+          "passes_intercepted": 171,
+          "pass_distance": 0.0,
+          "dribbles": 81,
+          "dribble_distance": 123.2486,
+          "tackles_attempted": 28,
+          "tackles_won": 1,
+          "turnovers": 17,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 773.3779999689432,
+            "max_ms": 8.909800002584234,
+            "bucket_counts": [
+              0,
+              258,
+              1203,
+              481,
+              426,
+              11,
+              13,
+              7,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "grid06-v14-score-release-700003-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 700003,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        0,
+        2
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": -2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2372.0833,
+      "stats": [
+        {
+          "possession_ticks": 690,
+          "controlled_ticks": 365,
+          "territory_ticks": 1266,
+          "kicks": 149,
+          "shots": 2,
+          "shots_blocked": 5,
+          "passes_attempted": 47,
+          "passes_completed": 0,
+          "passes_intercepted": 35,
+          "pass_distance": 0.0,
+          "dribbles": 29,
+          "dribble_distance": 92.09125,
+          "tackles_attempted": 17,
+          "tackles_won": 3,
+          "turnovers": 20,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1264.9267998349387,
+            "max_ms": 5.731700002797879,
+            "bucket_counts": [
+              70,
+              307,
+              665,
+              353,
+              783,
+              168,
+              52,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1710,
+          "controlled_ticks": 713,
+          "territory_ticks": 1064,
+          "kicks": 227,
+          "shots": 8,
+          "shots_blocked": 0,
+          "passes_attempted": 64,
+          "passes_completed": 3,
+          "passes_intercepted": 53,
+          "pass_distance": 33.49226,
+          "dribbles": 108,
+          "dribble_distance": 212.0265,
+          "tackles_attempted": 24,
+          "tackles_won": 11,
+          "turnovers": 18,
+          "fouls": 2,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 950.0107996573206,
+            "max_ms": 7.247699992149137,
+            "bucket_counts": [
+              2,
+              201,
+              1025,
+              490,
+              620,
+              28,
+              21,
+              13,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        2,
+        0
+      ],
+      "candidate_side": 1,
+      "candidate_kickoff": true
+    }
+  ]
+}

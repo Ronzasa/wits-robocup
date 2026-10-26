@@ -1,0 +1,7 @@
+# Agent snapshots are identified by byte-level SHA-256 in benchmark reports.
+# Preserve their tested bytes regardless of core.autocrlf on a future checkout.
+my-team/team.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+experiments/**/team.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
+# Official simulator replay files are binary evidence.
+*.rep -text

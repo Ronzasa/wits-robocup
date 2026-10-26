@@ -1,0 +1,55 @@
+[
+  {
+    "aim_y_at_x50": 6.8,
+    "goals": [
+      {
+        "tick": 99,
+        "kind": "goal",
+        "team": 0,
+        "scorer": 4,
+        "own_goal": false
+      }
+    ],
+    "furthest_observed_position": [
+      49.970401763916016,
+      6.795976638793945
+    ],
+    "config_hash": "372990895c7eca2a"
+  },
+  {
+    "aim_y_at_x50": 7.0,
+    "goals": [],
+    "furthest_observed_position": [
+      49.9433479309082,
+      6.992067337036133
+    ],
+    "config_hash": "372990895c7eca2a"
+  },
+  {
+    "aim_y_at_x50": 7.2,
+    "goals": [],
+    "furthest_observed_position": [
+      49.5296745300293,
+      7.138128757476807
+    ],
+    "config_hash": "372990895c7eca2a"
+  },
+  {
+    "aim_y_at_x50": 7.4,
+    "goals": [],
+    "furthest_observed_position": [
+      49.541996002197266,
+      7.332213401794434
+    ],
+    "config_hash": "372990895c7eca2a"
+  },
+  {
+    "aim_y_at_x50": 7.6,
+    "goals": [],
+    "furthest_observed_position": [
+      49.51294708251953,
+      7.525967597961426
+    ],
+    "config_hash": "372990895c7eca2a"
+  }
+]

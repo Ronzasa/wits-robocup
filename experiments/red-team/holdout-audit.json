@@ -1,0 +1,136 @@
+{
+  "protocol_checks_passed": true,
+  "fixtures": 100,
+  "independent_seeds": 25,
+  "source_sha256": "1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7",
+  "protected_titan_sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+  "excluded_for_either_policy_error_or_timeout": [
+    "monster-v25-holdout-730012-s1-k0",
+    "monster-v25-holdout-730014-s1-k1",
+    "monster-v25-holdout-730022-s1-k0"
+  ],
+  "sensitivity_fault_free_only": {
+    "matches": 97,
+    "team_a_wins": 76,
+    "team_b_wins": 7,
+    "draws": 14,
+    "goals": [
+      178,
+      56
+    ],
+    "mean_goal_difference": 1.2577319587628866,
+    "goal_difference_ci95": 0.22849524165650864,
+    "policy_errors": [
+      0,
+      0
+    ],
+    "policy_timeouts": [
+      0,
+      0
+    ],
+    "total_ticks": 232800,
+    "team_stats": [
+      {
+        "goals_per_match": 1.8350515463917525,
+        "possession_fraction": 0.24719501718213058,
+        "control_fraction": 0.10191580756013746,
+        "territory_fraction": 0.32490549828178694,
+        "shots_per_match": 3.804123711340206,
+        "shots_blocked_per_match": 3.731958762886598,
+        "passes_attempted_per_match": 37.49484536082474,
+        "passes_completed_per_match": 1.9690721649484537,
+        "passes_intercepted_per_match": 28.391752577319586,
+        "passes_uncollected_per_match": 7.134020618556701,
+        "pass_completion": 0.05251580973329667,
+        "mean_pass_distance": 23.314982133246076,
+        "dribbles_per_match": 28.443298969072163,
+        "mean_dribble_distance": 3.587621071620153,
+        "turnovers_per_match": 11.525773195876289,
+        "fouls_per_match": 0.0,
+        "tackles_attempted_per_match": 14.587628865979381,
+        "tackles_won_per_match": 4.835051546391752,
+        "tackle_success": 0.3314487632508834,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decision_mean_ms": 0.14692198195541667,
+        "decision_max_ms": 9.625799997593276
+      },
+      {
+        "goals_per_match": 0.5773195876288659,
+        "possession_fraction": 0.7528049828178695,
+        "control_fraction": 0.32948024054982816,
+        "territory_fraction": 0.6379381443298969,
+        "shots_per_match": 17.216494845360824,
+        "shots_blocked_per_match": 2.6907216494845363,
+        "passes_attempted_per_match": 103.77319587628865,
+        "passes_completed_per_match": 41.329896907216494,
+        "passes_intercepted_per_match": 58.31958762886598,
+        "passes_uncollected_per_match": 4.123711340206185,
+        "pass_completion": 0.39827140870256306,
+        "mean_pass_distance": 7.320583763482166,
+        "dribbles_per_match": 113.91752577319588,
+        "mean_dribble_distance": 1.7615509136651597,
+        "turnovers_per_match": 12.391752577319588,
+        "fouls_per_match": 1.134020618556701,
+        "tackles_attempted_per_match": 15.896907216494846,
+        "tackles_won_per_match": 5.030927835051546,
+        "tackle_success": 0.3164721141374838,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decision_mean_ms": 0.4859013496468808,
+        "decision_max_ms": 19.59589999751188
+      }
+    ],
+    "win_rate": 0.7835051546391752,
+    "decisive_win_rate": 0.9156626506024096,
+    "win_rate_wilson95": [
+      0.6915965374341109,
+      0.8538132934293423
+    ],
+    "independent_seeds": 25,
+    "mean_gd_seed_cluster_ci95_halfwidth": 0.24216702837015122,
+    "win_rate_seed_bootstrap95": [
+      0.6833333333333333,
+      0.8733333333333333
+    ],
+    "by_fixture": {
+      "side0-ownkickoff0": {
+        "matches": 25,
+        "wins": 19,
+        "draws": 6,
+        "goals": [
+          39,
+          13
+        ]
+      },
+      "side0-ownkickoff1": {
+        "matches": 25,
+        "wins": 21,
+        "draws": 2,
+        "goals": [
+          46,
+          14
+        ]
+      },
+      "side1-ownkickoff0": {
+        "matches": 23,
+        "wins": 16,
+        "draws": 3,
+        "goals": [
+          39,
+          15
+        ]
+      },
+      "side1-ownkickoff1": {
+        "matches": 24,
+        "wins": 20,
+        "draws": 3,
+        "goals": [
+          54,
+          14
+        ]
+      }
+    }
+  },
+  "note": "Post-hoc descriptive sensitivity only. All 100 fixtures remain the primary result; no reruns or replacements."
+}

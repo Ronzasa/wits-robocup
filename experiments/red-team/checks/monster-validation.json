@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py validate experiments/red-team/monster --against tactical --ticks 2400 --json",
+  "chunk_id": "530cf0",
+  "wall_time_seconds": 1.1750313000000001,
+  "exit_code": 0,
+  "original_token_count": 90,
+  "output": "{\"ok\": true, \"controller\": \"MONSTER vv25-fast-post (Monster)\", \"errors\": [], \"warnings\": [], \"stats\": {\"matches played\": 5, \"decisions\": 12000, \"mean decision (ms)\": \"0.057\", \"slowest decision (ms)\": \"1.592\", \"deadline (ms)\": \"20.0\", \"exceptions\": 0, \"over deadline\": 0, \"missing player actions\": 0, \"non-finite values\": 0, \"formation\": \"custom (5 spots)\"}}\r\n"
+}
