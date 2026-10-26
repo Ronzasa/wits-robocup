@@ -1,0 +1,23 @@
+{
+  "scope": "exposed common-opponent packed-wall development; no qualification or promotion",
+  "candidate": {
+    "path": "experiments/three-player-push/team.py",
+    "sha256": "70cbd7622fbe18955cfd002b40430ebb1c3327313cac82663c463d2ef677aa7e"
+  },
+  "opponent": {
+    "path": "experiments/three-player-push/opponents/packed-wall/team.py",
+    "sha256": "1fed184ef1ea859169e22381c7dea2be9dc2501c46809feb8d5f42406c7f426e"
+  },
+  "seeds": [
+    3249102101,
+    3249102102,
+    3249102103,
+    3249102104
+  ],
+  "order_seed": 3249102001,
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "formation": "native defaults, no custom hook",
+  "promotion": false
+}

@@ -1,0 +1,28 @@
+{
+  "scope": "exposed development only; not independent qualification",
+  "candidate": {
+    "path": "experiments/three-player-push/team.py",
+    "sha256": "70cbd7622fbe18955cfd002b40430ebb1c3327313cac82663c463d2ef677aa7e"
+  },
+  "opponent": {
+    "path": "my-team/team.py",
+    "sha256": "27b3ef88ddede6267fd0583278b821c2abcd27de38772dfe9051307778e880ce"
+  },
+  "seeds": [
+    3249101101,
+    3249101102,
+    3249101103,
+    3249101104
+  ],
+  "order_seed": 3249101001,
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "formation": "native defaults, no custom hook",
+  "gates": {
+    "positive_paired_points_95_lower": true,
+    "zero_policy_errors": true,
+    "additional_raw_misses_per1000_max": 2
+  },
+  "promotion": false
+}

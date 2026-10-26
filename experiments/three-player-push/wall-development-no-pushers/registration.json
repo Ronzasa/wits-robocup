@@ -1,0 +1,23 @@
+{
+  "scope": "exposed paired ablation: same broader detection and gap shots; no pushing players; no qualification",
+  "candidate": {
+    "path": "experiments/three-player-push/ablations/no-pushers/team.py",
+    "sha256": "f441c6dff0f5332d1493429b99329e43c222a9e4c73c9afe69938e204d673c8e"
+  },
+  "opponent": {
+    "path": "experiments/three-player-push/opponents/packed-wall/team.py",
+    "sha256": "1fed184ef1ea859169e22381c7dea2be9dc2501c46809feb8d5f42406c7f426e"
+  },
+  "seeds": [
+    3249102101,
+    3249102102,
+    3249102103,
+    3249102104
+  ],
+  "order_seed": 3249102001,
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "formation": "native defaults, no custom hook",
+  "promotion": false
+}
