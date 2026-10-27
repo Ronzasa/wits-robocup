@@ -1,0 +1,19 @@
+{
+  "selected_before_holdout": true,
+  "version": "v51-stream-post",
+  "source": "pool/v51-stream-post/team.py",
+  "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+  "control": "pool/v25-fast-post/team.py",
+  "control_sha256": "1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7",
+  "validation_matches_per_policy": 160,
+  "control_wdl": [69, 56, 35],
+  "selected_wdl": [101, 52, 7],
+  "control_goals": [231, 169],
+  "selected_goals": [202, 52],
+  "control_league_points": 263,
+  "selected_league_points": 355,
+  "selected_validation_errors_timeouts": [0, 1],
+  "reason": "The compact near-post policy improved the broader opponent pool. Its streaming implementation passed exact path/interception equivalence and comparable fresh validation. Fast-open, marked-pace and more elaborate shot/clearance models did not justify their tradeoffs. One elapsed-time overrun remains recorded, with cause unverified. No further tuning is permitted on the exposed final holdout.",
+  "holdout_seeds_exclusive": [770000, 770025],
+  "holdout_opponents": ["titan", "blue-pool/blue-c-combined/team.py", "pool/v21-close-outlet/team.py", "pool/v25-fast-post/team.py"]
+}

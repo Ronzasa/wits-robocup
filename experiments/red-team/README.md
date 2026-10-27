@@ -1,152 +1,135 @@
 # Operation MONSTER
 
-The independent Red Team submission is **`monster/team.py`**, class `Monster`,
-version `v25-fast-post`. The validated Blue Team is still **`../../my-team/team.py`**,
-byte-for-byte unchanged. No engine/SDK changes, master changes or competition
-submissions are part of this laboratory. After research completed, the user
-authorized committing and pushing the complete archive on the experimental
-branch. `.gitattributes` preserves tested agent bytes and recorded hashes.
+The current independent agent is **`monster/team.py`**, class `Monster`,
+version **`v51-stream-post`**, SHA-256
+`0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6`.
+It is an exact copy of the tested immutable `pool/v51-stream-post/team.py`.
+The previous release is preserved in `pool/v25-fast-post/team.py`.
 
-## Isolation and recovery
+Validated TITAN remains **`../../my-team/team.py`**, byte-for-byte unchanged,
+SHA-256 `5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d`.
+The separate Blue candidates remain experimental. No competition submission
+or replacement of validated TITAN is performed. The user authorized archiving
+both agents and all evidence on the experimental Git branch.
 
-This directory is the isolated environment on the existing experimental branch.
-`frozen-titan/team.py` is an exact recovery copy of the validated TITAN.
+## Measured improvement
 
-- TITAN SHA-256: `5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d`.
-- Frozen MONSTER SHA-256: `1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7`.
-- `protected.json` records hashes for TITAN, its frozen copy, the official
-  Windows engine binaries, SDK Python files and course configuration.
-- Every benchmark verifies those hashes before and after play. The benchmark
-  runs an immutable copy under `candidates/<source-hash>/team.py`.
-- `pool/` preserves named standalone strategy versions; `build.py` refuses to
-  overwrite them. Failed experiments remain available for review.
+These are matched **100-game holdouts per opponent and policy**, using 25
+previously untouched seeds, both sides and both kickoff owners:
 
-The agent itself imports only `math`, `time.perf_counter` and the official
-`soccer` SDK. It reads public observations and emits five legal player actions.
-It performs no file, process, network, opponent-source or engine-state access.
-The experiment harness may read replays and source files offline; the agent
-never imports that harness or TITAN.
+| Opponent | Old v25 W/D/L | New v51 W/D/L |
+|---|---:|---:|
+| Frozen TITAN | 73/24/3 | **86/14/0** |
+| Patched Blue C | 38/33/29 | **46/50/4** |
+| MONSTER v21 | 19/56/25 | **37/59/4** |
+| MONSTER v25 | 37/27/36 | **57/30/13** |
+| Total | 167/140/93 | **226/153/21** |
 
-## Protocol
+Old v25's last row is its self-play control under the same jittered fixtures.
+The new policy earned **831 league points versus 641**. Paired improvement:
+**+0.475 points/game**, seed-cluster bootstrap 95% interval **+0.373 to +0.583**.
+TITAN goals changed from **173–61 to 178–26**. Full pooled goals changed from
+**527–397 to 465–142**: much lower conceding is the main source of the gain.
 
-All competitive games use the bundled official engine, engine version 0.1.0,
-the unchanged course config hash `372990895c7eca2a`, five players, **2,400 ticks**
-and **20 ms per decision for both teams**. There are four fixtures per seed:
-candidate absolute side 0 or 1, crossed with absolute kickoff owner 0 or 1.
+The six official baselines also produced **117W/3D/0L in 120 games** for each
+release. There are tradeoffs: more draws against two older TITAN versions,
+and fewer blowout goals in several baseline matchups. v51 is still draw-heavy
+against strong wall agents. Leaderboard superiority is unverified.
 
-This is explicit because SDK `evaluate(swap_sides=True)` swaps kickoff along
-with side and therefore always gives its evaluated team kickoff. The new
-harness calls official `play_match` for each of the four combinations.
+See [the report](ROUND2_REPORT.md), [paired scorecard](ROUND2_RESULTS.md),
+[full audit](ROUND2_AUDIT.json), [research/rejections](ROUND2.md), and
+[every recorded experiment](SCORECARD.md). First-round records remain in
+[RELEASE1.md](RELEASE1.md), [REPORT.md](REPORT.md), and [EXPERIMENTS.md](EXPERIMENTS.md).
 
-Scores and per-team statistics in result rows are normalized to candidate
-first; `candidate_side`, `candidate_kickoff` and `absolute_score` retain the
-mapping to the actual engine fixture. Engine `team_ids`/`outcome` remain in
-absolute order and must be interpreted through that mapping. Summary wins,
-draws and losses are computed from normalized scores, not engine outcome text.
+## Strategy and validity
 
-Predeclared, disjoint seed partitions (upper endpoints exclusive):
+Four defenders cover the goal with a stable wide counterattacking outlet.
+The near-post guard stays closer to the mouth instead of chasing a wide ball
+too far out. Predictive interception streams trajectory samples until a
+reachable frame is found; repeated-use pass paths remain materialized.
+More elaborate attack/keeper/contact models were tested and rejected.
 
-| Split | Seeds | Purpose |
-|---|---|---|
-| train | 700000..700020 | Candidate generation; initial screens used first four seeds |
-| validation | 710000..710010 | Finalist selection: 40 fixtures per candidate |
-| holdout | 730000..730025 | Locked final candidate: **100 fixtures**, 25 seed clusters |
-| generalization | 740000..740010 | Other opponents and separate Blue Team checks |
+The single-file controller imports only `math`, `time.perf_counter` and the
+official `soccer` SDK. It uses public match observations and its own resettable
+state. It has one `TeamController` subclass and returns five player actions.
+No runtime file/source access, opponent identity checks, hidden state, seed
+branches, engine modifications or additional dependencies are used.
 
-`holdout-lock.json` is written before the first holdout match; a different
-candidate hash is refused thereafter. No candidate is tuned from holdout
-outcomes. Repeating a fixture is a reproduction, not additional independent
-evidence. Raw `.jsonl` results are flushed after every fixture, and complete
-`.json` reports contain all metrics and source hashes.
+Official `check` and five-match `validate` passed. Both teams' **20 ms**
+deadlines are enforced in all competitive matches; optional searches have a
+7 ms budget. The 400-match new holdout recorded zero exceptions and **three
+elapsed-time timeouts in 960,000 decisions**. Two more occurred in its 160
+generalization games; these remain in the raw results. Rare long stalls have
+not been conclusively diagnosed. The reports do not claim that every
+observed decision stayed under 20 ms.
 
-The report gives Wilson intervals for descriptive match win rates and also
-seed-cluster bootstrap intervals/goal-difference intervals, because the four
-fixtures sharing a seed are correlated. Small training samples are selection
-evidence, not proof of dominance. A measured 70% win rate is not a guarantee
-that the underlying win probability exceeds 70%.
+## Protocol and reproduction
 
-## Reproduction from the repository root
+All competitive results use the unchanged official Wits engine **0.1.0**,
+course config hash **372990895c7eca2a**, five players and **2,400 ticks**.
+Every seed explicitly crosses absolute side 0/1 and kickoff owner 0/1.
+SDK side-swapping alone does not balance kickoff ownership.
 
-Use a fresh `--label` to avoid overwriting existing evidence. End seeds are
-exclusive. All commands below use the official SDK/engine through bootstrap.
+Scores/stats are candidate-first. `absolute_score`, `candidate_side` and
+`candidate_kickoff` preserve the mapping; native team names/outcome strings
+remain absolute. Wins and losses are calculated from normalized scores.
+
+Round-two seeds (upper endpoints exclusive): training 750000..750012,
+selection 760000..760010, final holdout 770000..770025, generalization
+780000..780010. The fixed v25 control intentionally shares final holdout
+seeds for paired comparison. It accepts only the predeclared old source hash
+and cannot run before the new finalist is locked. `round2-selection.json`
+records the decision before holdout exposure; the lock refuses other hashes.
+
+From the repository root:
 
 ```powershell
 python experiments/red-team/lab.py --verify
-python experiments/red-team/lab.py --audit-holdout
 python launch.py check experiments/red-team/monster
 python launch.py validate experiments/red-team/monster --against tactical --ticks 2400 --json
-python experiments/red-team/lab.py --team pool/v25-fast-post/team.py --split validation --label reproduce-validation
-python experiments/red-team/lab.py --split holdout --label reproduce-holdout
-python experiments/red-team/lab.py --split generalization --seeds 740000..740005 --opponents balanced tactical possession experiments/titan-original/team.py experiments/titan-buggy/team.py pool/v21-close-outlet/team.py pool/v06-duel/team.py --label reproduce-generalization
+python experiments/red-team/round2_build.py --verify-stream
+python experiments/red-team/round2_build.py --audit
 python experiments/red-team/lab.py --scorecard
 ```
 
-Build and screen a new independent variant, preserving its source:
+Audit validates the archived 800 paired primary fixtures, source hashes,
+balanced starts, complete matches and action validity. Re-run benchmarks with
+**fresh labels**; existing results are never overwritten:
 
 ```powershell
-python experiments/red-team/build.py new-variant --base pool/v25-fast-post/team.py --set CARRY_SPEED=8.0
-python experiments/red-team/lab.py --team pool/new-variant/team.py --seeds 700004..700008 --label new-variant-training
+python experiments/red-team/lab.py --team pool/v51-stream-post/team.py --split round2-holdout --opponents titan blue-pool/blue-c-combined/team.py pool/v21-close-outlet/team.py pool/v25-fast-post/team.py --label reproduce-r2-holdout
+python experiments/red-team/lab.py --team pool/v25-fast-post/team.py --split round2-holdout-control --opponents titan blue-pool/blue-c-combined/team.py pool/v21-close-outlet/team.py pool/v25-fast-post/team.py --label reproduce-r2-control
+python experiments/red-team/lab.py --sweep pool/v25-fast-post/team.py pool/v51-stream-post/team.py --split round2-generalization --seeds 780000..780005 --opponents balanced tactical possession structured_attack man_marking ball_chaser experiments/titan-original/team.py experiments/titan-buggy/team.py --label reproduce-r2-generalization
 ```
 
-Do not use the exposed final holdout to select a new variant. Reserve new
-seeds for any later research cycle. The lab deliberately refuses a different
-source on its existing holdout partition.
+The same fixture repeated is reproduction, not new independent evidence.
+Elapsed-time searches and OS load can change exact outcomes. Reported
+uncertainty resamples the **25 seed clusters**, preserving their correlated
+side/kickoff/opponent fixtures. Fault-free subsets are post-hoc sensitivity
+checks; all fixtures remain in the primary scorecard.
 
-Inspect actual recorded evidence:
+## Isolation and future experiments
+
+`protected.json` verifies validated TITAN, its recovery copy, SDK, engine and
+configuration before/after matches. Source snapshots under `candidates/` are
+immutable; benchmarks execute those copies. `.gitattributes` preserves agent
+bytes despite Windows line-ending conversion. `pool/` retains all candidates.
+
+`build.py` creates a new standalone parameter variant, and refuses to overwrite:
 
 ```powershell
-python experiments/red-team/lab.py --diagnose-result experiments/red-team/results/grid10-v23-post-pressure.json
-python experiments/red-team/lab.py --inspect-replay experiments/red-team/replays/grid10-v23-post-pressure-700000-s0-k0.rep
+python experiments/red-team/build.py next-trial --base pool/v51-stream-post/team.py --set POST_MAX=7.1
+python experiments/red-team/lab.py --team pool/next-trial/team.py --split round2-train --seeds 750008..750012 --label next-trial-training
 ```
 
-The controlled `--probe-goal` experiment uses legal actions in the official
-engine to test shot geometry with idle opponents. It is a partial-match physics
-diagnostic, **not a competitive result**. It confirmed that aiming at y=6.8
-scored in that setup, whereas aims at y=7.0 and above did not.
-
-## Selected strategy
-
-The winning configuration is an adaptive four-player goal screen with a stable
-wide counterattacking outlet. Near a threatened post, its nearest covering
-player closes down the ball instead of staying in a fixed wall slot. The
-outlet uses predictive interception, short-touch rollouts, impulse-aware shots
-and full-power planning when both teams can kick simultaneously. The near-post
-rule and fixed outlet were selected by actual match comparisons.
-
-The file retains switches for other architectures explored in the pool, but
-the frozen winning configuration has the costly speculative keeper shot model,
-two-keeper formation, bank clearances and five-player lead wall **disabled**.
-Its optional searches have a 7 ms budget. A fixed receiver target avoids
-unnecessary trajectory allocation while it waits for a clearance.
-
-Timing includes Python and OS scheduling on this Windows machine. Search
-budgets can cause different choices under different CPU load; exact bitwise
-match reproduction across machines is not promised. Exploratory overruns are
-retained in the scorecard rather than hidden. Official checks and the final
-holdout are reported separately.
-
-See **`REPORT.md`** for final conclusions, **`SCORECARD.md`** for every recorded
-competitive run, **`EXPERIMENTS.md`** for rejected approaches, and
-**`THREAT_MODEL.md`** for source observations versus tested hypotheses.
-
-## Separate Blue Team countermeasures
-
-`blue_build.py` creates three small TITAN derivatives from the frozen source:
-`blue-a-kickoff` guards the specialist's opponent restart, `blue-b-reserve`
-keeps one siege support player goal-side of an observed outlet, and
-`blue-c-combined` combines both. They live under `blue-pool/`; the validated
-submission is never a build target. The script refuses to overwrite snapshots.
-
-The combined candidate was selected on separate training fixtures. Fresh
-paired checks against MONSTER and broader checks can be reproduced with:
-
-```powershell
-python experiments/red-team/lab.py --seeds 740005..740010 --split generalization --opponents titan blue-pool/blue-c-combined/team.py --label reproduce-blue-paired
-python experiments/red-team/lab.py --team blue-pool/blue-c-combined/team.py --seeds 740005..740010 --split generalization --opponents titan balanced tactical possession --label reproduce-blue-generalization
-python launch.py check experiments/red-team/blue-pool/blue-c-combined
-python launch.py validate experiments/red-team/blue-pool/blue-c-combined --against tactical --ticks 2400 --json
-```
-
-These Blue checks are a separate research stage, not additional MONSTER
-holdout matches. Twenty fresh paired matches offer preliminary evidence,
-not a guarantee of improvement across all opponents. See the final report.
+Reserve a new independent holdout before selecting another release. The old
+and second-round holdouts are exposed and must not select a new policy.
+`round2_build.py` preserves the source transformations for all 26 new variants;
+its generation flags intentionally refuse existing snapshot names.
+Use `--verify-existing` with each generation flag to check archived builds
+without writing files, for example `--stream --verify-existing`. All 26 were
+verified byte-for-byte; see `checks/build-reproducibility.json`.
+`lab.py --compare BEFORE AFTER` compares identical fixtures. Optional
+`--cpu-profile` is an instrumented timing diagnostic, excluded from the
+competitive scorecard. Replay diagnostics and the earlier goal-mouth probe
+are also distinct from full competitive matches.

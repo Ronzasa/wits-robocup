@@ -1,0 +1,62 @@
+{
+  "ok": true,
+  "variants": 26,
+  "checks": [
+    {
+      "command": "python experiments/red-team/round2_build.py --verify-existing",
+      "chunk_id": "71637a",
+      "wall_time_seconds": 0.3674444,
+      "exit_code": 0,
+      "original_token_count": 138,
+      "output": "Verified v26-predict-post 804b04d9e07b70a63dcb2e84b01fb7cc42c920939d9ddff6843ce2ebcee8f1ae\r\nVerified v27-compact-post c8258040f150403274053d07d18ea5c42b6c8f43d77ee3dcc3dc2041d47a4255\r\nVerified v28-shallow-lead 39dc94630c7eca150ceaf721f0035e01bfe36d177d4b71c5f1e42e3bc08819d1\r\nVerified v29-two-strikers a5d98d9d147ccc2a83bb371082ce3b4a96f6bda9cbab04957a9494252e1747da\r\nVerified v30-goal-duel 68c4a1359f22df0e5b9423cd62b8501ea5b77a4ecf3f1a9db02cd01c6667463e\r\nVerified v31-forward-outlet 054a303c6cd7b58271a2265f9e5df463a083a2c2beed970800515d790062b08c\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --wave2 --verify-existing",
+      "chunk_id": "17ba25",
+      "wall_time_seconds": 0.2926297,
+      "exit_code": 0,
+      "original_token_count": 138,
+      "output": "Verified v32-safe-distribution 1a72249f0d864a6bbf787724039a72df8c4e794eeacbedb824ed6d6e57b41fdc\r\nVerified v33-spread-cover 48d39e131d417a94d313c0e139d38b7d1a209222b17805f5c67de1b2a0c8a079\r\nVerified v34-fast-break 5560c29989dd152303424b3e5b6ac7704f7fba3b54ce18b1313976ef292658d2\r\nVerified v35-compact-goal 0b558267444e7277f1d47ae67dc65e346a87b88aaa6695de987ac4c6529a794b\r\nVerified v36-post-seven fb19f652712859f637e776c41c112bee71d0cd977564cdf78e55a754f11d37a1\r\nVerified v37-post-tight e2dac5c24e58908b81f31361bc34380e4a4ccb0f8876a7d13efee97581fd4620\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --contact --verify-existing",
+      "chunk_id": "497a0c",
+      "wall_time_seconds": 0.2115179,
+      "exit_code": 0,
+      "original_token_count": 46,
+      "output": "Verified v38-contact-goal 9b7a80c941e95a0446882be7d9ee951f9d5a65335021071658d69d567698fce6\r\nVerified v39-fast-contact 2482a221a82ba7d71f40bdd33fbb1326d427d3395a4ca63cb92a62848015a68b\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --attack --verify-existing",
+      "chunk_id": "8b7a86",
+      "wall_time_seconds": 0.2470914,
+      "exit_code": 0,
+      "original_token_count": 137,
+      "output": "Verified v40-seven-fast 53a679e2f423a617a1b5cb5f9674963aa48a8eb482c52e23d22d0d2ca79da63f\r\nVerified v41-spread-fast 6a54a4b0faf27248fb8aed76796a1eca02b30d4bb47a12a662ef6fdd92203c5a\r\nVerified v42-wall-risk 2efe7ccb00ebf5b96f71b0a91a78c3817ac6039f60f0a6602323c2859b05e034\r\nVerified v43-wall-force 2cc05e154a59a425ba10a10ea88803faa0ab3a060ce8107db7ef3c4fb902a428\r\nVerified v44-inner-outlet e140de859746118a866e541749ec13df209b5f27f2b4f0e46a3f7334b93ff52c\r\nVerified v45-touchline-outlet e29b7053fc9fb2493a0b0804c724427bd68f63f3f03dab036e94b257d6ec97c9\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --adaptive --verify-existing",
+      "chunk_id": "4c7d3e",
+      "wall_time_seconds": 0.2059903,
+      "exit_code": 0,
+      "original_token_count": 48,
+      "output": "Verified v46-adaptive-pace 9d1195fe290b42cfdaa40c82ddd9f6b78d21e0b1d6fe638cf45bb981b243533f\r\nVerified v47-adaptive-release 55bd51c81de1397d431601778fb75e6a61bac29d1b2beb2c68b8e909d20ce32e\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --marking --verify-existing",
+      "chunk_id": "8e6d30",
+      "wall_time_seconds": 0.2438149,
+      "exit_code": 0,
+      "original_token_count": 69,
+      "output": "Verified v48-marked-break 48fbb1b3dcaaadaccd082df2ed63cafbc76f7ef14b66a344aa0324b34fa06629\r\nVerified v49-short-break 9cf9b3c73486fc8692b6b626f09dc901869a64d897b357cc182d84fc2d5ce7ce\r\nVerified v50-long-break 095356d1ea03bcb7368faa36d5fbe22b03f6339ca895beb42633fefc654f485a\r\n"
+    },
+    {
+      "command": "python experiments/red-team/round2_build.py --stream --verify-existing",
+      "chunk_id": "576d69",
+      "wall_time_seconds": 0.1715134,
+      "exit_code": 0,
+      "original_token_count": 23,
+      "output": "Verified v51-stream-post 0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6\r\n"
+    }
+  ]
+}

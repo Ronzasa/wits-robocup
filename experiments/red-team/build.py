@@ -17,6 +17,8 @@ def main():
         raise ValueError("Use a simple experiment name")
     source = (LAB / a.base).read_text()
     allowed = {"PRESSERS", "CARRY_SPEED", "SHOT_MARGIN", "LOCK_LEAD", "LOCK_DEPTH", "FORMATION", "WIDTH", "PASS_WEIGHT", "SWEEP", "DEFENSE", "KEEPER_DEPTH", "DUELS", "TWIN_KEEPERS", "SHELL", "SHELL_DEPTH", "SHELL_RELEASE", "SHELL_BANK", "SHELL_LOCK_FIVE", "KEEPER_MODEL", "FIXED_OUTLET", "OUTLET_X", "ADAPTIVE_POSTS"}
+    allowed.update({"POST_MAX", "PREDICT_POST", "SUPPORT", "SHOT_FIRST", "AIM_DUEL", "SMART_CLEAR",
+                    "COVER_SHIFT", "BREAKAWAY_TOUCH", "WALL_SHOT_MARGIN", "OUTLET_Y", "MARK_WINDOW"})
     for setting in a.set:
         key, raw = setting.split("=", 1)
         if key not in allowed:

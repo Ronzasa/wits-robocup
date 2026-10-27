@@ -17,11 +17,17 @@ import bootstrap
 bootstrap.ensure_engine(ROOT)
 from soccer.runner import play_match, summarise_results
 from soccer import _engine
-from soccer import SoccerEnv, TeamAction, PlayerAction
+from soccer import SoccerEnv, TeamAction, PlayerAction, TeamController
+from soccer.helpers import load_controller
 
 TITAN_SHA = "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d"
 SPLITS = {"train": (700000, 700020), "validation": (710000, 710010),
-          "holdout": (730000, 730025), "generalization": (740000, 740010)}
+          "holdout": (730000, 730025), "generalization": (740000, 740010),
+          "round2-train": (750000, 750012), "round2-validation": (760000, 760010),
+          "round2-holdout": (770000, 770025),
+          "round2-holdout-control": (770000, 770025),
+          "round2-generalization": (780000, 780010)}
+MONSTER_V1_SHA = "1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7"
 
 
 def sha(path):
@@ -97,6 +103,37 @@ def report(rows):
     return summary
 
 
+class TimingDiagnostic(TeamController):
+    """Offline timing observer; forwards actions and lifecycle unchanged."""
+    def __init__(self,spec):
+        self.inner = load_controller(spec)
+        self.name,self.version = self.inner.name,self.inner.version
+
+    def initial_formation(self,field):
+        return self.inner.initial_formation(field)
+
+    def reset(self,seed):
+        self.timing = {"decisions":0,"max_cpu_ms":0,"max_wall_ms":0,"slow_calls":[]}
+        self.inner.reset(seed)
+
+    def act(self,obs):
+        wall,cpu = time.perf_counter(),time.thread_time()
+        try:
+            return self.inner.act(obs)
+        finally:
+            elapsed_cpu = (time.thread_time()-cpu)*1000
+            elapsed_wall = (time.perf_counter()-wall)*1000
+            t = self.timing
+            t["decisions"] += 1
+            t["max_cpu_ms"] = max(t["max_cpu_ms"],elapsed_cpu)
+            t["max_wall_ms"] = max(t["max_wall_ms"],elapsed_wall)
+            if elapsed_wall>5:
+                t["slow_calls"].append({"tick":obs.tick,"wall_ms":elapsed_wall,"cpu_ms":elapsed_cpu})
+
+    def on_match_end(self,result):
+        self.inner.on_match_end(result)
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument("--team", default="monster/team.py")
@@ -113,12 +150,42 @@ def main():
     p.add_argument("--opponents", nargs="+", help="run the same candidate sequentially against this opponent set")
     p.add_argument("--diagnose-result", help="extract actual goal/foul/wall observations from recorded fixtures")
     p.add_argument("--audit-holdout", action="store_true", help="verify the locked final protocol and report timeout sensitivity")
+    p.add_argument("--compare", nargs=2, metavar=("BEFORE", "AFTER"), help="paired comparison of two result files on identical fixtures")
+    p.add_argument("--cpu-profile", action="store_true", help="instrumented timing diagnostic, excluded from competitive scorecard")
     a = p.parse_args()
     protect()
+    if a.cpu_profile and (a.sweep or a.opponents):
+        raise ValueError("Run timing diagnostics as a single team/opponent pair")
+    if a.compare:
+        before,after = [json.loads(Path(path).read_text(encoding="utf-8")) for path in a.compare]
+        assert before["opponent_sha256"] == after["opponent_sha256"] and before["opponent"] == after["opponent"]
+        key = lambda r:(r["seed"],r["candidate_side"],r["kickoff_team"])
+        old,new = [{key(r):r for r in data["results"]} for data in (before,after)]
+        assert old.keys() == new.keys()
+        points = lambda r:3 if r["score"][0]>r["score"][1] else int(r["score"][0]==r["score"][1])
+        clusters = {}
+        for fixture in old:
+            o,n = old[fixture],new[fixture]
+            clusters.setdefault(fixture[0],[]).append((points(n)-points(o),n["goal_difference"]-o["goal_difference"]))
+        means = [tuple(statistics.mean(pair[i] for pair in rows) for i in (0,1)) for rows in clusters.values()]
+        rng = random.Random(91831)
+        boot = [sorted(statistics.mean(pair[i] for pair in rng.choices(means,k=len(means))) for _ in range(3000)) for i in (0,1)]
+        result = {"before":a.compare[0],"after":a.compare[1],"matches":len(old),"seed_clusters":len(clusters),
+                  "points_per_match_change":statistics.mean(pair[0] for pair in means),
+                  "mean_gd_change":statistics.mean(pair[1] for pair in means),
+                  "points_change_seed_bootstrap95":[boot[0][75],boot[0][2924]],
+                  "gd_change_seed_bootstrap95":[boot[1][75],boot[1][2924]],
+                  "before_summary":before["summary"],"after_summary":after["summary"]}
+        out = LAB/(Path(a.compare[1]).stem+".comparison.json")
+        out.write_text(json.dumps(result,indent=2),encoding="utf-8")
+        print(json.dumps({k:v for k,v in result.items() if not k.endswith("summary")}))
+        return
     if a.audit_holdout:
         data = json.loads((LAB/"results/monster-v25-holdout.json").read_text())
         lock = json.loads((LAB/"holdout-lock.json").read_text())
-        assert data["source_sha256"] == lock["sha256"] == sha(LAB/"monster/team.py")
+        # Audit the historical release against its immutable source, even
+        # after the main MONSTER file has advanced to a newer generation.
+        assert data["source_sha256"] == lock["sha256"] == sha(LAB/"pool/v25-fast-post/team.py")
         assert data["opponent_sha256"] == TITAN_SHA
         rows = data["results"]
         expected = {(seed, side, kickoff) for seed in range(*SPLITS["holdout"])
@@ -140,6 +207,16 @@ def main():
                  "note": "Post-hoc descriptive sensitivity only. All 100 fixtures remain the primary result; no reruns or replacements."}
         (LAB/"holdout-audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
         print(json.dumps(audit))
+        return
+    if a.sweep and a.opponents:
+        for team in a.sweep:
+            cmd = [sys.executable, str(Path(__file__).resolve()), "--team", team,
+                   "--opponents", *a.opponents, "--split", a.split,
+                   "--label", (a.label or "league")+"-"+Path(team).parent.name,
+                   "--record", str(a.record)]
+            if a.seeds:
+                cmd += ["--seeds", a.seeds]
+            subprocess.run(cmd,check=True)
         return
     if a.opponents:
         for opponent in a.opponents:
@@ -195,6 +272,8 @@ def main():
         for f in sorted((LAB/"results").glob("*.json")):
             data = json.loads(f.read_text())
             if not isinstance(data,dict) or "summary" not in data:
+                continue
+            if data.get("instrumented_cpu_profile"):
                 continue
             s = data["summary"]
             t = s["team_stats"][0]
@@ -275,6 +354,9 @@ def main():
         return
     team, opponent = resolve(a.team), resolve(a.against)
     digest = sha(team)
+    if a.split == "round2-holdout-control":
+        assert digest == MONSTER_V1_SHA, "Paired holdout control must be the predeclared first MONSTER"
+        assert (LAB/"round2-holdout-lock.json").exists(), "Freeze the new finalist before exposing its paired control seeds"
     snapshot = LAB / "candidates" / digest[:12] / "team.py"
     snapshot.parent.mkdir(parents=True, exist_ok=True)
     if not snapshot.exists():
@@ -289,8 +371,8 @@ def main():
     target = LAB / "results" / (label + ".json")
     if target.exists():
         raise RuntimeError("Result label already exists; use a new label")
-    if a.split == "holdout":
-        lock = LAB / "holdout-lock.json"
+    if a.split in ("holdout", "round2-holdout"):
+        lock = LAB / ("holdout-lock.json" if a.split == "holdout" else "round2-holdout-lock.json")
         if lock.exists() and json.loads(lock.read_text())["sha256"] != digest:
             raise RuntimeError("Holdout was already exposed to a different candidate; reserve a new split")
         lock.write_text(json.dumps({"sha256": digest, "seeds": [lo, hi], "source": str(snapshot)}, indent=2))
@@ -303,6 +385,8 @@ def main():
                     name = f"{label}-{seed}-s{side}-k{kickoff}"
                     replay = str(LAB / "replays" / (name + ".rep")) if len(rows)<a.record else None
                     sides = (team, opponent) if side == 0 else (opponent, team)
+                    if a.cpu_profile:
+                        sides = tuple(TimingDiagnostic(spec) if Path(spec).is_file() else spec for spec in sides)
                     row = play_match(*sides, seed=seed, kickoff_team=kickoff,
                                      config_path=str(ROOT / "configs/default.toml"), max_ticks=2400,
                                      per_decision_timeout_ms=20, match_id=name,
@@ -313,6 +397,9 @@ def main():
                         row["stats"] = list(reversed(row["stats"]))
                     row["goal_difference"] = row["score"][0]-row["score"][1]
                     row["candidate_side"] = side
+                    if a.cpu_profile:
+                        ordered = sides if side==0 else sides[::-1]
+                        row["cpu_timing"] = [spec.timing if isinstance(spec,TimingDiagnostic) else None for spec in ordered]
                     row["candidate_kickoff"] = kickoff == side
                     row["sides_swapped"] = bool(side)
                     rows.append(row)
@@ -322,6 +409,7 @@ def main():
     protect()
     s = report(rows)
     result = {"source_sha256": digest, "source_snapshot": str(snapshot.relative_to(LAB)),
+              "instrumented_cpu_profile": a.cpu_profile,
               "opponent": a.against, "opponent_sha256": sha(opponent) if Path(opponent).is_file() else None,
               "split": a.split, "seeds_exclusive": [start, end], "summary": s,
               "wall_seconds": time.perf_counter()-started, "results": rows}

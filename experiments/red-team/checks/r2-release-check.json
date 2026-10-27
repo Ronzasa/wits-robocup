@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py check experiments/red-team/monster",
+  "chunk_id": "d09308",
+  "wall_time_seconds": 0.6399235,
+  "exit_code": 0,
+  "original_token_count": 32,
+  "output": "\r\n  monster\r\n    PASSED      it loads, plays legally and is inside the deadline\r\n    hand in     monster\\team.py, on Moodle\r\n\r\n"
+}

@@ -1,0 +1,10 @@
+{
+  "ok": true,
+  "cases": 1000,
+  "path_samples_exactly_equal": true,
+  "intercept_targets_exactly_equal": true,
+  "before_sha256": "fb19f652712859f637e776c41c112bee71d0cd977564cdf78e55a754f11d37a1",
+  "after_sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+  "elapsed_seconds": 0.10360579998814501,
+  "note": "Deterministic physics-refactor check; not a competitive match or latency benchmark."
+}

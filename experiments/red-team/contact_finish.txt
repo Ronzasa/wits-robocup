@@ -1,0 +1,96 @@
+    def contact_finish(self,p,ball,opponents,movement):
+        """Search short goal-mouth paths including defender kicks and bodies.
+
+        These are public-state forecasts, not an invocation of the engine.
+        Consider both kick orders and two plausible clearance directions.
+        """
+        bx,by,vx,vy = ball
+        if bx<self.right-13 or abs(by)<self.goal-2:
+            return None
+        cutoff = min(self.deadline,perf_counter()+0.0025)
+        side = 1 if by>=0 else -1
+        outlet = min(opponents,key=lambda q:q[1])
+        clear_target = (min(4.0,outlet[1]-5.0),clip(outlet[2],-24,24))
+        defenders = [q for q in opponents if q[1]>self.right-22]
+        best = None
+        for gy in (self.goal-0.16,self.goal-0.65):
+            for extra in (0.3,1.0):
+                if perf_counter()>cutoff:
+                    return best
+                ux,uy = unit(self.right+extra-bx,side*gy-by)
+                along = vx*ux+vy*uy
+                lateral = max(0,vx*vx+vy*vy-along*along)
+                if lateral>=self.impulse*self.impulse:
+                    continue
+                speed = min(self.ballcap,along+math.sqrt(self.impulse*self.impulse-lateral))
+                if speed<6:
+                    continue
+                kick = self.velocity_kick(vx,vy,ux*speed,uy*speed)
+                scores = []
+                for aim in (clear_target,(self.left,by)):
+                    for enemy_first in (False,True):
+                        value = self.contact_trial(p,ball,defenders,kick,movement,aim,enemy_first,cutoff)
+                        if value is None:
+                            return best
+                        scores.append(value)
+                if min(scores)>0:
+                    rated = (16+min(scores),kick,movement,None)
+                    if best is None or rated[0]>best[0]:
+                        best = rated
+        return best
+
+    def contact_trial(self,p,ball,defenders,kick,movement,aim,enemy_first,cutoff):
+        x,y,vx,vy = ball
+        own = p
+        guards = [list(q) for q in defenders]
+        for n in range(1,17):
+            if n%4==1 and perf_counter()>cutoff:
+                return None
+            own = self.player_step(own,movement if n==1 else self.move(own,self.bound(x,y)))
+            strikes = []
+            for q in guards:
+                q[3] *= self.damp
+                q[4] *= self.damp
+                q[1],q[2] = self.bound(q[1]+q[3]*self.dt,q[2]+q[4]*self.dt)
+                if q[5]<=0 and math.hypot(x-q[1],y-q[2])<self.kr-0.05:
+                    dx,dy = unit(aim[0]-x,aim[1]-y)
+                    strikes.append((dx*self.impulse,dy*self.impulse))
+                    q[5] = 5
+                else:
+                    q[5] = max(0,q[5]-1)
+            if n==1:
+                if math.hypot(x-own[1],y-own[2])>self.kr-0.04:
+                    return 0
+                impulse = (kick[0][0]*kick[1]*self.impulse,kick[0][1]*kick[1]*self.impulse)
+                strikes = strikes+[impulse] if enemy_first else [impulse]+strikes
+            for dx,dy in strikes:
+                vx,vy = vx+dx,vy+dy
+                scale = max(1.0,math.hypot(vx,vy)/self.ballcap)
+                vx,vy = vx/scale,vy/scale
+            x,y = x+vx*self.dt,y+vy*self.dt
+            vx,vy = vx*self.drag,vy*self.drag
+            if x>self.right and abs(y)<self.goal:
+                return 1-n*0.025
+            if abs(y)>self.half-self.br:
+                s = 1 if y>0 else -1
+                y = s*2*(self.half-self.br)-y
+                vy = -s*abs(vy)*self.wall
+            if x>self.right-self.br and abs(y)>self.goal:
+                x = 2*(self.right-self.br)-x
+                vx = -abs(vx)*self.wall
+            bodies = guards+[own] if enemy_first else [own]+guards
+            for q in bodies:
+                dx,dy = x-q[1],y-q[2]
+                d = math.hypot(dx,dy)
+                if 1e-8<d<self.body:
+                    nx,ny = dx/d,dy/d
+                    x,y = q[1]+nx*self.body,q[2]+ny*self.body
+                    closing = (vx-q[3])*nx+(vy-q[4])*ny
+                    if closing<0:
+                        vx -= 1.25*closing*nx
+                        vy -= 1.25*closing*ny
+            if x>self.right and abs(y)<self.goal:
+                return 1-n*0.025
+            if vx<-1 and x<self.right-6:
+                return 0
+        return 0

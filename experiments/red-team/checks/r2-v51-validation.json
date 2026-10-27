@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py validate experiments/red-team/pool/v51-stream-post --against tactical --ticks 2400 --json",
+  "chunk_id": "49e4cb",
+  "wall_time_seconds": 1.5420129,
+  "exit_code": 0,
+  "original_token_count": 91,
+  "output": "{\"ok\": true, \"controller\": \"MONSTER vv51-stream-post (Monster)\", \"errors\": [], \"warnings\": [], \"stats\": {\"matches played\": 5, \"decisions\": 12000, \"mean decision (ms)\": \"0.068\", \"slowest decision (ms)\": \"3.631\", \"deadline (ms)\": \"20.0\", \"exceptions\": 0, \"over deadline\": 0, \"missing player actions\": 0, \"non-finite values\": 0, \"formation\": \"custom (5 spots)\"}}\r\n"
+}

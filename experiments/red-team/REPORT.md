@@ -1,5 +1,9 @@
 # Operation MONSTER — measured findings
 
+**Historical first-release report.** The current MONSTER and its paired
+second-round results are documented in `README.md` and `ROUND2_REPORT.md`.
+The controller evaluated here is preserved in `pool/v25-fast-post/team.py`.
+
 ## Verdict on the frozen TITAN
 
 **MONSTER convincingly defeated the validated TITAN in the reserved holdout:**
@@ -8,7 +12,7 @@ over **100 full-length official-simulator fixtures**. This meets the requested
 70% measured-match milestone. It does not establish universal leaderboard or
 championship superiority.
 
-The exact MONSTER is `monster/team.py`, `Monster`, version `v25-fast-post`,
+The exact first-release MONSTER is `pool/v25-fast-post/team.py`, `Monster`, version `v25-fast-post`,
 27,381 bytes, SHA-256
 `1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7`.
 The validated `my-team/team.py` is unchanged, SHA-256

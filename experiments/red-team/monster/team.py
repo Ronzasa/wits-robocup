@@ -19,7 +19,7 @@ def unit(x, y):
 
 class Monster(TeamController):
     name = "MONSTER"
-    version = 'v25-fast-post'
+    version = 'v51-stream-post'
     PRESSERS = 2
     CARRY_SPEED = 9.0
     SHOT_MARGIN = -0.08
@@ -42,6 +42,14 @@ class Monster(TeamController):
     FIXED_OUTLET = True
     OUTLET_X = -20.0
     ADAPTIVE_POSTS = True
+    POST_MAX = 7.3
+    PREDICT_POST = False
+    SUPPORT = False
+    SHOT_FIRST = False
+    AIM_DUEL = False
+    SMART_CLEAR = False
+    COVER_SHIFT = False
+    BREAKAWAY_TOUCH = False
 
     def __init__(self):
         self.reset(0)
@@ -120,8 +128,8 @@ class Monster(TeamController):
         return max(math.hypot(dx, dy)-self.speed*n*self.dt,
                    math.hypot(dx-p[3]*coast, dy-p[4]*coast)-acceleration)-radius
 
-    def path(self, x, y, vx, vy, steps=65):
-        samples = [(0, x, y)]
+    def stream_path(self, x, y, vx, vy, steps=65):
+        yield (0, x, y)
         for n in range(1, steps+1):
             x, y = x+vx*self.dt, y+vy*self.dt
             vx, vy = vx*self.drag, vy*self.drag
@@ -131,14 +139,17 @@ class Monster(TeamController):
                 vy = -s*abs(vy)*self.wall
             if abs(x)>self.right-self.br:
                 if abs(y)<=self.goal and abs(x)>self.right:
-                    samples.append((n, x, y))
+                    yield (n, x, y)
                     break
                 if abs(y)>self.goal:
                     s = 1 if x>0 else -1
                     x = s*2*(self.right-self.br)-x
                     vx = -s*abs(vx)*self.wall
-            samples.append((n, x, y))
-        return samples
+            yield (n, x, y)
+        return
+
+    def path(self,x,y,vx,vy,steps=65):
+        return list(self.stream_path(x,y,vx,vy,steps))
 
     def race(self, p, path):
         best = None
@@ -169,7 +180,11 @@ class Monster(TeamController):
         ex, ey = unit(self.left-bx, -by)
         enemy_impulses = [(ex*self.impulse, ey*self.impulse), (-8.0-vx, -vy), (0, 0)]
         best = None
-        for angle in (0, -0.35, 0.35, -0.7, 0.7):
+        angles = (0, -0.35, 0.35, -0.7, 0.7)
+        if self.AIM_DUEL and bx>self.right-18:
+            goal_angle = math.atan2(clip(by,-self.goal+0.3,self.goal-0.3)-by,self.right+0.2-bx)
+            angles = (goal_angle, goal_angle-0.2, goal_angle+0.2, 0, -0.7, 0.7)
+        for angle in angles:
             ux, uy = math.cos(angle), math.sin(angle)
             worst = 100.0
             for evx, evy in enemy_impulses:
@@ -382,6 +397,30 @@ class Monster(TeamController):
                 actions.move(v.id, movement)
         return actions
 
+    def clearance(self,p,ball,outlet,opponents,movement,default):
+        bx,by,vx,vy = ball
+        best = None
+        for ty in (outlet[2],outlet[2]+6,outlet[2]-6,0):
+            if perf_counter()>self.deadline:
+                break
+            tx = max(bx+15,outlet[1]+8)
+            ux,uy = unit(tx-bx,clip(ty,-25,25)-by)
+            for compensate in (False,True):
+                kick = self.velocity_kick(vx,vy,ux*24,uy*24) if compensate else ((ux,uy),1.0)
+                launched = self.launch(p,ball,kick,movement)
+                if launched is None:
+                    continue
+                state = launched[0]
+                if state[2]<0.5:
+                    continue
+                route = self.path(*state,steps=32)
+                ours = self.race(outlet,route)
+                enemy = min(self.race(q,route)[0] for q in opponents)
+                score = min(1.5,enemy-ours[0])*3-ours[0]*0.2+(route[-1][1]-bx)*0.07
+                if best is None or score>best[0]:
+                    best = score,kick
+        return best[1] if best is not None else default
+
     def shell_act(self, obs, protected):
         """Four covering players and one fast outlet; no opponent identity test."""
         ball = (*obs.ball.position, *obs.ball.velocity)
@@ -396,31 +435,71 @@ class Monster(TeamController):
             side = release_side
             target = self.bound(self.OUTLET_X if self.FIXED_OUTLET else max(-7.0,outlet[1]), side*21.0)
         else:
-            path = self.path(*ball)
+            path = self.stream_path(*ball)
             target = self.bound(*self.race(outlet, path)[1])
         wall = sum(q[1]>self.right-3.5 and abs(q[2])<self.goal+1 for q in opponents)>=4
         depth = self.LOCK_DEPTH if obs.score[0]>obs.score[1] else self.SHELL_DEPTH
         if self.SHELL_LOCK_FIVE and obs.score[0]>obs.score[1]:
             return self.lock(obs)
+        support_id = 3 if self.SUPPORT and wall and bx>0 and not protected else None
+        slots = (5.4,-1.8,1.8,-5.4)
+        shot_guard = None
+        shot_y = 0.0
+        if self.PREDICT_POST and vx<-2 and bx>self.left+1.2:
+            dx = bx-self.left-1.2
+            if dx < -vx*self.dt/(1-self.drag):
+                shot_y = by+vy*dx/(-vx)
+                if abs(shot_y)<self.goal+0.25:
+                    shot_guard = min(range(4),key=lambda j:abs(slots[j]-shot_y))
         actions = TeamAction(debug={"text": "MONSTER four-cover counter"})
         for i, p in enumerate(friends):
             aim = target if i==4 else (self.left+depth, (5.4, -1.8, 1.8, -5.4)[i])
             if self.ADAPTIVE_POSTS and bx<self.left+12 and abs(by)>4.0 and i==(0 if by>0 else 3):
                 side = 1 if by>0 else -1
                 aim = (max(self.left+self.pr+0.02,min(self.left+depth,bx-0.6)),
-                       side*clip(abs(by),5.4,self.goal+2.5))
+                       side*clip(abs(by),5.4,self.POST_MAX))
+            if self.COVER_SHIFT and i<4 and abs(by)>6 and bx<self.left+15:
+                aim = (aim[0],aim[1]+(0.55 if by>0 else -0.55))
+            if i==shot_guard:
+                aim = (self.left+min(depth,1.4),clip(shot_y,-self.goal+0.3,self.goal-0.3))
+            if support_id is not None and i<4:
+                if i==support_id:
+                    aim = self.bound(max(12.0,bx-6.0),(-1 if by>=0 else 1)*5.5)
+                else:
+                    aim = (self.left+depth,(-4.9,0.0,4.9)[i])
             movement = self.move(p, aim)
             kick = None
             if i==4 and not protected and obs.can_kick(i):
                 movement = self.move(p, (bx+0.3, by))
                 stage = (self.right+1, (1 if by>=0 else -1)*(self.goal+1.3)) if wall else (self.right, 0)
-                best = self.duel(p, ball, opponents, movement)
+                best = self.shot(p, ball, opponents, movement, wall) if self.SHOT_FIRST else None
+                if best is None:
+                    best = self.duel(p, ball, opponents, movement)
                 if best is None:
                     best = self.shot(p, ball, opponents, movement, wall)
                 if best is None:
+                    # A free runner can take a longer touch before defenders
+                    # approach, rather than repeatedly slowing to 5.5 units/s.
+                    old_speed = self.CARRY_SPEED
+                    if self.BREAKAWAY_TOUCH and bx<self.right-12 and min(math.hypot(q[1]-bx,q[2]-by) for q in opponents)>9:
+                        self.CARRY_SPEED = 11.0
                     best = self.touch(p, ball, opponents, stage)
+                    self.CARRY_SPEED = old_speed
+                if self.SUPPORT and support_id is not None and (best is None or best[0]<10):
+                    passed = self.passing(p,ball,friends,opponents)
+                    if passed is not None and (best is None or passed[0]>best[0]+0.3):
+                        best = passed
                 if best:
                     _, kick, movement, _ = best
+            elif i==support_id and not protected and obs.can_kick(i):
+                movement = self.move(p,(bx+0.3,by))
+                best = self.shot(p,ball,opponents,movement,wall)
+                if best is None:
+                    best = self.duel(p,ball,opponents,movement)
+                if best is None:
+                    best = self.touch(p,ball,opponents,(self.right,0))
+                if best:
+                    _,kick,movement,_ = best
             elif i<4 and not protected and obs.can_kick(i):
                 side = release_side
                 tx, ty = max(-4.0, outlet[1]+5), side*22.0
@@ -429,6 +508,8 @@ class Monster(TeamController):
                     ty = boundary+(boundary-ty)/self.wall
                 ux, uy = unit(tx-bx, ty-by)
                 kick = ((ux, uy), 1.0)
+                if self.SMART_CLEAR:
+                    kick = self.clearance(p,ball,outlet,opponents,movement,kick)
             if protected and i==4 and math.hypot(p[1],p[2])<self.circle+4:
                 ux, uy = unit(p[1],p[2])
                 movement = self.move(p, (ux*(self.circle+2.5), uy*(self.circle+2.5)))
@@ -453,7 +534,7 @@ class Monster(TeamController):
         if math.hypot(bx, by)>0.5 or math.hypot(vx, vy)>0.1:
             self.restart_until = -1
         protected = obs.tick<self.restart_until and self.restart_owner==1
-        visible_enemy_wall = sum(q.position[0]>self.right-3.5 and abs(q.position[1])<self.goal+1 for q in obs.opponents)>=4
+        visible_enemy_wall = self.SHELL_RELEASE and sum(q.position[0]>self.right-3.5 and abs(q.position[1])<self.goal+1 for q in obs.opponents)>=4
         if self.SHELL and not (self.SHELL_RELEASE and (visible_enemy_wall or score[0]<score[1])):
             return self.shell_act(obs, protected)
         if self.LOCK_LEAD and score[0]-score[1]>=self.LOCK_LEAD and not protected:

@@ -1,0 +1,8 @@
+{
+  "command": "python launch.py check experiments/red-team/pool/v51-stream-post",
+  "chunk_id": "66cc4e",
+  "wall_time_seconds": 0.7291752,
+  "exit_code": 0,
+  "original_token_count": 36,
+  "output": "\r\n  v51-stream-post\r\n    PASSED      it loads, plays legally and is inside the deadline\r\n    hand in     v51-stream-post\\team.py, on Moodle\r\n\r\n"
+}

@@ -1,0 +1,4471 @@
+{
+  "source_sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+  "source_snapshot": "candidates\\0d9be04ce17b\\team.py",
+  "instrumented_cpu_profile": true,
+  "opponent": "titan",
+  "opponent_sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+  "split": "round2-train",
+  "seeds_exclusive": [
+    750004,
+    750008
+  ],
+  "summary": {
+    "matches": 16,
+    "team_a_wins": 14,
+    "team_b_wins": 1,
+    "draws": 1,
+    "goals": [
+      27,
+      5
+    ],
+    "mean_goal_difference": 1.375,
+    "goal_difference_ci95": 0.5021005875320204,
+    "policy_errors": [
+      0,
+      0
+    ],
+    "policy_timeouts": [
+      0,
+      1
+    ],
+    "total_ticks": 38400,
+    "team_stats": [
+      {
+        "goals_per_match": 1.6875,
+        "possession_fraction": 0.22169270833333332,
+        "control_fraction": 0.08580729166666666,
+        "territory_fraction": 0.31697916666666665,
+        "shots_per_match": 2.5,
+        "shots_blocked_per_match": 4.3125,
+        "passes_attempted_per_match": 41.0,
+        "passes_completed_per_match": 2.0,
+        "passes_intercepted_per_match": 32.9375,
+        "passes_uncollected_per_match": 6.0625,
+        "pass_completion": 0.04878048780487805,
+        "mean_pass_distance": 21.232715023437503,
+        "dribbles_per_match": 29.8125,
+        "mean_dribble_distance": 3.4869866939203353,
+        "turnovers_per_match": 11.0625,
+        "fouls_per_match": 0.0,
+        "tackles_attempted_per_match": 13.8125,
+        "tackles_won_per_match": 4.8125,
+        "tackle_success": 0.34841628959276016,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "decision_mean_ms": 0.12124947137181152,
+        "decision_max_ms": 9.716600005049258
+      },
+      {
+        "goals_per_match": 0.3125,
+        "possession_fraction": 0.7783072916666667,
+        "control_fraction": 0.349765625,
+        "territory_fraction": 0.6510677083333334,
+        "shots_per_match": 21.75,
+        "shots_blocked_per_match": 2.0,
+        "passes_attempted_per_match": 102.125,
+        "passes_completed_per_match": 44.4375,
+        "passes_intercepted_per_match": 54.6875,
+        "passes_uncollected_per_match": 3.0,
+        "pass_completion": 0.43512851897184823,
+        "mean_pass_distance": 7.15206252601969,
+        "dribbles_per_match": 126.5625,
+        "mean_dribble_distance": 1.7712930419753083,
+        "turnovers_per_match": 12.0625,
+        "fouls_per_match": 1.0,
+        "tackles_attempted_per_match": 15.25,
+        "tackles_won_per_match": 4.8125,
+        "tackle_success": 0.3155737704918033,
+        "policy_errors": 0,
+        "policy_timeouts": 1,
+        "decision_mean_ms": 0.44595165354621713,
+        "decision_max_ms": 124.89560001995414
+      }
+    ],
+    "win_rate": 0.875,
+    "decisive_win_rate": 0.9333333333333333,
+    "win_rate_wilson95": [
+      0.6397666856325173,
+      0.9650232506629428
+    ],
+    "independent_seeds": 4,
+    "mean_gd_seed_cluster_ci95_halfwidth": 0.3162936399402724,
+    "win_rate_seed_bootstrap95": [
+      0.75,
+      1.0
+    ],
+    "by_fixture": {
+      "side0-ownkickoff0": {
+        "matches": 4,
+        "wins": 4,
+        "draws": 0,
+        "goals": [
+          6,
+          0
+        ]
+      },
+      "side0-ownkickoff1": {
+        "matches": 4,
+        "wins": 3,
+        "draws": 0,
+        "goals": [
+          5,
+          1
+        ]
+      },
+      "side1-ownkickoff0": {
+        "matches": 4,
+        "wins": 4,
+        "draws": 0,
+        "goals": [
+          9,
+          2
+        ]
+      },
+      "side1-ownkickoff1": {
+        "matches": 4,
+        "wins": 3,
+        "draws": 1,
+        "goals": [
+          7,
+          2
+        ]
+      }
+    }
+  },
+  "wall_seconds": 23.969937800022308,
+  "results": [
+    {
+      "match_id": "r2-timing-v51-750004-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750004,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1107.1546,
+      "stats": [
+        {
+          "possession_ticks": 220,
+          "controlled_ticks": 25,
+          "territory_ticks": 184,
+          "kicks": 17,
+          "shots": 1,
+          "shots_blocked": 4,
+          "passes_attempted": 9,
+          "passes_completed": 2,
+          "passes_intercepted": 3,
+          "pass_distance": 66.70134,
+          "dribbles": 5,
+          "dribble_distance": 13.171377,
+          "tackles_attempted": 3,
+          "tackles_won": 0,
+          "turnovers": 1,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 89.84319894807413,
+            "max_ms": 0.6816000095568597,
+            "bucket_counts": [
+              1943,
+              426,
+              19,
+              1,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 2180,
+          "controlled_ticks": 710,
+          "territory_ticks": 2172,
+          "kicks": 269,
+          "shots": 33,
+          "shots_blocked": 0,
+          "passes_attempted": 83,
+          "passes_completed": 80,
+          "passes_intercepted": 1,
+          "pass_distance": 625.11017,
+          "dribbles": 143,
+          "dribble_distance": 253.44847,
+          "tackles_attempted": 1,
+          "tackles_won": 0,
+          "turnovers": 1,
+          "fouls": 1,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 941.5175999165513,
+            "max_ms": 5.680600006598979,
+            "bucket_counts": [
+              5,
+              95,
+              1290,
+              685,
+              74,
+              183,
+              62,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 0.6802999996580184,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 5.6782999890856445,
+          "slow_calls": [
+            {
+              "tick": 1068,
+              "wall_ms": 5.6782999890856445,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1569,
+              "wall_ms": 5.051400017691776,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750004-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750004,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 770.5019,
+      "stats": [
+        {
+          "possession_ticks": 640,
+          "controlled_ticks": 368,
+          "territory_ticks": 1326,
+          "kicks": 187,
+          "shots": 5,
+          "shots_blocked": 3,
+          "passes_attempted": 65,
+          "passes_completed": 3,
+          "passes_intercepted": 56,
+          "pass_distance": 76.25548,
+          "dribbles": 58,
+          "dribble_distance": 122.7526,
+          "tackles_attempted": 19,
+          "tackles_won": 11,
+          "turnovers": 21,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 243.36419947212562,
+            "max_ms": 2.2075999877415597,
+            "bucket_counts": [
+              1632,
+              558,
+              29,
+              3,
+              140,
+              37,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1760,
+          "controlled_ticks": 811,
+          "territory_ticks": 997,
+          "kicks": 287,
+          "shots": 10,
+          "shots_blocked": 5,
+          "passes_attempted": 134,
+          "passes_completed": 28,
+          "passes_intercepted": 105,
+          "pass_distance": 216.23201,
+          "dribbles": 91,
+          "dribble_distance": 187.60251,
+          "tackles_attempted": 30,
+          "tackles_won": 17,
+          "turnovers": 23,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 458.3836000529118,
+            "max_ms": 5.211299983784556,
+            "bucket_counts": [
+              6,
+              1091,
+              959,
+              244,
+              33,
+              51,
+              13,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        2,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 2.2060999763198197,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 5.206699977861717,
+          "slow_calls": [
+            {
+              "tick": 1643,
+              "wall_ms": 5.206699977861717,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750004-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750004,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        2,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 782.786,
+      "stats": [
+        {
+          "possession_ticks": 910,
+          "controlled_ticks": 373,
+          "territory_ticks": 1218,
+          "kicks": 186,
+          "shots": 0,
+          "shots_blocked": 1,
+          "passes_attempted": 31,
+          "passes_completed": 1,
+          "passes_intercepted": 25,
+          "pass_distance": 31.92384,
+          "dribbles": 21,
+          "dribble_distance": 78.75618,
+          "tackles_attempted": 23,
+          "tackles_won": 0,
+          "turnovers": 14,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 242.06240149214864,
+            "max_ms": 2.1118999866303056,
+            "bucket_counts": [
+              1855,
+              359,
+              6,
+              2,
+              114,
+              63,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1490,
+          "controlled_ticks": 916,
+          "territory_ticks": 1078,
+          "kicks": 311,
+          "shots": 11,
+          "shots_blocked": 0,
+          "passes_attempted": 135,
+          "passes_completed": 33,
+          "passes_intercepted": 100,
+          "pass_distance": 254.20714,
+          "dribbles": 104,
+          "dribble_distance": 176.46634,
+          "tackles_attempted": 27,
+          "tackles_won": 0,
+          "turnovers": 15,
+          "fouls": 1,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 470.6551004492212,
+            "max_ms": 4.342900007031858,
+            "bucket_counts": [
+              10,
+              1242,
+              818,
+              222,
+              15,
+              64,
+              27,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        2
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 2.1092999959364533,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.33960001100786,
+          "slow_calls": []
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750004-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750004,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        1,
+        1
+      ],
+      "outcome": "draw",
+      "goal_difference": 0,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1230.1143,
+      "stats": [
+        {
+          "possession_ticks": 810,
+          "controlled_ticks": 547,
+          "territory_ticks": 1814,
+          "kicks": 300,
+          "shots": 12,
+          "shots_blocked": 3,
+          "passes_attempted": 127,
+          "passes_completed": 1,
+          "passes_intercepted": 119,
+          "pass_distance": 30.125076,
+          "dribbles": 33,
+          "dribble_distance": 133.68413,
+          "tackles_attempted": 29,
+          "tackles_won": 2,
+          "turnovers": 21,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 648.2907001918647,
+            "max_ms": 7.1659999957773834,
+            "bucket_counts": [
+              540,
+              1055,
+              485,
+              22,
+              65,
+              162,
+              67,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1590,
+          "controlled_ticks": 1094,
+          "territory_ticks": 518,
+          "kicks": 349,
+          "shots": 3,
+          "shots_blocked": 12,
+          "passes_attempted": 183,
+          "passes_completed": 1,
+          "passes_intercepted": 178,
+          "pass_distance": 45.367752,
+          "dribbles": 83,
+          "dribble_distance": 134.8404,
+          "tackles_attempted": 49,
+          "tackles_won": 16,
+          "turnovers": 20,
+          "fouls": 3,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 435.49609900219366,
+            "max_ms": 4.984900006093085,
+            "bucket_counts": [
+              2,
+              278,
+              1817,
+              278,
+              18,
+              2,
+              2,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        1
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 7.156499981647357,
+          "slow_calls": [
+            {
+              "tick": 719,
+              "wall_ms": 7.156499981647357,
+              "cpu_ms": 0.0
+            }
+          ]
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.982499987818301,
+          "slow_calls": []
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750005-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750005,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1900.3432,
+      "stats": [
+        {
+          "possession_ticks": 304,
+          "controlled_ticks": 65,
+          "territory_ticks": 482,
+          "kicks": 37,
+          "shots": 1,
+          "shots_blocked": 5,
+          "passes_attempted": 11,
+          "passes_completed": 1,
+          "passes_intercepted": 5,
+          "pass_distance": 29.163465,
+          "dribbles": 14,
+          "dribble_distance": 63.988876,
+          "tackles_attempted": 5,
+          "tackles_won": 2,
+          "turnovers": 3,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 199.3379993364215,
+            "max_ms": 4.811999999219552,
+            "bucket_counts": [
+              1165,
+              882,
+              311,
+              9,
+              9,
+              18,
+              5,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 2096,
+          "controlled_ticks": 829,
+          "territory_ticks": 1866,
+          "kicks": 294,
+          "shots": 30,
+          "shots_blocked": 1,
+          "passes_attempted": 93,
+          "passes_completed": 90,
+          "passes_intercepted": 2,
+          "pass_distance": 606.3834,
+          "dribbles": 158,
+          "dribble_distance": 250.33347,
+          "tackles_attempted": 3,
+          "tackles_won": 0,
+          "turnovers": 3,
+          "fouls": 2,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1552.1645994158462,
+            "max_ms": 12.775100010912865,
+            "bucket_counts": [
+              0,
+              90,
+              864,
+              692,
+              440,
+              135,
+              127,
+              49,
+              3,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.807299992535263,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 12.767899985192344,
+          "slow_calls": [
+            {
+              "tick": 773,
+              "wall_ms": 5.931299994699657,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 778,
+              "wall_ms": 6.958000012673438,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 801,
+              "wall_ms": 5.61089999973774,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 817,
+              "wall_ms": 6.229800026630983,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 824,
+              "wall_ms": 5.627900012768805,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 829,
+              "wall_ms": 7.213200005935505,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 841,
+              "wall_ms": 8.85549999657087,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 847,
+              "wall_ms": 6.104799977038056,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 874,
+              "wall_ms": 12.767899985192344,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 970,
+              "wall_ms": 7.4760999996215105,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1017,
+              "wall_ms": 5.931199993938208,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1022,
+              "wall_ms": 5.79460000153631,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1190,
+              "wall_ms": 7.696099986787885,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1253,
+              "wall_ms": 5.267600005026907,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1279,
+              "wall_ms": 6.126000022049993,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1320,
+              "wall_ms": 7.6259000052232295,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1326,
+              "wall_ms": 5.647600017255172,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1463,
+              "wall_ms": 5.095000000437722,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1468,
+              "wall_ms": 6.733699992764741,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1533,
+              "wall_ms": 6.388299982063472,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1694,
+              "wall_ms": 5.108200013637543,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1769,
+              "wall_ms": 7.057699986035004,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1809,
+              "wall_ms": 5.893499997910112,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1828,
+              "wall_ms": 5.6628000165801495,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1985,
+              "wall_ms": 5.909800005611032,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2092,
+              "wall_ms": 5.627799982903525,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2123,
+              "wall_ms": 5.858699994860217,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2175,
+              "wall_ms": 7.663500000489876,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2334,
+              "wall_ms": 5.389400001149625,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2364,
+              "wall_ms": 6.337300001177937,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2368,
+              "wall_ms": 8.739800017792732,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750005-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750005,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1378.5720000000001,
+      "stats": [
+        {
+          "possession_ticks": 521,
+          "controlled_ticks": 303,
+          "territory_ticks": 987,
+          "kicks": 166,
+          "shots": 1,
+          "shots_blocked": 5,
+          "passes_attempted": 54,
+          "passes_completed": 2,
+          "passes_intercepted": 46,
+          "pass_distance": 72.28346,
+          "dribbles": 52,
+          "dribble_distance": 132.53125,
+          "tackles_attempted": 15,
+          "tackles_won": 6,
+          "turnovers": 13,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 408.8208005123306,
+            "max_ms": 6.996400014031678,
+            "bucket_counts": [
+              843,
+              970,
+              415,
+              21,
+              13,
+              115,
+              21,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1879,
+          "controlled_ticks": 862,
+          "territory_ticks": 1328,
+          "kicks": 275,
+          "shots": 13,
+          "shots_blocked": 1,
+          "passes_attempted": 103,
+          "passes_completed": 19,
+          "passes_intercepted": 83,
+          "pass_distance": 115.832214,
+          "dribbles": 111,
+          "dribble_distance": 231.47768,
+          "tackles_attempted": 26,
+          "tackles_won": 8,
+          "turnovers": 15,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 832.2705007449258,
+            "max_ms": 9.862600010819733,
+            "bucket_counts": [
+              0,
+              165,
+              1491,
+              485,
+              148,
+              47,
+              40,
+              23,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        2,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 6.984100007684901,
+          "slow_calls": [
+            {
+              "tick": 173,
+              "wall_ms": 5.635899986373261,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 268,
+              "wall_ms": 6.984100007684901,
+              "cpu_ms": 0.0
+            }
+          ]
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 9.856499993475154,
+          "slow_calls": [
+            {
+              "tick": 1038,
+              "wall_ms": 5.091200000606477,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1043,
+              "wall_ms": 5.304599995724857,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1067,
+              "wall_ms": 5.41670000529848,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1119,
+              "wall_ms": 6.889100011903793,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1138,
+              "wall_ms": 5.0672999932430685,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1150,
+              "wall_ms": 6.872699974337593,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1158,
+              "wall_ms": 5.791200004750863,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1635,
+              "wall_ms": 7.259600010002032,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1675,
+              "wall_ms": 7.3951999947894365,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1727,
+              "wall_ms": 7.958899979712442,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1732,
+              "wall_ms": 5.937799985986203,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1835,
+              "wall_ms": 5.133900005603209,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1841,
+              "wall_ms": 9.856499993475154,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2000,
+              "wall_ms": 5.309800006216392,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2382,
+              "wall_ms": 6.7476999829523265,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750005-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750005,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1426.9134000000001,
+      "stats": [
+        {
+          "possession_ticks": 406,
+          "controlled_ticks": 257,
+          "territory_ticks": 1142,
+          "kicks": 210,
+          "shots": 0,
+          "shots_blocked": 4,
+          "passes_attempted": 18,
+          "passes_completed": 4,
+          "passes_intercepted": 10,
+          "pass_distance": 73.92171,
+          "dribbles": 22,
+          "dribble_distance": 91.837265,
+          "tackles_attempted": 42,
+          "tackles_won": 35,
+          "turnovers": 37,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 435.6307997368276,
+            "max_ms": 6.517200003145263,
+            "bucket_counts": [
+              1059,
+              894,
+              243,
+              5,
+              66,
+              100,
+              27,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1994,
+          "controlled_ticks": 1161,
+          "territory_ticks": 1204,
+          "kicks": 318,
+          "shots": 15,
+          "shots_blocked": 0,
+          "passes_attempted": 124,
+          "passes_completed": 26,
+          "passes_intercepted": 71,
+          "pass_distance": 206.50705,
+          "dribbles": 153,
+          "dribble_distance": 220.37888,
+          "tackles_attempted": 11,
+          "tackles_won": 1,
+          "turnovers": 39,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 858.8506993255578,
+            "max_ms": 8.218899980420247,
+            "bucket_counts": [
+              1,
+              554,
+              1183,
+              399,
+              141,
+              51,
+              34,
+              35,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        1
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 6.504100019810721,
+          "slow_calls": [
+            {
+              "tick": 238,
+              "wall_ms": 5.5296999926213175,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 248,
+              "wall_ms": 5.833000002894551,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 273,
+              "wall_ms": 6.504100019810721,
+              "cpu_ms": 15.625
+            }
+          ]
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 8.212099986849353,
+          "slow_calls": [
+            {
+              "tick": 1242,
+              "wall_ms": 7.607500010635704,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1247,
+              "wall_ms": 6.106399989221245,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1252,
+              "wall_ms": 7.1545000246260315,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1257,
+              "wall_ms": 6.41239999094978,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1332,
+              "wall_ms": 5.350899999029934,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1337,
+              "wall_ms": 6.397799996193498,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1342,
+              "wall_ms": 7.201300002634525,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1347,
+              "wall_ms": 6.373400014126673,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1352,
+              "wall_ms": 7.439500011969358,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1357,
+              "wall_ms": 6.411599984858185,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1362,
+              "wall_ms": 7.216099998913705,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1367,
+              "wall_ms": 6.009100005030632,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1372,
+              "wall_ms": 6.5599000081419945,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1759,
+              "wall_ms": 5.524599982891232,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1830,
+              "wall_ms": 6.231800012756139,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1925,
+              "wall_ms": 5.556399992201477,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1956,
+              "wall_ms": 6.976399978157133,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1994,
+              "wall_ms": 6.4799000101629645,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2003,
+              "wall_ms": 6.510299979709089,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2180,
+              "wall_ms": 7.306199986487627,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2201,
+              "wall_ms": 8.064099994953722,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2225,
+              "wall_ms": 5.351200001314282,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2234,
+              "wall_ms": 5.721000023186207,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2239,
+              "wall_ms": 8.212099986849353,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750005-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750005,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        0
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1823.3721,
+      "stats": [
+        {
+          "possession_ticks": 369,
+          "controlled_ticks": 80,
+          "territory_ticks": 273,
+          "kicks": 48,
+          "shots": 2,
+          "shots_blocked": 3,
+          "passes_attempted": 18,
+          "passes_completed": 5,
+          "passes_intercepted": 8,
+          "pass_distance": 67.12037,
+          "dribbles": 20,
+          "dribble_distance": 95.861015,
+          "tackles_attempted": 2,
+          "tackles_won": 0,
+          "turnovers": 2,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 181.48969998583198,
+            "max_ms": 3.0935999820940197,
+            "bucket_counts": [
+              1280,
+              812,
+              241,
+              32,
+              17,
+              16,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 2031,
+          "controlled_ticks": 576,
+          "territory_ticks": 2046,
+          "kicks": 233,
+          "shots": 35,
+          "shots_blocked": 1,
+          "passes_attempted": 89,
+          "passes_completed": 78,
+          "passes_intercepted": 10,
+          "pass_distance": 543.9753,
+          "dribbles": 113,
+          "dribble_distance": 249.2819,
+          "tackles_attempted": 2,
+          "tackles_won": 0,
+          "turnovers": 3,
+          "fouls": 2,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1513.005899701966,
+            "max_ms": 9.772799996426329,
+            "bucket_counts": [
+              0,
+              47,
+              943,
+              735,
+              391,
+              124,
+              103,
+              53,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        2
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 3.0904999875929207,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 9.763300011400133,
+          "slow_calls": [
+            {
+              "tick": 253,
+              "wall_ms": 5.6761000014375895,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 288,
+              "wall_ms": 5.722400004742667,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 395,
+              "wall_ms": 5.562299978919327,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 401,
+              "wall_ms": 8.019400003831834,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 408,
+              "wall_ms": 5.173499986995012,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 417,
+              "wall_ms": 6.206899997778237,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 422,
+              "wall_ms": 6.424400024116039,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 431,
+              "wall_ms": 5.879100004676729,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 486,
+              "wall_ms": 5.106000025989488,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 524,
+              "wall_ms": 8.354999998118728,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 653,
+              "wall_ms": 5.355900007998571,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 662,
+              "wall_ms": 5.2035000117029995,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 667,
+              "wall_ms": 6.992000009631738,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 942,
+              "wall_ms": 6.0372000152710825,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 976,
+              "wall_ms": 5.380699993111193,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1032,
+              "wall_ms": 5.0051999860443175,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1046,
+              "wall_ms": 5.595399998128414,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1176,
+              "wall_ms": 7.324899983359501,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1254,
+              "wall_ms": 5.079399998066947,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1387,
+              "wall_ms": 8.743699989281595,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1392,
+              "wall_ms": 9.763300011400133,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1411,
+              "wall_ms": 5.488299997523427,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1446,
+              "wall_ms": 7.03180002165027,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1500,
+              "wall_ms": 7.044500001939014,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1510,
+              "wall_ms": 6.809299986343831,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1515,
+              "wall_ms": 7.226299989270046,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1523,
+              "wall_ms": 6.831500009866431,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1846,
+              "wall_ms": 7.348000013735145,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1919,
+              "wall_ms": 7.5215000251773745,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750006-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750006,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        0,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": -1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1227.0557,
+      "stats": [
+        {
+          "possession_ticks": 665,
+          "controlled_ticks": 310,
+          "territory_ticks": 916,
+          "kicks": 197,
+          "shots": 9,
+          "shots_blocked": 8,
+          "passes_attempted": 103,
+          "passes_completed": 1,
+          "passes_intercepted": 95,
+          "pass_distance": 1.4775128,
+          "dribbles": 38,
+          "dribble_distance": 111.55646,
+          "tackles_attempted": 21,
+          "tackles_won": 2,
+          "turnovers": 14,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 432.54730076296255,
+            "max_ms": 4.373399977339432,
+            "bucket_counts": [
+              745,
+              959,
+              516,
+              16,
+              46,
+              84,
+              33,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1735,
+          "controlled_ticks": 1056,
+          "territory_ticks": 1436,
+          "kicks": 308,
+          "shots": 23,
+          "shots_blocked": 7,
+          "passes_attempted": 141,
+          "passes_completed": 3,
+          "passes_intercepted": 133,
+          "pass_distance": 89.03664,
+          "dribbles": 133,
+          "dribble_distance": 233.56226,
+          "tackles_attempted": 31,
+          "tackles_won": 6,
+          "turnovers": 13,
+          "fouls": 2,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 665.6632997910492,
+            "max_ms": 7.416299980832264,
+            "bucket_counts": [
+              11,
+              702,
+              1263,
+              353,
+              5,
+              1,
+              40,
+              25,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        1
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.370199982076883,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 7.410900027025491,
+          "slow_calls": [
+            {
+              "tick": 415,
+              "wall_ms": 7.076300011249259,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 430,
+              "wall_ms": 7.091600011335686,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 625,
+              "wall_ms": 7.2364000079687685,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 630,
+              "wall_ms": 7.410900027025491,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 635,
+              "wall_ms": 7.3502000013832,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 640,
+              "wall_ms": 7.070099993143231,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 645,
+              "wall_ms": 5.015400005504489,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 712,
+              "wall_ms": 7.202499982668087,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 817,
+              "wall_ms": 6.059100007405505,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 822,
+              "wall_ms": 5.259400000795722,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1439,
+              "wall_ms": 6.322700006421655,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1444,
+              "wall_ms": 7.205999980214983,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1565,
+              "wall_ms": 5.834000010509044,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1575,
+              "wall_ms": 5.47750000259839,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1580,
+              "wall_ms": 7.13240000186488,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1590,
+              "wall_ms": 7.2527999873273075,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1595,
+              "wall_ms": 7.052100001601502,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750006-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750006,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1350.3366999999998,
+      "stats": [
+        {
+          "possession_ticks": 453,
+          "controlled_ticks": 334,
+          "territory_ticks": 920,
+          "kicks": 174,
+          "shots": 0,
+          "shots_blocked": 5,
+          "passes_attempted": 68,
+          "passes_completed": 1,
+          "passes_intercepted": 63,
+          "pass_distance": 32.914577,
+          "dribbles": 52,
+          "dribble_distance": 81.205536,
+          "tackles_attempted": 22,
+          "tackles_won": 9,
+          "turnovers": 20,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 361.26579975825734,
+            "max_ms": 4.907199996523559,
+            "bucket_counts": [
+              1104,
+              808,
+              328,
+              9,
+              62,
+              65,
+              20,
+              4,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1947,
+          "controlled_ticks": 998,
+          "territory_ticks": 1426,
+          "kicks": 319,
+          "shots": 15,
+          "shots_blocked": 0,
+          "passes_attempted": 113,
+          "passes_completed": 19,
+          "passes_intercepted": 93,
+          "pass_distance": 117.21857,
+          "dribbles": 140,
+          "dribble_distance": 235.62968,
+          "tackles_attempted": 30,
+          "tackles_won": 14,
+          "turnovers": 21,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 866.3998997653835,
+            "max_ms": 7.646699988981709,
+            "bucket_counts": [
+              0,
+              654,
+              1199,
+              361,
+              57,
+              46,
+              37,
+              46,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.900900006759912,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 7.641800009878352,
+          "slow_calls": [
+            {
+              "tick": 1072,
+              "wall_ms": 5.858999997144565,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1077,
+              "wall_ms": 7.243400003062561,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1101,
+              "wall_ms": 6.989199988311157,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1143,
+              "wall_ms": 5.1235000137239695,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1275,
+              "wall_ms": 6.77979999454692,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1280,
+              "wall_ms": 6.32789998780936,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1285,
+              "wall_ms": 6.328099989332259,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1290,
+              "wall_ms": 5.127199983689934,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1295,
+              "wall_ms": 6.1341999971773475,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1300,
+              "wall_ms": 5.612500011920929,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1305,
+              "wall_ms": 7.357299997238442,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1310,
+              "wall_ms": 6.445799983339384,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1315,
+              "wall_ms": 7.3247000109404325,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1320,
+              "wall_ms": 5.175700003746897,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1335,
+              "wall_ms": 5.68339999881573,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1340,
+              "wall_ms": 7.3151999968104064,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1345,
+              "wall_ms": 7.3757000209297985,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1350,
+              "wall_ms": 7.326099992496893,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1414,
+              "wall_ms": 6.2556000193580985,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1419,
+              "wall_ms": 7.232900010421872,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1503,
+              "wall_ms": 5.388799996580929,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1508,
+              "wall_ms": 6.265100004384294,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1513,
+              "wall_ms": 5.114100000355393,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1523,
+              "wall_ms": 5.562999984249473,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1528,
+              "wall_ms": 7.1625999989919364,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1533,
+              "wall_ms": 5.665800010319799,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1610,
+              "wall_ms": 5.5438999843318015,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1615,
+              "wall_ms": 7.45390000520274,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1620,
+              "wall_ms": 7.240299979457632,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1663,
+              "wall_ms": 5.082200019387528,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1682,
+              "wall_ms": 7.060200005071238,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1697,
+              "wall_ms": 7.111999992048368,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2169,
+              "wall_ms": 6.03310001315549,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2297,
+              "wall_ms": 7.641800009878352,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2371,
+              "wall_ms": 7.40810000570491,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750006-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750006,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        0
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 3,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1986.3797000000002,
+      "stats": [
+        {
+          "possession_ticks": 427,
+          "controlled_ticks": 66,
+          "territory_ticks": 388,
+          "kicks": 57,
+          "shots": 2,
+          "shots_blocked": 6,
+          "passes_attempted": 31,
+          "passes_completed": 1,
+          "passes_intercepted": 19,
+          "pass_distance": 0.78942895,
+          "dribbles": 20,
+          "dribble_distance": 115.619354,
+          "tackles_attempted": 7,
+          "tackles_won": 1,
+          "turnovers": 3,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 251.65679978090338,
+            "max_ms": 9.716600005049258,
+            "bucket_counts": [
+              859,
+              925,
+              543,
+              31,
+              18,
+              18,
+              5,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1973,
+          "controlled_ticks": 599,
+          "territory_ticks": 1905,
+          "kicks": 212,
+          "shots": 25,
+          "shots_blocked": 1,
+          "passes_attempted": 65,
+          "passes_completed": 58,
+          "passes_intercepted": 7,
+          "pass_distance": 372.58472,
+          "dribbles": 103,
+          "dribble_distance": 210.9781,
+          "tackles_attempted": 2,
+          "tackles_won": 0,
+          "turnovers": 5,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 1,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1581.9987999566365,
+            "max_ms": 124.89560001995414,
+            "bucket_counts": [
+              5,
+              94,
+              799,
+              796,
+              436,
+              136,
+              80,
+              53,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        3
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 9.708300000056624,
+          "slow_calls": [
+            {
+              "tick": 2276,
+              "wall_ms": 9.708300000056624,
+              "cpu_ms": 0.0
+            }
+          ]
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 7.700100017245859,
+          "slow_calls": [
+            {
+              "tick": 461,
+              "wall_ms": 5.251399998087436,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 479,
+              "wall_ms": 5.003900005249307,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 492,
+              "wall_ms": 5.28940002550371,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 497,
+              "wall_ms": 5.171800003154203,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 503,
+              "wall_ms": 7.506599999032915,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 670,
+              "wall_ms": 5.317600007401779,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 679,
+              "wall_ms": 5.5893000098876655,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 686,
+              "wall_ms": 5.190500000026077,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 718,
+              "wall_ms": 6.958600017242134,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 739,
+              "wall_ms": 7.250700000440702,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1203,
+              "wall_ms": 6.004599999869242,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1245,
+              "wall_ms": 5.775600002380088,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1255,
+              "wall_ms": 7.331800006795675,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1260,
+              "wall_ms": 5.882700002985075,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1266,
+              "wall_ms": 6.012800004100427,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1414,
+              "wall_ms": 7.700100017245859,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1429,
+              "wall_ms": 7.445299997925758,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1500,
+              "wall_ms": 7.449700002325699,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1505,
+              "wall_ms": 5.774099990958348,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1542,
+              "wall_ms": 6.601000000955537,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1588,
+              "wall_ms": 5.989099998259917,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1603,
+              "wall_ms": 6.242200004635379,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1643,
+              "wall_ms": 5.600600008619949,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1674,
+              "wall_ms": 7.153499987907708,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1784,
+              "wall_ms": 5.316499999025837,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1859,
+              "wall_ms": 5.1518999971449375,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1869,
+              "wall_ms": 5.901700002141297,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1873,
+              "wall_ms": 6.243100011488423,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2291,
+              "wall_ms": 5.290100001730025,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2302,
+              "wall_ms": 7.63469998491928,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2338,
+              "wall_ms": 5.559399985941127,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2353,
+              "wall_ms": 6.266399985179305,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750006-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750006,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        0
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1678.6707000000001,
+      "stats": [
+        {
+          "possession_ticks": 588,
+          "controlled_ticks": 50,
+          "territory_ticks": 393,
+          "kicks": 45,
+          "shots": 0,
+          "shots_blocked": 6,
+          "passes_attempted": 20,
+          "passes_completed": 2,
+          "passes_intercepted": 10,
+          "pass_distance": 29.20873,
+          "dribbles": 20,
+          "dribble_distance": 153.70671,
+          "tackles_attempted": 6,
+          "tackles_won": 0,
+          "turnovers": 2,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 202.0036996982526,
+            "max_ms": 3.056399989873171,
+            "bucket_counts": [
+              1149,
+              738,
+              466,
+              17,
+              11,
+              18,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1812,
+          "controlled_ticks": 665,
+          "territory_ticks": 1928,
+          "kicks": 214,
+          "shots": 29,
+          "shots_blocked": 0,
+          "passes_attempted": 54,
+          "passes_completed": 49,
+          "passes_intercepted": 4,
+          "pass_distance": 355.6727,
+          "dribbles": 127,
+          "dribble_distance": 233.61667,
+          "tackles_attempted": 1,
+          "tackles_won": 0,
+          "turnovers": 4,
+          "fouls": 1,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1342.0574989868328,
+            "max_ms": 8.826600009342656,
+            "bucket_counts": [
+              5,
+              124,
+              1026,
+              649,
+              362,
+              113,
+              74,
+              45,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        0,
+        2
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 3.0531999946106225,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 8.820499991998076,
+          "slow_calls": [
+            {
+              "tick": 221,
+              "wall_ms": 7.3985999915748835,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 231,
+              "wall_ms": 7.21840001642704,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 246,
+              "wall_ms": 6.203800003277138,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 265,
+              "wall_ms": 6.724000006215647,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 270,
+              "wall_ms": 7.1462000196333975,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 299,
+              "wall_ms": 7.144400005927309,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 371,
+              "wall_ms": 7.090400002198294,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 376,
+              "wall_ms": 7.261899998411536,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 381,
+              "wall_ms": 7.355400011874735,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 386,
+              "wall_ms": 5.604100006166846,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 391,
+              "wall_ms": 7.124800002202392,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 396,
+              "wall_ms": 7.153800019295886,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 401,
+              "wall_ms": 7.413799990899861,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 406,
+              "wall_ms": 7.134299987228587,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 411,
+              "wall_ms": 7.48359999852255,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 848,
+              "wall_ms": 8.415199990849942,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 954,
+              "wall_ms": 5.388999998103827,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1053,
+              "wall_ms": 5.81380000221543,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1311,
+              "wall_ms": 5.231999995885417,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1374,
+              "wall_ms": 7.232200005091727,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1423,
+              "wall_ms": 5.092399980640039,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1439,
+              "wall_ms": 6.398600002285093,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1491,
+              "wall_ms": 6.311200006166473,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1502,
+              "wall_ms": 5.076400004327297,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1507,
+              "wall_ms": 5.251399998087436,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1519,
+              "wall_ms": 5.9665000007953495,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1650,
+              "wall_ms": 6.754500005627051,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1691,
+              "wall_ms": 6.073900003684685,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1765,
+              "wall_ms": 5.438099993625656,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1778,
+              "wall_ms": 7.71480001276359,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1783,
+              "wall_ms": 5.499599996255711,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2020,
+              "wall_ms": 7.243900006869808,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2095,
+              "wall_ms": 8.820499991998076,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750007-s0-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750007,
+      "sides_swapped": false,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 3,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 2026.1562999999999,
+      "stats": [
+        {
+          "possession_ticks": 588,
+          "controlled_ticks": 52,
+          "territory_ticks": 317,
+          "kicks": 35,
+          "shots": 1,
+          "shots_blocked": 5,
+          "passes_attempted": 10,
+          "passes_completed": 2,
+          "passes_intercepted": 2,
+          "pass_distance": 31.770758,
+          "dribbles": 21,
+          "dribble_distance": 109.36871,
+          "tackles_attempted": 0,
+          "tackles_won": 0,
+          "turnovers": 2,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 202.78670045081526,
+            "max_ms": 2.200800023274496,
+            "bucket_counts": [
+              990,
+              956,
+              417,
+              12,
+              5,
+              18,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1812,
+          "controlled_ticks": 620,
+          "territory_ticks": 1982,
+          "kicks": 230,
+          "shots": 26,
+          "shots_blocked": 0,
+          "passes_attempted": 77,
+          "passes_completed": 76,
+          "passes_intercepted": 0,
+          "pass_distance": 533.9586,
+          "dribbles": 124,
+          "dribble_distance": 227.9338,
+          "tackles_attempted": 2,
+          "tackles_won": 0,
+          "turnovers": 4,
+          "fouls": 1,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1682.3970991536044,
+            "max_ms": 16.02650000131689,
+            "bucket_counts": [
+              0,
+              65,
+              681,
+              839,
+              491,
+              147,
+              114,
+              55,
+              7,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        3,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 2.195000008214265,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 16.021199990063906,
+          "slow_calls": [
+            {
+              "tick": 235,
+              "wall_ms": 16.021199990063906,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 269,
+              "wall_ms": 7.275100011611357,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 274,
+              "wall_ms": 6.098500016378239,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 309,
+              "wall_ms": 9.87639999948442,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 322,
+              "wall_ms": 6.8651000037789345,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 404,
+              "wall_ms": 6.279900000663474,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 409,
+              "wall_ms": 6.0603999882005155,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 418,
+              "wall_ms": 5.120899993926287,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 479,
+              "wall_ms": 6.755799986422062,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 517,
+              "wall_ms": 6.160299992188811,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 558,
+              "wall_ms": 5.479599989484996,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 805,
+              "wall_ms": 9.11479999194853,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 818,
+              "wall_ms": 5.119599984027445,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 828,
+              "wall_ms": 8.354200021130964,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 864,
+              "wall_ms": 5.0360000168439,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1001,
+              "wall_ms": 5.179900006623939,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1122,
+              "wall_ms": 7.134600018616766,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1128,
+              "wall_ms": 6.125099986093119,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1165,
+              "wall_ms": 5.109800025820732,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1190,
+              "wall_ms": 6.440700002713129,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1281,
+              "wall_ms": 9.563100000377744,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1286,
+              "wall_ms": 6.7273000022396445,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1405,
+              "wall_ms": 5.925900011789054,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1436,
+              "wall_ms": 6.432099995436147,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1441,
+              "wall_ms": 7.3133000114466995,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1449,
+              "wall_ms": 6.5842999902088195,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1454,
+              "wall_ms": 5.076400004327297,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1459,
+              "wall_ms": 6.758100003935397,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1505,
+              "wall_ms": 8.303200011141598,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1518,
+              "wall_ms": 6.914500001585111,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1862,
+              "wall_ms": 7.853500021155924,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1864,
+              "wall_ms": 9.709499980090186,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1912,
+              "wall_ms": 5.852699978277087,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1953,
+              "wall_ms": 5.031999986385927,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2304,
+              "wall_ms": 7.342299999436364,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2369,
+              "wall_ms": 8.570700010750443,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2374,
+              "wall_ms": 5.0054999883286655,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2379,
+              "wall_ms": 5.027899984270334,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2393,
+              "wall_ms": 5.822000006446615,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    },
+    {
+      "match_id": "r2-timing-v51-750007-s0-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "MONSTER",
+        "TITAN Adaptive Counter"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750007,
+      "sides_swapped": false,
+      "kickoff_team": 1,
+      "score": [
+        1,
+        0
+      ],
+      "outcome": "team_a_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1636.2662,
+      "stats": [
+        {
+          "possession_ticks": 505,
+          "controlled_ticks": 289,
+          "territory_ticks": 883,
+          "kicks": 154,
+          "shots": 3,
+          "shots_blocked": 5,
+          "passes_attempted": 50,
+          "passes_completed": 2,
+          "passes_intercepted": 44,
+          "pass_distance": 32.12255,
+          "dribbles": 47,
+          "dribble_distance": 70.70703,
+          "tackles_attempted": 13,
+          "tackles_won": 9,
+          "turnovers": 18,
+          "fouls": 0,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 372.6113007287495,
+            "max_ms": 4.418299999088049,
+            "bucket_counts": [
+              1081,
+              889,
+              276,
+              6,
+              63,
+              48,
+              31,
+              6,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1895,
+          "controlled_ticks": 989,
+          "territory_ticks": 1463,
+          "kicks": 330,
+          "shots": 23,
+          "shots_blocked": 3,
+          "passes_attempted": 131,
+          "passes_completed": 46,
+          "passes_intercepted": 84,
+          "pass_distance": 306.08722,
+          "dribbles": 132,
+          "dribble_distance": 206.6296,
+          "tackles_attempted": 24,
+          "tackles_won": 14,
+          "turnovers": 19,
+          "fouls": 0,
+          "goals": 0,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1132.5684002949856,
+            "max_ms": 8.104000007733703,
+            "bucket_counts": [
+              0,
+              251,
+              1193,
+              536,
+              197,
+              103,
+              80,
+              39,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        0
+      ],
+      "candidate_side": 0,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 4.4126999855507165,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 8.101100014755502,
+          "slow_calls": [
+            {
+              "tick": 233,
+              "wall_ms": 5.272800015518442,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1311,
+              "wall_ms": 8.101100014755502,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1435,
+              "wall_ms": 5.985200026771054,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1448,
+              "wall_ms": 7.383900025160983,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1593,
+              "wall_ms": 7.238799997139722,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1646,
+              "wall_ms": 5.413899983977899,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1894,
+              "wall_ms": 6.716000003507361,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1904,
+              "wall_ms": 7.874300004914403,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1922,
+              "wall_ms": 5.872200010344386,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2077,
+              "wall_ms": 6.488400016678497,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2088,
+              "wall_ms": 5.914799985475838,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2138,
+              "wall_ms": 7.386899989796802,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2143,
+              "wall_ms": 6.016100000124425,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2188,
+              "wall_ms": 5.481099971802905,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2198,
+              "wall_ms": 5.038700008299202,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2204,
+              "wall_ms": 6.2997999775689095,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2241,
+              "wall_ms": 5.067499994765967,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2254,
+              "wall_ms": 7.485600013751537,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2266,
+              "wall_ms": 5.688000004738569,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2357,
+              "wall_ms": 5.406800017226487,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2390,
+              "wall_ms": 5.98570000147447,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750007-s1-k0",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750007,
+      "sides_swapped": true,
+      "kickoff_team": 0,
+      "score": [
+        3,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 2,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1771.8783999999998,
+      "stats": [
+        {
+          "possession_ticks": 569,
+          "controlled_ticks": 101,
+          "territory_ticks": 372,
+          "kicks": 57,
+          "shots": 1,
+          "shots_blocked": 2,
+          "passes_attempted": 21,
+          "passes_completed": 2,
+          "passes_intercepted": 11,
+          "pass_distance": 60.318676,
+          "dribbles": 32,
+          "dribble_distance": 167.31094,
+          "tackles_attempted": 7,
+          "tackles_won": 0,
+          "turnovers": 2,
+          "fouls": 0,
+          "goals": 3,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 207.40990052581765,
+            "max_ms": 2.9426999972201884,
+            "bucket_counts": [
+              1183,
+              793,
+              375,
+              10,
+              13,
+              21,
+              5,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1831,
+          "controlled_ticks": 664,
+          "territory_ticks": 1903,
+          "kicks": 236,
+          "shots": 32,
+          "shots_blocked": 0,
+          "passes_attempted": 60,
+          "passes_completed": 59,
+          "passes_intercepted": 1,
+          "pass_distance": 389.52637,
+          "dribbles": 133,
+          "dribble_distance": 222.6935,
+          "tackles_attempted": 4,
+          "tackles_won": 1,
+          "turnovers": 4,
+          "fouls": 1,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1434.2763996392023,
+            "max_ms": 10.330199991585687,
+            "bucket_counts": [
+              0,
+              137,
+              912,
+              798,
+              262,
+              125,
+              107,
+              57,
+              2,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        3
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 2.940100006526336,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 10.321899986593053,
+          "slow_calls": [
+            {
+              "tick": 229,
+              "wall_ms": 7.097499998053536,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 771,
+              "wall_ms": 7.273700000951067,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 826,
+              "wall_ms": 10.321899986593053,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 896,
+              "wall_ms": 6.003799993777648,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 972,
+              "wall_ms": 5.016399984015152,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1057,
+              "wall_ms": 5.947500001639128,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1129,
+              "wall_ms": 5.684200004907325,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1256,
+              "wall_ms": 5.202500004088506,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1534,
+              "wall_ms": 6.842099974164739,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1576,
+              "wall_ms": 5.816499993670732,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1591,
+              "wall_ms": 5.943600001046434,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1596,
+              "wall_ms": 6.348199996864423,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1604,
+              "wall_ms": 5.566199979512021,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1609,
+              "wall_ms": 5.971300008241087,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1623,
+              "wall_ms": 6.668500020168722,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1696,
+              "wall_ms": 8.385299996007234,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1705,
+              "wall_ms": 6.256300024688244,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1726,
+              "wall_ms": 5.418799992185086,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1749,
+              "wall_ms": 6.3627999916207045,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1762,
+              "wall_ms": 7.347300008405,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1826,
+              "wall_ms": 5.861999990884215,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1843,
+              "wall_ms": 5.663700023433194,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1861,
+              "wall_ms": 5.491999996593222,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1986,
+              "wall_ms": 5.18420001026243,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2001,
+              "wall_ms": 5.136299994774163,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2091,
+              "wall_ms": 7.554200012236834,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2112,
+              "wall_ms": 5.241700011538342,
+              "cpu_ms": 15.625
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": false
+    },
+    {
+      "match_id": "r2-timing-v51-750007-s1-k1",
+      "engine_version": "0.1.0",
+      "config_hash": "372990895c7eca2a",
+      "team_ids": [
+        "TITAN Adaptive Counter",
+        "MONSTER"
+      ],
+      "team_versions": [
+        "1",
+        "1"
+      ],
+      "seed": 750007,
+      "sides_swapped": true,
+      "kickoff_team": 1,
+      "score": [
+        2,
+        1
+      ],
+      "outcome": "team_b_win",
+      "goal_difference": 1,
+      "terminal_reason": "time_limit",
+      "ticks": 2400,
+      "wall_time_ms": 1660.9243000000001,
+      "stats": [
+        {
+          "possession_ticks": 538,
+          "controlled_ticks": 75,
+          "territory_ticks": 557,
+          "kicks": 45,
+          "shots": 2,
+          "shots_blocked": 4,
+          "passes_attempted": 20,
+          "passes_completed": 2,
+          "passes_intercepted": 11,
+          "pass_distance": 43.349907,
+          "dribbles": 22,
+          "dribble_distance": 121.23522,
+          "tackles_attempted": 7,
+          "tackles_won": 0,
+          "turnovers": 4,
+          "fouls": 0,
+          "goals": 2,
+          "own_goals": 1,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 176.8583992961794,
+            "max_ms": 1.8001999997068197,
+            "bucket_counts": [
+              1002,
+              1132,
+              217,
+              18,
+              20,
+              11,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "possession_ticks": 1862,
+          "controlled_ticks": 881,
+          "territory_ticks": 1749,
+          "kicks": 255,
+          "shots": 25,
+          "shots_blocked": 1,
+          "passes_attempted": 49,
+          "passes_completed": 46,
+          "passes_intercepted": 3,
+          "pass_distance": 307.4166,
+          "dribbles": 177,
+          "dribble_distance": 311.99515,
+          "tackles_attempted": 1,
+          "tackles_won": 0,
+          "turnovers": 4,
+          "fouls": 2,
+          "goals": 1,
+          "own_goals": 0,
+          "policy_errors": 0,
+          "policy_timeouts": 0,
+          "validation": {
+            "missing_actions": 0,
+            "non_finite_values": 0,
+            "clamped_values": 0,
+            "rejected_kicks": 0,
+            "invalid_player_ids": 0,
+            "dropped_debug_payloads": 0
+          },
+          "decision_time_ms": {
+            "count": 2400,
+            "total_ms": 1356.83799997787,
+            "max_ms": 8.5442999843508,
+            "bucket_counts": [
+              4,
+              466,
+              978,
+              443,
+              276,
+              80,
+              73,
+              79,
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "replay_path": null,
+      "platform_error": null,
+      "absolute_score": [
+        1,
+        2
+      ],
+      "candidate_side": 1,
+      "cpu_timing": [
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 1.7971000052057207,
+          "slow_calls": []
+        },
+        {
+          "decisions": 2400,
+          "max_cpu_ms": 15.625,
+          "max_wall_ms": 8.538699999917299,
+          "slow_calls": [
+            {
+              "tick": 485,
+              "wall_ms": 5.107500008307397,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 545,
+              "wall_ms": 6.042399996658787,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 563,
+              "wall_ms": 6.14869999117218,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 568,
+              "wall_ms": 7.173499994678423,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 573,
+              "wall_ms": 7.201700005680323,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 578,
+              "wall_ms": 7.308000000193715,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 583,
+              "wall_ms": 7.133100007195026,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 593,
+              "wall_ms": 7.204499997897074,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 598,
+              "wall_ms": 6.264399999054149,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 603,
+              "wall_ms": 7.212600001366809,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 608,
+              "wall_ms": 6.10719999531284,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 613,
+              "wall_ms": 7.1669000026304275,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 618,
+              "wall_ms": 7.420000009005889,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 623,
+              "wall_ms": 5.997400003252551,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 628,
+              "wall_ms": 5.59009998687543,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 765,
+              "wall_ms": 7.176800019806251,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 770,
+              "wall_ms": 7.0869000046513975,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1114,
+              "wall_ms": 5.164300004253164,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1147,
+              "wall_ms": 5.018700001528487,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1188,
+              "wall_ms": 6.6152000217698514,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1202,
+              "wall_ms": 5.645199998980388,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1240,
+              "wall_ms": 5.620700016152114,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1253,
+              "wall_ms": 6.908100011060014,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1278,
+              "wall_ms": 5.2174000011291355,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1291,
+              "wall_ms": 6.235199980437756,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1296,
+              "wall_ms": 5.533299990929663,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1310,
+              "wall_ms": 7.201100001111627,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1320,
+              "wall_ms": 5.1411000022199005,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1344,
+              "wall_ms": 7.195899990620092,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1349,
+              "wall_ms": 5.105699994601309,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1360,
+              "wall_ms": 6.816999986767769,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1372,
+              "wall_ms": 7.3379999957978725,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1377,
+              "wall_ms": 5.967500008409843,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1387,
+              "wall_ms": 5.169800017029047,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1449,
+              "wall_ms": 5.175099999178201,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1461,
+              "wall_ms": 5.955599976005033,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1466,
+              "wall_ms": 5.32789999851957,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1764,
+              "wall_ms": 5.130999983521178,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1780,
+              "wall_ms": 7.401299983030185,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1810,
+              "wall_ms": 7.140000001527369,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 1823,
+              "wall_ms": 6.143400009023026,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1873,
+              "wall_ms": 5.640599993057549,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 1891,
+              "wall_ms": 5.096300010336563,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2211,
+              "wall_ms": 7.645200006663799,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2216,
+              "wall_ms": 7.28499999968335,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2221,
+              "wall_ms": 6.904099980602041,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2226,
+              "wall_ms": 6.241099996259436,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2231,
+              "wall_ms": 5.409000004874542,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2263,
+              "wall_ms": 7.522900006733835,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2274,
+              "wall_ms": 5.3909999842289835,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2309,
+              "wall_ms": 5.918799986829981,
+              "cpu_ms": 0.0
+            },
+            {
+              "tick": 2331,
+              "wall_ms": 8.538699999917299,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2340,
+              "wall_ms": 6.21829999727197,
+              "cpu_ms": 15.625
+            },
+            {
+              "tick": 2373,
+              "wall_ms": 7.6182000047992915,
+              "cpu_ms": 0.0
+            }
+          ]
+        }
+      ],
+      "candidate_kickoff": true
+    }
+  ]
+}
