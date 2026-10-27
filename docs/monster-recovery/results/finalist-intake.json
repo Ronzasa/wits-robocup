@@ -1,0 +1,18 @@
+{
+  "ok": true,
+  "controller": "MONSTER Recovery (TITAN foundation) vrecovery-keeper-1.0 (AdaptiveChampion)",
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "matches played": 5,
+    "decisions": 2000,
+    "mean decision (ms)": "0.167",
+    "slowest decision (ms)": "5.931",
+    "deadline (ms)": "20.0",
+    "exceptions": 0,
+    "over deadline": 0,
+    "missing player actions": 0,
+    "non-finite values": 0,
+    "formation": "custom (5 spots)"
+  }
+}

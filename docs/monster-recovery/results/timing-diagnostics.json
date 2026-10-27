@@ -1,0 +1,1006 @@
+{
+  "scope": "two posthoc diagnostic repeats, not qualification; original27.5908ms failure retained",
+  "harness_sha256": "d2718cc91b386c96ee6e8763d73795f88d4e40f8ff56c388b5aa142393a9275b",
+  "reruns": [
+    {
+      "profiled": false,
+      "selected": {
+        "before": {
+          "tick": 1777,
+          "score": [
+            4,
+            0
+          ],
+          "ball": {
+            "position": [
+              22.499210357666016,
+              -1.5774730443954468
+            ],
+            "velocity": [
+              13.556042671203613,
+              5.65064811706543
+            ],
+            "last_touch": 2,
+            "controlling_team": 0
+          },
+          "players": [
+            {
+              "id": 0,
+              "position": [
+                -47.79999542236328,
+                -0.1125202551484108
+              ],
+              "velocity": [
+                -2.2888181774760596e-05,
+                0.3264574408531189
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 1,
+              "position": [
+                9.827455520629883,
+                -3.8997416496276855
+              ],
+              "velocity": [
+                7.557404041290283,
+                1.370168924331665
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 2,
+              "position": [
+                21.091934204101562,
+                -1.2280831336975098
+              ],
+              "velocity": [
+                7.094209671020508,
+                -3.697591781616211
+              ],
+              "cooldown": 0,
+              "can_kick": true
+            },
+            {
+              "id": 3,
+              "position": [
+                29.34325408935547,
+                -14.527179718017578
+              ],
+              "velocity": [
+                -0.19594883918762207,
+                6.373477935791016
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 4,
+              "position": [
+                36.04814910888672,
+                -16.652931213378906
+              ],
+              "velocity": [
+                0.6874117255210876,
+                7.17033052444458
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            }
+          ],
+          "controller": {
+            "wrapper": {
+              "_active": false,
+              "_wall_confirmed": false,
+              "_wall_ticks": 0,
+              "_ready": null,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": null,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            },
+            "fallback": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": true,
+              "_last_score": [
+                4,
+                0
+              ],
+              "_receive_plan": [
+                2,
+                3,
+                1799
+              ],
+              "_receive_aim": [
+                2,
+                [
+                  22.768787384033203,
+                  -2.1020798683166504
+                ]
+              ],
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": 2,
+              "_x_rush": false,
+              "_x_power_state": "idle",
+              "runtime_path_samples": 81,
+              "siege_obs_tick": null
+            },
+            "specialist": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": false,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": -1,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            }
+          }
+        },
+        "after": {
+          "tick": 1777,
+          "score": [
+            4,
+            0
+          ],
+          "ball": {
+            "position": [
+              22.499210357666016,
+              -1.5774730443954468
+            ],
+            "velocity": [
+              13.556042671203613,
+              5.65064811706543
+            ],
+            "last_touch": 2,
+            "controlling_team": 0
+          },
+          "players": [
+            {
+              "id": 0,
+              "position": [
+                -47.79999542236328,
+                -0.1125202551484108
+              ],
+              "velocity": [
+                -2.2888181774760596e-05,
+                0.3264574408531189
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 1,
+              "position": [
+                9.827455520629883,
+                -3.8997416496276855
+              ],
+              "velocity": [
+                7.557404041290283,
+                1.370168924331665
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 2,
+              "position": [
+                21.091934204101562,
+                -1.2280831336975098
+              ],
+              "velocity": [
+                7.094209671020508,
+                -3.697591781616211
+              ],
+              "cooldown": 0,
+              "can_kick": true
+            },
+            {
+              "id": 3,
+              "position": [
+                29.34325408935547,
+                -14.527179718017578
+              ],
+              "velocity": [
+                -0.19594883918762207,
+                6.373477935791016
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 4,
+              "position": [
+                36.04814910888672,
+                -16.652931213378906
+              ],
+              "velocity": [
+                0.6874117255210876,
+                7.17033052444458
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            }
+          ],
+          "controller": {
+            "wrapper": {
+              "_active": false,
+              "_wall_confirmed": false,
+              "_wall_ticks": 0,
+              "_ready": null,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": null,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            },
+            "fallback": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": true,
+              "_last_score": [
+                4,
+                0
+              ],
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": 2,
+              "_x_rush": false,
+              "_x_power_state": "idle",
+              "runtime_path_samples": 37,
+              "siege_obs_tick": null
+            },
+            "specialist": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": false,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": -1,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            }
+          }
+        },
+        "sdk_elapsed_ms": 1.5131780000956496,
+        "error": null,
+        "outer_wall_ms": 1.519658,
+        "outer_thread_cpu_ms": 1.515293,
+        "debug": {
+          "roles": {
+            "0": "Oliver Kahn | goalkeeper",
+            "1": "Beckenbauer | libero",
+            "2": "Iniesta | pivot",
+            "3": "Messi | creator",
+            "4": "Ronaldo Nazario | striker"
+          },
+          "text": "Pep positional control"
+        }
+      },
+      "slow": [],
+      "score": [
+        6,
+        0
+      ]
+    },
+    {
+      "profiled": true,
+      "selected": {
+        "before": {
+          "tick": 1777,
+          "score": [
+            4,
+            0
+          ],
+          "ball": {
+            "position": [
+              22.499210357666016,
+              -1.5774730443954468
+            ],
+            "velocity": [
+              13.556042671203613,
+              5.65064811706543
+            ],
+            "last_touch": 2,
+            "controlling_team": 0
+          },
+          "players": [
+            {
+              "id": 0,
+              "position": [
+                -47.79999542236328,
+                -0.1125202551484108
+              ],
+              "velocity": [
+                -2.2888181774760596e-05,
+                0.3264574408531189
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 1,
+              "position": [
+                9.827455520629883,
+                -3.8997416496276855
+              ],
+              "velocity": [
+                7.557404041290283,
+                1.370168924331665
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 2,
+              "position": [
+                21.091934204101562,
+                -1.2280831336975098
+              ],
+              "velocity": [
+                7.094209671020508,
+                -3.697591781616211
+              ],
+              "cooldown": 0,
+              "can_kick": true
+            },
+            {
+              "id": 3,
+              "position": [
+                29.34325408935547,
+                -14.527179718017578
+              ],
+              "velocity": [
+                -0.19594883918762207,
+                6.373477935791016
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 4,
+              "position": [
+                36.04814910888672,
+                -16.652931213378906
+              ],
+              "velocity": [
+                0.6874117255210876,
+                7.17033052444458
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            }
+          ],
+          "controller": {
+            "wrapper": {
+              "_active": false,
+              "_wall_confirmed": false,
+              "_wall_ticks": 0,
+              "_ready": null,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": null,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            },
+            "fallback": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": true,
+              "_last_score": [
+                4,
+                0
+              ],
+              "_receive_plan": [
+                2,
+                3,
+                1799
+              ],
+              "_receive_aim": [
+                2,
+                [
+                  22.768787384033203,
+                  -2.1020798683166504
+                ]
+              ],
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": 2,
+              "_x_rush": false,
+              "_x_power_state": "idle",
+              "runtime_path_samples": 81,
+              "siege_obs_tick": null
+            },
+            "specialist": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": false,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": -1,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            }
+          }
+        },
+        "after": {
+          "tick": 1777,
+          "score": [
+            4,
+            0
+          ],
+          "ball": {
+            "position": [
+              22.499210357666016,
+              -1.5774730443954468
+            ],
+            "velocity": [
+              13.556042671203613,
+              5.65064811706543
+            ],
+            "last_touch": 2,
+            "controlling_team": 0
+          },
+          "players": [
+            {
+              "id": 0,
+              "position": [
+                -47.79999542236328,
+                -0.1125202551484108
+              ],
+              "velocity": [
+                -2.2888181774760596e-05,
+                0.3264574408531189
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 1,
+              "position": [
+                9.827455520629883,
+                -3.8997416496276855
+              ],
+              "velocity": [
+                7.557404041290283,
+                1.370168924331665
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 2,
+              "position": [
+                21.091934204101562,
+                -1.2280831336975098
+              ],
+              "velocity": [
+                7.094209671020508,
+                -3.697591781616211
+              ],
+              "cooldown": 0,
+              "can_kick": true
+            },
+            {
+              "id": 3,
+              "position": [
+                29.34325408935547,
+                -14.527179718017578
+              ],
+              "velocity": [
+                -0.19594883918762207,
+                6.373477935791016
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            },
+            {
+              "id": 4,
+              "position": [
+                36.04814910888672,
+                -16.652931213378906
+              ],
+              "velocity": [
+                0.6874117255210876,
+                7.17033052444458
+              ],
+              "cooldown": 0,
+              "can_kick": false
+            }
+          ],
+          "controller": {
+            "wrapper": {
+              "_active": false,
+              "_wall_confirmed": false,
+              "_wall_ticks": 0,
+              "_ready": null,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": null,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            },
+            "fallback": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": true,
+              "_last_score": [
+                4,
+                0
+              ],
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": 2,
+              "_x_rush": false,
+              "_x_power_state": "idle",
+              "runtime_path_samples": 37,
+              "siege_obs_tick": null
+            },
+            "specialist": {
+              "_active": null,
+              "_wall_confirmed": null,
+              "_wall_ticks": null,
+              "_ready": false,
+              "_last_score": null,
+              "_receive_plan": null,
+              "_receive_aim": null,
+              "_relay_receive": null,
+              "_x_reception": null,
+              "_bank_receive": null,
+              "_chaser": -1,
+              "_x_rush": null,
+              "_x_power_state": null,
+              "runtime_path_samples": 0,
+              "siege_obs_tick": null
+            }
+          }
+        },
+        "sdk_elapsed_ms": 4.563951999443816,
+        "error": null,
+        "outer_wall_ms": 4.576541,
+        "outer_thread_cpu_ms": 4.570567,
+        "debug": {
+          "roles": {
+            "0": "Oliver Kahn | goalkeeper",
+            "1": "Beckenbauer | libero",
+            "2": "Iniesta | pivot",
+            "3": "Messi | creator",
+            "4": "Ronaldo Nazario | striker"
+          },
+          "text": "Pep positional control"
+        },
+        "profile_functions": [
+          {
+            "file": "/workspace/work/exploit-lab/student-sdk/soccer/runner.py",
+            "line": 236,
+            "function": "_decide",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 3.847000000000001e-06,
+            "cumulative_seconds": 0.004565144
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 4814,
+            "function": "act",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 4.726e-06,
+            "cumulative_seconds": 0.004560907
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 4746,
+            "function": "_uncontested_act",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 2.7550000000000003e-06,
+            "cumulative_seconds": 0.004556181
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 4727,
+            "function": "_unguarded_act",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 3.6360000000000004e-06,
+            "cumulative_seconds": 0.004553196000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 2330,
+            "function": "act",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 1.362e-05,
+            "cumulative_seconds": 0.004546706
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 2424,
+            "function": "_act_normal",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 3.0626e-05,
+            "cumulative_seconds": 0.00452938
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1361,
+            "function": "_v10_act",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 0.000210394,
+            "cumulative_seconds": 0.004488879
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 2260,
+            "function": "_choose_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 5.779e-06,
+            "cumulative_seconds": 0.004070476
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 2145,
+            "function": "_base_choose_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 1.0838e-05,
+            "cumulative_seconds": 0.004060821
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1864,
+            "function": "_v10_choose_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 6.990000000000001e-06,
+            "cumulative_seconds": 0.00401399
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1756,
+            "function": "_before_endwall",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 3.7327000000000004e-05,
+            "cumulative_seconds": 0.0040069
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1678,
+            "function": "_search_links",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 2.09e-05,
+            "cumulative_seconds": 0.0016918590000000002
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1649,
+            "function": "_link_option",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 2.9104e-05,
+            "cumulative_seconds": 0.00165203
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1722,
+            "function": "_shot_option",
+            "primitive_calls": 7,
+            "calls": 7,
+            "self_seconds": 4.4865000000000005e-05,
+            "cumulative_seconds": 0.001539477
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 392,
+            "function": "_pass_race",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 2.8543e-05,
+            "cumulative_seconds": 0.0013573740000000002
+          },
+          {
+            "file": "~",
+            "line": 0,
+            "function": "<built-in method builtins.min>",
+            "primitive_calls": 1052,
+            "calls": 1052,
+            "self_seconds": 0.000281703,
+            "cumulative_seconds": 0.001292409
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 167,
+            "function": "_eta",
+            "primitive_calls": 582,
+            "calls": 582,
+            "self_seconds": 0.0005855270000000001,
+            "cumulative_seconds": 0.0008491530000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1748,
+            "function": "<genexpr>",
+            "primitive_calls": 437,
+            "calls": 437,
+            "self_seconds": 0.000106779,
+            "cumulative_seconds": 0.0007684800000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 355,
+            "function": "_runtime_intercept",
+            "primitive_calls": 25,
+            "calls": 25,
+            "self_seconds": 2.7851e-05,
+            "cumulative_seconds": 0.0007356820000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 370,
+            "function": "_verified_intercept",
+            "primitive_calls": 25,
+            "calls": 25,
+            "self_seconds": 0.000315798,
+            "cumulative_seconds": 0.000698816
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 514,
+            "function": "_receiver_route",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 1.7455e-05,
+            "cumulative_seconds": 0.000519365
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 298,
+            "function": "_pass_reachable",
+            "primitive_calls": 31,
+            "calls": 31,
+            "self_seconds": 0.00024413,
+            "cumulative_seconds": 0.000383018
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1899,
+            "function": "_shot_contact_margin",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 0.00020227,
+            "cumulative_seconds": 0.00038231900000000005
+          },
+          {
+            "file": "~",
+            "line": 0,
+            "function": "<built-in method math.hypot>",
+            "primitive_calls": 3043,
+            "calls": 3043,
+            "self_seconds": 0.000352828,
+            "cumulative_seconds": 0.000352828
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1108,
+            "function": "_controlled_touch",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 5.129e-06,
+            "cumulative_seconds": 0.000334426
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 959,
+            "function": "_endpoint_controlled_touch",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 6.162000000000001e-05,
+            "cumulative_seconds": 0.000324901
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 340,
+            "function": "_pass_steps",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 0.000173503,
+            "cumulative_seconds": 0.00032161500000000003
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 416,
+            "function": "_receiver_rollout",
+            "primitive_calls": 6,
+            "calls": 6,
+            "self_seconds": 0.000154783,
+            "cumulative_seconds": 0.000247045
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1634,
+            "function": "_early_body_margin",
+            "primitive_calls": 7,
+            "calls": 7,
+            "self_seconds": 0.00013941000000000002,
+            "cumulative_seconds": 0.00023326300000000002
+          },
+          {
+            "file": "~",
+            "line": 0,
+            "function": "<built-in method builtins.max>",
+            "primitive_calls": 1631,
+            "calls": 1631,
+            "self_seconds": 0.000230458,
+            "cumulative_seconds": 0.000230458
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 268,
+            "function": "_pass_path",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 0.000145055,
+            "cumulative_seconds": 0.000220375
+          },
+          {
+            "file": "~",
+            "line": 0,
+            "function": "<built-in method builtins.abs>",
+            "primitive_calls": 2987,
+            "calls": 2987,
+            "self_seconds": 0.000197123,
+            "cumulative_seconds": 0.000197123
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1694,
+            "function": "_goal_path",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 0.000107458,
+            "cumulative_seconds": 0.000153952
+          },
+          {
+            "file": "~",
+            "line": 0,
+            "function": "<method 'append' of 'list' objects>",
+            "primitive_calls": 801,
+            "calls": 801,
+            "self_seconds": 0.00014064900000000001,
+            "cumulative_seconds": 0.00014064900000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 994,
+            "function": "_legacy_policy_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 6.649e-06,
+            "cumulative_seconds": 0.000124638
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 899,
+            "function": "_legacy_choose_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 9.795e-06,
+            "cumulative_seconds": 0.00011714700000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 1780,
+            "function": "<genexpr>",
+            "primitive_calls": 66,
+            "calls": 66,
+            "self_seconds": 1.7448e-05,
+            "cumulative_seconds": 0.000107929
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 748,
+            "function": "_original_choose_kick",
+            "primitive_calls": 1,
+            "calls": 1,
+            "self_seconds": 1.4950000000000001e-05,
+            "cumulative_seconds": 0.00010735200000000001
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 983,
+            "function": "<genexpr>",
+            "primitive_calls": 84,
+            "calls": 84,
+            "self_seconds": 2.0284e-05,
+            "cumulative_seconds": 9.6502e-05
+          },
+          {
+            "file": "/workspace/work/monster-recovery-20261027/candidates/nearpost/team.py",
+            "line": 226,
+            "function": "_intercept",
+            "primitive_calls": 9,
+            "calls": 9,
+            "self_seconds": 5.9326e-05,
+            "cumulative_seconds": 7.87e-05
+          }
+        ],
+        "profile_path": "nearpost-repeat2.pstats"
+      },
+      "slow": [],
+      "score": [
+        6,
+        0
+      ]
+    }
+  ],
+  "cause": "Unresolved: short repeats cannot establish the cause of the original stall."
+}
