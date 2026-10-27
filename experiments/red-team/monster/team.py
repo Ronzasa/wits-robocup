@@ -3,9 +3,18 @@
 Single-file controller; runtime inputs are exclusively public observations.
 Physics constants come from FieldView or the published course profile.
 
-perf: behaviour-preserving speed pass. Same decisions, same physics:
-lookup tables are tuples, hot-loop invariants are hoisted to locals,
-reachability gaps are inlined, and wall/bound constants are precomputed.
+v26 additions (evidence: monster-v25 holdout audit vs TITAN):
+- Verified clearances: shell defenders only release upfield when the outlet
+  demonstrably wins the ball race (launch -> path -> race check); otherwise
+  short control, then the legacy blind kick. Fixes 28.4 passes/match
+  intercepted at 5.25% completion.
+- Seam-seeking shots: against a parked goal-line wall, aim ys are derived
+  from observed wall-body positions (gap midpoints, outside seams,
+  near-post extremes) instead of fixed mouth fractions. Fixes shots
+  blocked 3.7 of 3.8 attempted vs the wall.
+
+perf pass retained: tuple lookup tables, hoisted loop invariants,
+inlined reachability gaps, precomputed wall/bound constants.
 """
 import math
 from time import perf_counter
@@ -23,7 +32,7 @@ def unit(x, y):
 
 class Monster(TeamController):
     name = "MONSTER"
-    version = 'v25-fast-post-perf'
+    version = 'v26-seam-verified'
     PRESSERS = 2
     CARRY_SPEED = 9.0
     SHOT_MARGIN = -0.08
@@ -46,6 +55,8 @@ class Monster(TeamController):
     FIXED_OUTLET = True
     OUTLET_X = -20.0
     ADAPTIVE_POSTS = True
+    CLEARANCE_MARGIN = 0.2
+    CLEARANCE_MAX_FLIGHT = 2.2
 
     def __init__(self):
         self.reset(0)
@@ -249,6 +260,27 @@ class Monster(TeamController):
                 vy -= 1.25*closing*ny
         return (x, y, vx, vy), next_p
 
+    def wall_seam_aims(self, opponents, by):
+        """Aim ys targeting gaps between observed parked-wall bodies."""
+        goal = self.goal
+        ys = sorted(q[2] for q in opponents
+                    if q[1] > self.right-3.5 and -goal-1.5 <= q[2] <= goal+1.5)
+        aims = []
+        if ys:
+            for a, b in zip(ys, ys[1:]):
+                mid = (a+b)*0.5
+                if -goal+0.15 < mid < goal-0.15:
+                    aims.append(mid)
+            # Outside seams: between each post and the outermost wall body.
+            aims.append(clip((-goal+0.15+ys[0])*0.5, -goal+0.15, goal-0.15))
+            aims.append(clip((goal-0.15+ys[-1])*0.5, -goal+0.15, goal-0.15))
+        # Near-post extremes as always-available fallbacks.
+        aims.append(-goal+0.35)
+        aims.append(goal-0.35)
+        # Nearest-to-approach first so the deadline keeps the best candidates.
+        aims.sort(key=lambda y: abs(y-by))
+        return aims
+
     def shot(self, p, ball, opponents, movement, wall):
         bx, by, vx, vy = ball
         if bx < self.right-(65 if self.KEEPER_MODEL else 42):
@@ -271,10 +303,14 @@ class Monster(TeamController):
         shot_margin = self.SHOT_MARGIN
         impulse_sq = self.impulse*self.impulse
         max_ticks = 141 if self.KEEPER_MODEL else 61
-        for fraction in (-0.97, 0.97, -0.85, 0.85, -0.6, 0.6, -0.3, 0.3, 0):
+        if wall:
+            aim_ys = self.wall_seam_aims(opponents, by)
+        else:
+            aim_ys = [goal*f for f in (-0.97, 0.97, -0.85, 0.85, -0.6, 0.6, -0.3, 0.3, 0)]
+        for ty in aim_ys:
             if perf() > deadline:
                 return best
-            ux, uy = unit(right+0.25-bx, goal*fraction-by)
+            ux, uy = unit(right+0.25-bx, ty-by)
             along = vx*ux+vy*uy
             sideways = max(0.0, vx*vx+vy*vy-along*along)
             if sideways >= impulse_sq:
@@ -451,6 +487,45 @@ class Monster(TeamController):
                     best = (score, kick, movement, (q[0], ours[1], 2.0))
         return best
 
+    def clearance(self, p, ball, friends, opponents):
+        """Verified upfield release for shell defenders: the outlet must
+        demonstrably win the ball race before we release; otherwise the
+        caller falls back to short control. Replaces the legacy blind
+        full-power clearance (28.4 interceptions/match at 5.25% completion)."""
+        bx, by, vx, vy = ball
+        outlet = friends[4]
+        best = None
+        deadline = self.deadline
+        perf = perf_counter
+        movement = self.move(p, (bx+0.3, by))
+        candidates = [(outlet[1]+outlet[3]*0.6+2.0, outlet[2]+outlet[4]*0.6)]
+        far = min(self.right-6.0, bx+28.0)
+        candidates.append((far, self.half-8.0))
+        candidates.append((far, -(self.half-8.0)))
+        for tx, ty in candidates:
+            if perf() > deadline:
+                break
+            tx, ty = self.bound(tx, ty)
+            ux, uy = unit(tx-bx, ty-by)
+            kick = self.velocity_kick(vx, vy, ux*self.ballcap, uy*self.ballcap)
+            if kick is None:
+                continue
+            launch = self.launch(p, ball, kick, movement)
+            if launch is None:
+                continue
+            route = self.path(*launch[0], steps=45)
+            ours = self.race(outlet, route)
+            if ours[0] > self.CLEARANCE_MAX_FLIGHT:
+                continue
+            theirs = min(self.race(q, route)[0] for q in opponents)
+            margin = theirs-ours[0]
+            if margin < self.CLEARANCE_MARGIN:
+                continue
+            score = min(margin, 0.8)*3.0+(ours[1][0]-bx)*0.05
+            if best is None or score > best[0]:
+                best = (score, kick, movement, (outlet[0], ours[1], 2.0))
+        return best
+
     def lock(self, obs):
         actions = TeamAction(debug={"text": "MONSTER lead screen"})
         for i, v in enumerate(obs.my_players):
@@ -503,13 +578,21 @@ class Monster(TeamController):
                 if best:
                     _, kick, movement, _ = best
             elif i < 4 and not protected and obs.can_kick(i):
+                # v26: verified clearance first, short control second,
+                # legacy blind kick only as the last resort.
                 side = release_side
-                tx, ty = max(-4.0, outlet[1]+5), side*22.0
-                if self.SHELL_BANK:
-                    boundary = side*(self.half-self.br)
-                    ty = boundary+(boundary-ty)/self.wall
-                ux, uy = unit(tx-bx, ty-by)
-                kick = ((ux, uy), 1.0)
+                best = self.clearance(p, ball, friends, opponents)
+                if best is None:
+                    best = self.touch(p, ball, opponents, (self.right, 0))
+                if best is not None:
+                    _, kick, movement, _ = best
+                else:
+                    tx, ty = max(-4.0, outlet[1]+5), side*22.0
+                    if self.SHELL_BANK:
+                        boundary = side*(self.half-self.br)
+                        ty = boundary+(boundary-ty)/self.wall
+                    ux, uy = unit(tx-bx, ty-by)
+                    kick = ((ux, uy), 1.0)
             if protected and i == 4 and math.hypot(p[1], p[2]) < self.circle+4:
                 ux, uy = unit(p[1], p[2])
                 movement = self.move(p, (ux*(self.circle+2.5), uy*(self.circle+2.5)))
