@@ -364,3 +364,12 @@ Change (`candidates/monster_wallrelease.py`, 3 lines): `SHELL_RELEASE = True` an
   exactly 0 change vs champion_original, press_formation, team12, tactical (no wall, so the code path is unchanged).
 - 0 fouls, 0 errors, 0 timeouts; mean decision about 0.13 ms, max about 3 ms. `start.sh check` PASSED.
 Caveat: no model of Milla's own code exists; all results are against my stand-ins. Not promoted.
+
+## MONSTER v28: wall depth 3.0 (ladder-driven)
+
+Ladder capture (Nkqubela_Hokwana, 1,012 matches): rank 168/270, 0.94 pts/match, scores 0 in 61% of matches, 2.8 shots/match, territory rank 261/270, shots blocked rank 3. It loses to ~138 of 253 opponents (0.13 GF, 2.05 GA).
+Conceded-goal scan of v26 vs champion_original / press_formation (40 matches each): 72 / 63 goals; ~half point-blank at the goal line (x < -42), ~25% own-goal deflections off the wall, rest mid-range. The four-cover wall sat at 1.2 from the goal line, where the ball could be pushed between and behind the defenders.
+Screen (seeds 54000-54009, five hardest stand-ins, 100 matches): SHELL_DEPTH 1.2 -> 1.42 pts, 2.0 -> 1.97, 3.0 -> 1.93, 4.0 -> 1.92, 5.5 -> 1.80, 8.0 -> 1.24. Sealed spacing (4.2/1.4) 1.22 and a five-player wall when the ball is deep 1.10 were worse (rejected).
+Confirmation (fresh seeds 55000-55009, all 17 stand-ins, 340 paired matches): v28 2.488 vs v26 2.338 pts/match, gain +0.150 [95% CI +0.026, +0.274]; hardest 8: +0.312 [+0.057, +0.568]; champion_original/press_formation/lock_no_breaker: +0.633 [+0.228, +1.039]. 0 fouls, 0 errors, 0 timeouts. `start.sh check` PASSED.
+Caveat: stand-ins are not the real ladder field; one change only (SHELL_DEPTH 1.2 -> 3.0), not promoted.
+File: candidates/monster_v28_depth3.py
