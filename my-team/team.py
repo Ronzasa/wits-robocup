@@ -15,11 +15,27 @@ v27-wall-release upgrades over v26:
 v28-runmaker upgrades over v27:
   6. KEEPER_AWARE_AIM: shots try the aim farthest from the keeper's y.
   7. RUNMAKING: off-ball runners target the widest lateral gaps between
-     opponents on the deepest line, giving the carrier a through-ball.
+     opponents ahead of the ball, giving the carrier a through-ball.
   8. RECYCLE: under real pressure, backward passes to clearly freer
      teammates are allowed (guarded by RECYCLE_PRESSURE/RECYCLE_RELIEF).
   9. REBOUND: wall-siege surplus players hold a rebound spot outside the box.
  10. Duel angle ladder extended to +/-1.05 rad for wider escapes.
+
+v28.1-regression-fix (benchmark 2026-10-27: v28 lost 200 matches badly;
+DO NOT PROMOTE v28 defaults). Six root-cause fixes; creativity flags
+default OFF and must earn promotion through isolated ablation wins:
+  a. DUEL_FIRST_RANGE = 0.0 restores the exact v26 duel-first decision
+     order (the 999.0 default had inverted it: shot() ran before duel()
+     every contested tick, producing the 20+ low-quality shots/match).
+  b. KEEPER_AWARE_AIM / RUNMAKING / RECYCLE / REBOUND default to False.
+  c. Keeper identified as the deepest opponent, not opponents[0] order.
+  d. Per-step deadline guards inside shot/touch/passing simulations so
+     no single candidate sim can overrun the decision budget.
+  e. RUNMAKING depth capped (bx+14, not deepest-opponent+4) and gated
+     to the attacking half; runners no longer permanently stack in the
+     opponent box conceding 4-v-2 counters.
+  f. RECYCLE restricted to the own half only, with tighter thresholds
+     (RECYCLE_PRESSURE=2.5, RECYCLE_RELIEF=2.0) when ablated on.
 """
 import math
 from time import perf_counter
@@ -37,7 +53,7 @@ def unit(x, y):
 
 class Monster(TeamController):
     name = "MONSTER"
-    version = 'v28-runmaker'
+    version = 'v28.1-regression-fix'
     PRESSERS = 2
     CARRY_SPEED = 9.0
     SHOT_MARGIN = -0.08
@@ -60,16 +76,16 @@ class Monster(TeamController):
     SHELL_LOCK_FIVE = False
     SHELL_SUPPORT = False
     KEEPER_MODEL = False
-    DUEL_FIRST_RANGE = 999.0
+    DUEL_FIRST_RANGE = 0.0
     FIXED_OUTLET = True
     OUTLET_X = -20.0
     ADAPTIVE_POSTS = True
-    KEEPER_AWARE_AIM = True
-    RUNMAKING = True
-    RECYCLE = True
-    RECYCLE_PRESSURE = 3.5
-    RECYCLE_RELIEF = 1.5
-    REBOUND = True
+    KEEPER_AWARE_AIM = False
+    RUNMAKING = False
+    RECYCLE = False
+    RECYCLE_PRESSURE = 2.5
+    RECYCLE_RELIEF = 2.0
+    REBOUND = False
 
     def __init__(self):
         self.reset(0)
@@ -245,7 +261,7 @@ class Monster(TeamController):
             return None
         fractions = (-0.97, 0.97, -0.85, 0.85, -0.6, 0.6, -0.3, 0.3, 0)
         if self.KEEPER_AWARE_AIM and opponents:
-            keeper_y = opponents[0][2]
+            keeper_y = max(opponents, key=lambda q: q[1])[2]
             fractions = tuple(sorted(fractions,
                                      key=lambda fr: abs(self.goal*fr-keeper_y), reverse=True))
         best = None
@@ -270,6 +286,8 @@ class Monster(TeamController):
             margin = 100.0
             scored = False
             for n in range(1, 141 if self.KEEPER_MODEL else 61):
+                if perf_counter()>self.deadline:
+                    break
                 oldx, oldy, oldvx, oldvy = previous_ball
                 if self.KEEPER_MODEL and not wall:
                     # A public-observation model of a line keeper who sweeps
@@ -346,6 +364,8 @@ class Monster(TeamController):
                 (x, y, sx, sy), own = launched
                 risk = 1.0
                 for n in range(1, 7):
+                    if perf_counter()>self.deadline:
+                        break
                     if n>1:
                         own = self.player_step(own, self.move(own, self.bound(x+sx*0.12, y+sy*0.12)))
                         x, y = x+sx*self.dt, y+sy*self.dt
@@ -389,12 +409,16 @@ class Monster(TeamController):
                 continue
             if not forward and q[0]==0:
                 continue
+            if not forward and bx > 0:
+                continue
             pressure = min((math.hypot(o[1]-bx, o[2]-by) for o in opponents), default=100.0)
             if not forward and pressure>self.RECYCLE_PRESSURE:
                 continue
             if not forward and q[1]<self.left+12:
                 continue
             for speed in (16.0, 19.0, 23.0):
+                if perf_counter()>self.deadline:
+                    return best
                 lead = min(0.8, gap/speed)
                 if forward:
                     tx, ty = self.bound(q[1]+q[3]*lead+2, q[2]+q[4]*lead)
@@ -565,9 +589,8 @@ class Monster(TeamController):
             targets[cover[0]] = self.bound(bx-8, by*0.45)
             runners = sorted((p for p in free if p[0]!=cover[0]), key=lambda p:p[2])
             made = False
-            if self.RUNMAKING and runners and len(opponents)>=2:
-                deep = max(q[1] for q in opponents)
-                run_x = min(self.right-6.0, max(deep+4.0, bx+6.0))
+            if self.RUNMAKING and runners and len(opponents)>=2 and bx>-10:
+                run_x = min(self.right-8.0, bx+14.0)
                 ys = sorted(q[2] for q in opponents if q[1] > bx+4)
                 slots = []
                 if ys:
