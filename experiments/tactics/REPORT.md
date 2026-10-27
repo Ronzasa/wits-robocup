@@ -380,3 +380,7 @@ Attached file `team (15).py` is the Codex-made v51-stream-post (SHELL_DEPTH 1.2,
 - v51 -> v51 with SHELL_DEPTH 3.0 (= v52): seeds 55000: +0.244 [+0.122, +0.366]; fresh seeds 56000: +0.024 [-0.109, +0.156]; pooled 680 matches +0.134 [+0.043, +0.224]; hardest 8 +0.263 [+0.073, +0.452]; champion_original/press_formation/lock_no_breaker +0.733 [+0.442, +1.024].
 - v52 absolute: 2.650 (seeds 55) and 2.535 (seeds 56) pts/match; v28 on seeds 55: 2.488. `start.sh check` PASSED. Not promoted.
 File: candidates/monster_v52_v51_depth3.py
+
+## v52: default-formation check and draw conversion
+Codex log (user attachment) reported the school replay pipeline starts MONSTER in the default formation (its own `initial_formation` ignored). Re-ran six hard opponents (seeds 55000-55009, 20 matches each) with `initial_formation` removed: v52 1.90, v51 1.79, v26 1.55 pts/match. The ordering holds; v52 is also the best under the default start.
+Draw conversion (user: "convert those draws into wins"): ladder record shows 38% draws. Local mirror stand-ins (v52 and v51 as opponents) produce 40-45% draws, so they were added to the pool. A second attacker (SUPPORT, `t_s1/t_s2/t_s3`) tested on seeds 57000-57009, 9 opponents, 180 matches: v52 2.00 pts; always-on 1.59 (lost to the shell mirror 0.65); late-and-not-leading 1.80 (mirror 0.65); ball past x=15 only 1.98 (mirror 1.65 vs 1.45 but hard teams and team12 equal or worse). Rejected: the mirror counter-attacks into the open half. Codex reached the same conclusion for its second-attacker tests. v52 unchanged.

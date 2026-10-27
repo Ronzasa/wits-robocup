@@ -5,7 +5,7 @@ H='/home/claude/wits-robocup/experiments/tactics/opponents/'; D='/home/claude/sa
 OPP={'champion_original':common.OPPONENTS['champion_original'],'lock_no_breaker':common.OPPONENTS['lock_no_breaker'],'press_formation':common.OPPONENTS['press_formation'],
  'dribbler':common.OPPONENTS['dribbler'],'ball_chaser':'ball_chaser','structured_attack':'structured_attack','balanced':'balanced','man_marking':'man_marking','possession':'possession','tactical':'tactical',
  'candidate':D+'champion_candidate.py','challenger':D+'challenger_stiff_wall.py','bunker_kc':D+'bunker_kc.py','bunker_shot':D+'bunker_shot.py','team12':D+'team12_clean_broadwall_stiff.py',
- 'tap_drive':H+'tap_drive.py','corner_shooter':H+'corner_shooter.py'}
+ 'm_v26':D+'mv_base.py','m_sup':D+'t_s1.py','m_v52':D+'t15_d3.py','m_v51':D+'t15.py','tap_drive':H+'tap_drive.py','corner_shooter':H+'corner_shooter.py'}
 def u(a):
     t,name,seed,side=a; o=OPP[name]; x,y=(t,o) if side==0 else (o,t)
     m=soccer.play_match(x,y,seed=seed,kickoff_team=side,max_ticks=2400); me,th=(0,1) if side==0 else (1,0)
