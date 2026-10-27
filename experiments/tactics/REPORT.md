@@ -338,3 +338,29 @@ Findings (team12_clean_broadwall):
 - Rejected: adding the shove-and-gap-shot wall breaker to the anti-wall mode: vs bunker_shot +0.117 [-0.046, +0.279], vs bunker_kc -0.150 [-0.310, +0.010].
 - No method found that breaks a stiff, clearing wall by itself; the gain available is in holding our own lead and in scoring first.
 File: `candidates/team12_clean_broadwall_stiff.py` (cleaned team 12 + looser wall trigger + stiff lock wall).
+
+## Division 6 leader (Milla Singh) and the MONSTER file
+
+Data: HAR from the site (fresh ladder, 260 teams, 134,136 matches): standings, Milla Singh's 1,036-match list, four replays Nkqubela Hokwana vs Milla Singh (seeds 1000-1003).
+Nkqubela (division 6, rank 113) is taken to be the user's team; Milla is the top-ranked team of division 6 on the site (rank 101).
+NOTE: `recorded.score` in these replays is in the order of `recorded.teams`, not of the side order; the match list is the reliable source.
+Milla beat Nkqubela 3-0, 2-1, 3-0, 2-0. Four of her 10 goals were own goals by Nkqubela's keeper/striker (ball sliding along the goal line or deflected near the post);
+her real goals were taken from 3-5 units out at the posts (|y| 5-8) or end-line balls.
+
+Milla's profile from her full match list: ppm 1.66, GF 1.59, GA 0.72, 253 draws. vs the 66 teams that concede under 0.5 goals a match: 0.33 ppm;
+vs the top 60: 0.24 ppm and 0.16 goals a match; vs everyone else (193 teams): 2.12 ppm. Her 0.00-ppm opponents are bunker teams (GF about 1, GA 0.1-0.4) that win 1-0 four times.
+So she leads the division by beating weaker teams; a solid defence plus one goal beats her.
+
+MONSTER (`candidates/user_monster_v25.py`, user's file, byte-identical in both uploads; `start.sh check` PASSED): four players always on the goal line (y +-5.4, +-1.8), one striker (predictive duel/shot/touch), adaptive post cover.
+Pool (seeds 49000-49009, 20 matches per opponent, noisy +-0.3 per cell): weak opponents 2.9-3.0 pts with goal differences of +3 to +7 (team 12: GF about 1);
+strong stand-ins: MONSTER 0.9 / team12_clean_broadwall_stiff 1.8 / champion_candidate 1.3 (average of 7). MONSTER beats team 12 head to head: 2.37 pts/match, GD +1.23 over 120 matches, paired +1.02 [+0.72, +1.31]
+(team 12 switches to its siege mode against MONSTER's goal-line wall and gets counter-attacked), but loses to champion_original (0.40), lock_no_breaker, press_formation. Strength is not transitive.
+Rejected: SHELL_LOCK_FIVE (0.49 vs 0.92 on the strong set). SHELL_RELEASE (leave the shell when the opponent has a wall or we trail): +0.15 [+0.05, +0.25] (n=306) but worse vs attackers that score first.
+
+Change (`candidates/monster_wallrelease.py`, 3 lines): `SHELL_RELEASE = True` and release only when the opponent has a visible wall of 4+ players on its goal line (not when trailing).
+- Selection seeds 50000-50016 (306 matches, 9 opponents): wall-only +0.212 [+0.117, +0.308]; trailing-by-2 variant identical.
+- Confirmation seeds 51000-51016 (306 matches): +0.186 [+0.101, +0.272] overall; strong-only +0.21 [+0.11, +0.31];
+  lock_no_breaker +0.32 [+0.07, +0.58], challenger +0.35 [+0.06, +0.65], bunker_shot +0.41 [+0.08, +0.74], candidate +0.26 [-0.14, +0.67], bunker_kc +0.32 [-0.06, +0.71];
+  exactly 0 change vs champion_original, press_formation, team12, tactical (no wall, so the code path is unchanged).
+- 0 fouls, 0 errors, 0 timeouts; mean decision about 0.13 ms, max about 3 ms. `start.sh check` PASSED.
+Caveat: no model of Milla's own code exists; all results are against my stand-ins. Not promoted.

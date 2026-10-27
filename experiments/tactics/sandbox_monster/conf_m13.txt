@@ -1,0 +1,10 @@
+champion_original  n= 34 pts 0.88 GF 0.85 GA 1.65 W/D/L 7/9/18 fouls 0 TO 0 err 0
+lock_no_breaker    n= 34 pts 1.09 GF 0.76 GA 0.82 W/D/L 9/10/15 fouls 0 TO 0 err 0
+press_formation    n= 34 pts 0.91 GF 0.68 GA 1.53 W/D/L 9/4/21 fouls 0 TO 0 err 0
+candidate          n= 34 pts 1.97 GF 2.56 GA 0.82 W/D/L 21/4/9 fouls 0 TO 0 err 0
+challenger         n= 34 pts 1.88 GF 2.15 GA 0.68 W/D/L 20/4/10 fouls 0 TO 0 err 0
+bunker_kc          n= 34 pts 1.74 GF 1.44 GA 0.68 W/D/L 19/2/13 fouls 0 TO 0 err 0
+bunker_shot        n= 34 pts 1.59 GF 1.38 GA 0.71 W/D/L 17/3/14 fouls 0 TO 0 err 0
+team12             n= 34 pts 2.38 GF 1.59 GA 0.59 W/D/L 24/9/1 fouls 0 TO 0 err 0
+tactical           n= 34 pts 2.59 GF 2.15 GA 0.32 W/D/L 28/4/2 fouls 0 TO 0 err 0
+ALL pts 1.67 n 306

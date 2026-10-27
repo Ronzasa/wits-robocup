@@ -1,0 +1,3 @@
+team12_clean_broadwall_stiff.py vs team12_clean_broadwall_stiff.py n 120 pts 1.35 GD -0.033 fouls 0 timeouts 1 errors 0
+team13.py vs team12_clean_broadwall_stiff.py n 120 pts 2.367 GD 1.233 fouls 0 timeouts 0 errors 0
+   paired vs first file: d 1.017 95% CI 0.72 1.314

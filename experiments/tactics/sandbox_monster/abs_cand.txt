@@ -1,0 +1,18 @@
+champion_original  n= 20 pts 1.60 GF 0.90 GA 1.10 W/D/L 10/2/8 fouls 0 TO 0 err 0
+lock_no_breaker    n= 20 pts 1.25 GF 0.65 GA 0.80 W/D/L 8/1/11 fouls 0 TO 0 err 0
+press_formation    n= 20 pts 2.15 GF 0.95 GA 0.45 W/D/L 13/4/3 fouls 0 TO 0 err 0
+dribbler           n= 20 pts 3.00 GF 1.00 GA 0.00 W/D/L 20/0/0 fouls 0 TO 0 err 0
+ball_chaser        n= 20 pts 3.00 GF 1.40 GA 0.20 W/D/L 20/0/0 fouls 0 TO 0 err 0
+structured_attack  n= 20 pts 3.00 GF 1.25 GA 0.05 W/D/L 20/0/0 fouls 0 TO 0 err 0
+balanced           n= 20 pts 3.00 GF 1.05 GA 0.00 W/D/L 20/0/0 fouls 0 TO 0 err 0
+man_marking        n= 20 pts 3.00 GF 1.10 GA 0.10 W/D/L 20/0/0 fouls 0 TO 0 err 0
+possession         n= 20 pts 3.00 GF 1.00 GA 0.00 W/D/L 20/0/0 fouls 0 TO 0 err 0
+tactical           n= 20 pts 3.00 GF 1.05 GA 0.00 W/D/L 20/0/0 fouls 0 TO 0 err 0
+candidate          n= 20 pts 1.00 GF 0.80 GA 1.10 W/D/L 6/2/12 fouls 0 TO 1 err 0
+challenger         n= 20 pts 0.85 GF 0.50 GA 0.90 W/D/L 5/2/13 fouls 0 TO 0 err 0
+bunker_kc          n= 20 pts 0.80 GF 0.55 GA 1.00 W/D/L 5/1/14 fouls 0 TO 0 err 0
+bunker_shot        n= 20 pts 1.30 GF 1.20 GA 1.25 W/D/L 7/5/8 fouls 0 TO 0 err 0
+team12             n= 20 pts 0.35 GF 0.75 GA 1.45 W/D/L 1/4/15 fouls 0 TO 0 err 0
+tap_drive          n= 20 pts 3.00 GF 1.15 GA 0.15 W/D/L 20/0/0 fouls 0 TO 0 err 0
+corner_shooter     n= 20 pts 3.00 GF 1.10 GA 0.05 W/D/L 20/0/0 fouls 0 TO 0 err 0
+ALL pts 2.135 n 340

@@ -1,0 +1,8 @@
+champion_original  n= 20 pts 0.30 GF 0.40 GA 2.10 W/D/L 0/6/14 fouls 0 TO 0 err 0
+lock_no_breaker    n= 20 pts 0.65 GF 0.65 GA 1.10 W/D/L 2/7/11 fouls 0 TO 0 err 0
+press_formation    n= 20 pts 0.65 GF 0.60 GA 1.35 W/D/L 3/4/13 fouls 0 TO 0 err 0
+candidate          n= 20 pts 0.50 GF 1.25 GA 1.85 W/D/L 2/4/14 fouls 0 TO 0 err 0
+challenger         n= 20 pts 0.35 GF 0.95 GA 1.65 W/D/L 1/4/15 fouls 0 TO 0 err 0
+bunker_kc          n= 20 pts 0.55 GF 0.90 GA 1.50 W/D/L 3/2/15 fouls 0 TO 0 err 0
+bunker_shot        n= 20 pts 0.45 GF 0.90 GA 1.55 W/D/L 2/3/15 fouls 0 TO 0 err 0
+ALL pts 0.493 n 140
