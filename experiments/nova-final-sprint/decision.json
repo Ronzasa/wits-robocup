@@ -1,0 +1,8 @@
+{
+  "candidate": "patient-wall",
+  "selected": "baseline",
+  "promoted_to_active_champion": false,
+  "development_advance": false,
+  "eligible": false,
+  "reason": "Did not strictly improve original NOVA in broader development; retain untouched NOVA."
+}
