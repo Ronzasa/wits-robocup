@@ -373,3 +373,10 @@ Screen (seeds 54000-54009, five hardest stand-ins, 100 matches): SHELL_DEPTH 1.2
 Confirmation (fresh seeds 55000-55009, all 17 stand-ins, 340 paired matches): v28 2.488 vs v26 2.338 pts/match, gain +0.150 [95% CI +0.026, +0.274]; hardest 8: +0.312 [+0.057, +0.568]; champion_original/press_formation/lock_no_breaker: +0.633 [+0.228, +1.039]. 0 fouls, 0 errors, 0 timeouts. `start.sh check` PASSED.
 Caveat: stand-ins are not the real ladder field; one change only (SHELL_DEPTH 1.2 -> 3.0), not promoted.
 File: candidates/monster_v28_depth3.py
+
+## MONSTER v52: user's v51-stream-post + wall depth 3.0
+Attached file `team (15).py` is the Codex-made v51-stream-post (SHELL_DEPTH 1.2, POST_MAX 7.3, stream paths). Same 17-opponent paired pool, 20 matches each, same seeds for every pair, 0 fouls/errors/timeouts throughout.
+- v26 -> v51 (seeds 55000-55009): +0.068 [-0.052, +0.187] (not clearly better).
+- v51 -> v51 with SHELL_DEPTH 3.0 (= v52): seeds 55000: +0.244 [+0.122, +0.366]; fresh seeds 56000: +0.024 [-0.109, +0.156]; pooled 680 matches +0.134 [+0.043, +0.224]; hardest 8 +0.263 [+0.073, +0.452]; champion_original/press_formation/lock_no_breaker +0.733 [+0.442, +1.024].
+- v52 absolute: 2.650 (seeds 55) and 2.535 (seeds 56) pts/match; v28 on seeds 55: 2.488. `start.sh check` PASSED. Not promoted.
+File: candidates/monster_v52_v51_depth3.py
