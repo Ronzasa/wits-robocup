@@ -1,0 +1,69 @@
+{
+  "full_native_attempts": 992,
+  "by_cohort": {
+    "baseline-field": 256,
+    "development": 160,
+    "stagger-development": 64,
+    "qualification": 512
+  },
+  "reliability_by_cohort": {
+    "baseline-field": {
+      "source_errors": 0,
+      "source_raw_misses": 0,
+      "opponent_errors": 0,
+      "opponent_raw_misses": 2
+    },
+    "development": {
+      "source_errors": 0,
+      "source_raw_misses": 0,
+      "opponent_errors": 0,
+      "opponent_raw_misses": 1
+    },
+    "stagger-development": {
+      "source_errors": 0,
+      "source_raw_misses": 0,
+      "opponent_errors": 0,
+      "opponent_raw_misses": 0
+    },
+    "qualification": {
+      "source_errors": 0,
+      "source_raw_misses": 0,
+      "opponent_errors": 0,
+      "opponent_raw_misses": 3
+    }
+  },
+  "baseline_calls": 1075200,
+  "baseline_fixtures": 448,
+  "baseline_max_ms": 6.9005750001451815,
+  "qualification_points": {
+    "baseline": 337,
+    "finalist": 331
+  },
+  "paired_points": {
+    "points_difference_per_fixture": -0.0234375,
+    "seed_block_95": [
+      -0.140625,
+      0.09765625
+    ],
+    "additional_raw_misses_per1000": 0.0
+  },
+  "per_style_points_difference": {
+    "champion-current": 7,
+    "milla-stress": 0,
+    "v10-counter": 4,
+    "v10-press": -5,
+    "v10-compact": 6,
+    "v9.1": -7,
+    "v10": -7,
+    "strong-replay": -4
+  },
+  "gates": {
+    "positive_points_lower": false,
+    "zero_exceptions": true,
+    "raw_miss_gate": true,
+    "style_gate": true,
+    "official_intake": true
+  },
+  "recommendation": "Retain uploaded MONSTER13 unchanged; reject outlet12 challenger for insufficient league-point evidence",
+  "promote": false
+}

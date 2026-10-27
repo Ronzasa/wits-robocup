@@ -1,0 +1,51 @@
+{
+  "scope": "Independent local qualification of one frozen Monster13 challenger; no actual Milla policy available; no rank or leader-win claim",
+  "baseline": {
+    "path": "/workspace/work/monster-13-20261027/candidates/baseline/team.py",
+    "sha256": "1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7"
+  },
+  "finalist": {
+    "path": "/workspace/work/replay-finishing-handoffs/experiments/monster-13/challenger/team.py",
+    "sha256": "da67afd105219835349ea27ff7c8967d1af7ee3cfa312f3810480c9cfac6c0a4"
+  },
+  "behavior_parent": {
+    "path": "/workspace/work/monster-13-20261027/candidates/outlet12/team.py",
+    "sha256": "d1a8d069d89b89f50884f7e21df20f39b1a5762212a7ec7862c46935de8bb3e1"
+  },
+  "method_asts_equal": true,
+  "change": "OUTLET_X -20 to -12; version string only after development",
+  "selection": "Three sources tied40points vsbaseline37 in four-style32fixture development. outlet12 selected for lowest goals conceded46 vs47 hold-depth and57 release. Centralclear21 andstagger32 rejected. No combining or validation reselection.",
+  "seeds": [
+    3260274101,
+    3260274102,
+    3260274103,
+    3260274104,
+    3260274105,
+    3260274106,
+    3260274107,
+    3260274108
+  ],
+  "fixtures_per_source": 256,
+  "styles": [
+    "champion-current",
+    "milla-stress",
+    "strong-replay",
+    "v10",
+    "v10-compact",
+    "v10-counter",
+    "v10-press",
+    "v9.1"
+  ],
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "gates": {
+    "positive_paired_points_seed_block_95_lower": true,
+    "zero_policy_exceptions": true,
+    "additional_raw_misses_per1000_max": 2,
+    "no_style_drop_greater_than_025_points_per_fixture": true,
+    "official_intake": true
+  },
+  "policy": "Freeze before first fixture; preserve all raw misses and failures; do not select or tune on qualification; keep source upload and current submission unchanged",
+  "promotion": false
+}

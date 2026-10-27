@@ -1,0 +1,65 @@
+{
+  "sources": {
+    "baseline": {
+      "path": "/workspace/work/monster-13-20261027/candidates/baseline/team.py",
+      "sha256": "1bf09f5fcab940eae8f387ef36030d302dfe9e52aa6ae0fe82f48742ea6e85b7"
+    },
+    "finalist": {
+      "path": "/workspace/work/replay-finishing-handoffs/experiments/monster-13/challenger/team.py",
+      "sha256": "da67afd105219835349ea27ff7c8967d1af7ee3cfa312f3810480c9cfac6c0a4"
+    }
+  },
+  "opponents": {
+    "champion-current": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/champion-current/team.py",
+      "sha256": "27b3ef88ddede6267fd0583278b821c2abcd27de38772dfe9051307778e880ce"
+    },
+    "milla-stress": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/milla-stress/team.py",
+      "sha256": "43cdff68d4ad3f6ddd04faf5823170f10563f5bccee0659b6c7be7b42edce224"
+    },
+    "v10-counter": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/v10-counter/team.py",
+      "sha256": "592b516e846776db1fc192d807a0506d6ae5d531c739cbc7d22f253bb8587894"
+    },
+    "v10-press": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/v10-press/team.py",
+      "sha256": "696bfc073e0159cdbb3ffcd15c6f9733d1ed922c7c114869ac37454c965c78e3"
+    },
+    "v10-compact": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/v10-compact/team.py",
+      "sha256": "a5374bd5577d7a3431f5b0da26ab7d32dabb2cd9350103f87135deda26a95179"
+    },
+    "v9.1": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/v9.1/team.py",
+      "sha256": "c7fce081f12f283b9c9f9ee200f0dcc33769339a60bf535fc3446613612fabf6"
+    },
+    "v10": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/v10/team.py",
+      "sha256": "5af280cea6b6c8f9f66db5776ad5ce02dbcf51ee6c6e57690fea2c307ae0b1f6"
+    },
+    "strong-replay": {
+      "path": "/workspace/work/div6-leader-20261026/opponents/strong-replay/team.py",
+      "sha256": "7cb159d7547b4bb93303e4e01d593988ad633303c06b15bcc1fe07607bffc88a"
+    }
+  },
+  "seeds": [
+    3260274101,
+    3260274102,
+    3260274103,
+    3260274104,
+    3260274105,
+    3260274106,
+    3260274107,
+    3260274108
+  ],
+  "order_seed": 3260274001,
+  "config_path": "/workspace/work/replay-finishing-handoffs/configs/default.toml",
+  "config_hash": "372990895c7eca2a",
+  "engine_version": "0.1.0",
+  "deadline_ms": 20,
+  "max_ticks": 2400,
+  "workers": 1,
+  "scope": "Independent local qualification of one frozen Monster13 challenger; no actual Milla policy available; no rank or leader-win claim",
+  "promotion": false
+}

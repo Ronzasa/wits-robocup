@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "errors": [],
+  "warnings": [],
+  "stats": {
+    "matches played": 5,
+    "decisions": 2000,
+    "mean decision (ms)": "0.059",
+    "slowest decision (ms)": "2.116",
+    "deadline (ms)": "20.0",
+    "exceptions": 0,
+    "over deadline": 0,
+    "missing player actions": 0,
+    "non-finite values": 0,
+    "formation": "custom (5 spots)"
+  }
+}
