@@ -1,0 +1,359 @@
+{
+  "fixtures": 1536,
+  "fixtures_per_source": 512,
+  "sources": {
+    "baseline": "b10d96375fa0723db8d8966d099f96f340440f569b95f6751cfb9c66406be484",
+    "monster16": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+    "gaps": "a4214a80763a4eb3de12f9161c029fa0aac83df165c551af1a4693318b0df95e"
+  },
+  "complete": true,
+  "balanced": true,
+  "raw_slow_events": [
+    {
+      "source": "monster16",
+      "fixture": [
+        "v9.1",
+        4127080101,
+        1,
+        true,
+        "controller"
+      ],
+      "side": 0,
+      "tick": 1100,
+      "elapsed_ms": 20.768071997736115,
+      "error": null
+    },
+    {
+      "source": "monster16",
+      "fixture": [
+        "nova-self",
+        4127080107,
+        1,
+        false,
+        "controller"
+      ],
+      "side": 0,
+      "tick": 855,
+      "elapsed_ms": 21.641978997649858,
+      "error": null
+    },
+    {
+      "source": "monster16",
+      "fixture": [
+        "v10-press",
+        4127080103,
+        1,
+        false,
+        "default"
+      ],
+      "side": 0,
+      "tick": 1298,
+      "elapsed_ms": 26.769764997879975,
+      "error": null
+    },
+    {
+      "source": "monster16",
+      "fixture": [
+        "v10-press",
+        4127080103,
+        1,
+        false,
+        "default"
+      ],
+      "side": 0,
+      "tick": 1303,
+      "elapsed_ms": 27.741303001675988,
+      "error": null
+    },
+    {
+      "source": "baseline",
+      "fixture": [
+        "v10-press",
+        4127080103,
+        1,
+        false,
+        "default"
+      ],
+      "side": 1,
+      "tick": 1520,
+      "elapsed_ms": 34.91473800022504,
+      "error": null
+    },
+    {
+      "source": "gaps",
+      "fixture": [
+        "v10-counter",
+        4127080103,
+        1,
+        true,
+        "default"
+      ],
+      "side": 0,
+      "tick": 1051,
+      "elapsed_ms": 63.52170500031207,
+      "error": null
+    },
+    {
+      "source": "gaps",
+      "fixture": [
+        "monster-wall",
+        4127080104,
+        1,
+        false,
+        "controller"
+      ],
+      "side": 1,
+      "tick": 2392,
+      "elapsed_ms": 24.28591799980495,
+      "error": null
+    },
+    {
+      "source": "monster16",
+      "fixture": [
+        "v10-press",
+        4127080107,
+        0,
+        true,
+        "controller"
+      ],
+      "side": 1,
+      "tick": 1556,
+      "elapsed_ms": 23.95904100194457,
+      "error": null
+    },
+    {
+      "source": "monster16",
+      "fixture": [
+        "v10-press",
+        4127080102,
+        1,
+        true,
+        "controller"
+      ],
+      "side": 0,
+      "tick": 530,
+      "elapsed_ms": 40.83790900040185,
+      "error": null
+    }
+  ],
+  "comparisons": {
+    "baseline": {
+      "monster16": {
+        "points_difference": 390,
+        "points_difference_per_fixture": 0.76171875,
+        "seed_block_95": [
+          0.693359375,
+          0.83203125
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": 0.703125,
+          "4127080102": 0.9375,
+          "4127080103": 0.703125,
+          "4127080104": 0.859375,
+          "4127080105": 0.71875,
+          "4127080106": 0.828125,
+          "4127080107": 0.75,
+          "4127080108": 0.59375
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": -0.078125,
+          "nova-self": -0.25,
+          "strong-replay": 1.34375,
+          "team12": 0.125,
+          "v10-compact": 1.828125,
+          "v10-counter": 0.78125,
+          "v10-press": 1.296875,
+          "v9.1": 1.046875
+        },
+        "profile_difference_per_fixture": {
+          "controller": 0.78125,
+          "default": 0.7421875
+        },
+        "additional_raw_misses_per1000": 1.953125
+      },
+      "gaps": {
+        "points_difference": 4,
+        "points_difference_per_fixture": 0.0078125,
+        "seed_block_95": [
+          -0.017578125,
+          0.03515625
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": -0.015625,
+          "4127080102": 0.03125,
+          "4127080103": 0.046875,
+          "4127080104": -0.03125,
+          "4127080105": 0.015625,
+          "4127080106": 0.078125,
+          "4127080107": -0.03125,
+          "4127080108": -0.03125
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": 0.0625,
+          "nova-self": 0.0,
+          "strong-replay": 0.0,
+          "team12": 0.0,
+          "v10-compact": 0.0,
+          "v10-counter": 0.0,
+          "v10-press": 0.0,
+          "v9.1": 0.0
+        },
+        "profile_difference_per_fixture": {
+          "controller": 0.04296875,
+          "default": -0.02734375
+        },
+        "additional_raw_misses_per1000": 0.0
+      }
+    },
+    "monster16": {
+      "baseline": {
+        "points_difference": -390,
+        "points_difference_per_fixture": -0.76171875,
+        "seed_block_95": [
+          -0.83203125,
+          -0.693359375
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": -0.703125,
+          "4127080102": -0.9375,
+          "4127080103": -0.703125,
+          "4127080104": -0.859375,
+          "4127080105": -0.71875,
+          "4127080106": -0.828125,
+          "4127080107": -0.75,
+          "4127080108": -0.59375
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": 0.078125,
+          "nova-self": 0.25,
+          "strong-replay": -1.34375,
+          "team12": -0.125,
+          "v10-compact": -1.828125,
+          "v10-counter": -0.78125,
+          "v10-press": -1.296875,
+          "v9.1": -1.046875
+        },
+        "profile_difference_per_fixture": {
+          "controller": -0.78125,
+          "default": -0.7421875
+        },
+        "additional_raw_misses_per1000": -1.953125
+      },
+      "gaps": {
+        "points_difference": -386,
+        "points_difference_per_fixture": -0.75390625,
+        "seed_block_95": [
+          -0.8203125,
+          -0.69140625
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": -0.71875,
+          "4127080102": -0.90625,
+          "4127080103": -0.65625,
+          "4127080104": -0.890625,
+          "4127080105": -0.703125,
+          "4127080106": -0.75,
+          "4127080107": -0.78125,
+          "4127080108": -0.625
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": 0.140625,
+          "nova-self": 0.25,
+          "strong-replay": -1.34375,
+          "team12": -0.125,
+          "v10-compact": -1.828125,
+          "v10-counter": -0.78125,
+          "v10-press": -1.296875,
+          "v9.1": -1.046875
+        },
+        "profile_difference_per_fixture": {
+          "controller": -0.73828125,
+          "default": -0.76953125
+        },
+        "additional_raw_misses_per1000": -1.953125
+      }
+    },
+    "gaps": {
+      "baseline": {
+        "points_difference": -4,
+        "points_difference_per_fixture": -0.0078125,
+        "seed_block_95": [
+          -0.03515625,
+          0.017578125
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": 0.015625,
+          "4127080102": -0.03125,
+          "4127080103": -0.046875,
+          "4127080104": 0.03125,
+          "4127080105": -0.015625,
+          "4127080106": -0.078125,
+          "4127080107": 0.03125,
+          "4127080108": 0.03125
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": -0.0625,
+          "nova-self": 0.0,
+          "strong-replay": 0.0,
+          "team12": 0.0,
+          "v10-compact": 0.0,
+          "v10-counter": 0.0,
+          "v10-press": 0.0,
+          "v9.1": 0.0
+        },
+        "profile_difference_per_fixture": {
+          "controller": -0.04296875,
+          "default": 0.02734375
+        },
+        "additional_raw_misses_per1000": 0.0
+      },
+      "monster16": {
+        "points_difference": 386,
+        "points_difference_per_fixture": 0.75390625,
+        "seed_block_95": [
+          0.69140625,
+          0.8203125
+        ],
+        "seed_blocks": 8,
+        "seed_means": {
+          "4127080101": 0.71875,
+          "4127080102": 0.90625,
+          "4127080103": 0.65625,
+          "4127080104": 0.890625,
+          "4127080105": 0.703125,
+          "4127080106": 0.75,
+          "4127080107": 0.78125,
+          "4127080108": 0.625
+        },
+        "style_difference_per_fixture": {
+          "monster-wall": -0.140625,
+          "nova-self": -0.25,
+          "strong-replay": 1.34375,
+          "team12": 0.125,
+          "v10-compact": 1.828125,
+          "v10-counter": 0.78125,
+          "v10-press": 1.296875,
+          "v9.1": 1.046875
+        },
+        "profile_difference_per_fixture": {
+          "controller": 0.73828125,
+          "default": 0.76953125
+        },
+        "additional_raw_misses_per1000": 1.953125
+      }
+    }
+  },
+  "counters": {
+    "baseline": {},
+    "monster16": {},
+    "gaps": {
+      "extra_aims": 44583
+    }
+  },
+  "warning": "Repeated panels are not independent. No promotion is implied. Confidence intervals resample whole seeds, not individual matches."
+}

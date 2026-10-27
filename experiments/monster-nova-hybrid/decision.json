@@ -1,0 +1,29 @@
+{
+  "candidate": "gaps",
+  "source_sha256": "a4214a80763a4eb3de12f9161c029fa0aac83df165c551af1a4693318b0df95e",
+  "development_advance": true,
+  "promoted": false,
+  "active_champion_changed": false,
+  "eligible": false,
+  "gates": {
+    "paired_comparisons": {
+      "baseline": {
+        "positive_paired_95_lower": false,
+        "additional_raw_deadline_misses_per1000": true,
+        "worst_style_decline": true,
+        "worst_formation_profile_decline": true
+      },
+      "monster16": {
+        "positive_paired_95_lower": true,
+        "additional_raw_deadline_misses_per1000": true,
+        "worst_style_decline": true,
+        "worst_formation_profile_decline": true
+      }
+    },
+    "zero_policy_exceptions": true,
+    "official_intake": true,
+    "single_sdk_class": true,
+    "code_bytes_max": true
+  },
+  "reason": "Rejected for promotion: at least one original qualification gate failed."
+}
