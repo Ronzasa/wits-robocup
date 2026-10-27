@@ -1,0 +1,28 @@
+{
+  "scope": "560 paired local holdout fixtures; not school leaderboard fixtures",
+  "before": "experiments/red-team/monster/team.py",
+  "after": "league-team/team.py",
+  "after_sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+  "evidence": [
+    "results/league-holdout-v2-default.json",
+    "results/league-holdout-v2-custom.json"
+  ],
+  "pairing_key": ["opponent_key", "seed", "candidate_side", "kickoff_team", "formation"],
+  "outcome_transitions": {
+    "W_to_W": 368,
+    "W_to_D": 39,
+    "W_to_L": 0,
+    "D_to_W": 69,
+    "D_to_D": 58,
+    "D_to_L": 1,
+    "L_to_W": 20,
+    "L_to_D": 4,
+    "L_to_L": 1
+  },
+  "before_wdl": [407, 128, 25],
+  "after_wdl": [457, 101, 2],
+  "net_extra_wins": 50,
+  "net_fewer_draws": 27,
+  "points_change": 123,
+  "note": "All fixtures retained, including the release's one recorded timeout. The matrix also discloses old wins becoming draws; improvement is aggregate, not universal."
+}

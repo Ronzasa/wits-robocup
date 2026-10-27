@@ -1,0 +1,161 @@
+{
+  "created_utc": "2026-10-27T11:14:26.886216+00:00",
+  "model": {
+    "protocol_version": 1,
+    "candidates": [
+      {
+        "spec": "experiments/league/gaps2/team.py",
+        "sha256": "2fa63101a0e919b23a3a725f737e1ca07c6128d4c9a45d462b712d93c01adcf2",
+        "key": "source:2fa63101a0e919b23a3a725f737e1ca07c6128d4c9a45d462b712d93c01adcf2"
+      },
+      {
+        "spec": "experiments/league/guardian/team.py",
+        "sha256": "e10f168d5afb5d03130d165575bae269ba04eca90f9f4ae6f69cb274d90ddc51",
+        "key": "source:e10f168d5afb5d03130d165575bae269ba04eca90f9f4ae6f69cb274d90ddc51"
+      },
+      {
+        "spec": "experiments/league/pressure_cover/team.py",
+        "sha256": "88d32900448892e4b38507481d1bddb9e7d122ea5027e8a9923d8a0a495ca526",
+        "key": "source:88d32900448892e4b38507481d1bddb9e7d122ea5027e8a9923d8a0a495ca526"
+      },
+      {
+        "spec": "experiments/league/ray_cover/team.py",
+        "sha256": "ff1d47b224fffc1bd32f2552fc3da7194d029053071f903cc270172387560439",
+        "key": "source:ff1d47b224fffc1bd32f2552fc3da7194d029053071f903cc270172387560439"
+      },
+      {
+        "spec": "experiments/league/adaptive3/team.py",
+        "sha256": "7df3631b374406729238ee11dcc9e77346764f1b924fcaae3523524615df7d16",
+        "key": "source:7df3631b374406729238ee11dcc9e77346764f1b924fcaae3523524615df7d16"
+      },
+      {
+        "spec": "experiments/red-team/monster/team.py",
+        "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6"
+      }
+    ],
+    "opponents": [
+      {
+        "spec": "balanced",
+        "sha256": null,
+        "key": "baseline:balanced"
+      },
+      {
+        "spec": "tactical",
+        "sha256": null,
+        "key": "baseline:tactical"
+      },
+      {
+        "spec": "possession",
+        "sha256": null,
+        "key": "baseline:possession"
+      },
+      {
+        "spec": "structured_attack",
+        "sha256": null,
+        "key": "baseline:structured_attack"
+      },
+      {
+        "spec": "man_marking",
+        "sha256": null,
+        "key": "baseline:man_marking"
+      },
+      {
+        "spec": "ball_chaser",
+        "sha256": null,
+        "key": "baseline:ball_chaser"
+      },
+      {
+        "spec": "my-team/team.py",
+        "sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+        "key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d"
+      },
+      {
+        "spec": "experiments/red-team/monster/team.py",
+        "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6"
+      },
+      {
+        "spec": "experiments/red-team/blue-pool/blue-c-combined/team.py",
+        "sha256": "66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8",
+        "key": "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8"
+      },
+      {
+        "spec": "experiments/red-team/pool/v21-close-outlet/team.py",
+        "sha256": "ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce",
+        "key": "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce"
+      },
+      {
+        "spec": "experiments/league/opponents/pressure/team.py",
+        "sha256": "34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568",
+        "key": "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568"
+      },
+      {
+        "spec": "experiments/league/opponents/counter/team.py",
+        "sha256": "051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d",
+        "key": "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d"
+      },
+      {
+        "spec": "experiments/league/opponents/gap_press2/team.py",
+        "sha256": "b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087",
+        "key": "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087"
+      }
+    ],
+    "infrastructure_sha256": {
+      "configs\\default.toml": "0d1b626d7fe4512999fef3430b5e141de0f5978dfd778a37d5beefade2acf7ea",
+      "student-sdk\\soccer\\__init__.py": "f0bc56bc960cc7dcb5cf75f501c273726d9a2ee5cebd38d5abfcb2f309ead056",
+      "student-sdk\\soccer\\actions.py": "0fe8dccbace04e7f7af62c1b099ed9099c44ffcc08c9e73fd47df08a70ec97d7",
+      "student-sdk\\soccer\\cli.py": "2ebdc6d3595178bb49a47b75c416af15b06e9f941b1335c62cae230f737bda74",
+      "student-sdk\\soccer\\controller.py": "3cf46857a8ab5e17f5222acba70a4b39622e40a9d816c57f55e94a27795195f3",
+      "student-sdk\\soccer\\env.py": "23b3813f70d780a66bfa06207937bab226b9bb74600add030be7e082c860acca",
+      "student-sdk\\soccer\\errors.py": "788d77d98256f3dac655d43143da33038207451168812d60bfb6b5d40a31a4a1",
+      "student-sdk\\soccer\\geometry.py": "cc31dd7bdb424713f9cceba523cf915bc60cfabcd7a19dbf62ac07ed9adc29d0",
+      "student-sdk\\soccer\\helpers.py": "96dc89bf688640cb7adeb3e124807b5520454f09af1f9673cd7a2c7b379949d6",
+      "student-sdk\\soccer\\observation.py": "a0c92e57a4585fcb8ed269ac71388752b3ba56c3999fc90b792de4a340662665",
+      "student-sdk\\soccer\\runner.py": "fcb0848e0c8a5ae3e6c359a186b55a801cd9167442ce4f78bf22b46f52887084",
+      "student-sdk\\soccer\\validate.py": "51dc227ffb78b1f302102b58869ea842f9556aa351e91bb921ae97d48c593e36",
+      "engine\\windows-x86_64\\_engine.pyd": "46e31d2819e62b5c0f6568c68284a48a6eeeab0b514c1e928c62100eb536df9d",
+      "engine\\windows-x86_64\\soccer-cli.exe": "676135f42b5a53caafdad0947138ec3920d0f9eecbfa30263f8e630dd84349f8"
+    },
+    "engine_version": "0.1.0",
+    "config_hash": "372990895c7eca2a",
+    "selection_schedule": [
+      [
+        "league-selection-custom",
+        "custom",
+        820000,
+        820002
+      ],
+      [
+        "league-selection-default",
+        "default",
+        820002,
+        820004
+      ]
+    ],
+    "holdout_schedule": [
+      [
+        "league-holdout-default",
+        "default",
+        830000,
+        830005
+      ],
+      [
+        "league-holdout-custom",
+        "custom",
+        830005,
+        830010
+      ]
+    ],
+    "selection_rule": "Highest points among new legal, zero-error, zero-forfeit candidates; then goal difference, then lower mean decision time. Monster remains the fixed control.",
+    "protocol": {
+      "ticks": 2400,
+      "players": 5,
+      "timeout_ms": 20,
+      "fixtures_per_seed_opponent": 4,
+      "workers": 1
+    },
+    "holdout_matches_per_policy": 520,
+    "holdout_seed_clusters": 10
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "url": "https://lamp.ms.wits.ac.za/soccer/api/replay?name=ladder%2Fm-bb1100afdf402783",
+  "final_url": "https://lamp.ms.wits.ac.za/soccer/api/replay?name=ladder%2Fm-bb1100afdf402783",
+  "status": 200,
+  "retrieved_utc": "2026-10-27T10:25:58.618697+00:00",
+  "content_type": "application/json",
+  "etag": "\"ef8dec3f95be6cef0c6fa340adbcf7c4\"",
+  "last_modified": null,
+  "bytes": 8092824,
+  "sha256": "e37a3d13a8ff32b86ceed176b6060ea3ab6e31729c8a679ab259f097794391e5"
+}

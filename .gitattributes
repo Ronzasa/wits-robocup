@@ -3,5 +3,9 @@
 my-team/team.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 experiments/**/team.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 
+# League release and evidence carry byte-level hashes in their audit manifests.
+league-team/team.py -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+experiments/league/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+
 # Official simulator replay files are binary evidence.
 *.rep -text

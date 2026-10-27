@@ -1,0 +1,11 @@
+{
+  "url": "https://lamp.ms.wits.ac.za/soccer/api/site",
+  "final_url": "https://lamp.ms.wits.ac.za/soccer/api/site",
+  "status": 200,
+  "retrieved_utc": "2026-10-27T06:47:43.343502+00:00",
+  "content_type": "application/json",
+  "etag": "\"5da6c7df241b8c3c6fb89cd17b9be71a\"",
+  "last_modified": null,
+  "bytes": 1466,
+  "sha256": "6c6a9161e387d0b2fe5608c2c5ee98c49d116238bb5185c0f44130970d8f0221"
+}

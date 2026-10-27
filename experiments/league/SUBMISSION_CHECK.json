@@ -1,0 +1,29 @@
+{
+  "source": "league-team/team.py",
+  "source_sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+  "structure_check": {
+    "command": "python launch.py check league-team",
+    "exit_code": 0,
+    "result": "PASSED: it loads, plays legally and is inside the deadline"
+  },
+  "validation_command": "python launch.py validate league-team --against tactical --ticks 2400 --json",
+  "validation_exit_code": 0,
+  "validation_result": {
+    "ok": true,
+    "controller": "MONSTER LEAGUE vleague-v1-13a91e8f755c (Monster)",
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "matches played": 5,
+      "decisions": 12000,
+      "mean decision (ms)": "0.057",
+      "slowest decision (ms)": "2.539",
+      "deadline (ms)": "20.0",
+      "exceptions": 0,
+      "over deadline": 0,
+      "missing player actions": 0,
+      "non-finite values": 0,
+      "formation": "custom (5 spots)"
+    }
+  }
+}

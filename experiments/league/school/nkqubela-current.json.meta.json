@@ -1,0 +1,11 @@
+{
+  "url": "https://lamp.ms.wits.ac.za/soccer/api/team?run=ladder&slug=401976-nkqubela-hokwana",
+  "final_url": "https://lamp.ms.wits.ac.za/soccer/api/team?run=ladder&slug=401976-nkqubela-hokwana",
+  "status": 200,
+  "retrieved_utc": "2026-10-27T06:49:24.575858+00:00",
+  "content_type": "application/json",
+  "etag": "\"a6a259d4bf04de342d97cee50ee58b2f\"",
+  "last_modified": null,
+  "bytes": 843677,
+  "sha256": "04e2884dd5c6f29fd803f248faeb8805749392a37bee3a79bc104680b3a32d81"
+}

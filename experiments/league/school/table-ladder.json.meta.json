@@ -1,0 +1,11 @@
+{
+  "url": "https://lamp.ms.wits.ac.za/soccer/api/table?run=ladder",
+  "final_url": "https://lamp.ms.wits.ac.za/soccer/api/table?run=ladder",
+  "status": 200,
+  "retrieved_utc": "2026-10-27T06:48:43.300312+00:00",
+  "content_type": "application/json",
+  "etag": "\"fd3384d92927f9a51c9c7342ae4f6e07\"",
+  "last_modified": null,
+  "bytes": 2272818,
+  "sha256": "9c18929a4a0c973b115c31e3af192d9234736c44ca0cbc996f839fac9f1edd42"
+}

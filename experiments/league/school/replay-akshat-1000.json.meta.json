@@ -1,0 +1,11 @@
+{
+  "url": "https://lamp.ms.wits.ac.za/soccer/api/replay?name=ladder%2Fm-615cecd41e9cf441",
+  "final_url": "https://lamp.ms.wits.ac.za/soccer/api/replay?name=ladder%2Fm-615cecd41e9cf441",
+  "status": 200,
+  "retrieved_utc": "2026-10-27T10:28:23.556526+00:00",
+  "content_type": "application/json",
+  "etag": "\"ae861bfb6601c4678681479a9e74fe75\"",
+  "last_modified": null,
+  "bytes": 8132000,
+  "sha256": "d49cdbc036e1598774a70d8df5bb1b3511368df4fcfa9d4306d3bed4a24f361c"
+}

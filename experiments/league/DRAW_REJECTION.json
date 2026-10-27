@@ -1,0 +1,369 @@
+{
+  "stage": "screen",
+  "status": "rejected_keep_validated_v1",
+  "retained": {
+    "spec": "league-team/team.py",
+    "sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+    "key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415"
+  },
+  "detail": {
+    "screen_plan_sha256": "00b55fe3f3e7da3683b19aac909c12dc611601561635c47d3369990b69e0e846",
+    "reports_sha256": {
+      "experiments\\league\\results\\draw-screen-custom.json": "75537f3f16a6782cc1fda916bb9301b7bdd609f4b91684e70d58a120aa537595",
+      "experiments\\league\\results\\draw-contact-custom.json": "705db178213d04a60ee5a09434a8734b1ebe5e4c99b7bd2d0795e038fa0c8f55",
+      "experiments\\league\\results\\draw-screen-default.json": "6cfbe252908b1de56d7c485ec397c586842b7c648e55d0b0b3217e85db604683",
+      "experiments\\league\\results\\draw-pivot-custom.json": "27afd74338d5686ec0dfcdb562d029859e66f35f239594ec7225fef78d557112",
+      "experiments\\league\\results\\draw-pivot-default.json": "9d4b6a4512488d8226ff86c1d3b42896252f7332eded1af170adce31816d8f92"
+    },
+    "comparisons": {
+      "experiments/league/contact_finish/team.py": {
+        "policies": {
+          "league-team/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              85,
+              33,
+              2
+            ],
+            "points": 288,
+            "points_per_match": 2.4,
+            "goals": [
+              155,
+              12
+            ],
+            "mean_ms": 0.09048432186783531,
+            "max_ms": 7.626699982210994,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 38,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 143,
+            "win_rate": 0.7083333333333334
+          },
+          "experiments/league/contact_finish/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              83,
+              35,
+              2
+            ],
+            "points": 284,
+            "points_per_match": 2.3666666666666667,
+            "goals": [
+              146,
+              13
+            ],
+            "mean_ms": 0.09780694681315556,
+            "max_ms": 7.856100011849776,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 41,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 133,
+            "win_rate": 0.6916666666666667
+          }
+        },
+        "paired": {
+          "before": "league-team/team.py",
+          "before_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+          "after": "experiments/league/contact_finish/team.py",
+          "after_key": "source:f0d401f96fdc755457cb6007d692d03e5d5cf8ce546f65adf54b5cf407b88484",
+          "matched_fixtures": 120,
+          "seed_clusters": 5,
+          "before_unmatched": 0,
+          "after_unmatched": 0,
+          "complete_fixture_match": true,
+          "points_per_match_change": -0.03333333333333333,
+          "seed_bootstrap95": [
+            -0.18333333333333332,
+            0.06666666666666667
+          ],
+          "by_opponent": {
+            "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.1
+            },
+            "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.1
+            }
+          },
+          "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+        },
+        "win_change": -2,
+        "draw_change": 2,
+        "loss_change": 0,
+        "qualifies": false
+      },
+      "experiments/league/siege/team.py": {
+        "policies": {
+          "league-team/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              85,
+              33,
+              2
+            ],
+            "points": 288,
+            "points_per_match": 2.4,
+            "goals": [
+              155,
+              12
+            ],
+            "mean_ms": 0.09048432186783531,
+            "max_ms": 7.626699982210994,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 38,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 143,
+            "win_rate": 0.7083333333333334
+          },
+          "experiments/league/siege/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              81,
+              37,
+              2
+            ],
+            "points": 280,
+            "points_per_match": 2.3333333333333335,
+            "goals": [
+              144,
+              10
+            ],
+            "mean_ms": 0.12304625518239239,
+            "max_ms": 67.13929999386892,
+            "policy_errors": 0,
+            "policy_timeouts": 1,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 46,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 134,
+            "win_rate": 0.675
+          }
+        },
+        "paired": {
+          "before": "league-team/team.py",
+          "before_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+          "after": "experiments/league/siege/team.py",
+          "after_key": "source:86f7e209334d69f076c05e23afe4b59f66dc036e96be31a5d8183aa590743f0a",
+          "matched_fixtures": 120,
+          "seed_clusters": 5,
+          "before_unmatched": 0,
+          "after_unmatched": 0,
+          "complete_fixture_match": true,
+          "points_per_match_change": -0.06666666666666667,
+          "seed_bootstrap95": [
+            -0.11666666666666667,
+            -0.016666666666666666
+          ],
+          "by_opponent": {
+            "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.4
+            },
+            "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.1
+            },
+            "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.1
+            },
+            "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0.2
+            }
+          },
+          "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+        },
+        "win_change": -4,
+        "draw_change": 4,
+        "loss_change": 0,
+        "qualifies": false
+      },
+      "experiments/league/outlet_pivot/team.py": {
+        "policies": {
+          "league-team/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              85,
+              33,
+              2
+            ],
+            "points": 288,
+            "points_per_match": 2.4,
+            "goals": [
+              155,
+              12
+            ],
+            "mean_ms": 0.09048432186783531,
+            "max_ms": 7.626699982210994,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 38,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 143,
+            "win_rate": 0.7083333333333334
+          },
+          "experiments/league/outlet_pivot/team.py": {
+            "scheduled_matches": 120,
+            "scored_matches": 120,
+            "wdl": [
+              82,
+              37,
+              1
+            ],
+            "points": 283,
+            "points_per_match": 2.3583333333333334,
+            "goals": [
+              137,
+              8
+            ],
+            "mean_ms": 0.1268790378337346,
+            "max_ms": 17.233499995199963,
+            "policy_errors": 0,
+            "policy_timeouts": 0,
+            "validation": {
+              "missing_actions": 0,
+              "non_finite_values": 0,
+              "clamped_values": 0,
+              "rejected_kicks": 41,
+              "invalid_player_ids": 0,
+              "dropped_debug_payloads": 0
+            },
+            "platform_errors": 0,
+            "protocol_failures": 0,
+            "forfeits": 0,
+            "goal_difference": 129,
+            "win_rate": 0.6833333333333333
+          }
+        },
+        "paired": {
+          "before": "league-team/team.py",
+          "before_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+          "after": "experiments/league/outlet_pivot/team.py",
+          "after_key": "source:85d22d96b2cfbe42fc9bb41583005118ddb9b87ad50fa2febc0c54ebb27a4ccc",
+          "matched_fixtures": 120,
+          "seed_clusters": 5,
+          "before_unmatched": 0,
+          "after_unmatched": 0,
+          "complete_fixture_match": true,
+          "points_per_match_change": -0.041666666666666664,
+          "seed_bootstrap95": [
+            -0.2,
+            0.08333333333333333
+          ],
+          "by_opponent": {
+            "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+              "matched_fixtures": 20,
+              "points_per_match_change": 0
+            },
+            "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.05
+            },
+            "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+              "matched_fixtures": 20,
+              "points_per_match_change": -0.2
+            }
+          },
+          "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+        },
+        "win_change": -3,
+        "draw_change": 4,
+        "loss_change": -1,
+        "qualifies": false
+      }
+    },
+    "selected_for_fresh_selection": null,
+    "status": "rejected"
+  },
+  "note": "No draw-conversion candidate met the predeclared improvement and reliability criteria. Original release and evidence remain unchanged."
+}

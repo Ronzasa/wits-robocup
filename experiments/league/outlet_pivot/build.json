@@ -1,0 +1,8 @@
+{
+  "source": "outlet_pivot\\team.py",
+  "sha256": "85d22d96b2cfbe42fc9bb41583005118ddb9b87ad50fa2febc0c54ebb27a4ccc",
+  "base": "ray_cover2\\team.py",
+  "base_sha256": "13a91e8f755c91a18891dad07e7ab77487d2ad191d41f0f0d6ce9fbb99268977",
+  "hypothesis": "Tied/trailing marked deep-half outlet switches to a roomier opposite anchor after60blocked ticks,10secondcooldown; no guard release.",
+  "match_evidence": "Unmeasured candidate; builder and syntax only."
+}

@@ -1,0 +1,2240 @@
+{
+  "scope": "Local 14-opponent pool; school leaderboard dominance is unverified.",
+  "selection_lock_sha256": "eef752addca601bd1af71e9ca164f83c93d2e6634045ea4795700566322d3585",
+  "holdout_reports_sha256": {
+    "experiments\\league\\results\\league-holdout-v2-default.json": "67b905c35fa92c83d6b1b7a946f30ea489d034e6938e722ea58c3e64467111cb",
+    "experiments\\league\\results\\league-holdout-v2-custom.json": "68a5711ead4640b3d1c15b6704fd6d4da7a48746df804a02acce9f98f84b8670"
+  },
+  "release": {
+    "spec": "league-team/team.py",
+    "sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+    "key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+    "name": "MONSTER LEAGUE",
+    "version": "league-v1-13a91e8f755c",
+    "metadata_only_change": true
+  },
+  "selected_source": {
+    "spec": "experiments/league/ray_cover2/team.py",
+    "sha256": "13a91e8f755c91a18891dad07e7ab77487d2ad191d41f0f0d6ce9fbb99268977",
+    "key": "source:13a91e8f755c91a18891dad07e7ab77487d2ad191d41f0f0d6ce9fbb99268977"
+  },
+  "selection_selected_metrics": {
+    "scheduled_matches": 224,
+    "scored_matches": 224,
+    "wdl": [
+      187,
+      37,
+      0
+    ],
+    "points": 598,
+    "points_per_match": 2.669642857142857,
+    "goals": [
+      649,
+      9
+    ],
+    "mean_ms": 0.06516715923074419,
+    "max_ms": 5.64789999043569,
+    "policy_errors": 0,
+    "policy_timeouts": 0,
+    "validation": {
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "clamped_values": 0,
+      "rejected_kicks": 49,
+      "invalid_player_ids": 0,
+      "dropped_debug_payloads": 0
+    },
+    "platform_errors": 0,
+    "protocol_failures": 0,
+    "forfeits": 0,
+    "goal_difference": 640
+  },
+  "selection_control_metrics": {
+    "scheduled_matches": 224,
+    "scored_matches": 224,
+    "wdl": [
+      173,
+      42,
+      9
+    ],
+    "points": 561,
+    "points_per_match": 2.5044642857142856,
+    "goals": [
+      653,
+      74
+    ],
+    "mean_ms": 0.0711976207370905,
+    "max_ms": 6.180099997436628,
+    "policy_errors": 0,
+    "policy_timeouts": 0,
+    "validation": {
+      "missing_actions": 0,
+      "non_finite_values": 0,
+      "clamped_values": 0,
+      "rejected_kicks": 3,
+      "invalid_player_ids": 0,
+      "dropped_debug_payloads": 0
+    },
+    "platform_errors": 0,
+    "protocol_failures": 0,
+    "forfeits": 0,
+    "goal_difference": 579
+  },
+  "selection_selected_beat_control": true,
+  "protocol": {
+    "ticks": 2400,
+    "players": 5,
+    "timeout_ms": 20,
+    "fixtures_per_seed_opponent": 4,
+    "workers": 1,
+    "matches_per_policy": 560,
+    "seed_clusters": 10,
+    "opponents": 14,
+    "matches_per_mode": {
+      "custom": 280,
+      "default": 280
+    }
+  },
+  "summaries": [
+    {
+      "spec": "league-team/team.py",
+      "sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "scheduled_matches": 560,
+      "scored_matches": 560,
+      "wdl": [
+        457,
+        101,
+        2
+      ],
+      "points": 1472,
+      "points_per_match": 2.6285714285714286,
+      "goals": [
+        1478,
+        40
+      ],
+      "mean_ms": 0.14104722097400077,
+      "max_ms": 26.075599977048114,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 206,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "spec": "my-team/team.py",
+      "sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "scheduled_matches": 560,
+      "scored_matches": 560,
+      "wdl": [
+        401,
+        89,
+        70
+      ],
+      "points": 1292,
+      "points_per_match": 2.307142857142857,
+      "goals": [
+        760,
+        387
+      ],
+      "mean_ms": 0.1858884332573325,
+      "max_ms": 70.65280000097118,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 49,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "spec": "experiments/red-team/monster/team.py",
+      "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "scheduled_matches": 560,
+      "scored_matches": 560,
+      "wdl": [
+        407,
+        128,
+        25
+      ],
+      "points": 1349,
+      "points_per_match": 2.4089285714285715,
+      "goals": [
+        1555,
+        165
+      ],
+      "mean_ms": 0.1454440181684428,
+      "max_ms": 13.770899997325614,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 7,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    }
+  ],
+  "by_formation": [
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "formation": "custom",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        233,
+        47,
+        0
+      ],
+      "points": 746,
+      "points_per_match": 2.664285714285714,
+      "goals": [
+        759,
+        11
+      ],
+      "mean_ms": 0.2201790669669208,
+      "max_ms": 26.075599977048114,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 96,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "formation": "default",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        224,
+        54,
+        2
+      ],
+      "points": 726,
+      "points_per_match": 2.592857142857143,
+      "goals": [
+        719,
+        29
+      ],
+      "mean_ms": 0.061915374981080754,
+      "max_ms": 7.466899987775832,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 110,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "formation": "custom",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        202,
+        40,
+        38
+      ],
+      "points": 646,
+      "points_per_match": 2.307142857142857,
+      "goals": [
+        362,
+        182
+      ],
+      "mean_ms": 0.23933896728136633,
+      "max_ms": 70.65280000097118,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 40,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "formation": "default",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        199,
+        49,
+        32
+      ],
+      "points": 646,
+      "points_per_match": 2.307142857142857,
+      "goals": [
+        398,
+        205
+      ],
+      "mean_ms": 0.13243789923329868,
+      "max_ms": 9.507899987511337,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 9,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "formation": "custom",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        202,
+        64,
+        14
+      ],
+      "points": 670,
+      "points_per_match": 2.392857142857143,
+      "goals": [
+        780,
+        86
+      ],
+      "mean_ms": 0.12443469407731927,
+      "max_ms": 8.322700014105067,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 4,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "formation": "default",
+      "scheduled_matches": 280,
+      "scored_matches": 280,
+      "wdl": [
+        205,
+        64,
+        11
+      ],
+      "points": 679,
+      "points_per_match": 2.425,
+      "goals": [
+        775,
+        79
+      ],
+      "mean_ms": 0.16645334225956634,
+      "max_ms": 13.770899997325614,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 3,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    }
+  ],
+  "by_opponent": [
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "balanced",
+      "opponent_key": "baseline:balanced",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        201,
+        2
+      ],
+      "mean_ms": 0.13983311563879397,
+      "max_ms": 7.6902000000700355,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 17,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "tactical",
+      "opponent_key": "baseline:tactical",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        34,
+        6,
+        0
+      ],
+      "points": 108,
+      "points_per_match": 2.7,
+      "goals": [
+        76,
+        0
+      ],
+      "mean_ms": 0.15844678752728214,
+      "max_ms": 7.661300012841821,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 18,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "possession",
+      "opponent_key": "baseline:possession",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        214,
+        0
+      ],
+      "mean_ms": 0.16703342914812916,
+      "max_ms": 7.655900000827387,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "structured_attack",
+      "opponent_key": "baseline:structured_attack",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        111,
+        2
+      ],
+      "mean_ms": 0.1783932229709535,
+      "max_ms": 8.364500012248755,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 21,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "man_marking",
+      "opponent_key": "baseline:man_marking",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        238,
+        0
+      ],
+      "mean_ms": 0.18347872498816287,
+      "max_ms": 7.421699992846698,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 2,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "ball_chaser",
+      "opponent_key": "baseline:ball_chaser",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        190,
+        1
+      ],
+      "mean_ms": 0.16983704058657167,
+      "max_ms": 8.770299988100305,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 21,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "my-team/team.py",
+      "opponent_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        31,
+        9,
+        0
+      ],
+      "points": 102,
+      "points_per_match": 2.55,
+      "goals": [
+        46,
+        5
+      ],
+      "mean_ms": 0.17187841563372785,
+      "max_ms": 7.629700005054474,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 11,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/red-team/monster/team.py",
+      "opponent_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        18,
+        22,
+        0
+      ],
+      "points": 76,
+      "points_per_match": 1.9,
+      "goals": [
+        30,
+        4
+      ],
+      "mean_ms": 0.18015983849970021,
+      "max_ms": 8.699600002728403,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 17,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/red-team/blue-pool/blue-c-combined/team.py",
+      "opponent_key": "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        21,
+        19,
+        0
+      ],
+      "points": 82,
+      "points_per_match": 2.05,
+      "goals": [
+        33,
+        5
+      ],
+      "mean_ms": 0.10054336145822163,
+      "max_ms": 26.075599977048114,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 11,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/red-team/pool/v21-close-outlet/team.py",
+      "opponent_key": "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        27,
+        12,
+        1
+      ],
+      "points": 93,
+      "points_per_match": 2.325,
+      "goals": [
+        53,
+        8
+      ],
+      "mean_ms": 0.09448941244530336,
+      "max_ms": 7.864899991545826,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 26,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/league/opponents/pressure/team.py",
+      "opponent_key": "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        35,
+        5,
+        0
+      ],
+      "points": 110,
+      "points_per_match": 2.75,
+      "goals": [
+        101,
+        3
+      ],
+      "mean_ms": 0.10146218543983802,
+      "max_ms": 18.01159998285584,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 16,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/league/opponents/counter/team.py",
+      "opponent_key": "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        19,
+        21,
+        0
+      ],
+      "points": 78,
+      "points_per_match": 1.95,
+      "goals": [
+        23,
+        0
+      ],
+      "mean_ms": 0.12287133223496009,
+      "max_ms": 7.632400025613606,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 15,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/league/opponents/gap_press2/team.py",
+      "opponent_key": "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        33,
+        6,
+        1
+      ],
+      "points": 105,
+      "points_per_match": 2.625,
+      "goals": [
+        69,
+        5
+      ],
+      "mean_ms": 0.115537518726948,
+      "max_ms": 9.052800014615059,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 11,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "spec": "league-team/team.py",
+      "opponent": "experiments/league/opponents/open_gap/team.py",
+      "opponent_key": "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        39,
+        1,
+        0
+      ],
+      "points": 118,
+      "points_per_match": 2.95,
+      "goals": [
+        93,
+        5
+      ],
+      "mean_ms": 0.09069670833741839,
+      "max_ms": 7.466899987775832,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 20,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "balanced",
+      "opponent_key": "baseline:balanced",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        44,
+        2
+      ],
+      "mean_ms": 0.07512404790789635,
+      "max_ms": 10.578300018096343,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "tactical",
+      "opponent_key": "baseline:tactical",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        41,
+        1
+      ],
+      "mean_ms": 0.06740825001149157,
+      "max_ms": 15.15230000950396,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "possession",
+      "opponent_key": "baseline:possession",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        42,
+        0
+      ],
+      "mean_ms": 0.0601924937551909,
+      "max_ms": 11.597799981245771,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "structured_attack",
+      "opponent_key": "baseline:structured_attack",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        53,
+        0
+      ],
+      "mean_ms": 0.06363363542125929,
+      "max_ms": 11.095500027295202,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "man_marking",
+      "opponent_key": "baseline:man_marking",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        40,
+        0
+      ],
+      "mean_ms": 0.09127070729512828,
+      "max_ms": 11.943399993469939,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "ball_chaser",
+      "opponent_key": "baseline:ball_chaser",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        38,
+        2,
+        0
+      ],
+      "points": 116,
+      "points_per_match": 2.9,
+      "goals": [
+        56,
+        7
+      ],
+      "mean_ms": 0.07449062386998169,
+      "max_ms": 13.05010000942275,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "my-team/team.py",
+      "opponent_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        13,
+        16,
+        11
+      ],
+      "points": 55,
+      "points_per_match": 1.375,
+      "goals": [
+        71,
+        69
+      ],
+      "mean_ms": 0.31169004480034346,
+      "max_ms": 14.829099993221462,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 10,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/red-team/monster/team.py",
+      "opponent_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        1,
+        11,
+        28
+      ],
+      "points": 14,
+      "points_per_match": 0.35,
+      "goals": [
+        17,
+        65
+      ],
+      "mean_ms": 0.4544465624282263,
+      "max_ms": 13.536699989344925,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/red-team/blue-pool/blue-c-combined/team.py",
+      "opponent_key": "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        8,
+        24,
+        8
+      ],
+      "points": 48,
+      "points_per_match": 1.2,
+      "goals": [
+        66,
+        70
+      ],
+      "mean_ms": 0.3132645375329351,
+      "max_ms": 70.65280000097118,
+      "policy_errors": 0,
+      "policy_timeouts": 1,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 4,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/red-team/pool/v21-close-outlet/team.py",
+      "opponent_key": "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        14,
+        15,
+        11
+      ],
+      "points": 57,
+      "points_per_match": 1.425,
+      "goals": [
+        74,
+        69
+      ],
+      "mean_ms": 0.32714445417756605,
+      "max_ms": 13.452300016069785,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 1,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/league/opponents/pressure/team.py",
+      "opponent_key": "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        36,
+        4,
+        0
+      ],
+      "points": 112,
+      "points_per_match": 2.8,
+      "goals": [
+        60,
+        24
+      ],
+      "mean_ms": 0.10765882925807091,
+      "max_ms": 13.629900000523776,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/league/opponents/counter/team.py",
+      "opponent_key": "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        34,
+        5,
+        1
+      ],
+      "points": 107,
+      "points_per_match": 2.675,
+      "goals": [
+        89,
+        13
+      ],
+      "mean_ms": 0.2922658510448552,
+      "max_ms": 11.861099977977574,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 22,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/league/opponents/gap_press2/team.py",
+      "opponent_key": "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        38,
+        2,
+        0
+      ],
+      "points": 116,
+      "points_per_match": 2.9,
+      "goals": [
+        57,
+        19
+      ],
+      "mean_ms": 0.13489455518447357,
+      "max_ms": 14.51090001501143,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 8,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "spec": "my-team/team.py",
+      "opponent": "experiments/league/opponents/open_gap/team.py",
+      "opponent_key": "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        19,
+        10,
+        11
+      ],
+      "points": 67,
+      "points_per_match": 1.675,
+      "goals": [
+        50,
+        48
+      ],
+      "mean_ms": 0.2289534729152365,
+      "max_ms": 12.166800006525591,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 4,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "balanced",
+      "opponent_key": "baseline:balanced",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        39,
+        1,
+        0
+      ],
+      "points": 118,
+      "points_per_match": 2.95,
+      "goals": [
+        198,
+        3
+      ],
+      "mean_ms": 0.09271286151336729,
+      "max_ms": 7.346900005359203,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "tactical",
+      "opponent_key": "baseline:tactical",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        36,
+        4,
+        0
+      ],
+      "points": 112,
+      "points_per_match": 2.8,
+      "goals": [
+        80,
+        5
+      ],
+      "mean_ms": 0.08340990006399807,
+      "max_ms": 7.946499972604215,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "possession",
+      "opponent_key": "baseline:possession",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        238,
+        0
+      ],
+      "mean_ms": 0.09026203127693104,
+      "max_ms": 8.322700014105067,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "structured_attack",
+      "opponent_key": "baseline:structured_attack",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        38,
+        2,
+        0
+      ],
+      "points": 116,
+      "points_per_match": 2.9,
+      "goals": [
+        121,
+        5
+      ],
+      "mean_ms": 0.09174202498858601,
+      "max_ms": 4.822299990337342,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "man_marking",
+      "opponent_key": "baseline:man_marking",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        40,
+        0,
+        0
+      ],
+      "points": 120,
+      "points_per_match": 3.0,
+      "goals": [
+        244,
+        0
+      ],
+      "mean_ms": 0.10824630629940657,
+      "max_ms": 8.252299972809851,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "ball_chaser",
+      "opponent_key": "baseline:ball_chaser",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        39,
+        1,
+        0
+      ],
+      "points": 118,
+      "points_per_match": 2.95,
+      "goals": [
+        188,
+        4
+      ],
+      "mean_ms": 0.08903640095498606,
+      "max_ms": 9.554700023727491,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "my-team/team.py",
+      "opponent_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        28,
+        11,
+        1
+      ],
+      "points": 95,
+      "points_per_match": 2.375,
+      "goals": [
+        67,
+        17
+      ],
+      "mean_ms": 0.09683340946533765,
+      "max_ms": 11.27940000151284,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/red-team/monster/team.py",
+      "opponent_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        8,
+        22,
+        10
+      ],
+      "points": 46,
+      "points_per_match": 1.15,
+      "goals": [
+        21,
+        24
+      ],
+      "mean_ms": 0.13918462295108233,
+      "max_ms": 8.799900009762496,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/red-team/blue-pool/blue-c-combined/team.py",
+      "opponent_key": "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        15,
+        23,
+        2
+      ],
+      "points": 68,
+      "points_per_match": 1.7,
+      "goals": [
+        35,
+        13
+      ],
+      "mean_ms": 0.18761443955857735,
+      "max_ms": 7.610699976794422,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 3,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/red-team/pool/v21-close-outlet/team.py",
+      "opponent_key": "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        14,
+        23,
+        3
+      ],
+      "points": 65,
+      "points_per_match": 1.625,
+      "goals": [
+        39,
+        21
+      ],
+      "mean_ms": 0.17601403961847004,
+      "max_ms": 7.793600001605228,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/league/opponents/pressure/team.py",
+      "opponent_key": "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        37,
+        3,
+        0
+      ],
+      "points": 114,
+      "points_per_match": 2.85,
+      "goals": [
+        126,
+        4
+      ],
+      "mean_ms": 0.20875508743635388,
+      "max_ms": 7.672999985516071,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/league/opponents/counter/team.py",
+      "opponent_key": "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        15,
+        24,
+        1
+      ],
+      "points": 69,
+      "points_per_match": 1.725,
+      "goals": [
+        21,
+        4
+      ],
+      "mean_ms": 0.25412931880631123,
+      "max_ms": 13.770899997325614,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/league/opponents/gap_press2/team.py",
+      "opponent_key": "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        30,
+        8,
+        2
+      ],
+      "points": 98,
+      "points_per_match": 2.45,
+      "goals": [
+        76,
+        14
+      ],
+      "mean_ms": 0.23156736144574097,
+      "max_ms": 7.76499998755753,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 0,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    },
+    {
+      "candidate_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "spec": "experiments/red-team/monster/team.py",
+      "opponent": "experiments/league/opponents/open_gap/team.py",
+      "opponent_key": "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d",
+      "scheduled_matches": 40,
+      "scored_matches": 40,
+      "wdl": [
+        28,
+        6,
+        6
+      ],
+      "points": 90,
+      "points_per_match": 2.25,
+      "goals": [
+        101,
+        51
+      ],
+      "mean_ms": 0.18670844997905078,
+      "max_ms": 8.667599991895258,
+      "policy_errors": 0,
+      "policy_timeouts": 0,
+      "validation": {
+        "missing_actions": 0,
+        "non_finite_values": 0,
+        "clamped_values": 0,
+        "rejected_kicks": 4,
+        "invalid_player_ids": 0,
+        "dropped_debug_payloads": 0
+      },
+      "platform_errors": 0,
+      "protocol_failures": 0,
+      "forfeits": 0
+    }
+  ],
+  "paired_comparisons": [
+    {
+      "before": "my-team/team.py",
+      "before_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+      "after": "league-team/team.py",
+      "after_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "matched_fixtures": 560,
+      "seed_clusters": 10,
+      "before_unmatched": 0,
+      "after_unmatched": 0,
+      "complete_fixture_match": true,
+      "points_per_match_change": 0.32142857142857145,
+      "seed_bootstrap95": [
+        0.26607142857142857,
+        0.375
+      ],
+      "by_opponent": {
+        "baseline:balanced": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:ball_chaser": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.1
+        },
+        "baseline:man_marking": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:possession": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:structured_attack": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:tactical": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.3
+        },
+        "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.725
+        },
+        "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 1.55
+        },
+        "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.05
+        },
+        "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 1.275
+        },
+        "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 1.175
+        },
+        "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.85
+        },
+        "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.9
+        },
+        "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.275
+        }
+      },
+      "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+    },
+    {
+      "before": "experiments/red-team/monster/team.py",
+      "before_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+      "after": "league-team/team.py",
+      "after_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+      "matched_fixtures": 560,
+      "seed_clusters": 10,
+      "before_unmatched": 0,
+      "after_unmatched": 0,
+      "complete_fixture_match": true,
+      "points_per_match_change": 0.21964285714285714,
+      "seed_bootstrap95": [
+        0.10714285714285714,
+        0.3464285714285714
+      ],
+      "by_opponent": {
+        "baseline:balanced": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.05
+        },
+        "baseline:ball_chaser": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.05
+        },
+        "baseline:man_marking": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:possession": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0
+        },
+        "baseline:structured_attack": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.1
+        },
+        "baseline:tactical": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.1
+        },
+        "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.225
+        },
+        "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.75
+        },
+        "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568": {
+          "matched_fixtures": 40,
+          "points_per_match_change": -0.1
+        },
+        "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.7
+        },
+        "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.175
+        },
+        "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.35
+        },
+        "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.7
+        },
+        "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087": {
+          "matched_fixtures": 40,
+          "points_per_match_change": 0.175
+        }
+      },
+      "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+    }
+  ],
+  "secondary_source_defined_pool": {
+    "scope": "Secondary local source-defined tactical pool; excludes native baselines and is not the actual school field.",
+    "opponent_count": 8,
+    "matches_per_policy": 320,
+    "seed_clusters": 10,
+    "opponents": [
+      {
+        "spec": "my-team/team.py",
+        "sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+        "key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d"
+      },
+      {
+        "spec": "experiments/red-team/monster/team.py",
+        "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6"
+      },
+      {
+        "spec": "experiments/red-team/blue-pool/blue-c-combined/team.py",
+        "sha256": "66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8",
+        "key": "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8"
+      },
+      {
+        "spec": "experiments/red-team/pool/v21-close-outlet/team.py",
+        "sha256": "ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce",
+        "key": "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce"
+      },
+      {
+        "spec": "experiments/league/opponents/pressure/team.py",
+        "sha256": "34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568",
+        "key": "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568"
+      },
+      {
+        "spec": "experiments/league/opponents/counter/team.py",
+        "sha256": "051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d",
+        "key": "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d"
+      },
+      {
+        "spec": "experiments/league/opponents/gap_press2/team.py",
+        "sha256": "b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087",
+        "key": "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087"
+      },
+      {
+        "spec": "experiments/league/opponents/open_gap/team.py",
+        "sha256": "3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d",
+        "key": "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d"
+      }
+    ],
+    "summaries": [
+      {
+        "spec": "league-team/team.py",
+        "sha256": "e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+        "key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+        "scheduled_matches": 320,
+        "scored_matches": 320,
+        "wdl": [
+          223,
+          95,
+          2
+        ],
+        "points": 764,
+        "points_per_match": 2.3875,
+        "goals": [
+          448,
+          35
+        ],
+        "mean_ms": 0.1222048465970147,
+        "max_ms": 26.075599977048114,
+        "policy_errors": 0,
+        "policy_timeouts": 1,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 127,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "platform_errors": 0,
+        "protocol_failures": 0,
+        "forfeits": 0,
+        "win_rate": 0.696875
+      },
+      {
+        "spec": "my-team/team.py",
+        "sha256": "5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+        "key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+        "scheduled_matches": 320,
+        "scored_matches": 320,
+        "wdl": [
+          163,
+          87,
+          70
+        ],
+        "points": 576,
+        "points_per_match": 1.8,
+        "goals": [
+          484,
+          377
+        ],
+        "mean_ms": 0.2712897884177134,
+        "max_ms": 70.65280000097118,
+        "policy_errors": 0,
+        "policy_timeouts": 1,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 49,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "platform_errors": 0,
+        "protocol_failures": 0,
+        "forfeits": 0,
+        "win_rate": 0.509375
+      },
+      {
+        "spec": "experiments/red-team/monster/team.py",
+        "sha256": "0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "scheduled_matches": 320,
+        "scored_matches": 320,
+        "wdl": [
+          175,
+          120,
+          25
+        ],
+        "points": 645,
+        "points_per_match": 2.015625,
+        "goals": [
+          486,
+          148
+        ],
+        "mean_ms": 0.18510084115761552,
+        "max_ms": 13.770899997325614,
+        "policy_errors": 0,
+        "policy_timeouts": 0,
+        "validation": {
+          "missing_actions": 0,
+          "non_finite_values": 0,
+          "clamped_values": 0,
+          "rejected_kicks": 7,
+          "invalid_player_ids": 0,
+          "dropped_debug_payloads": 0
+        },
+        "platform_errors": 0,
+        "protocol_failures": 0,
+        "forfeits": 0,
+        "win_rate": 0.546875
+      }
+    ],
+    "paired_comparisons": [
+      {
+        "before": "my-team/team.py",
+        "before_key": "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d",
+        "after": "league-team/team.py",
+        "after_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+        "matched_fixtures": 320,
+        "seed_clusters": 10,
+        "before_unmatched": 0,
+        "after_unmatched": 0,
+        "complete_fixture_match": true,
+        "points_per_match_change": 0.5875,
+        "seed_bootstrap95": [
+          0.509375,
+          0.659375
+        ],
+        "by_opponent": {
+          "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": -0.725
+          },
+          "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 1.55
+          },
+          "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568": {
+            "matched_fixtures": 40,
+            "points_per_match_change": -0.05
+          },
+          "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 1.275
+          },
+          "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 1.175
+          },
+          "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.85
+          },
+          "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.9
+          },
+          "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087": {
+            "matched_fixtures": 40,
+            "points_per_match_change": -0.275
+          }
+        },
+        "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+      },
+      {
+        "before": "experiments/red-team/monster/team.py",
+        "before_key": "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6",
+        "after": "league-team/team.py",
+        "after_key": "source:e49870793a2076add0b95ea5306adeac94cd3f12eadf3685211ec543f4b3e415",
+        "matched_fixtures": 320,
+        "seed_clusters": 10,
+        "before_unmatched": 0,
+        "after_unmatched": 0,
+        "complete_fixture_match": true,
+        "points_per_match_change": 0.371875,
+        "seed_bootstrap95": [
+          0.209375,
+          0.54375
+        ],
+        "by_opponent": {
+          "source:051411f83923f0e36b0c1b123eabf44e8ddfc50a462b2a8888c014e52aa62f6d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.225
+          },
+          "source:0d9be04ce17bbb21f73d31ac6ca8a2b9afde81cee9ae865eff99f6564b9151b6": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.75
+          },
+          "source:34aefa6aa7cd1c23c03d91b60e9e816e23b44825d7017f688e9b1136c85eb568": {
+            "matched_fixtures": 40,
+            "points_per_match_change": -0.1
+          },
+          "source:3a58f0124d7a53e9f7c556c45d5f611b8a93ccb24179da61a100e9ef0801d80d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.7
+          },
+          "source:5c73068b5e574093e9e1afce972ff8b3546b484c103505c9e79d80772ac6299d": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.175
+          },
+          "source:66b768ce051e423bb5de851416651395fe7581f0677edad777dd5dd02023adc8": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.35
+          },
+          "source:ad95f60d339438d36aab14238c2de98bf819a4dc9191fa76a0542a2cedea65ce": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.7
+          },
+          "source:b5e8d1de64f8527e4ecf409918ea31b526adbb33ff02b39e6fe3ebfae90cc087": {
+            "matched_fixtures": 40,
+            "points_per_match_change": 0.175
+          }
+        },
+        "note": "Paired seed bootstrap preserves opponent/side/kickoff dependence. Partial reports are descriptive; unmatched fixtures are disclosed."
+      }
+    ],
+    "note": "Descriptive secondary analysis only; the original full-pool primary result and selection criterion remain unchanged. All faults and matched source-opponent fixtures are retained."
+  },
+  "note": "All fixtures retained, including policy faults. Forfeits adjudicated 0-3. Confidence intervals resample 10 paired seed clusters; they do not establish performance against the unknown student cohort.",
+  "readme_sha256": "75734b20714e3e185255c85ea9d71840f0d0d6fcc14c323e861b886ca9508a61"
+}
